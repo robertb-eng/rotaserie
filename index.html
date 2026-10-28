@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rotaserie by Spiros · Restaurant scheduling, built for the way you actually work</title>
-<meta name="description" content="Rotaserie is restaurant scheduling for managers and staff: build the week on a PC or a phone, catch every gap and overtime risk as you build, and get the schedule to every phone the moment you publish.">
+<title>Rotaserie by Spiros · Restaurant scheduling</title>
+<meta name="description" content="Restaurant scheduling built at a working restaurant. Build the week on your phone or computer, catch problems as you go, and publish to every phone in one tap.">
 <meta name="theme-color" content="#2f6f5e">
-<meta property="og:title" content="Rotaserie · Restaurant scheduling">
+<meta property="og:title" content="Rotaserie · Restaurant scheduling, built at a working restaurant">
 <meta property="og:description" content="Build the week in minutes, catch problems before your staff do, and publish to every phone in one tap.">
 <meta property="og:image" content="img/d_builder.webp">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
@@ -22,13 +22,11 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="Rotaserie by Spiros, home"><img src="img/logo.svg" alt="" width="30" height="30">Rotaserie<span class="by">by Spiros</span></a>
+    <a class="logo" href="index.html" aria-label="Rotaserie by Spiros, home"><img src="img/logo.svg" alt="" width="30" height="30">Rotaserie<span class="by">by Spiros</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#builder">Builder</a>
-      <a href="#staff">Staff app</a>
-      <a href="#approvals">Requests</a>
-      <a href="#manager">Manager tools</a>
-      <a href="#trust">Reliability</a>
+      <a href="#features">Features</a>
+      <a href="#spiros">Spiros</a>
+      <a href="about.html">About</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -43,367 +41,139 @@
 
 <main id="main">
 
-<!-- ============================================================ HERO -->
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap hero-in">
     <div class="hero-copy reveal">
-      <p class="pill"><span class="dot"></span>Restaurant scheduling · PC, iPhone and Android</p>
-      <h1>Build next week's schedule in minutes, <em>not your night off.</em></h1>
-      <p class="lead">Rotaserie shows every gap, overtime risk and time-off conflict while you build, then puts the schedule on every phone the moment you publish. Staff pick up shifts, swap, and ask for time off themselves. You just approve.</p>
+      <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
+      <h1>Next week's schedule in minutes, <em>not your night off.</em></h1>
+      <p class="lead">Build the week on your phone or computer. Rotaserie flags time off, overtime and short shifts as you go, then puts the schedule on every phone in one tap.</p>
       <div class="hero-actions">
         <a class="btn" href="#start">Get started</a>
-        <a class="btn btn-ghost" href="#builder">Take the tour
+        <a class="btn btn-ghost" href="#features">See how it works
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       </div>
       <ul class="hero-points">
-        <li>No app store needed. Works in any phone's browser</li>
-        <li>Publish by email and phone alerts in one tap</li>
-        <li>Labor cost and overtime, live as you build</li>
+        <li>No app store: staff scan a QR code and they're in</li>
+        <li>English and Spanish</li>
+        <li>Set up for you, in person</li>
       </ul>
     </div>
     <div class="hero-visual reveal" aria-label="Rotaserie on a laptop and a phone">
       <figure class="laptop">
         <div class="laptop-bar"><i></i><i></i><i></i><span>Rotaserie · Schedule builder</span></div>
-        <img src="img/d_builder.webp" width="1440" height="814" alt="The schedule builder on a computer: a week grid of people and shifts, with the selected shift's details on the right" data-zoom>
+        <img src="img/d_builder.webp" width="1440" height="814" alt="The schedule builder on a computer: a week grid of people and shifts" data-zoom>
       </figure>
       <figure class="phone phone-hero">
-        <img src="img/p_builder_light.webp" width="390" height="844" alt="The schedule builder on an iPhone: a day strip, coverage bar and shift cards" data-zoom>
+        <img src="img/p_builder_light.webp" width="390" height="844" alt="The schedule builder on an iPhone" data-zoom>
       </figure>
-      <div class="float-card fc-1" aria-hidden="true"><b>Fully staffed</b><span>Friday dinner · 5 of 5</span></div>
-      <div class="float-card fc-2" aria-hidden="true"><b>Published</b><span>8 people notified</span></div>
+      <div class="float-card fc-1" aria-hidden="true"><b>Published</b><span>Everyone notified</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ VALUE STRIP -->
+<!-- VALUE STRIP -->
 <section class="strip">
   <div class="wrap strip-in">
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><b>Faster weeks</b><p>Copy last week or a saved template, then fix only what changed.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, double-booking, overtime and short staffing flagged as you work.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/></svg></span><b>Every phone, instantly</b><p>Email and push alerts when you publish, and only to the people a change affects after that.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours, estimated cost and overtime per person and per day.</p></div>
+    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><b>Faster weeks</b><p>Copy last week, fix what changed, publish.</p></div>
+    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, double-booking and overtime, flagged as you build.</p></div>
+    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/></svg></span><b>Swaps without texts</b><p>Staff trade and pick up shifts; you approve in a tap.</p></div>
+    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours, cost and labor % of sales before you publish.</p></div>
   </div>
 </section>
 
-<!-- ============================================================ TOUR NAV -->
-<div class="tour-nav" data-tournav>
-  <div class="wrap tour-nav-in" role="navigation" aria-label="Feature tour">
-    <a href="#builder">Builder</a><a href="#problems">Problems</a><a href="#dayview">Day view</a><a href="#mobile">On your phone</a>
-    <a href="#publish">Publish</a><a href="#staff">Staff app</a><a href="#market">Open shifts</a><a href="#approvals">Requests</a>
-    <a href="#manager">Dashboard</a><a href="#today">Today</a><a href="#print">Print</a><a href="#onboard">Onboarding</a><a href="#yours">Make it yours</a>
-  </div>
-</div>
-
-<!-- ============================================================ 01 BUILDER -->
-<section class="chapter" id="builder">
-  <div class="wrap">
-    <div class="ch-head reveal">
-      <span class="num">01</span>
-      <p class="eyebrow">Schedule builder</p>
-      <h2>The whole week on one screen. Drag, drop, done.</h2>
-      <p class="lead">People down the side, days across the top. Every change saves instantly, and Undo is always one click away.</p>
-    </div>
-    <figure class="laptop wide reveal">
-      <div class="laptop-bar"><i></i><i></i><i></i><span>Schedule builder · Week view</span></div>
-      <img src="img/d_builder.webp" width="1440" height="814" loading="lazy" alt="Week grid with colored shift chips per role, coverage bars under each day, and a details panel" data-zoom>
-    </figure>
-    <div class="features reveal">
-      <div class="feature"><h3>Your usual shifts, one click away</h3><p>Point at a day and click <kbd>+</kbd>. Your restaurant's regular shift times appear, with uniform notes, ready to drop in.</p></div>
-      <div class="feature"><h3>Drag to move, Ctrl-drag to copy</h3><p>Move a shift to another person or day, or copy it. <kbd>Shift</kbd>-click to select several and move them together.</p></div>
-      <div class="feature"><h3>Who can take it?</h3><p>Pick a shift and see who's free, ranked by fit, with reasons like "15h under target" or "would go into overtime".</p></div>
-      <div class="feature"><h3>Coverage at a glance</h3><p>A bar under each day shows staffing hour by hour against what you need: green, amber or red.</p></div>
-      <div class="feature"><h3>Copy last week · Templates</h3><p>Start from last week or a saved "Normal week". Anyone now on time off becomes an open shift automatically.</p></div>
-      <div class="feature"><h3>Undo, redo, keyboard</h3><p><kbd>Ctrl</kbd> <kbd>Z</kbd>, <kbd>Ctrl</kbd> <kbd>Y</kbd>, <kbd>Del</kbd>, <kbd>Ctrl</kbd> <kbd>D</kbd> for "copy to next day". Built for speed on a PC.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ 02 PROBLEMS -->
-<section class="chapter alt" id="problems">
+<!-- FEATURES -->
+<section class="chapter" id="features">
   <div class="wrap split">
     <div class="ch-copy reveal">
-      <span class="num">02</span>
-      <p class="eyebrow">Live problem checks</p>
-      <h2>See the problems before your staff do.</h2>
-      <p class="lead">Rotaserie checks the week every time you change it, and the Problems tab lists what needs attention, most urgent first. Click one to jump straight to the fix.</p>
+      <p class="eyebrow">For managers</p>
+      <h2>The whole week on one screen.</h2>
+      <p class="lead">Drag shifts between people and days, or build from your phone. Every problem shows up while you work, not after the schedule is out.</p>
       <ul class="checks">
-        <li><b>Approved time off.</b> Someone's scheduled on a day they asked for off.</li>
-        <li><b>Double-booking.</b> Blocked outright; the system won't save it.</li>
-        <li><b>Overtime.</b> Anyone headed past 40 hours, with the extra cost.</li>
-        <li><b>Short staffed.</b> Hours below the "need" you set for each shift.</li>
-        <li><b>Short rest.</b> Closing late and opening early the next day.</li>
-        <li><b>Unavailable.</b> Hours a person marked they can't work.</li>
+        <li><b>Your usual shifts</b> one click away, or copy last week</li>
+        <li><b>Who can take it?</b> The best person for each open shift, ranked</li>
+        <li><b>Live checks</b> for time off, overtime, short staffing and rest</li>
+        <li><b>Publish</b> by email and phone alert, then only changes are sent</li>
       </ul>
     </div>
     <figure class="laptop reveal">
       <div class="laptop-bar"><i></i><i></i><i></i><span>Problems · Quick add</span></div>
-      <img src="img/d_problems.webp" width="1440" height="814" loading="lazy" alt="The Problems tab listing overtime and short-staffed days, with the quick-add menu of usual shift times open" data-zoom>
+      <img src="img/d_problems.webp" width="1440" height="814" loading="lazy" alt="The builder's problem list, with the quick-add menu of usual shift times" data-zoom>
     </figure>
   </div>
 </section>
 
-<!-- ============================================================ 03 DAY VIEW -->
-<section class="chapter" id="dayview">
-  <div class="wrap split reverse">
-    <div class="ch-copy reveal">
-      <span class="num">03</span>
-      <p class="eyebrow">Day view</p>
-      <h2>Zoom into a single day, hour by hour.</h2>
-      <p class="lead">Every shift is a bar on a timeline. Drag it to move it in 15-minute steps, drag its edges to change the start or end, or drop it on someone else's row to hand it over.</p>
-      <ul class="checks">
-        <li>Coverage per hour, shown as working / needed</li>
-        <li>Spot the gap between lunch and dinner instantly</li>
-        <li>Works with a mouse, a pen or a finger</li>
-      </ul>
-    </div>
-    <figure class="laptop reveal">
-      <div class="laptop-bar"><i></i><i></i><i></i><span>Day view · Friday</span></div>
-      <img src="img/d_day.webp" width="1440" height="814" loading="lazy" alt="Day view with an hourly coverage row and a bar per shift across a timeline" data-zoom>
-    </figure>
-  </div>
-</section>
-
-<!-- ============================================================ 04 MOBILE BUILDER -->
-<section class="chapter dark" id="mobile">
+<section class="chapter alt">
   <div class="wrap">
     <div class="ch-head reveal">
-      <span class="num">04</span>
-      <p class="eyebrow">The builder, in your pocket</p>
-      <h2>Fix Saturday from the parking lot.</h2>
-      <p class="lead">On a phone, the builder becomes a real app: swipe between days, tap a shift to edit it in a sheet that slides up, and use your phone's own time wheels. Press and hold to select several.</p>
-    </div>
-    <div class="phones reveal">
-      <figure class="phone"><img src="img/p_builder_light.webp" width="390" height="844" loading="lazy" alt="Phone: Monday with coverage bar and shift cards" data-zoom><figcaption>Day at a glance</figcaption></figure>
-      <figure class="phone lift"><img src="img/p_edit.webp" width="390" height="844" loading="lazy" alt="Phone: editing a shift in a slide-up sheet with time pickers, role and suggestions" data-zoom><figcaption>Edit in a tap</figcaption></figure>
-      <figure class="phone"><img src="img/p_add.webp" width="390" height="844" loading="lazy" alt="Phone: adding a shift with usual times and the best people to fill it" data-zoom><figcaption>Fill a gap: best fit first</figcaption></figure>
-      <figure class="phone lift"><img src="img/p_summary.webp" width="390" height="844" loading="lazy" alt="Phone: week summary with hours, labor cost, overtime, coverage and problems" data-zoom><figcaption>The week's numbers</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ 05 PUBLISH -->
-<section class="chapter" id="publish">
-  <div class="wrap split">
-    <div class="ch-copy reveal">
-      <span class="num">05</span>
-      <p class="eyebrow">Review and publish</p>
-      <h2>Draft → Under review → Published.</h2>
-      <p class="lead">Submit for review and the checks run. If anything urgent is left, Rotaserie tells you and asks you to confirm. One tap publishes it to everyone by email and phone alert. Change the schedule later? Only the people affected are told.</p>
-      <ul class="checks">
-        <li>Choose email, phone push, or both</li>
-        <li>Open shifts go up for grabs automatically</li>
-        <li>Staff see "Recent changes" on their home screen</li>
-        <li>One-tap PDF for the back-of-house wall</li>
-      </ul>
-    </div>
-    <div class="publish-demo reveal" aria-label="The three steps of publishing a schedule">
-      <ol class="steps-demo">
-        <li class="done"><span>✓</span><div><b>Draft</b><small>Build and adjust freely. Staff can't see it yet.</small></div></li>
-        <li class="done"><span>✓</span><div><b>Under review</b><small>Checks ran: time off, overtime, staffing.</small></div></li>
-        <li class="cur"><span>3</span><div><b>Published</b><small>Everyone notified by email and push.</small></div></li>
-      </ol>
-      <div class="notif reveal"><img src="img/logo.svg" alt="" width="34" height="34"><div><b>New schedule is out</b><span>Nov 16 – Dec 6 · You work 5 shifts this week. Tap to see them.</span></div><small>now</small></div>
-      <div class="notif n2 reveal"><img src="img/logo.svg" alt="" width="34" height="34"><div><b>Schedule change</b><span>You're now on Friday 5p–10p Server.</span></div><small>2m</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ 06 STAFF APP -->
-<section class="chapter alt" id="staff">
-  <div class="wrap">
-    <div class="ch-head reveal">
-      <span class="num">06</span>
       <p class="eyebrow">For your staff</p>
-      <h2>Everything they need, nothing they don't.</h2>
-      <p class="lead">Staff open Rotaserie in their phone's browser and add it to their home screen. No app store, no download. It opens straight to their next shift.</p>
+      <h2>Their schedule, on their phone.</h2>
+      <p class="lead">No download. Staff see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
     </div>
-    <div class="phones reveal">
-      <figure class="phone"><img src="img/p_home_light.webp" width="390" height="844" loading="lazy" alt="Staff home: announcement, open shift alert, and next shift card with countdown" data-zoom><figcaption>Next shift, counting down</figcaption></figure>
-      <figure class="phone lift"><img src="img/p_earnings.webp" width="390" height="844" loading="lazy" alt="Weekly earnings estimate with base pay, overtime and tips note" data-zoom><figcaption>Estimated pay + tips</figcaption></figure>
-      <figure class="phone"><img src="img/p_schedule.webp" width="390" height="844" loading="lazy" alt="The full team schedule as a list" data-zoom><figcaption>The whole team's schedule</figcaption></figure>
-      <figure class="phone lift"><img src="img/p_home_dark.webp" width="390" height="844" loading="lazy" alt="Staff home in dark mode" data-zoom><figcaption>Dark mode, automatically</figcaption></figure>
-    </div>
-    <div class="features three reveal">
-      <div class="feature"><h3>The next-shift card</h3><p>Countdown, role, uniform note, who they're working with, a map link, and buttons to swap or give it away.</p></div>
-      <div class="feature"><h3>In their own calendar</h3><p>One tap adds every shift to Google, Apple or Outlook calendar, and it stays up to date by itself.</p></div>
-      <div class="feature"><h3>Works offline</h3><p>Their own schedule and the restaurant's info stay readable without signal, and are erased when they log out.</p></div>
-      <div class="feature"><h3>Estimated earnings</h3><p>Hours, base pay and overtime for any week, plus a weekly hours target they set themselves.</p></div>
-      <div class="feature"><h3>Phone alerts</h3><p>Push notifications for new schedules, changes, approvals and open shifts, with nothing sensitive in the alert itself.</p></div>
-      <div class="feature"><h3>Announcements</h3><p>Managers post a note, like a staff meeting or new menu, that shows at the top for everyone.</p></div>
+    <div class="phones three reveal">
+      <figure class="phone"><img src="img/p_home_light.webp" width="390" height="844" loading="lazy" alt="Staff home screen with the next shift and a countdown" data-zoom><figcaption>Next shift</figcaption></figure>
+      <figure class="phone lift"><img src="img/p_market.webp" width="390" height="844" loading="lazy" alt="Open shifts with estimated pay" data-zoom><figcaption>Open shifts</figcaption></figure>
+      <figure class="phone"><img src="img/p_approvals.webp" width="390" height="844" loading="lazy" alt="The manager's request inbox" data-zoom><figcaption>Requests, approved in a tap</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ 07 MARKET -->
-<section class="chapter" id="market">
-  <div class="wrap split reverse">
-    <div class="ch-copy reveal">
-      <span class="num">07</span>
-      <p class="eyebrow">Open shifts and swaps</p>
-      <h2>Coverage solves itself, with you in control.</h2>
-      <p class="lead">Can't make a shift? Staff give it away or ask a coworker to swap. Open shifts show up for everyone qualified, with the estimated pay and any overtime or double-shift warning before they claim it.</p>
-      <ul class="checks">
-        <li>Only people trained for the role can pick it up</li>
-        <li>Optional auto-approve when there's nothing to warn about</li>
-        <li>Trades need both people, then a manager</li>
-        <li>Daily reminder emails for shifts still unclaimed</li>
-      </ul>
-    </div>
-    <div class="phone-pair single reveal">
-      <figure class="phone"><img src="img/p_market.webp" width="390" height="844" loading="lazy" alt="Open shifts list with estimated pay plus tips and overtime warning" data-zoom></figure>
-      <div class="float-card fc-3" aria-hidden="true"><b>Pickup approved</b><span>Sat 10:30a–4:30p · Cook</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ 08 REQUESTS -->
-<section class="chapter alt" id="approvals">
-  <div class="wrap split">
-    <div class="ch-copy reveal">
-      <span class="num">08</span>
-      <p class="eyebrow">Time off, availability and approvals</p>
-      <h2>Every request in one inbox, with the impact spelled out.</h2>
-      <p class="lead">Before you approve time off, Rotaserie shows exactly which shifts it affects and whether you'd drop below the staff you need. Approve or decline with a note in one tap.</p>
-      <ul class="checks">
-        <li>Staff paint their availability by the hour: preferred or unavailable</li>
-        <li>Availability changes wait for a manager's OK</li>
-        <li>"Approve all valid swaps" when the inbox is full</li>
-        <li>Shift trades, pickups and time off, each in its own tab</li>
-      </ul>
-    </div>
-    <div class="phone-pair reveal">
-      <figure class="phone"><img src="img/p_approvals.webp" width="390" height="844" loading="lazy" alt="Requests inbox with time-off requests and impact warnings" data-zoom></figure>
-      <figure class="phone back"><img src="img/p_availability.webp" width="390" height="844" loading="lazy" alt="Weekly availability painter with preferred and unavailable hours" data-zoom></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ 09 DASHBOARD -->
-<section class="chapter" id="manager">
+<section class="chapter">
   <div class="wrap">
     <div class="ch-head reveal">
-      <span class="num">09</span>
-      <p class="eyebrow">Manager dashboard</p>
-      <h2>Your restaurant, at a glance.</h2>
-      <p class="lead">Today's staffing, open positions, pending requests and whether next week's schedule is ready, with the urgent items up top and pinned notes for the team.</p>
+      <p class="eyebrow">For owners</p>
+      <h2>Know where the week stands.</h2>
     </div>
-    <div class="duo reveal">
-      <figure class="laptop"><div class="laptop-bar"><i></i><i></i><i></i><span>Dashboard</span></div>
-        <img src="img/d_dashboard.webp" width="1440" height="814" loading="lazy" alt="Manager dashboard with staffing, open positions, pending requests, schedule readiness and pinned notes" data-zoom></figure>
-      <figure class="laptop"><div class="laptop-bar"><i></i><i></i><i></i><span>Dashboard · Dark</span></div>
-        <img src="img/d_dashboard_dark.webp" width="1440" height="814" loading="lazy" alt="The dashboard in dark mode" data-zoom></figure>
-    </div>
-    <div class="features three reveal">
-      <div class="feature"><h3>Command hub</h3><p>Urgent, pending approvals and a system log, each with one-click fixes like "suggest replacement".</p></div>
-      <div class="feature"><h3>Pinned daily notes</h3><p>"Wine delivery at 3pm", "party of 24 on the patio". Staff see them on that day's screens.</p></div>
-      <div class="feature"><h3>Search everything</h3><p>Press <kbd>Ctrl</kbd> <kbd>K</kbd> to jump to any person, page or action.</p></div>
+    <div class="features reveal">
+      <div class="feature"><h3>Labor % of sales</h3><p>Upload a daily sales export from Aloha, Clover, Square or Toast. No integration fees.</p></div>
+      <div class="feature"><h3>Thursday summary</h3><p>Next week's hours, cost, overtime and open shifts, in your inbox.</p></div>
+      <div class="feature"><h3>Washington-ready</h3><p>Overtime, meal breaks, minors' hours and local minimum wage, checked for you.</p></div>
+      <div class="feature"><h3>Works with your POS</h3><p>Keep clocking in where you do now. Rotaserie handles the schedule.</p></div>
+      <div class="feature"><h3>Set up in a day</h3><p>Paste your staff list from a spreadsheet, or we'll do it with you.</p></div>
+      <div class="feature"><h3>Your data is yours</h3><p>Nightly backups and a one-click export of everything.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ 10 TODAY / 11 PRINT / 12 ONBOARD -->
-<section class="chapter alt" id="today">
-  <div class="wrap trio">
-    <article class="mini reveal" id="today-card">
-      <span class="num sm">10</span>
-      <h3>Today, on the floor</h3>
-      <p>Who's on now, who's coming in and the day's notes, grouped by time. Perfect on a tablet by the host stand.</p>
-      <figure class="phone small"><img src="img/p_today.webp" width="390" height="844" loading="lazy" alt="Today screen grouped by start time" data-zoom></figure>
-    </article>
-    <article class="mini reveal" id="print">
-      <span class="num sm">11</span>
-      <h3>Print-ready PDF</h3>
-      <p>One page per week, names down the side, hours totaled, holidays and open shifts marked. Download it in one tap.</p>
-      <figure class="paper"><img src="img/d_pdf.webp" width="1048" height="396" loading="lazy" alt="A printed weekly schedule with names, shifts, roles and hours" data-zoom></figure>
-    </article>
-    <article class="mini reveal" id="onboard">
-      <span class="num sm">12</span>
-      <h3>Onboarding by QR code</h3>
-      <p>Print the poster for the back room. New hires scan it, add Rotaserie to their home screen, and they're in.</p>
-      <figure class="phone small"><img src="img/p_welcome.webp" width="390" height="844" loading="lazy" alt="The welcome page new employees see after scanning the QR code" data-zoom></figure>
-    </article>
-  </div>
-</section>
-
-<!-- ============================================================ 13 MAKE IT YOURS -->
-<section class="chapter" id="yours">
-  <div class="wrap split reverse">
-    <div class="ch-copy reveal">
-      <span class="num">13</span>
-      <p class="eyebrow">Make it yours</p>
-      <h2>Your roles, your rules, your restaurant.</h2>
-      <p class="lead">Server, Busser and Cook to start. Add Host, Bartender, Dishwasher or anything else, each with its own color. Set your overtime rule, time zone, pay rates and regular shift times.</p>
-      <ul class="checks">
-        <li>Roles with names, letters and colors</li>
-        <li>Overtime threshold and rate (Washington: 40 hours, 1.5×)</li>
-        <li>A default pay rate, or one per person</li>
-        <li>Holiday pay multipliers and special hours</li>
-        <li>Light, dark or automatic; compact to touch-sized</li>
-      </ul>
-    </div>
-    <figure class="card-shot reveal"><img src="img/d_roles_card.webp" width="870" height="372" loading="lazy" alt="Roles settings: Server, Busser, Cook and Host with letters and colors" data-zoom></figure>
-  </div>
-</section>
-
-<!-- ============================================================ DARK MODE BAND -->
-<section class="band">
+<!-- PROOF: SPIROS -->
+<section class="band" id="spiros">
   <div class="wrap band-in">
     <div class="reveal">
-      <p class="eyebrow light">Day or night</p>
-      <h2>Easy on the eyes after close.</h2>
-      <p class="lead">Dark mode follows each phone's setting, or pick it yourself.</p>
+      <p class="eyebrow light">Working proof</p>
+      <h2>Spiros runs on Rotaserie.</h2>
+      <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, and it runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
+      <div class="hero-actions"><a class="btn btn-light" href="about.html">Read the story</a></div>
     </div>
     <div class="band-visual reveal">
-      <figure class="laptop"><div class="laptop-bar"><i></i><i></i><i></i><span>Builder · Dark</span></div>
-        <img src="img/d_builder_dark.webp" width="1440" height="814" loading="lazy" alt="Schedule builder in dark mode" data-zoom></figure>
-      <figure class="phone phone-band"><img src="img/p_builder_dark.webp" width="390" height="844" loading="lazy" alt="Phone builder in dark mode" data-zoom></figure>
+      <figure class="laptop"><div class="laptop-bar"><i></i><i></i><i></i><span>Dashboard</span></div>
+        <img src="img/d_dashboard_dark.webp" width="1440" height="814" loading="lazy" alt="The manager dashboard in dark mode" data-zoom></figure>
+      <figure class="phone phone-band"><img src="img/p_builder_dark.webp" width="390" height="844" loading="lazy" alt="The builder on a phone in dark mode" data-zoom></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ TRUST -->
-<section class="chapter" id="trust">
-  <div class="wrap">
-    <div class="ch-head reveal">
-      <p class="eyebrow">Reliability and security</p>
-      <h2>Built so nothing slips through.</h2>
-      <p class="lead">The safeguards aren't settings you have to remember. They're built into how Rotaserie saves data.</p>
-    </div>
-    <div class="trust-grid reveal">
-      <div><b>Double-booking is impossible</b><p>The database itself refuses to save overlapping shifts for one person.</p></div>
-      <div><b>No overwritten edits</b><p>If two managers change the same shift, the second is asked to refresh instead of silently overwriting.</p></div>
-      <div><b>A log that can't be edited</b><p>Every change is recorded in an activity log that can't be altered or deleted.</p></div>
-      <div><b>Messages that arrive</b><p>Emails and alerts are queued and retried, and never sent for a change that was undone.</p></div>
-      <div><b>Secure by default</b><p>Strong password rules, slow password scrambling, protection against cross-site tricks, and HTTPS.</p></div>
-      <div><b>Your data, always yours</b><p>Nightly backups, plus a one-click export of everything in a readable format.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ FAQ -->
+<!-- FAQ -->
 <section class="chapter alt" id="faq">
   <div class="wrap faq-wrap">
     <div class="ch-head reveal"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
     <div class="faq reveal">
-      <details><summary>Do my staff need to download an app?</summary><p>No. Rotaserie runs in any phone's web browser on iPhone and Android. Staff add it to their home screen and it opens full-screen like an app, with push notifications.</p></details>
-      <details><summary>Does it replace my point-of-sale or time clock?</summary><p>No. Keep clocking in on your POS. Rotaserie handles the schedule, requests and communication around it.</p></details>
-      <details><summary>Can I start from the schedule I already have?</summary><p>Yes. Set each person's regular weekly shifts once, and every new schedule starts from them. After that, copy last week or a saved template.</p></details>
-      <details><summary>What if two managers edit at the same time?</summary><p>Both can work at once. If they touch the same shift, the second person is asked to refresh, so nobody's change is lost.</p></details>
-      <details><summary>Can I print the schedule?</summary><p>Yes. Download a clean one-page-per-week PDF, or print straight from the Schedule page.</p></details>
-      <details><summary>How much does it cost?</summary><p>Get in touch and we'll set up your restaurant and walk you through pricing.</p></details>
+      <details><summary>Do my staff need to download an app?</summary><p>No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app.</p></details>
+      <details><summary>Does it replace my POS or time clock?</summary><p>No. Keep clocking in on your POS. Rotaserie handles the schedule, swaps, time off and messages around it.</p></details>
+      <details><summary>Is it in Spanish?</summary><p>Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts.</p></details>
+      <details><summary>How much does it cost?</summary><p>One simple price per location, everything included. Get in touch and we'll walk you through it.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ CTA -->
+<!-- CTA -->
 <section class="cta" id="start">
   <div class="wrap cta-in reveal">
     <img src="img/logo.svg" alt="" width="56" height="56">
     <h2>Give your next schedule the night off.</h2>
-    <p class="lead">We'll set up your restaurant, roles and regular shifts with you, and your team can be on it the same day.</p>
+    <p class="lead">We'll set up your restaurant with you, and your team can be on it the same day.</p>
     <div class="hero-actions center">
       <a class="btn btn-light" href="mailto:robertebanchero@gmail.com?subject=Rotaserie%20demo" data-contact>Book a demo</a>
-      <a class="btn btn-outline-light" href="#builder">See the features again</a>
+      <a class="btn btn-outline-light" href="about.html">About us</a>
     </div>
   </div>
 </section>
@@ -412,9 +182,9 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="#top"><img src="img/logo.svg" alt="" width="26" height="26">Rotaserie<span class="by">by Spiros</span></a>
-    <p>Restaurant scheduling for managers and staff. Built in Washington State.</p>
-    <p class="muted">© <span data-year>2026</span> Spiros</p>
+    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="26" height="26">Rotaserie<span class="by">by Spiros</span></a>
+    <p>Restaurant scheduling, built in Washington State. <a href="about.html">About us</a> · <a href="about.html#founder">Our founder</a></p>
+    <p class="muted">© <span data-year>2026</span> Rotaserie</p>
   </div>
 </footer>
 

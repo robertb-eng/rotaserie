@@ -1,10 +1,11 @@
 ROTASERIE PRODUCT SITE
 ======================
 
-A standalone one-page website that showcases Rotaserie, separate from the app itself.
+A standalone two-page website (home and About) that showcases Rotaserie, separate from the app itself.
 Plain HTML, CSS and a little JavaScript: no build step, and it works on any web host.
 
-  index.html    the page: hero, 13-part feature tour, reliability, FAQ, call to action
+  index.html    home: hero, features, Spiros as proof, FAQ, call to action
+  about.html    about us, Spiros, and the founder's story
   styles.css    the design (light and dark mode, phone to wide screen)
   site.js       light/dark switch, fade-in on scroll, tour highlighting, click-to-zoom
   img/          real screenshots of the app (a fictional "Harbor Bistro" demo restaurant)
