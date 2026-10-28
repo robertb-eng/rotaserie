@@ -274,3 +274,7 @@ kbd{font:600 13px ui-monospace,SFMono-Regular,Consolas,monospace;border:1px soli
 .founder-story p{font-size:18px;line-height:1.65;max-width:640px}
 .founder-story .signature{font-style:italic;font-weight:600;color:var(--brand)}
 @media (max-width:860px){.values{grid-template-columns:1fr}.founder{grid-template-columns:1fr;gap:28px}.phones.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.place-photo{margin:0}
+.place-photo img{width:100%;height:auto;border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.18);display:block}
+.place-photo figcaption{margin-top:10px;font-size:14px;color:var(--muted);text-align:center}
+.band .place-photo figcaption{color:var(--deep-muted)}
