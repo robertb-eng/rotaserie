@@ -278,3 +278,5 @@ kbd{font:600 13px ui-monospace,SFMono-Regular,Consolas,monospace;border:1px soli
 .place-photo img{width:100%;height:auto;border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.18);display:block}
 .place-photo figcaption{margin-top:10px;font-size:14px;color:var(--muted);text-align:center}
 .band .place-photo figcaption{color:var(--deep-muted)}
+
+.legal{max-width:760px}.legal h1{margin-bottom:6px}.legal h2{font-size:20px;margin:32px 0 8px}.legal p,.legal li{line-height:1.65}.legal ul{padding-left:22px}.legal-date{color:var(--muted);margin:0 0 24px}
