@@ -225,7 +225,15 @@ kbd{font:600 13px ui-monospace,SFMono-Regular,Consolas,monospace;border:1px soli
 
 /* Smaller screens */
 @media (max-width:1060px){
-  .nav-links{display:none}
+  /* Section links stay available: they drop to a swipeable second row under the logo */
+  .nav-in{flex-wrap:wrap;height:auto;gap:0 12px}
+  .logo,.nav-cta{height:60px}
+  .nav-cta{margin-left:auto}
+  .nav-links{order:3;flex:0 0 100%;margin:0;padding:0 0 8px;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap;padding:7px 12px}
+  .tour-nav{top:104px}
+  html{scroll-padding-top:160px}
   .hero-in,.split,.band-in,.faq-wrap{grid-template-columns:1fr;gap:44px}
   .split.reverse .ch-copy{order:0}
   .hero-visual{padding:10px 40px 40px 0}
@@ -239,8 +247,6 @@ kbd{font:600 13px ui-monospace,SFMono-Regular,Consolas,monospace;border:1px soli
 @media (max-width:640px){
   body{font-size:16px}
   .wrap{padding:0 16px}
-  .nav-in{gap:12px;height:60px}
-  .tour-nav{top:60px}
   .hero{padding:36px 0 60px}
   .hero-visual{padding:0 20px 30px 0}
   .fc-1{left:-6px;top:auto;bottom:12%}.fc-2{right:30%;top:-14px}
