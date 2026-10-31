@@ -97,7 +97,9 @@ when you ask us to, and remember your display choices (like dark mode). We don't
 <h2>Who else handles it</h2>
 <ul>
 <li><b>Render</b> hosts the app and its database.</li>
-<li><b>GitHub</b> stores encrypted off-site backup copies. They are scrambled before they leave our server and GitHub cannot read them.</li>
+<li><b>Cloudflare</b> (R2 storage) stores encrypted off-site backup copies: every copy from the last day, then one a
+day for two weeks and one a week for eight weeks, plus each business's two newest copies until the business is deleted;
+until that move is complete, <b>GitHub</b> does. They are scrambled before they leave our server and neither can read them.</li>
 <li><b>Brevo</b> delivers our emails, so it receives recipients' email addresses and message text.</li>
 <li><b>Stripe</b> processes subscription payments. A Business Admin enters card or bank details on Stripe's own
 pages, so they go to Stripe and never to Rotaserie. We keep the restaurant's Stripe customer number, its plan
