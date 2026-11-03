@@ -91,7 +91,8 @@ Business Admins, for payroll). Rotaserie doesn't pay them out.</li>
 <li><b>Requests to join:</b> if you ask to join a restaurant from its welcome page, the name, email, jobs and note
 you enter, and your device's IP address (only to limit repeated requests; erased once the request is decided).
 Requests nobody decides are deleted after 30 days.</li>
-<li><b>Notifications:</b> if you turn on push notifications, your browser's notification address.</li>
+<li><b>Notifications:</b> if you turn on push notifications, your browser's notification address (in the iPhone app,
+the phone's notification token from Apple).</li>
 </ul>
 
 <h2>How we use it</h2>
@@ -104,7 +105,9 @@ restaurant is kept separate from every other restaurant's.</p>
 <h2>Cookies</h2>
 <p>We use only the cookies needed to keep you signed in, protect forms, remember a device for two-step login
 when you ask us to, and remember your display choices (like dark mode). We don't use advertising or analytics cookies.
-The Android app marks its own window (stored only in that window, not a cookie) so billing pages can be left out there.</p>
+The Android app marks its own window (stored only in that window, not a cookie) so billing pages can be left out there.
+The iPhone app keeps a copy of your own upcoming shifts on your phone, so you can see them without a connection and in
+its widget; it is replaced each time you open the app and removed when you sign out.</p>
 
 <h2>Who else handles it</h2>
 <ul>
@@ -117,6 +120,9 @@ until that move is complete, <b>GitHub</b> does. They are scrambled before they 
 pages, so they go to Stripe and never to Rotaserie. We keep the restaurant's Stripe customer number, its plan
 and whether it's paid; Stripe receives the restaurant's name and the Business Admin's email.</li>
 <li><b>Calendar apps</b> (Google, Apple, Outlook): only if you choose to add your shifts, using a private link.</li>
+<li><b>Push services</b> (your browser's, or Apple's for the iPhone app): only if you turn on notifications. They never
+receive the message itself: a browser gets an empty signal and then fetches the message from us; the iPhone app gets only
+a notice that you have an update, and you see it in Rotaserie when you open it.</li>
 <li><b>Systems a business connects</b>: if a Business Admin makes an API key or adds a webhook (Settings &gt; API), the
 system they choose (for example their payroll or booking software) can read the team list (names, emails and jobs)
 and the schedule, and receives schedule and time-off events. It never receives pay information. That business decides
