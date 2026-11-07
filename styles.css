@@ -3,19 +3,19 @@
 @font-face{font-family:"Atkinson Hyperlegible Next";src:url(fonts/atkinson-next.woff2) format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:"Newsreader";src:url(fonts/newsreader.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
 :root{
-  --ink:#13202c;--muted:#3b4a5c;--accent:#2f6f5e;--accent-text:#1d4a3e;--accent-ink:#fff;--red:#b3261e;--em:#b3261e;
+  --ink:#13202c;--muted:#3b4a5c;--accent:#f2a33a;--accent-text:#7a3d06;--accent-ink:#3a1405;--red:#b3261e;--em:#b3261e;
   --gp-top:rgba(255,255,255,.66);--gp-bot:rgba(255,255,255,.44);--rim:rgba(255,255,255,.95);--rim2:rgba(255,255,255,.35);
   --shadow:0 1px 2px rgba(20,40,80,.06),0 12px 32px rgba(20,40,80,.14);--shadow-lg:0 30px 70px -20px rgba(15,35,70,.45);
   --bubble:rgba(255,255,255,.85);--line:rgba(19,32,44,.12);--field:rgba(255,255,255,.92);--cell:rgba(255,255,255,.3);
   --serve:#e6eefc;--serve-ink:#2b4f9b;--cook:#fbe4ea;--cook-ink:#8a2f4f;--bus:#fdf0d5;--bus-ink:#7a5200;
   --r:28px;--wrap:1180px;color-scheme:light;
   --sky:radial-gradient(45% 30% at 88% 4%,rgba(255,236,170,.95) 0%,transparent 70%),radial-gradient(80% 50% at 10% 0%,#7cc4ff 0%,transparent 70%),
-    radial-gradient(70% 50% at 100% 60%,#b9e4ff 0%,transparent 70%),radial-gradient(80% 50% at 0% 100%,#bff0dc 0%,transparent 70%),linear-gradient(180deg,#a9d8ff,#eaf5ff);
+    radial-gradient(70% 50% at 100% 60%,#b9e4ff 0%,transparent 70%),radial-gradient(80% 50% at 0% 100%,#ffe2bf 0%,transparent 70%),linear-gradient(180deg,#a9d8ff,#eaf5ff);
   --bg:#cfe3f3;
 }
 /* night: follows the device until the visitor picks (site.js); the same values twice, as the app does */
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --ink:#f3f6fb;--muted:#c3cede;--accent:#7fe0c0;--accent-text:#7fe0c0;--accent-ink:#08130f;--em:#ffb4a8;
+  --ink:#f3f6fb;--muted:#c3cede;--accent:#f2a33a;--accent-text:#ffc06a;--accent-ink:#2a1004;--em:#ffb4a8;
   --gp-top:rgba(255,255,255,.16);--gp-bot:rgba(255,255,255,.07);--rim:rgba(255,255,255,.38);--rim2:rgba(255,255,255,.08);
   --shadow:0 1px 2px rgba(0,0,0,.2),0 14px 40px rgba(0,0,0,.35);--shadow-lg:0 30px 70px -20px rgba(0,0,0,.7);
   --bubble:rgba(255,255,255,.22);--line:rgba(255,255,255,.14);--field:rgba(255,255,255,.1);--cell:rgba(255,255,255,.06);
@@ -23,11 +23,11 @@
   --sky:radial-gradient(1.5px 1.5px at 12% 14%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 30% 6%,#fff 50%,transparent 51%),
     radial-gradient(1.5px 1.5px at 70% 10%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 88% 30%,#fff 50%,transparent 51%),
     radial-gradient(1px 1px at 52% 22%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 22% 40%,#fff 50%,transparent 51%),
-    radial-gradient(60% 35% at 80% 0%,rgba(80,220,190,.35) 0%,transparent 70%),radial-gradient(70% 45% at 0% 30%,rgba(110,90,255,.35) 0%,transparent 70%),
+    radial-gradient(60% 35% at 80% 0%,rgba(255,176,90,.3) 0%,transparent 70%),radial-gradient(70% 45% at 0% 30%,rgba(110,90,255,.35) 0%,transparent 70%),
     linear-gradient(180deg,#0a1230,#141b45 60%,#1d1a4a);
   --bg:#0b1430;color-scheme:dark}}
 :root[data-theme=dark]{
-  --ink:#f3f6fb;--muted:#c3cede;--accent:#7fe0c0;--accent-text:#7fe0c0;--accent-ink:#08130f;--em:#ffb4a8;
+  --ink:#f3f6fb;--muted:#c3cede;--accent:#f2a33a;--accent-text:#ffc06a;--accent-ink:#2a1004;--em:#ffb4a8;
   --gp-top:rgba(255,255,255,.16);--gp-bot:rgba(255,255,255,.07);--rim:rgba(255,255,255,.38);--rim2:rgba(255,255,255,.08);
   --shadow:0 1px 2px rgba(0,0,0,.2),0 14px 40px rgba(0,0,0,.35);--shadow-lg:0 30px 70px -20px rgba(0,0,0,.7);
   --bubble:rgba(255,255,255,.22);--line:rgba(255,255,255,.14);--field:rgba(255,255,255,.1);--cell:rgba(255,255,255,.06);
@@ -35,7 +35,7 @@
   --sky:radial-gradient(1.5px 1.5px at 12% 14%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 30% 6%,#fff 50%,transparent 51%),
     radial-gradient(1.5px 1.5px at 70% 10%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 88% 30%,#fff 50%,transparent 51%),
     radial-gradient(1px 1px at 52% 22%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 22% 40%,#fff 50%,transparent 51%),
-    radial-gradient(60% 35% at 80% 0%,rgba(80,220,190,.35) 0%,transparent 70%),radial-gradient(70% 45% at 0% 30%,rgba(110,90,255,.35) 0%,transparent 70%),
+    radial-gradient(60% 35% at 80% 0%,rgba(255,176,90,.3) 0%,transparent 70%),radial-gradient(70% 45% at 0% 30%,rgba(110,90,255,.35) 0%,transparent 70%),
     linear-gradient(180deg,#0a1230,#141b45 60%,#1d1a4a);
   --bg:#0b1430;color-scheme:dark}
 
@@ -48,7 +48,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;bac
 body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;height:auto;display:block}
-a{color:var(--accent)}
+a{color:var(--accent-text)}
 h1,h2,h3{margin:0;line-height:1.06}
 h1,h2{font-weight:800;letter-spacing:-.04em}
 h1{font-size:clamp(40px,5.4vw,66px)}
@@ -62,7 +62,7 @@ p{margin:0}
 .muted{color:var(--muted)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:10px;z-index:100}
 .skip:focus{left:8px}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:3px solid var(--accent-text);outline-offset:3px;border-radius:8px}
 
 /* the glass recipe: frosted, light on the top edge, fading rim, soft lift */
 .strip-in>div,.feature,.faq details,.kind,.demo,.early,.values>div,.founder-card,.legal{
@@ -131,9 +131,9 @@ p{margin:0}
 .ticks{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-weight:700;font-size:16px}
 .ticks li{display:flex;gap:8px;align-items:center}
 .ticks li:before,.checks li:before{content:"";width:20px;height:20px;flex:none;border-radius:50%;
-  background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
-:root[data-theme=dark] :is(.ticks,.checks) li:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2308130f' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) :is(.ticks,.checks) li:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2308130f' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}}
+  background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a1405' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+:root[data-theme=dark] :is(.ticks,.checks) li:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a1004' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) :is(.ticks,.checks) li:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a1004' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}}
 
 /* the Type to Build demo: a line is typed, its shifts appear on the week */
 .demo{padding:20px}
@@ -145,7 +145,7 @@ p{margin:0}
 .demo-box .done{color:var(--muted)}
 .caret{display:inline-block;width:2px;height:1.1em;vertical-align:-3px;background:var(--accent);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.demo-read{min-height:26px;margin:10px 2px 6px;font-size:15px;font-weight:800;color:var(--accent)}
+.demo-read{min-height:26px;margin:10px 2px 6px;font-size:15px;font-weight:800;color:var(--accent-text)}
 .week{display:grid;grid-template-columns:70px repeat(7,minmax(0,1fr));gap:4px;font-size:13px}
 .week .h{font-weight:800;color:var(--muted);text-align:center;font-size:12px;padding:2px 0}
 .week .who{font-weight:800;font-size:14px;align-self:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -165,7 +165,7 @@ p{margin:0}
 .strip-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .strip-in>div{padding:24px 22px}
 .ico{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;margin-bottom:14px;color:#fff;
-  background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 50%),var(--tc,#2f6f5e);
+  background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 50%),var(--tc,#d9861c);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 3px rgba(0,0,0,.18),0 3px 8px rgba(0,0,0,.15)}
 .ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .strip b{display:block;font-size:18px;margin-bottom:4px}
@@ -229,7 +229,7 @@ p{margin:0}
 .faq details{padding:0 24px;border-radius:22px}
 .faq summary{cursor:pointer;list-style:none;padding:20px 34px 20px 0;font-weight:800;font-size:18px;position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:28px;font-weight:600;color:var(--accent);transition:transform .2s}
+.faq summary:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:28px;font-weight:600;color:var(--accent-text);transition:transform .2s}
 .faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
 .faq details p{padding:0 0 22px;color:var(--muted)}
 
