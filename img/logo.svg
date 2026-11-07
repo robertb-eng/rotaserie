@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect x="4" y="8" width="56" height="52" rx="10" fill="#2f6f5e"/>
-<rect x="4" y="8" width="56" height="14" rx="10" fill="#245748"/>
-<rect x="16" y="2" width="6" height="14" rx="3" fill="#1d1f23"/><rect x="42" y="2" width="6" height="14" rx="3" fill="#1d1f23"/>
-<g fill="#fff"><rect x="12" y="28" width="10" height="8" rx="2"/><rect x="27" y="28" width="10" height="8" rx="2"/>
-<rect x="42" y="28" width="10" height="8" rx="2" fill="#f2b57d"/><rect x="12" y="42" width="10" height="8" rx="2"/>
-<rect x="27" y="42" width="10" height="8" rx="2"/><rect x="42" y="42" width="10" height="8" rx="2"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<!-- Rotaserie's mark (Robert, Nov 6 2026): a roast chicken on a spit inside a calendar page. apps/make_icons.py draws
+     every icon from this file and understands only rect, circle, ellipse, path (M L H V C Q A Z) and <g> with
+     translate/scale/rotate: keep to those. The ids say what each part is (the tile is the background). -->
+<rect id="tile" width="512" height="512" rx="112" fill="#b3261e"/>
+<rect id="page" x="80" y="104" width="352" height="320" rx="48" fill="#fff3df"/>
+<path id="header" d="M80 152a48 48 0 0 1 48-48h256a48 48 0 0 1 48 48v44H80Z" fill="#5a1410"/>
+<g id="rings" fill="#fff3df"><rect x="160" y="64" width="34" height="82" rx="17"/><rect x="318" y="64" width="34" height="82" rx="17"/></g>
+<g id="chicken" transform="translate(256 318) scale(.78) translate(-256 -300)">
+  <g transform="rotate(-48 330 196)"><ellipse cx="330" cy="196" rx="62" ry="38" fill="#e07b24"/>
+    <g fill="#fff3df"><rect x="380" y="186" width="56" height="20" rx="10"/><circle cx="440" cy="184" r="15"/><circle cx="440" cy="208" r="15"/></g></g>
+  <g transform="rotate(-72 270 190)"><ellipse cx="270" cy="190" rx="58" ry="36" fill="#e07b24"/>
+    <g fill="#fff3df"><rect x="316" y="180" width="52" height="20" rx="10"/><circle cx="372" cy="178" r="14"/><circle cx="372" cy="202" r="14"/></g></g>
+  <path d="M108 300C108 222 186 196 262 200C346 204 404 238 404 300C404 360 344 388 256 388C168 388 108 360 108 300Z" fill="#f2a33a"/>
+  <path d="M133 273C154 227 213 210 262 212A8 8 0 0 1 262 228C220 228 168 240 147 277A8 8 0 0 1 133 273Z" fill="#ffd27a"/>
+  <path d="M126 330C160 372 352 372 388 330C380 366 330 388 256 388C182 388 134 366 126 330Z" fill="#e07b24"/>
+</g>
+<g id="spit"><rect x="40" y="311" width="432" height="22" rx="11" fill="#5a1410"/>
+  <circle cx="48" cy="322" r="26" fill="#f2a33a"/><circle cx="464" cy="322" r="26" fill="#f2a33a"/></g>
 </svg>
