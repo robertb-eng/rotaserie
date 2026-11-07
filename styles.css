@@ -299,12 +299,12 @@ p{margin:0}
 
 /* the walkthrough (Nov 7 2026): chapters on the left, the real app playing on the right in a phone or a laptop frame;
    hidden without JavaScript (the clips are chosen and started by site.js) */
-html:not(.js) .tour{display:none}  /* (no JavaScript, nothing to play; .js is set in <head>, so #tour links land) */
+.tour:not(.tour-on){display:none}  /* (site.js shows it once it can play, and lands #tour links itself) */
 .tour-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
 .tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch;--r:22px;grid-column:1;grid-row:1}  /* (the stage comes first in the page, for focus order on phones; here it sits right) */
 .tour-list li{counter-increment:ch}
 .tour-list button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:52px 1fr;column-gap:14px;width:100%;cursor:pointer;
-  position:relative;overflow:hidden;padding:18px 22px;border-radius:22px;color:var(--ink);transition:background .25s,box-shadow .25s}
+  position:relative;overflow:hidden;padding:18px 22px;border-radius:22px;color:var(--ink);transition:box-shadow .25s}
 .tour-list button:before{content:counter(ch,decimal-leading-zero);grid-row:1/3;font:600 34px/1 "Newsreader",Georgia,serif;color:var(--muted);
   opacity:.55;transition:color .25s,opacity .25s;padding-top:2px}
 .tour-list b{font-size:19px;font-weight:800;letter-spacing:-.015em}

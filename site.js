@@ -131,17 +131,14 @@
   // visitor's pause stops it, picking a chapter or Play starts it. Off screen the clip waits and picks up on return.
   // Nothing loads (not even the still) until the section is seen; clips come in the visitor's theme (a theme change
   // starts the chapter again in the new colours). Reduced motion: nothing plays until asked, and no next clip follows.
-  // Without JavaScript the section is hidden (styles.css); the clips are described in README.
+  // The section shows only once this runs (class tour-on, styles.css); the clips are described in README.
   var tour = document.querySelector('.tour');
   if (tour) (function () {  // (its own scope: the demo above has `var running`, `timer`... and vars share a function)
     var tabs = [].slice.call(tour.querySelectorAll('[data-clip]'));
     var stage = tour.querySelector('.tour-stage'), video = stage.querySelector('video'), btn = stage.querySelector('.tour-play');
-    var LABELS = {ttb: 'Type to Build on a phone: three typed lines become three shifts',
-      publish: 'Review and publish on a phone: the week at a glance, then Publish schedule',
-      fill: 'Fill open shifts on a computer: who can take each open shift and why, then Fill these shifts',
-      staff: 'A staff member picks up an open shift from their phone'};
     var still = matchMedia('(prefers-reduced-motion: reduce)'), calm = still.matches, hasIO = 'IntersectionObserver' in window;
-    if (still.addEventListener) still.addEventListener('change', function () { calm = still.matches; if (calm && going) { setGoing(false); video.pause(); } });
+    var onChange = function (mq, fn) { if (mq.addEventListener) mq.addEventListener('change', fn); else if (mq.addListener) mq.addListener(fn); };  // (older Safari)
+    onChange(still, function () { calm = still.matches; if (calm && going) { setGoing(false); video.pause(); } });
     var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0, atEnd = false;
     var setGoing = function (on) {
       going = on;
@@ -154,16 +151,15 @@
       if (p && p.catch) p.catch(function (err) { if (!err || err.name !== 'AbortError') setGoing(false); });  // (refused or unplayable: it rests)
     };
     // load chapter i (its still once the section has been seen; its clip only when `withClip`), and play it if going and seen
-    var load = function (i, withClip) {
+    var load = function (i, withClip, atEndKeep) {
       clearTimeout(timer);
       cur = i; atEnd = false;
       var b = tabs[i], base = 'img/tour/' + b.dataset.clip + '-' + (isDark() ? 'dark' : 'light');
-      tabs.forEach(function (x, k) {
-        x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.tabIndex = k === i ? 0 : -1; x.style.setProperty('--p', 0);
-      });
+      tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.tabIndex = k === i ? 0 : -1; });
+      if (!atEndKeep) b.style.setProperty('--p', 0);  // (finished chapters keep their full bar)
       stage.dataset.frame = b.dataset.frame;
       stage.setAttribute('aria-labelledby', b.id);
-      video.setAttribute('aria-label', LABELS[b.dataset.clip] || '');
+      video.setAttribute('aria-label', b.dataset.label || '');
       if (met) video.poster = base + '-poster.webp';
       video.innerHTML = withClip ? '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">' : '';
       video.load();
@@ -188,7 +184,7 @@
     btn.addEventListener('click', function () {
       if (going) { setGoing(false); video.pause(); return; }
       if (atEnd) start((cur + 1) % tabs.length);  // (after a clip ended: the next one)
-      else if (video.currentSrc) { setGoing(true); play(); }  // (after a pause: on from the same moment)
+      else if (video.currentSrc && !video.error) { setGoing(true); play(); }  // (after a pause: on from the same moment)
       else start(cur);
     });
     var bring = function () {  // on a phone the stage sits above the list: a picked chapter's clip comes into view
@@ -207,12 +203,12 @@
     var retheme = function () {  // the same chapter in the new colours: from its start (paused or on), its still if it had ended
       if (!met) return;  // (nothing shown yet: the first sight loads the right theme)
       var ended = atEnd;
-      load(cur, !ended && (going || !!video.currentSrc));
-      if (ended) { atEnd = true; tabs[cur].style.setProperty('--p', 1); if (going) timer = setTimeout(nextClip, 900); }
+      load(cur, !ended && (going || !!video.currentSrc), ended);
+      if (ended) { atEnd = true; if (going) timer = setTimeout(nextClip, 900); }
     };
     if (toggle) toggle.addEventListener('click', retheme);
     var dark = matchMedia('(prefers-color-scheme: dark)');
-    if (dark.addEventListener) dark.addEventListener('change', function () { if (!root.dataset.theme) retheme(); });
+    onChange(dark, function () { if (!root.dataset.theme) retheme(); });
     setGoing(!calm && hasIO);  // (it starts by itself the first time it's seen)
     load(0, false);
     if (hasIO) new IntersectionObserver(function (entries) {
@@ -221,6 +217,8 @@
       if (seen && going && video.paused && !video.ended) { if (!video.currentSrc) load(cur, true); else play(); }
       else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
     }, {threshold: 0.35}).observe(stage);
+    tour.classList.add('tour-on');  // (shown only now that it can play; a #tour link lands once it's there)
+    if (location.hash === '#tour') tour.scrollIntoView();
   })();
   // "See how it works" links go to the walkthrough when JavaScript runs (here and on About; without it the section is hidden)
   document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });
