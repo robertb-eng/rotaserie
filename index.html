@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rotaserie by Spiros · Restaurant scheduling</title>
-<meta name="description" content="Restaurant scheduling built at a working restaurant. Build the week on your phone or computer, catch problems as you go, and publish to every phone in one tap.">
-<meta name="theme-color" content="#2f6f5e">
-<meta property="og:title" content="Rotaserie · Restaurant scheduling, built at a working restaurant">
-<meta property="og:description" content="Build the week in minutes, catch problems before your staff do, and publish to every phone in one tap.">
-<meta property="og:image" content="img/d_builder.webp">
+<title>Rotaserie · Type the week, get the schedule</title>
+<meta name="description" content="Scheduling for small businesses, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are caught as you go, and the published week goes to everyone by email and phone alert.">
+<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Rotaserie · Type the week, get the schedule">
+<meta property="og:description" content="Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants, cafés, shops, salons and studios.">
+<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -22,10 +22,11 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie by Spiros, home"><img src="img/logo.svg" alt="" width="30" height="30">Rotaserie<span class="by">by Spiros</span></a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie<span class="by">by Spiros</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#features">Features</a>
-      <a href="#clients">Clients</a>
+      <a href="#managers">For managers</a>
+      <a href="#staff">For staff</a>
+      <a href="#kinds">Businesses</a>
       <a href="about.html">About</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -34,40 +35,42 @@
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="#start">Get started</a>
+      <a class="btn btn-sm" href="#start" data-start>Get early access</a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO: Type to Build -->
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <div class="hero-copy reveal">
+    <div class="reveal">
       <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
-      <h1>Next week's schedule in minutes, <em>not your night off.</em></h1>
-      <p class="lead">Build the week on your phone or computer. Rotaserie flags time off, overtime and short shifts as you go, then puts the schedule on every phone in one tap.</p>
+      <h1>Type the week. <em>Get the schedule.</em></h1>
+      <p class="lead">Write “maria tue-fri 9-5” the way you'd text it, and the shifts are ready to add with one tap. Rotaserie catches time off, overtime and short days as you go, then sends the week to everyone's email and phone.</p>
       <div class="hero-actions">
-        <a class="btn" href="#start">Get started</a>
-        <a class="btn btn-ghost" href="#features">See how it works
+        <a class="btn" href="#start" data-start>Get early access</a>
+        <a class="btn btn-ghost" href="#managers">See how it works
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       </div>
-      <ul class="hero-points">
-        <li>No app store: staff scan a QR code and they're in</li>
+      <ul class="ticks">
+        <li>On any phone or computer</li>
+        <li>No app to download</li>
         <li>English and Spanish</li>
-        <li>Set up for you, in person</li>
       </ul>
     </div>
-    <div class="hero-visual reveal" aria-label="Rotaserie on a laptop and a phone">
-      <figure class="laptop">
-        <div class="laptop-bar"><i></i><i></i><i></i><span>Rotaserie · Schedule builder</span></div>
-        <img src="img/d_builder.webp" width="1440" height="814" alt="The schedule builder on a computer: a week grid of people and shifts" data-zoom>
-      </figure>
-      <figure class="phone phone-hero">
-        <img src="img/p_builder_light.webp" width="390" height="844" alt="The schedule builder on an iPhone" data-zoom>
-      </figure>
-      <div class="float-card fc-1" aria-hidden="true"><b>Published</b><span>Everyone notified</span></div>
+    <div class="reveal">
+      <div class="demo" data-demo role="img" aria-label="Demo: typing “maria tue-fri 9-5”, “sam sat 4p-11p” and “lee sun 10-6 cook” puts six shifts on the week">
+        <div class="demo-top">Type to Build <span class="beta">BETA</span><span class="wk">Mon 16 – Sun 22</span></div>
+        <div class="demo-box" data-demo-box>maria tue-fri 9-5
+sam sat 4p-11p
+lee sun 10-6 cook</div>
+        <p class="demo-read" data-demo-read aria-live="off"></p>
+        <div class="week" data-demo-week aria-hidden="true"></div>
+        <div class="demo-foot"><span data-demo-count></span><b>Ready to publish</b></div>
+      </div>
+      <p class="demo-cap">Names, days and times in any order. If a line isn't clear, it asks or shows what it guessed.</p>
     </div>
   </div>
 </section>
@@ -75,49 +78,91 @@
 <!-- VALUE STRIP -->
 <section class="strip">
   <div class="wrap strip-in">
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><b>Faster weeks</b><p>Copy last week, fix what changed, publish.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, double-booking and overtime, flagged as you build.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18h2"/></svg></span><b>Swaps without texts</b><p>Staff trade and pick up shifts; you approve in a tap.</p></div>
-    <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours, cost and labor % of sales before you publish.</p></div>
+    <div class="reveal"><span class="ico" style="--tc:#2f6f5e"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 15h10"/></svg></span><b>Faster weeks</b><p>Type it, copy last week, or tap your usual shifts. Then publish.</p></div>
+    <div class="reveal"><span class="ico" style="--tc:#c0612b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, overtime and rest flagged as you build. Nobody can be double-booked.</p></div>
+    <div class="reveal"><span class="ico" style="--tc:#3d63b8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></span><b>Swaps without texts</b><p>Staff trade and pick up shifts. You approve in a tap.</p></div>
+    <div class="reveal"><span class="ico" style="--tc:#8a3a8f"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours for every manager; cost for owners, before the week goes out.</p></div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="chapter" id="features">
+<!-- MANAGERS -->
+<section class="chapter" id="managers">
   <div class="wrap split">
-    <div class="ch-copy reveal">
+    <div class="reveal">
       <p class="eyebrow">For managers</p>
       <h2>The whole week on one screen.</h2>
-      <p class="lead">Drag shifts between people and days, or build from your phone. Every problem shows up while you work, not after the schedule is out.</p>
+      <p class="lead">Drag shifts between people and days, type them in, or let Rotaserie suggest who can take the open ones.</p>
       <ul class="checks">
-        <li><b>Your usual shifts</b> one click away, or copy last week</li>
-        <li><b>Who can take it?</b> The best person for each open shift, ranked</li>
+        <li><b>Type to Build:</b> a line per person, and the week fills in</li>
+        <li><b>Fill open shifts</b> with people who are free and can work the role; turn on Guaranteed fill and it never adds a labor-rule problem</li>
         <li><b>Live checks</b> for time off, overtime, short staffing and rest</li>
-        <li><b>Publish</b> by email and phone alert, then only changes are sent</li>
+        <li><b>Review and publish:</b> by email and phone alert, then only changes are sent</li>
       </ul>
     </div>
-    <figure class="laptop reveal">
-      <div class="laptop-bar"><i></i><i></i><i></i><span>Problems · Quick add</span></div>
-      <img src="img/d_problems.webp" width="1440" height="814" loading="lazy" alt="The builder's problem list, with the quick-add menu of usual shift times" data-zoom>
+    <figure class="screen reveal">
+      <img class="lt" src="img/new/d_builder_light.webp" width="1280" height="800" loading="lazy" alt="The schedule builder on a computer: a week of people and shifts, with the day's coverage above each column" data-zoom>
+      <img class="dk" src="img/new/d_builder_dark.webp" width="1280" height="800" loading="lazy" alt="The schedule builder on a computer, at night" data-zoom>
     </figure>
   </div>
 </section>
 
-<section class="chapter alt">
-  <div class="wrap">
-    <div class="ch-head reveal">
-      <p class="eyebrow">For your staff</p>
-      <h2>Their schedule, on their phone.</h2>
-      <p class="lead">No download. Staff see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
+<!-- PHONE FOR MANAGERS -->
+<section class="chapter">
+  <div class="wrap split flip">
+    <div class="reveal">
+      <p class="eyebrow">From your phone</p>
+      <h2>Run the week <em>between rushes.</em></h2>
+      <p class="lead">Today shows who's short and what's waiting. Type a few lines to fill the gaps, check the week, and publish without opening a laptop.</p>
+      <ul class="checks">
+        <li><b>Today:</b> who's working, who's short, requests waiting</li>
+        <li><b>Review before it goes out:</b> shifts, people, hours and anything urgent</li>
+        <li><b>Find cover</b> when someone calls out, ranked by who can take it</li>
+      </ul>
     </div>
-    <div class="phones three reveal">
-      <figure class="phone"><img src="img/p_home_light.webp" width="390" height="844" loading="lazy" alt="Staff home screen with the next shift and a countdown" data-zoom><figcaption>Next shift</figcaption></figure>
-      <figure class="phone lift"><img src="img/p_market.webp" width="390" height="844" loading="lazy" alt="Open shifts with estimated pay" data-zoom><figcaption>Open shifts</figcaption></figure>
-      <figure class="phone"><img src="img/p_approvals.webp" width="390" height="844" loading="lazy" alt="The manager's request inbox" data-zoom><figcaption>Requests, approved in a tap</figcaption></figure>
+    <div class="pair reveal">
+      <figure class="phone">
+        <img class="lt" src="img/new/p_ttb_light.webp" width="780" height="1688" loading="lazy" alt="Type to Build on a phone: three typed lines and the shifts they made" data-zoom>
+        <img class="dk" src="img/new/p_ttb_dark.webp" width="780" height="1688" loading="lazy" alt="Type to Build on a phone, at night" data-zoom>
+        <figcaption>Type to Build</figcaption>
+      </figure>
+      <figure class="phone">
+        <img class="lt" src="img/new/p_today_light.webp" width="780" height="1688" loading="lazy" alt="The manager's Today page: short staffing, Review and publish, requests and open shifts" data-zoom>
+        <img class="dk" src="img/new/p_today_dark.webp" width="780" height="1688" loading="lazy" alt="The manager's Today page, at night" data-zoom>
+        <figcaption>Today</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
+<!-- STAFF -->
+<section class="chapter" id="staff">
+  <div class="wrap">
+    <div class="ch-head reveal">
+      <p class="eyebrow">For your staff</p>
+      <h2>Their schedule, on their phone.</h2>
+      <p class="lead">No download. You add them; they scan your QR code to put Rotaserie on their phone, sign in once, and see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
+    </div>
+    <div class="phones reveal">
+      <figure class="phone">
+        <img class="lt" src="img/new/p_home_light.webp" width="780" height="1688" loading="lazy" alt="Staff home: the next shift in two days, with who else is working" data-zoom>
+        <img class="dk" src="img/new/p_home_dark.webp" width="780" height="1688" loading="lazy" alt="Staff home at night" data-zoom>
+        <figcaption>Next shift<span>with who's on with you</span></figcaption>
+      </figure>
+      <figure class="phone lift">
+        <img class="lt" src="img/new/p_market_light.webp" width="780" height="1688" loading="lazy" alt="Open shifts to pick up, with estimated pay" data-zoom>
+        <img class="dk" src="img/new/p_market_dark.webp" width="780" height="1688" loading="lazy" alt="Open shifts at night" data-zoom>
+        <figcaption>Open shifts<span>pick one up in a tap</span></figcaption>
+      </figure>
+      <figure class="phone">
+        <img class="lt" src="img/new/p_schedule_light.webp" width="780" height="1688" loading="lazy" alt="The week's schedule on a phone" data-zoom>
+        <img class="dk" src="img/new/p_schedule_dark.webp" width="780" height="1688" loading="lazy" alt="The week's schedule at night" data-zoom>
+        <figcaption>The week<span>everyone's shifts</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- OWNERS -->
 <section class="chapter">
   <div class="wrap">
     <div class="ch-head reveal">
@@ -125,55 +170,93 @@
       <h2>Know where the week stands.</h2>
     </div>
     <div class="features reveal">
-      <div class="feature"><h3>Labor % of sales</h3><p>Upload a daily sales export from Aloha, Clover, Square or Toast. No integration fees.</p></div>
+      <div class="feature"><h3>Labor cost as you build</h3><p>Cost per day and week, and labor % of sales from your point-of-sale's daily export. Wages and labor cost are for owners; staff see only their own estimated pay.</p></div>
       <div class="feature"><h3>Thursday summary</h3><p>Next week's hours, cost, overtime and open shifts, in your inbox.</p></div>
-      <div class="feature"><h3>Washington-ready</h3><p>Overtime, meal breaks, minors' hours and local minimum wage, checked for you.</p></div>
-      <div class="feature"><h3>Works with your POS</h3><p>Keep clocking in where you do now. Rotaserie handles the schedule.</p></div>
-      <div class="feature"><h3>Set up in a day</h3><p>Paste your staff list from a spreadsheet, or we'll do it with you.</p></div>
-      <div class="feature"><h3>Your data is yours</h3><p>Nightly backups and a one-click export of everything.</p></div>
+      <div class="feature"><h3>Labor rules built in</h3><p>Overtime and rest between shifts checked everywhere, and nobody can be double-booked. Washington (breaks, minors' hours, minimum wage), California (daily overtime, breaks) and Seattle minimum wage are ready.</p></div>
+      <div class="feature"><h3>Keep your time clock</h3><p>Keep clocking in where you do now, or use Rotaserie's own clock and pay summary.</p></div>
+      <div class="feature"><h3>Set up in a day</h3><p>Paste your staff list from a spreadsheet, or we'll set it up with you.</p></div>
+      <div class="feature"><h3>Your data is yours</h3><p>Nightly backups, two-step sign-in, and a full export of your data whenever you want it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- KINDS OF BUSINESS -->
+<section class="chapter" id="kinds">
+  <div class="wrap">
+    <div class="ch-head reveal">
+      <p class="eyebrow">Made for small teams</p>
+      <h2>Built at a restaurant. <em>Ready for yours.</em></h2>
+      <p class="lead">Pick your kind of business when you sign up, and Rotaserie starts with its usual roles and shift times.</p>
+    </div>
+    <div class="kinds reveal">
+      <div class="kind"><span class="ico" style="--tc:#b3261e"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M16 21V3c-2.5 1-3.5 4-3.5 8h3.5"/></svg></span>
+        <h3>Restaurants</h3><p>Servers, cooks and bussers, doubles and split shifts, tips.</p><p class="say">maria tue-fri 4p-10p</p></div>
+      <div class="kind"><span class="ico" style="--tc:#8a5a2b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg></span>
+        <h3>Cafés and bakeries</h3><p>Early openers, baristas and the morning rush.</p><p class="say">jo mon-fri 6a-2p</p></div>
+      <div class="kind"><span class="ico" style="--tc:#3d63b8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 12h-13zM9 7a3 3 0 0 1 6 0"/></svg></span>
+        <h3>Shops</h3><p>Opening, closing and weekend cover for the floor and the register.</p><p class="say">ben sat-sun 10-6</p></div>
+      <div class="kind"><span class="ico" style="--tc:#a2407a"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 18M8.6 16.4 20 6"/></svg></span>
+        <h3>Salons</h3><p>Stylists' days and the front desk, with time off in one place.</p><p class="say">ana tue-sat 9-5</p></div>
+      <div class="kind"><span class="ico" style="--tc:#2f8a6e"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg></span>
+        <h3>Fitness studios</h3><p>Front desk, trainers and instructors, early and late.</p><p class="say">kai mon wed fri 5a-1p</p></div>
+      <div class="kind"><span class="ico" style="--tc:#c08a00"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5l3 3 5.7-5.7a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></span>
+        <h3>Field service</h3><p>Technicians, helpers and dispatch, with on-call shifts.</p><p class="say">rico mon-thu 7-5</p></div>
     </div>
   </div>
 </section>
 
 <!-- PROOF: SPIROS -->
 <section class="band" id="clients">
-  <div class="wrap band-in">
-    <div class="reveal">
-      <p class="eyebrow light">Clients</p>
-      <h2>Spiros runs on Rotaserie.</h2>
-      <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, and it runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
-      <div class="hero-actions"><a class="btn btn-light" href="about.html">Read the story</a>
-        <a class="btn btn-outline-light" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros</a></div>
+  <div class="wrap">
+    <div class="band-in reveal">
+      <div>
+        <p class="eyebrow">Where it started</p>
+        <h2>Spiros runs on Rotaserie.</h2>
+        <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, to give a busy manager her time back. It runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
+        <div class="hero-actions"><a class="btn" href="about.html">Read the story</a>
+          <a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros</a></div>
+      </div>
+      <figure class="place-photo">
+        <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
+        <figcaption>Spiro's Pizza &amp; Pasta, Shoreline, Washington</figcaption>
+      </figure>
     </div>
-    <figure class="place-photo band-photo reveal">
-      <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
-      <figcaption>Spiro's Pizza &amp; Pasta, Shoreline, Washington</figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="chapter alt" id="faq">
+<section class="chapter" id="faq">
   <div class="wrap faq-wrap">
     <div class="ch-head reveal"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
     <div class="faq reveal">
+      <details><summary>Do I have to type the schedule?</summary><p>No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a regular schedule that fills itself in.</p></details>
       <details><summary>Do my staff need to download an app?</summary><p>No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app.</p></details>
-      <details><summary>Does it replace my POS or time clock?</summary><p>No. Keep clocking in on your POS. Rotaserie handles the schedule, swaps, time off and messages around it.</p></details>
+      <details><summary>Is it only for restaurants?</summary><p>No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times.</p></details>
+      <details><summary>Does it replace my point of sale or time clock?</summary><p>No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one.</p></details>
       <details><summary>Is it in Spanish?</summary><p>Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts.</p></details>
-      <details><summary>How much does it cost?</summary><p>One simple price per location, everything included. Get in touch and we'll walk you through it.</p></details>
+      <details><summary>How much does it cost?</summary><p>One simple price per location, everything included. Ask for early access and we'll walk you through it.</p></details>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- GET EARLY ACCESS -->
 <section class="cta" id="start">
-  <div class="wrap cta-in reveal">
-    <img src="img/logo.svg" alt="" width="56" height="56">
-    <h2>Give your next schedule the night off.</h2>
-    <p class="lead">We'll set up your restaurant with you, and your team can be on it the same day.</p>
-    <div class="hero-actions center">
-      <a class="btn btn-light" href="mailto:robertebanchero@gmail.com?subject=Rotaserie%20demo" data-contact>Book a demo</a>
-      <a class="btn btn-outline-light" href="about.html">About us</a>
+  <div class="wrap">
+    <div class="early reveal">
+      <img src="img/logo.svg" alt="" width="60" height="60">
+      <h2>Give your next schedule <em>the night off.</em></h2>
+      <p class="lead">Rotaserie is in early access. Tell us about your business and we'll set it up with you; your team can be on it the same day.</p>
+      <form data-early action="mailto:robertebanchero@gmail.com" method="get">
+        <input type="hidden" name="subject" value="Rotaserie early access">
+        <label>Your business<input name="business" autocomplete="organization" placeholder="e.g. Lilac Street Café" required></label>
+        <label>Kind of business
+          <select name="kind">
+            <option>Restaurant</option><option>Café or bakery</option><option>Shop</option><option>Salon</option>
+            <option>Fitness studio</option><option>Field service</option><option>Something else</option>
+          </select></label>
+        <button class="btn" type="submit">Get early access</button>
+      </form>
+      <p class="small" data-mailnote>This opens an email to Robert, the founder. Or write to <a href="mailto:robertebanchero@gmail.com?subject=Rotaserie%20early%20access">robertebanchero@gmail.com</a>.</p>
     </div>
   </div>
 </section>
@@ -182,8 +265,8 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="26" height="26">Rotaserie<span class="by">by Spiros</span></a>
-    <p>Restaurant scheduling, built in Washington State. <a href="about.html">About us</a> · <a href="about.html#founder">Our founder</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
     <p class="muted">© <span data-year>2026</span> Rotaserie</p>
   </div>
 </footer>

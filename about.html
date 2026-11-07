@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About Rotaserie · Built at Spiros</title>
-<meta name="description" content="Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, by Robert Banchero to give his mom her time back. Now it's helping other restaurants do the same.">
-<meta name="theme-color" content="#2f6f5e">
+<meta name="description" content="Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, by Robert Banchero to give his mom her time back. Now it's ready to help other small businesses do the same.">
+<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="About Rotaserie · Built at Spiros">
-<meta property="og:description" content="Restaurant scheduling built at a working restaurant, to give a busy manager her time back.">
-<meta property="og:image" content="img/d_builder.webp">
+<meta property="og:description" content="Scheduling built at a working restaurant, to give a busy manager her time back.">
+<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -22,11 +22,12 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie by Spiros, home"><img src="img/logo.svg" alt="" width="30" height="30">Rotaserie<span class="by">by Spiros</span></a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie<span class="by">by Spiros</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="index.html#features">Features</a>
-      <a href="#clients">Clients</a>
-      <a href="#founder">Founder</a>
+      <a href="index.html#managers">For managers</a>
+      <a href="index.html#staff">For staff</a>
+      <a href="index.html#kinds">Businesses</a>
+      <a href="about.html">About</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -34,7 +35,7 @@
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="index.html#start">Get started</a>
+      <a class="btn btn-sm" href="index.html#start" data-start>Get early access</a>
     </div>
   </div>
 </header>
@@ -45,8 +46,8 @@
 <section class="hero about-hero">
   <div class="wrap about-intro reveal">
     <p class="pill"><span class="dot"></span>About us</p>
-    <h1>Built at a restaurant, <em>for restaurants.</em></h1>
-    <p class="lead">Rotaserie is scheduling made by people who've worked the floor. It isn't built for an office; it's built for the manager making next week's schedule on a phone between lunch and dinner.</p>
+    <h1>Built at a restaurant, <em>for small teams.</em></h1>
+    <p class="lead">Rotaserie is scheduling made by someone who grew up working the floor. It isn't built for an office; it's built for the manager making next week's schedule on a phone between rushes, at a restaurant, café, shop, salon or studio.</p>
   </div>
 </section>
 
@@ -76,15 +77,15 @@
 <section class="chapter">
   <div class="wrap">
     <div class="values reveal">
-      <div><b>Simple first</b><p>If it takes a training session, it's too complicated. Staff are in by scanning a QR code.</p></div>
+      <div><b>Simple first</b><p>If it takes a training session, it's too complicated. Staff scan a QR code, sign in once, and they're set.</p></div>
       <div><b>Set up with you</b><p>We help you get your team, roles and usual shifts in, so you're running the same day.</p></div>
-      <div><b>One fair price</b><p>Everything included, no add-ons, and your data is always yours to take with you.</p></div>
+      <div><b>One fair price</b><p>One price per location with everything included, and your data is always yours to take with you.</p></div>
     </div>
   </div>
 </section>
 
 <!-- SPIROS -->
-<section class="chapter alt" id="clients">
+<section class="chapter" id="clients">
   <div class="wrap split">
     <div class="ch-copy reveal">
       <p class="eyebrow">Clients</p>
@@ -94,7 +95,7 @@
         <li>The weekly schedule is built and published in Rotaserie</li>
         <li>Staff swap shifts, pick up open ones and request time off from their phones</li>
         <li>Managers approve requests in one place instead of in group texts</li>
-        <li>Every feature is shaped by how a real restaurant week works</li>
+        <li>Every feature is shaped by how a real week at a small business works</li>
       </ul>
       <div class="hero-actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
@@ -108,23 +109,24 @@
 
 <!-- CTA -->
 <section class="cta" id="start">
-  <div class="wrap cta-in reveal">
+  <div class="wrap"><div class="early reveal">
     <img src="img/logo.svg" alt="" width="56" height="56">
-    <h2>Let's give you your time back.</h2>
-    <p class="lead">Tell us about your restaurant, and we'll set it up with you.</p>
+    <h2>Let's give you <em>your time back.</em></h2>
+    <p class="lead">Tell us about your business, and we'll set it up with you.</p>
     <div class="hero-actions center">
-      <a class="btn btn-light" href="mailto:robertebanchero@gmail.com?subject=Rotaserie%20demo" data-contact>Book a demo</a>
-      <a class="btn btn-outline-light" href="index.html#features">See the features</a>
+      <a class="btn" href="index.html#start" data-start>Get early access</a>
+      <a class="btn btn-ghost" href="index.html#managers">See how it works</a>
     </div>
   </div>
+</div>
 </section>
 
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="26" height="26">Rotaserie<span class="by">by Spiros</span></a>
-    <p>Restaurant scheduling, built in Washington State. <a href="about.html">About us</a> · <a href="about.html#founder">Our founder</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
     <p class="muted">© <span data-year>2026</span> Rotaserie</p>
   </div>
 </footer>

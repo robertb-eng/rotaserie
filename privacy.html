@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy Policy · Rotaserie</title>
 <meta name="description" content="Privacy Policy for Rotaserie, restaurant scheduling built in Washington State.">
-<meta name="theme-color" content="#2f6f5e">
+<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Privacy Policy · Rotaserie">
-<meta property="og:image" content="img/d_builder.webp">
+<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -21,11 +21,12 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie by Spiros, home"><img src="img/logo.svg" alt="" width="30" height="30">Rotaserie<span class="by">by Spiros</span></a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie<span class="by">by Spiros</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="index.html#features">Features</a>
-      <a href="#clients">Clients</a>
-      <a href="#founder">Founder</a>
+      <a href="index.html#managers">For managers</a>
+      <a href="index.html#staff">For staff</a>
+      <a href="index.html#kinds">Businesses</a>
+      <a href="about.html">About</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -33,7 +34,7 @@
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="index.html#start">Get started</a>
+      <a class="btn btn-sm" href="index.html#start" data-start>Get early access</a>
     </div>
   </div>
 </header>
@@ -182,8 +183,8 @@ Questions or requests: <a href="mailto:robertebanchero@gmail.com">robertebancher
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="26" height="26">Rotaserie<span class="by">by Spiros</span></a>
-    <p>Restaurant scheduling, built in Washington State. <a href="about.html">About us</a> · <a href="about.html#founder">Our founder</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
     <p class="muted">© <span data-year>2026</span> Rotaserie</p>
   </div>
 </footer>
