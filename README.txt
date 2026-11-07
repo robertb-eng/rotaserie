@@ -7,7 +7,7 @@ Plain HTML, CSS and a little JavaScript: no build step, and it works on any web 
   index.html    home: Type to Build demo, See it work (walkthrough clips), managers, staff, owners, kinds of business, Spiros, FAQ, Get early access
   about.html    about us, Spiros, and the founder's story
   styles.css    the design (light and dark mode, phone to wide screen)
-  site.js       light/dark switch, fade-in on scroll, the Type to Build demo, early access form, click-to-zoom
+  site.js       light/dark switch, fade-in on scroll, the Type to Build demo, the walkthrough player, early access form, click-to-zoom
                 (SIGNUP_URL at the top: set it to https://app.rotaserie.com/signup when signup opens)
   fonts/        the app's fonts (Atkinson Hyperlegible Next, Newsreader), self-hosted: no Google Fonts
   img/tour/     walkthrough clips: <clip>-<light|dark>.webm/.mp4 and -poster.webp (ttb, publish, fill, staff)
