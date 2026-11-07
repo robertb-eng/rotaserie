@@ -71,7 +71,7 @@ p{margin:0}
 .strip-in>div,.feature,.faq details,.kind,.demo,.early,.values>div,.founder-card,.legal,.tour-list button[aria-selected=true]{
   background:var(--frost),linear-gradient(180deg,var(--gp-top),var(--gp-bot));border-radius:var(--r);
   -webkit-backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);
-  box-shadow:inset 0 1px 0 var(--lip),inset 0 0 0 1px var(--ring),0 1px 2px rgba(20,40,80,.05),0 14px 36px -6px rgba(20,40,80,.16)}
+  box-shadow:inset 0 1px 0 var(--lip),inset 0 0 0 1px var(--ring),var(--shadow)}
 /* (inside a panel: no second grain) */
 :is(.strip-in>div,.feature,.faq details,.kind,.demo,.early,.values>div,.founder-card,.legal) *{--frost:none}
 /* no blur, or less transparency asked for: solid panels (light ones by day, dark ones at night) */
@@ -299,9 +299,9 @@ p{margin:0}
 
 /* the walkthrough (Nov 7 2026): chapters on the left, the real app playing on the right in a phone or a laptop frame;
    hidden without JavaScript (the clips are chosen and started by site.js) */
-html:not(.js) .tour{display:none}
+.tour:not(.tour-on){display:none}  /* (shown by site.js: without it there's nothing to play) */
 .tour-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
-.tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch}
+.tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch;--r:22px}
 .tour-list li{counter-increment:ch}
 .tour-list button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:52px 1fr;column-gap:14px;width:100%;cursor:pointer;
   position:relative;overflow:hidden;padding:18px 22px;border-radius:22px;color:var(--ink);transition:background .25s,box-shadow .25s}
@@ -313,7 +313,6 @@ html:not(.js) .tour{display:none}
 .tour-list i{position:absolute;left:22px;right:22px;bottom:9px;height:2px;border-radius:2px;background:var(--line);opacity:0;transition:opacity .25s}
 .tour-list i:after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--accent);transform-origin:left;transform:scaleX(var(--p,0))}
 .tour-list button:not([aria-selected=true]):hover{background:var(--bubble)}
-.tour-list button[aria-selected=true]{border-radius:22px}  /* (the glass recipe above) */
 .tour-list button[aria-selected=true]:before{color:var(--accent-text);opacity:1}
 .tour-list button[aria-selected=true] span{max-height:320px;opacity:1}
 .tour-list button[aria-selected=true] i{opacity:1}

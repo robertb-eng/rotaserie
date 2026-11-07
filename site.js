@@ -126,10 +126,12 @@
     }
   }
 
-  // The walkthrough: real app clips, one at a time. Nothing loads (not even the still) until the section is in view;
-  // clips come in the visitor's theme and follow it if it changes; when one ends the next plays, once through, then it
-  // rests. A pause button is always there (WCAG 2.2.2), and a pause holds until the visitor plays again; with reduced
-  // motion nothing plays until asked. Without JavaScript the section is hidden (styles.css). Clips: README.
+  // The walkthrough: real app clips, one at a time, once through. One state, `going` (not `running`: the demo above has one, and `var`s share the function), says whether the walkthrough is
+  // going (playing, or between two clips): the button shows it (pause while going, play otherwise; WCAG 2.2.2), the
+  // visitor's pause stops it, picking a chapter or Play starts it. Off screen the clip waits and picks up on return.
+  // Nothing loads (not even the still) until the section is seen; clips come in the visitor's theme (a theme change
+  // starts the chapter again in the new colours). Reduced motion: nothing plays until asked, and no next clip follows.
+  // The section is shown only once this runs (class tour-on); the clips are described in README.
   var tour = document.querySelector('.tour');
   if (tour) {
     var tabs = [].slice.call(tour.querySelectorAll('[data-clip]'));
@@ -139,83 +141,74 @@
       fill: 'Fill open shifts on a computer: who can take each open shift and why, then Fill these shifts',
       staff: 'A staff member picks up an open shift from their phone'};
     var calm = matchMedia('(prefers-reduced-motion: reduce)').matches, hasIO = 'IntersectionObserver' in window;
-    var seen = !hasIO, met = !hasIO, cur = 0, played = 0, next = 0, held = false, resume = false;
-    var setBtn = function (playing) {
-      btn.classList.toggle('pausing', playing);
-      btn.setAttribute('aria-label', playing ? 'Pause the walkthrough' : 'Play the walkthrough');
+    var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0;
+    var setRunning = function (on) {
+      going = on;
+      if (!on) clearTimeout(timer);
+      btn.classList.toggle('pausing', on);
+      btn.setAttribute('aria-label', on ? 'Pause the walkthrough' : 'Play the walkthrough');
     };
-    var go = function () {
-      held = false;
+    var play = function () {
       var p = video.play();
-      if (p && p.catch) p.catch(function (err) { if (err && err.name === 'NotAllowedError') setBtn(false); });
+      if (p && p.catch) p.catch(function (err) { if (err && err.name === 'NotAllowedError') setRunning(false); });
     };
-    var src = function (name) {
-      var b = 'img/tour/' + name + '-' + (isDark() ? 'dark' : 'light');
-      return {webm: b + '.webm', mp4: b + '.mp4', poster: b + '-poster.webp'};
-    };
-    // show chapter i: its still (once the section has been seen), its clip if start, from time `at`
-    var show = function (i, start, at) {
-      clearTimeout(next);  // (a chapter picked meanwhile wins over the automatic next one)
+    // load chapter i (its still once the section has been seen; its clip only when `withClip`), and play it if going and seen
+    var load = function (i, withClip) {
+      clearTimeout(timer);
       cur = i;
-      var b = tabs[i], s = src(b.dataset.clip);
+      var b = tabs[i], base = 'img/tour/' + b.dataset.clip + '-' + (isDark() ? 'dark' : 'light');
       tabs.forEach(function (x, k) {
         x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.tabIndex = k === i ? 0 : -1; x.style.setProperty('--p', 0);
       });
       stage.dataset.frame = b.dataset.frame;
       stage.setAttribute('aria-labelledby', b.id);
       video.setAttribute('aria-label', LABELS[b.dataset.clip] || '');
-      if (met) video.poster = s.poster;
-      video.innerHTML = start || at ? '<source src="' + s.webm + '" type="video/webm"><source src="' + s.mp4 + '" type="video/mp4">' : '';
-      video.preload = at ? 'metadata' : 'none';  // (to land on the same moment, a paused clip needs its length and seek points)
+      if (met) video.poster = base + '-poster.webp';
+      video.innerHTML = withClip ? '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">' : '';
       video.load();
-      if (at) video.addEventListener('loadedmetadata', function once() { video.removeEventListener('loadedmetadata', once); video.currentTime = at; });
-      if (start) go(); else setBtn(false);
+      if (going && seen) play();
     };
+    var start = function (i) { played = 0; setRunning(true); load(i, true); };
     video.addEventListener('timeupdate', function () {
       if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
     });
-    video.addEventListener('play', function () { setBtn(true); });
-    video.addEventListener('pause', function () { if (!video.ended && !resume) setBtn(false); });  // (an ending is handled below)
     video.addEventListener('ended', function () {
       tabs[cur].style.setProperty('--p', 1);
       played++;
-      if (calm || played >= tabs.length || !seen) { setBtn(false); return; }  // (once through, then it rests)
-      next = setTimeout(function () { if (seen && !held) show((cur + 1) % tabs.length, true); else setBtn(false); }, 900);
+      if (calm || played >= tabs.length) { setRunning(false); return; }  // (once through, then it rests)
+      timer = setTimeout(function () { load((cur + 1) % tabs.length, true); }, 900);  // (waits off screen: see below)
     });
-    var bring = function () {  // on a phone the stage sits above the list: bring it into view for a picked chapter
-      var r = stage.getBoundingClientRect();
-      if (r.bottom < 60 || r.top > innerHeight - 60) stage.scrollIntoView({block: 'nearest', behavior: calm ? 'auto' : 'smooth'});
-    };
     btn.addEventListener('click', function () {
-      if (!video.paused) { held = true; video.pause(); setBtn(false); return; }
-      played = 0;
-      if (!video.currentSrc || video.ended) show(video.ended ? (cur + 1) % tabs.length : cur, true); else go();
+      if (going) { setRunning(false); video.pause(); return; }
+      start(video.ended || !video.currentSrc ? (video.ended ? (cur + 1) % tabs.length : cur) : cur);
     });
+    var bring = function () {  // on a phone the stage sits above the list: a picked chapter's clip comes into view
+      var r = stage.getBoundingClientRect(), shown = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      if (shown < r.height * 0.6) stage.scrollIntoView({block: 'nearest', behavior: calm ? 'auto' : 'smooth'});
+    };
     tabs.forEach(function (b, i) {
-      b.addEventListener('click', function () { played = 0; show(i, true); bring(); });
+      b.addEventListener('click', function () { start(i); bring(); });
       b.addEventListener('keydown', function (ev) {  // a tab list: arrows, Home and End move the focus; Enter or Space plays
         var n = {ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1}[ev.key];
         if (n === undefined) return;
         ev.preventDefault(); tabs[(n + tabs.length) % tabs.length].focus();
       });
     });
-    var retheme = function () {  // the same chapter in the new colours, at the same moment, playing only if it was
-      var was = !video.paused && !held, at = video.currentSrc ? video.currentTime : 0;
-      show(cur, was && seen, at);
-    };
+    var retheme = function () { load(cur, going || !!video.currentSrc); };
     if (toggle) toggle.addEventListener('click', retheme);
     var dark = matchMedia('(prefers-color-scheme: dark)');
     if (dark.addEventListener) dark.addEventListener('change', function () { if (!root.dataset.theme) retheme(); });
-    show(0, false);
+    if (!calm && hasIO) setRunning(true);  // (it starts by itself the first time it's seen)
+    else setRunning(false);
+    load(0, false);
     if (hasIO) new IntersectionObserver(function (entries) {
       seen = entries[0].isIntersecting;
-      if (seen && !met) { met = true; video.poster = src(tabs[cur].dataset.clip).poster; }
-      if (seen && video.paused && !calm && !held && played < tabs.length) {
-        if (!video.currentSrc) show(cur, true);
-        else if (video.ended) show((cur + 1) % tabs.length, true);  // (it ended while out of view: on to the next)
-        else if (resume) { resume = false; go(); }
-      } else if (!seen && !video.paused) { resume = !calm; video.pause(); if (calm) setBtn(false); }
+      if (seen && !met) { met = true; load(cur, going); return; }
+      if (seen && going && video.paused && !video.ended) { if (!video.currentSrc) load(cur, true); else play(); }
+      else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
     }, {threshold: 0.35}).observe(stage);
+    tour.classList.add('tour-on');
+    document.querySelectorAll('a[href="#managers"][data-tour]').forEach(function (a) { a.href = '#tour'; });
   }
 
   // Click a screenshot to see it full size

@@ -41,8 +41,6 @@ UPDATING SCREENSHOTS
 WALKTHROUGH CLIPS
   img/tour/ holds four clips recorded from the real app (demo business, sample data set up per clip),
   phone 780x1688 and computer 1600x1024, each light and dark: WebM (VP9) + MP4 (H.264) + a WebP poster
-  taken from the middle of the clip. They're made on Robert's computer by
-  ~/Documents/Rotaserie-ui-before/rec_scenes.py (uses rec.py there: headless Edge + ffmpeg), e.g.
-  SCHEME=dark SCENES=ttb,publish,staff python3 rec_scenes.py, and SCENES=fill on its own run (the
-  publish clip publishes the draft Fill needs). Retake them, and the screenshots, when the app's look
+  taken from the middle of the clip. They're recorded with the app's private screenshot tools (see the
+  notes); the Fill clip is recorded on its own, after the others. Retake them, and the screenshots, when the app's look
   or these features change; keep the captions in index.html true for every business's settings.
