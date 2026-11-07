@@ -301,7 +301,7 @@ p{margin:0}
    hidden without JavaScript (the clips are chosen and started by site.js) */
 html:not(.js) .tour{display:none}  /* (no JavaScript, nothing to play; .js is set in <head>, so #tour links land) */
 .tour-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
-.tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch;--r:22px}
+.tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch;--r:22px;grid-column:1;grid-row:1}  /* (the stage comes first in the page, for focus order on phones; here it sits right) */
 .tour-list li{counter-increment:ch}
 .tour-list button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:52px 1fr;column-gap:14px;width:100%;cursor:pointer;
   position:relative;overflow:hidden;padding:18px 22px;border-radius:22px;color:var(--ink);transition:background .25s,box-shadow .25s}
@@ -316,7 +316,7 @@ html:not(.js) .tour{display:none}  /* (no JavaScript, nothing to play; .js is se
 .tour-list button[aria-selected=true]:before{color:var(--accent-text);opacity:1}
 .tour-list button[aria-selected=true] span{max-height:320px;opacity:1}
 .tour-list button[aria-selected=true] i{opacity:1}
-.tour-stage{position:relative;justify-self:center;width:100%;background:#0b0f14;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2b323b;
+.tour-stage{position:relative;justify-self:center;width:100%;grid-column:2;grid-row:1;background:#0b0f14;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2b323b;
   transition:max-width .5s cubic-bezier(.2,.7,.2,1),border-radius .5s,padding .5s}
 .tour-stage video{display:block;width:100%;height:auto;background:var(--bg);transition:border-radius .5s}
 .tour-stage[data-frame=phone]{max-width:300px;border-radius:46px;padding:9px}
@@ -339,7 +339,7 @@ html:not(.js) .tour{display:none}  /* (no JavaScript, nothing to play; .js is se
 @media (max-width:1000px){
   .hero-in,.split,.split.flip,.band-in,.founder,.tour-in{grid-template-columns:1fr}
   .tour-in{gap:34px}
-  .tour-stage{order:-1}
+  .tour-list,.tour-stage{grid-column:auto;grid-row:auto}
   .split.flip>:first-child{order:0}
   .strip-in{grid-template-columns:repeat(2,minmax(0,1fr))}
   .features,.kinds,.values{grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -140,7 +140,8 @@
       publish: 'Review and publish on a phone: the week at a glance, then Publish schedule',
       fill: 'Fill open shifts on a computer: who can take each open shift and why, then Fill these shifts',
       staff: 'A staff member picks up an open shift from their phone'};
-    var calm = matchMedia('(prefers-reduced-motion: reduce)').matches, hasIO = 'IntersectionObserver' in window;
+    var still = matchMedia('(prefers-reduced-motion: reduce)'), calm = still.matches, hasIO = 'IntersectionObserver' in window;
+    if (still.addEventListener) still.addEventListener('change', function () { calm = still.matches; if (calm && going) { setGoing(false); video.pause(); } });
     var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0, atEnd = false;
     var setGoing = function (on) {
       going = on;
@@ -166,7 +167,7 @@
       if (met) video.poster = base + '-poster.webp';
       video.innerHTML = withClip ? '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">' : '';
       video.load();
-      if (going && seen) play();
+      if (withClip && going && seen) play();
     };
     var start = function (i) { played = 0; setGoing(true); load(i, true); };
     var nextClip = function () { load((cur + 1) % tabs.length, true); };
@@ -207,7 +208,7 @@
       if (!met) return;  // (nothing shown yet: the first sight loads the right theme)
       var ended = atEnd;
       load(cur, !ended && (going || !!video.currentSrc));
-      if (ended) { atEnd = true; if (going) timer = setTimeout(nextClip, 900); }
+      if (ended) { atEnd = true; tabs[cur].style.setProperty('--p', 1); if (going) timer = setTimeout(nextClip, 900); }
     };
     if (toggle) toggle.addEventListener('click', retheme);
     var dark = matchMedia('(prefers-color-scheme: dark)');
@@ -215,7 +216,7 @@
     setGoing(!calm && hasIO);  // (it starts by itself the first time it's seen)
     load(0, false);
     if (hasIO) new IntersectionObserver(function (entries) {
-      seen = entries[0].isIntersecting;
+      seen = entries[entries.length - 1].isIntersecting;  // (the newest, after a fast flick)
       if (seen && !met) { met = true; load(cur, going); return; }
       if (seen && going && video.paused && !video.ended) { if (!video.currentSrc) load(cur, true); else play(); }
       else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
