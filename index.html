@@ -85,7 +85,7 @@ lee sun 10-6 cook</div>
   </div>
 </section>
 
-<!-- TOUR: the real app, recorded (rec.py in the app's screenshot tools); one clip plays at a time, the next follows -->
+<!-- TOUR: the real app, recorded (README: Walkthrough clips); one clip plays at a time, the next follows, once through -->
 <section class="chapter tour" id="tour">
   <div class="wrap">
     <div class="ch-head reveal">
@@ -95,19 +95,18 @@ lee sun 10-6 cook</div>
     </div>
     <div class="tour-in reveal">
       <ol class="tour-list" role="tablist" aria-label="Walkthrough">
-        <li><button role="tab" aria-selected="true" data-clip="ttb" data-frame="phone"><b>Type the week like a text</b>
+        <li role="presentation"><button role="tab" id="ch-ttb" aria-controls="tour-stage" aria-selected="true" data-clip="ttb" data-frame="phone"><b>Type the week like a text</b>
           <span>One line per person. Rotaserie shows what it read, asks when something's missing, and adds the shifts in one tap.</span><i></i></button></li>
-        <li><button role="tab" aria-selected="false" data-clip="publish" data-frame="phone"><b>Check it, then publish</b>
+        <li role="presentation"><button role="tab" id="ch-publish" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="publish" data-frame="phone"><b>Check it, then publish</b>
           <span>Shifts, people and hours at a glance, and anything urgent to fix first. Publish tells everyone by email, and by phone alert if they've turned alerts on.</span><i></i></button></li>
-        <li><button role="tab" aria-selected="false" data-clip="fill" data-frame="screen"><b>Fill open shifts</b>
+        <li role="presentation"><button role="tab" id="ch-fill" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="fill" data-frame="screen"><b>Fill open shifts</b>
           <span>Rotaserie suggests people who are qualified and free for open shifts, with the reason beside each. Untick any you don't want.</span><i></i></button></li>
-        <li><button role="tab" aria-selected="false" data-clip="staff" data-frame="phone"><b>Staff pick up shifts</b>
+        <li role="presentation"><button role="tab" id="ch-staff" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="staff" data-frame="phone"><b>Staff pick up shifts</b>
           <span>Their next shift, their week, and open shifts to pick up. A manager approves pickups, or you let the ones with nothing to check go through on their own.</span><i></i></button></li>
       </ol>
-      <div class="tour-stage" data-frame="phone">
-        <video muted playsinline preload="none" poster="img/tour/ttb-light-poster.webp"
-          aria-label="Type to Build on a phone: three typed lines become three shifts"></video>
-        <button class="tour-play" type="button" hidden aria-label="Play the walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="tour-stage" id="tour-stage" role="tabpanel" aria-labelledby="ch-ttb" data-frame="phone">
+        <video muted playsinline preload="none" aria-label="Type to Build on a phone: three typed lines become three shifts"></video>
+        <button class="tour-play" type="button" aria-label="Play the walkthrough"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
       </div>
     </div>
   </div>

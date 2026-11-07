@@ -67,7 +67,7 @@ p{margin:0}
 
 /* the glass recipe, the app's frost (Nov 7 2026): a fine frost grain, a thin even edge with a warm champagne light
    along the top, and a soft floating shadow */
-.strip-in>div,.feature,.faq details,.kind,.demo,.early,.values>div,.founder-card,.legal{
+.strip-in>div,.feature,.faq details,.kind,.demo,.early,.values>div,.founder-card,.legal,.tour-list button[aria-selected=true]{
   background:var(--frost),linear-gradient(180deg,var(--gp-top),var(--gp-bot));border-radius:var(--r);
   -webkit-backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);
   box-shadow:inset 0 1px 0 var(--lip),inset 0 0 0 1px var(--ring),0 1px 2px rgba(20,40,80,.05),0 14px 36px -6px rgba(20,40,80,.16)}
@@ -309,10 +309,8 @@ p{margin:0}
   transition:max-height .45s cubic-bezier(.2,.7,.2,1),opacity .35s}
 .tour-list i{position:absolute;left:22px;right:22px;bottom:9px;height:2px;border-radius:2px;background:var(--line);opacity:0;transition:opacity .25s}
 .tour-list i:after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--accent);transform-origin:left;transform:scaleX(var(--p,0))}
-.tour-list button:hover{background:var(--bubble)}
-.tour-list button[aria-selected=true]{background:var(--frost),linear-gradient(180deg,var(--gp-top),var(--gp-bot));
-  -webkit-backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);backdrop-filter:blur(26px) saturate(1.5) brightness(1.05);
-  box-shadow:inset 0 1px 0 var(--lip),inset 0 0 0 1px var(--ring),0 1px 2px rgba(20,40,80,.05),0 14px 36px -6px rgba(20,40,80,.16)}
+.tour-list button:not([aria-selected=true]):hover{background:var(--bubble)}
+.tour-list button[aria-selected=true]{border-radius:22px}  /* (the glass recipe above) */
 .tour-list button[aria-selected=true]:before{color:var(--accent-text);opacity:1}
 .tour-list button[aria-selected=true] span{max-height:120px;opacity:1}
 .tour-list button[aria-selected=true] i{opacity:1}
@@ -323,12 +321,15 @@ p{margin:0}
 .tour-stage[data-frame=phone] video{aspect-ratio:780/1688;border-radius:37px}
 .tour-stage[data-frame=screen]{max-width:620px;border-radius:20px;padding:8px}
 .tour-stage[data-frame=screen] video{aspect-ratio:1600/1024;border-radius:13px}
-.tour-play{all:unset;position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;cursor:pointer;
+.tour-play{all:unset;position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;cursor:pointer;transition:all .3s;
   display:grid;place-items:center;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.45));
   -webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6);
   box-shadow:inset 0 1px 0 rgba(255,244,222,.95),inset 0 0 0 1px rgba(255,255,255,.5),0 10px 30px rgba(10,25,55,.3)}
-.tour-play[hidden]{display:none}
-.tour-play svg{width:30px;height:30px;fill:#13202c;margin-left:4px}
+.tour-play svg{width:30px;height:30px;fill:#13202c;margin-left:4px}.tour-play .i-pause{display:none}
+/* while playing: a small pause button in the corner, always there */
+.tour-play.pausing{left:auto;top:auto;right:20px;bottom:20px;margin:0;width:44px;height:44px;opacity:.8}
+.tour-play.pausing:hover,.tour-play.pausing:focus-visible{opacity:1}
+.tour-play.pausing .i-play{display:none}.tour-play.pausing .i-pause{display:block;margin:0;width:20px;height:20px}
 .tour-play:focus-visible,.tour-list button:focus-visible{outline:3px solid var(--accent-text);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.tour-list span,.tour-stage,.tour-stage video{transition:none}}
 
