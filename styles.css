@@ -104,7 +104,6 @@ p{margin:0}
 .nav-in{display:flex;align-items:center;gap:24px;height:72px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:-.03em}
 .logo img{border-radius:8px}
-.logo .by{font-weight:600;font-size:.62em;color:var(--muted);letter-spacing:0;align-self:flex-end;padding-bottom:4px}
 .nav-links{display:flex;gap:2px;margin-left:auto}
 .nav-links a{color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;padding:9px 14px;border-radius:999px}
 .nav-links a:hover{background:var(--bubble)}
@@ -305,7 +304,6 @@ p{margin:0}
   body{font-size:17px}
   .wrap{padding:0 16px}
   .nav-in{height:64px;gap:12px}
-  .logo .by{display:none}
   .nav-cta .btn{white-space:nowrap;padding:10px 14px;font-size:14px}
   .logo{font-size:20px}
   .hero{padding:26px 0 46px}
