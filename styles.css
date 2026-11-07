@@ -300,7 +300,7 @@ p{margin:0}
 /* the walkthrough (Nov 7 2026): chapters on the left, the real app playing on the right in a phone or a laptop frame;
    hidden without JavaScript (the clips are chosen and started by site.js) */
 .tour:not(.tour-on){display:none}  /* (site.js shows it once it can play, and lands #tour links itself) */
-.tour-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.tour-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:minmax(648px,auto);gap:56px;align-items:center}  /* (the phone frame's height: nothing jumps when the frame changes) */
 .tour-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:ch;--r:22px;grid-column:1;grid-row:1}  /* (the stage comes first in the page, for focus order on phones; here it sits right) */
 .tour-list li{counter-increment:ch}
 .tour-list button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:52px 1fr;column-gap:14px;width:100%;cursor:pointer;

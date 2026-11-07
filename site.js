@@ -224,10 +224,13 @@
       else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
     }, {threshold: 0.35}).observe(stage);
     tour.classList.add('tour-on');  // (shown only now that it can play; a #tour link lands once it's there)
-    if (location.hash === '#tour' && scrollY < 10) tour.scrollIntoView({behavior: 'auto'});  // (not over a restored scroll)
+    if (location.hash === '#tour' && scrollY < 10) tour.scrollIntoView({behavior: 'instant'});  // (not over a restored scroll)
+    document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });  // (in step with the section)
+    document.addEventListener('visibilitychange', function () {  // (a hidden browser tab: the clip waits)
+      if (document.hidden) { if (!video.paused) video.pause(); } else if (going && seen && video.paused && !atEnd && video.currentSrc) play();
+    });
   })();
-  // "See how it works" links go to the walkthrough when JavaScript runs (here and on About; without it the section is hidden)
-  document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });
+
 
   // Click a screenshot to see it full size
   var zoom = document.querySelector('[data-zoombox]');
