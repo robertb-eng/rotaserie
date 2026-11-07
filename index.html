@@ -51,7 +51,7 @@
       <p class="lead">Write “maria tue-fri 9-5” the way you'd text it, and the shifts are ready to add with one tap. Rotaserie catches time off, overtime and short days as you go, then sends the week to everyone's email and phone.</p>
       <div class="hero-actions">
         <a class="btn" href="#start" data-start>Get early access</a>
-        <a class="btn btn-ghost" href="#managers">See how it works
+        <a class="btn btn-ghost" href="#managers" data-tour>See how it works
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       </div>
       <ul class="ticks">
@@ -82,6 +82,33 @@ lee sun 10-6 cook</div>
     <div class="reveal"><span class="ico" style="--tc:#c0612b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, overtime and rest flagged as you build. Nobody can be double-booked.</p></div>
     <div class="reveal"><span class="ico" style="--tc:#3d63b8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></span><b>Swaps without texts</b><p>Staff trade and pick up shifts. You approve in a tap.</p></div>
     <div class="reveal"><span class="ico" style="--tc:#8a3a8f"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours for every manager; cost for owners, before the week goes out.</p></div>
+  </div>
+</section>
+
+<!-- TOUR: the real app, recorded (README: Walkthrough clips); one clip plays at a time, the next follows, once through -->
+<section class="chapter tour" id="tour">
+  <div class="wrap">
+    <div class="ch-head reveal">
+      <p class="eyebrow">See it work</p>
+      <h2>Type, check, publish, <em>done.</em></h2>
+      <p class="lead">Recorded in the real app, in real time, with sample data set up for each clip, as an owner sees it. Pay and labor cost can be turned off for everyone.</p>
+    </div>
+    <div class="tour-in reveal">
+      <div class="tour-stage" id="tour-stage" role="tabpanel" aria-labelledby="ch-ttb" data-frame="phone">
+        <video muted playsinline preload="none" disablepictureinpicture></video>
+        <button class="tour-play" type="button" aria-label="Play the walkthrough"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+      </div>
+      <ol class="tour-list" role="tablist" aria-label="Walkthrough">
+        <li role="presentation"><button role="tab" id="ch-ttb" aria-controls="tour-stage" aria-selected="true" data-clip="ttb" data-frame="phone" aria-labelledby="ch-ttb-t" aria-describedby="ch-ttb-d" data-label="Type to Build on a phone: three typed lines become three shifts"><b id="ch-ttb-t">Type the week like a text</b>
+          <span id="ch-ttb-d">One line per person. Rotaserie shows what it read, asks when something's missing, and adds the shifts in one tap.</span><i></i></button></li>
+        <li role="presentation"><button role="tab" id="ch-publish" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="publish" data-frame="phone" aria-labelledby="ch-publish-t" aria-describedby="ch-publish-d" data-label="Review and publish on a phone: the week at a glance, then Publish schedule"><b id="ch-publish-t">Check it, then publish</b>
+          <span id="ch-publish-d">Shifts, people and hours at a glance, and anything urgent to fix first. Publish tells everyone by email, and by phone alert if they've turned alerts on.</span><i></i></button></li>
+        <li role="presentation"><button role="tab" id="ch-fill" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="fill" data-frame="screen" aria-labelledby="ch-fill-t" aria-describedby="ch-fill-d" data-label="Fill open shifts on a computer: who can take each open shift and why, then Fill these shifts"><b id="ch-fill-t">Fill open shifts</b>
+          <span id="ch-fill-d">Rotaserie suggests people who are qualified and free for open shifts, with the reason beside each. Untick any you don't want.</span><i></i></button></li>
+        <li role="presentation"><button role="tab" id="ch-staff" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="staff" data-frame="phone" aria-labelledby="ch-staff-t" aria-describedby="ch-staff-d" data-label="A staff member picks up an open shift from their phone"><b id="ch-staff-t">Staff pick up shifts</b>
+          <span id="ch-staff-d">Their next shift, their week, and open shifts to pick up. A manager approves pickups, or you let the ones with nothing to check go through on their own.</span><i></i></button></li>
+      </ol>
+    </div>
   </div>
 </section>
 
