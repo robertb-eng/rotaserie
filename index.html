@@ -51,7 +51,7 @@
       <p class="lead">Write “maria tue-fri 9-5” the way you'd text it, and the shifts are ready to add with one tap. Rotaserie catches time off, overtime and short days as you go, then sends the week to everyone's email and phone.</p>
       <div class="hero-actions">
         <a class="btn" href="#start" data-start>Get early access</a>
-        <a class="btn btn-ghost" href="#managers">See how it works
+        <a class="btn btn-ghost" href="#tour">See how it works
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
       </div>
       <ul class="ticks">
@@ -82,6 +82,34 @@ lee sun 10-6 cook</div>
     <div class="reveal"><span class="ico" style="--tc:#c0612b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><b>Problems caught early</b><p>Time off, overtime and rest flagged as you build. Nobody can be double-booked.</p></div>
     <div class="reveal"><span class="ico" style="--tc:#3d63b8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></span><b>Swaps without texts</b><p>Staff trade and pick up shifts. You approve in a tap.</p></div>
     <div class="reveal"><span class="ico" style="--tc:#8a3a8f"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Labor in view</b><p>Hours for every manager; cost for owners, before the week goes out.</p></div>
+  </div>
+</section>
+
+<!-- TOUR: the real app, recorded (rec.py in the app's screenshot tools); one clip plays at a time, the next follows -->
+<section class="chapter tour" id="tour">
+  <div class="wrap">
+    <div class="ch-head reveal">
+      <p class="eyebrow">See it work</p>
+      <h2>Type, check, publish, <em>done.</em></h2>
+      <p class="lead">Recorded in the real app, in real time, with a demo business and its made-up team.</p>
+    </div>
+    <div class="tour-in reveal">
+      <ol class="tour-list" role="tablist" aria-label="Walkthrough">
+        <li><button role="tab" aria-selected="true" data-clip="ttb" data-frame="phone"><b>Type the week like a text</b>
+          <span>One line per person. Rotaserie shows what it read, asks when something's missing, and adds the shifts in one tap.</span><i></i></button></li>
+        <li><button role="tab" aria-selected="false" data-clip="publish" data-frame="phone"><b>Check it, then publish</b>
+          <span>Shifts, people and hours at a glance, and anything urgent to fix first. Publish sends it by email and phone alert.</span><i></i></button></li>
+        <li><button role="tab" aria-selected="false" data-clip="fill" data-frame="screen"><b>Fill open shifts</b>
+          <span>Rotaserie suggests people who are qualified and free for open shifts, with the reason beside each. Untick any you don't want.</span><i></i></button></li>
+        <li><button role="tab" aria-selected="false" data-clip="staff" data-frame="phone"><b>Staff pick up shifts</b>
+          <span>Their next shift, their week, and open shifts to pick up. You choose whether a manager approves each pickup.</span><i></i></button></li>
+      </ol>
+      <div class="tour-stage" data-frame="phone">
+        <video muted playsinline preload="none" poster="img/tour/ttb-light-poster.webp"
+          aria-label="Type to Build on a phone: three typed lines become three shifts"></video>
+        <button class="tour-play" type="button" hidden aria-label="Play the walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      </div>
+    </div>
   </div>
 </section>
 

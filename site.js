@@ -126,6 +126,59 @@
     }
   }
 
+  // The walkthrough: real app clips, one at a time. A clip loads only when the section is in view, in the visitor's
+  // theme (light or dark); when it ends the next chapter plays; tapping a chapter jumps to it. With reduced motion
+  // nothing plays by itself: the still shows, with a play button.
+  var tour = document.querySelector('.tour');
+  if (tour) {
+    var tabs = [].slice.call(tour.querySelectorAll('[data-clip]'));
+    var stage = tour.querySelector('.tour-stage'), video = stage.querySelector('video'), play = stage.querySelector('.tour-play');
+    var LABELS = {ttb: 'Type to Build on a phone: three typed lines become three shifts',
+      publish: 'Review and publish on a phone: the week at a glance, then Publish schedule',
+      fill: 'Fill open shifts on a computer: each open shift with who can take it and why, then filled',
+      staff: 'A staff member picks up an open shift from their phone'};
+    var calm = matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false, cur = 0, chosen = false;
+    var src = function (name) {
+      var t = isDark() ? 'dark' : 'light';
+      return {webm: 'img/tour/' + name + '-' + t + '.webm', mp4: 'img/tour/' + name + '-' + t + '.mp4', poster: 'img/tour/' + name + '-' + t + '-poster.webp'};
+    };
+    var show = function (i, start) {
+      cur = i;
+      var b = tabs[i], s = src(b.dataset.clip);
+      tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.style.setProperty('--p', 0); });
+      stage.dataset.frame = b.dataset.frame;
+      video.poster = s.poster;
+      video.setAttribute('aria-label', LABELS[b.dataset.clip] || '');
+      video.innerHTML = start ? '<source src="' + s.webm + '" type="video/webm"><source src="' + s.mp4 + '" type="video/mp4">' : '';
+      video.load();
+      if (start) { var p = video.play(); if (p && p.catch) p.catch(function () { play.hidden = false; }); }
+    };
+    video.addEventListener('timeupdate', function () {
+      if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
+    });
+    video.addEventListener('ended', function () {
+      tabs[cur].style.setProperty('--p', 1);
+      if (!calm) setTimeout(function () { if (seen) show((cur + 1) % tabs.length, true); }, 900);
+    });
+    video.addEventListener('play', function () { play.hidden = true; });
+    tabs.forEach(function (b, i) {
+      b.addEventListener('click', function () { chosen = true; show(i, true); });
+      b.addEventListener('keydown', function (ev) {  // arrow keys move between chapters, as in any tab list
+        var d = ev.key === 'ArrowDown' || ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowUp' || ev.key === 'ArrowLeft' ? -1 : 0;
+        if (d) { ev.preventDefault(); var n = (i + d + tabs.length) % tabs.length; tabs[n].focus(); chosen = true; show(n, true); }
+      });
+    });
+    play.addEventListener('click', function () { chosen = true; show(cur, true); });
+    if (toggle) toggle.addEventListener('click', function () { show(cur, chosen || (seen && !calm)); });
+    show(0, false);
+    if (calm || !('IntersectionObserver' in window)) play.hidden = false;
+    else new IntersectionObserver(function (entries) {
+      seen = entries[0].isIntersecting;
+      if (seen && video.paused) { if (!video.currentSrc) show(cur, true); else if (!video.ended) video.play().catch(function () { play.hidden = false; }); }
+      else if (!seen && !video.paused) video.pause();
+    }, {threshold: 0.35}).observe(stage);
+  }
+
   // Click a screenshot to see it full size
   var zoom = document.querySelector('[data-zoombox]');
   if (zoom && zoom.showModal) {
