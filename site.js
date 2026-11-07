@@ -139,7 +139,7 @@
     var still = matchMedia('(prefers-reduced-motion: reduce)'), calm = still.matches, hasIO = 'IntersectionObserver' in window;
     var onChange = function (mq, fn) { if (mq.addEventListener) mq.addEventListener('change', fn); else if (mq.addListener) mq.addListener(fn); };  // (older Safari)
     onChange(still, function () { calm = still.matches; if (calm && going) { setGoing(false); video.pause(); } });
-    var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0, atEnd = false;
+    var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0, atEnd = false, failed = false, seekTo = 0;
     var setGoing = function (on) {
       going = on;
       if (!on) clearTimeout(timer);
@@ -148,28 +148,31 @@
     };
     var play = function () {
       var p = video.play();
-      if (p && p.catch) p.catch(function (err) { if (!err || err.name !== 'AbortError') setGoing(false); });  // (refused or unplayable: it rests)
+      if (p && p.catch) p.catch(function (err) { if (!err || err.name !== 'AbortError') { failed = err && err.name !== 'NotAllowedError'; setGoing(false); } });  // (refused or unplayable: it rests)
     };
     // load chapter i (its still once the section has been seen; its clip only when `withClip`), and play it if going and seen
-    var load = function (i, withClip, atEndKeep) {
+    var load = function (i, withClip, atEndKeep, picked) {
       clearTimeout(timer);
-      cur = i; atEnd = false;
+      cur = i; atEnd = false; failed = false; seekTo = 0;
       var b = tabs[i], base = 'img/tour/' + b.dataset.clip + '-' + (isDark() ? 'dark' : 'light');
-      tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.tabIndex = k === i ? 0 : -1; });
+      var kb = tabs.indexOf(document.activeElement) >= 0 && !picked;  // (a keyboard user's place among the tabs stays put)
+      tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); if (!kb) x.tabIndex = k === i ? 0 : -1; });
       if (!atEndKeep) b.style.setProperty('--p', 0);  // (finished chapters keep their full bar)
       stage.dataset.frame = b.dataset.frame;
       stage.setAttribute('aria-labelledby', b.id);
       video.setAttribute('aria-label', b.dataset.label || '');
       if (met) video.poster = base + '-poster.webp';
       video.innerHTML = withClip ? '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">' : '';
+      video.preload = 'none';
       video.load();
       if (withClip && going && seen) play();
     };
-    var start = function (i) { played = 0; setGoing(true); load(i, true); };
+    var start = function (i) { played = 0; setGoing(true); load(i, true, false, true); };
+    video.addEventListener('loadedmetadata', function () { if (seekTo) { video.currentTime = seekTo; seekTo = 0; } });
     var nextClip = function () { load((cur + 1) % tabs.length, true); };
     video.addEventListener('error', function (ev) {  // (a clip that won't load: it rests; only when the LAST source fails:
       var last = video.querySelector('source:last-of-type');  // Safari refuses the WebM, then plays the MP4)
-      if (ev.target === video || ev.target === last) setGoing(false);
+      if (ev.target === video || ev.target === last) { failed = true; setGoing(false); }
     }, true);
     video.addEventListener('timeupdate', function () {
       if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
@@ -184,12 +187,14 @@
     btn.addEventListener('click', function () {
       if (going) { setGoing(false); video.pause(); return; }
       if (atEnd) start((cur + 1) % tabs.length);  // (after a clip ended: the next one)
-      else if (video.currentSrc && !video.error) { setGoing(true); play(); }  // (after a pause: on from the same moment)
+      else if (video.currentSrc && !failed) { setGoing(true); play(); }  // (after a pause: on from the same moment; a failed clip starts afresh)
       else start(cur);
     });
     var bring = function () {  // on a phone the stage sits above the list: a picked chapter's clip comes into view
-      var r = stage.getBoundingClientRect(), shown = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-      if (shown < r.height * 0.6) stage.scrollIntoView({block: 'nearest', behavior: calm ? 'auto' : 'smooth'});
+      setTimeout(function () {  // (after the frame has changed size)
+        var r = stage.getBoundingClientRect(), shown = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+        if (shown < r.height * 0.6) stage.scrollIntoView({block: 'nearest', behavior: calm ? 'auto' : 'smooth'});
+      }, calm ? 0 : 520);
     };
     tabs.forEach(function (b, i) {
       b.addEventListener('click', function () { start(i); bring(); });
@@ -200,11 +205,12 @@
         tabs.forEach(function (x, k) { x.tabIndex = k === n ? 0 : -1; }); tabs[n].focus();  // (Tab returns to it)
       });
     });
-    var retheme = function () {  // the same chapter in the new colours: from its start (paused or on), its still if it had ended
+    var retheme = function () {  // the same chapter in the new colours: on from its start, paused at the same moment, its still if ended
       if (!met) return;  // (nothing shown yet: the first sight loads the right theme)
-      var ended = atEnd;
+      var ended = atEnd, at = video.currentSrc && !ended ? video.currentTime : 0;
       load(cur, !ended && (going || !!video.currentSrc), ended);
       if (ended) { atEnd = true; if (going) timer = setTimeout(nextClip, 900); }
+      else if (at && !going) { seekTo = at; video.preload = 'metadata'; video.load(); }  // (paused: the same moment, in the new colours)
     };
     if (toggle) toggle.addEventListener('click', retheme);
     var dark = matchMedia('(prefers-color-scheme: dark)');
@@ -218,7 +224,7 @@
       else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
     }, {threshold: 0.35}).observe(stage);
     tour.classList.add('tour-on');  // (shown only now that it can play; a #tour link lands once it's there)
-    if (location.hash === '#tour') tour.scrollIntoView();
+    if (location.hash === '#tour' && scrollY < 10) tour.scrollIntoView({behavior: 'auto'});  // (not over a restored scroll)
   })();
   // "See how it works" links go to the walkthrough when JavaScript runs (here and on About; without it the section is hidden)
   document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });
