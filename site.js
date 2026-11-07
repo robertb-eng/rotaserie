@@ -133,7 +133,7 @@
   // starts the chapter again in the new colours). Reduced motion: nothing plays until asked, and no next clip follows.
   // Without JavaScript the section is hidden (styles.css); the clips are described in README.
   var tour = document.querySelector('.tour');
-  if (tour) {
+  if (tour) (function () {  // (its own scope: the demo above has `var running`, `timer`... and vars share a function)
     var tabs = [].slice.call(tour.querySelectorAll('[data-clip]'));
     var stage = tour.querySelector('.tour-stage'), video = stage.querySelector('video'), btn = stage.querySelector('.tour-play');
     var LABELS = {ttb: 'Type to Build on a phone: three typed lines become three shifts',
@@ -170,7 +170,10 @@
     };
     var start = function (i) { played = 0; setGoing(true); load(i, true); };
     var nextClip = function () { load((cur + 1) % tabs.length, true); };
-    video.addEventListener('error', function () { setGoing(false); }, true);  // (a clip that won't load: it rests; capture: sources' errors)
+    video.addEventListener('error', function (ev) {  // (a clip that won't load: it rests; only when the LAST source fails:
+      var last = video.querySelector('source:last-of-type');  // Safari refuses the WebM, then plays the MP4)
+      if (ev.target === video || ev.target === last) setGoing(false);
+    }, true);
     video.addEventListener('timeupdate', function () {
       if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
     });
@@ -178,7 +181,7 @@
       tabs[cur].style.setProperty('--p', 1);
       played++;
       atEnd = true;
-      if (calm || played >= tabs.length) { setGoing(false); return; }  // (once through, then it rests)
+      if (!going || calm || played >= tabs.length) { setGoing(false); return; }  // (once through, then it rests)
       timer = setTimeout(nextClip, 900);  // (off screen, the next one waits: see below)
     });
     btn.addEventListener('click', function () {
@@ -195,12 +198,12 @@
       b.addEventListener('click', function () { start(i); bring(); });
       b.addEventListener('keydown', function (ev) {  // a tab list: arrows, Home and End move the focus; Enter or Space plays
         var n = {ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1}[ev.key];
-        if (n === undefined) return;
+        if (n === undefined || ev.altKey || ev.ctrlKey || ev.metaKey) return;  // (browser shortcuts pass)
         ev.preventDefault(); n = (n + tabs.length) % tabs.length;
         tabs.forEach(function (x, k) { x.tabIndex = k === n ? 0 : -1; }); tabs[n].focus();  // (Tab returns to it)
       });
     });
-    var retheme = function () {  // the same chapter in the new colours: from its start if it was on, its still if it had ended
+    var retheme = function () {  // the same chapter in the new colours: from its start (paused or on), its still if it had ended
       if (!met) return;  // (nothing shown yet: the first sight loads the right theme)
       var ended = atEnd;
       load(cur, !ended && (going || !!video.currentSrc));
@@ -217,8 +220,8 @@
       if (seen && going && video.paused && !video.ended) { if (!video.currentSrc) load(cur, true); else play(); }
       else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
     }, {threshold: 0.35}).observe(stage);
-  }
-  // "See how it works" links go to the walkthrough once it can play (here and on About)
+  })();
+  // "See how it works" links go to the walkthrough when JavaScript runs (here and on About; without it the section is hidden)
   document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });
 
   // Click a screenshot to see it full size
