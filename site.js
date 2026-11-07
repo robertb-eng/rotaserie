@@ -135,14 +135,16 @@
     var stage = tour.querySelector('.tour-stage'), video = stage.querySelector('video'), play = stage.querySelector('.tour-play');
     var LABELS = {ttb: 'Type to Build on a phone: three typed lines become three shifts',
       publish: 'Review and publish on a phone: the week at a glance, then Publish schedule',
-      fill: 'Fill open shifts on a computer: each open shift with who can take it and why, then filled',
+      fill: 'Fill open shifts on a computer: who can take each open shift and why, then Fill these shifts',
       staff: 'A staff member picks up an open shift from their phone'};
-    var calm = matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false, cur = 0, chosen = false;
+    var calm = matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false, cur = 0, chosen = false, next = 0;
+    var go = function () { var p = video.play(); if (p && p.catch) p.catch(function () { play.hidden = false; }); };
     var src = function (name) {
       var t = isDark() ? 'dark' : 'light';
       return {webm: 'img/tour/' + name + '-' + t + '.webm', mp4: 'img/tour/' + name + '-' + t + '.mp4', poster: 'img/tour/' + name + '-' + t + '-poster.webp'};
     };
     var show = function (i, start) {
+      clearTimeout(next);  // (a chapter picked meanwhile wins over the automatic next one)
       cur = i;
       var b = tabs[i], s = src(b.dataset.clip);
       tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); x.style.setProperty('--p', 0); });
@@ -151,14 +153,14 @@
       video.setAttribute('aria-label', LABELS[b.dataset.clip] || '');
       video.innerHTML = start ? '<source src="' + s.webm + '" type="video/webm"><source src="' + s.mp4 + '" type="video/mp4">' : '';
       video.load();
-      if (start) { var p = video.play(); if (p && p.catch) p.catch(function () { play.hidden = false; }); }
+      if (start) go();
     };
     video.addEventListener('timeupdate', function () {
       if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
     });
     video.addEventListener('ended', function () {
       tabs[cur].style.setProperty('--p', 1);
-      if (!calm) setTimeout(function () { if (seen) show((cur + 1) % tabs.length, true); }, 900);
+      if (!calm) next = setTimeout(function () { if (seen) show((cur + 1) % tabs.length, true); }, 900);
     });
     video.addEventListener('play', function () { play.hidden = true; });
     tabs.forEach(function (b, i) {
@@ -174,7 +176,9 @@
     if (calm || !('IntersectionObserver' in window)) play.hidden = false;
     else new IntersectionObserver(function (entries) {
       seen = entries[0].isIntersecting;
-      if (seen && video.paused) { if (!video.currentSrc) show(cur, true); else if (!video.ended) video.play().catch(function () { play.hidden = false; }); }
+      if (seen && video.paused) {  // (a clip that ended while out of view: on to the next one)
+        if (!video.currentSrc) show(cur, true); else if (video.ended) show(calm ? cur : (cur + 1) % tabs.length, true); else go();
+      }
       else if (!seen && !video.paused) video.pause();
     }, {threshold: 0.35}).observe(stage);
   }
