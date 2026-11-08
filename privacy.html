@@ -58,7 +58,9 @@ typing the other account's password and code), we keep which accounts are linked
 pickups, the reason picked when someone calls out of a shift ("sick", "family emergency" or "something came up", seen only
 by the managers who decide it), notes, and pay-related settings the restaurant enters. If a manager sets up from a photo
 of their current schedule, the photo is sent once to Anthropic (the company that makes Claude) to read the names, days and
-times on it; we don't keep the photo, and the manager checks what was read before anything is saved. People added this
+times on it, together with the names of the people already on the team and the business's role names (so names are
+spelled the way the team list spells them); we don't keep the photo, and the manager checks what was read before anything
+is saved. People added this
 way by name only get no emails until a manager adds their address. When managers type shifts ("Type shifts" in the
 Schedule Builder), what they type is read on their own device; only the shifts they add are saved. To make typing shifts
 work better, lines it doesn't fully understand (or that a manager corrects or undoes right away) are sent to us keeping
@@ -133,7 +135,8 @@ day for two weeks and one a week for eight weeks, plus each business's two newes
 until that move is complete, <b>GitHub</b> does. They are scrambled before they leave our server and neither can read them.</li>
 <li><b>Brevo</b> delivers our emails, so it receives recipients' email addresses and message text.</li>
 <li><b>Anthropic</b> (Claude): only if a manager sets up from a photo of their schedule. It receives that photo once,
-to read the names, days and times on it; we don't keep the photo.</li>
+with the names of the people already on the team and the business's role names, to read the names, days and times on it;
+we don't keep the photo.</li>
 <li><b>Stripe</b> processes subscription payments. A Business Admin enters card or bank details on Stripe's own
 pages, so they go to Stripe and never to Rotaserie. We keep the restaurant's Stripe customer number, its plan
 and whether it's paid; Stripe receives the restaurant's name and the Business Admin's email.</li>
