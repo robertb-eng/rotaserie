@@ -43,7 +43,7 @@
 <section class="chapter">
   <div class="wrap legal">
 <h1>Privacy Policy</h1>
-<p class="legal-date">Last updated November 5, 2026</p>
+<p class="legal-date">Last updated November 7, 2026</p>
 <div class="legal-text">
 <p>This explains what Rotaserie collects, why, and who can see it. In short: we collect what's needed to run
 a restaurant's schedule, we don't sell it, and we don't run ads or third-party trackers.</p>
@@ -55,7 +55,11 @@ Two-step login (required for managers, optional for staff) also stores an encryp
 and scrambled copies of your recovery codes. If you link your accounts at two locations of the same owner (after
 typing the other account's password and code), we keep which accounts are linked, so you can switch between them.</li>
 <li><b>Scheduling information:</b> shifts and positions, availability, time-off requests, shift trades and
-pickups, notes, and pay-related settings the restaurant enters. When managers type shifts ("Type shifts" in the
+pickups, the reason picked when someone calls out of a shift ("sick", "family emergency" or "something came up", seen only
+by the managers who decide it), notes, and pay-related settings the restaurant enters. If a manager sets up from a photo
+of their current schedule, the photo is sent once to Anthropic (the company that makes Claude) to read the names, days and
+times on it; we don't keep the photo, and the manager checks what was read before anything is saved. People added this
+way by name only get no emails until a manager adds their address. When managers type shifts ("Type shifts" in the
 Schedule Builder), what they type is read on their own device; only the shifts they add are saved. To make typing shifts
 work better, lines it doesn't fully understand (or that a manager corrects or undoes right away) are sent to us keeping
 only the words Rotaserie already knows (days, times, numbers, roles, the business's shift words and the words it reads
@@ -128,6 +132,8 @@ connection doesn't lose it; it is removed when they add the shifts, clear it or 
 day for two weeks and one a week for eight weeks, plus each business's two newest copies until the business is deleted;
 until that move is complete, <b>GitHub</b> does. They are scrambled before they leave our server and neither can read them.</li>
 <li><b>Brevo</b> delivers our emails, so it receives recipients' email addresses and message text.</li>
+<li><b>Anthropic</b> (Claude): only if a manager sets up from a photo of their schedule. It receives that photo once,
+to read the names, days and times on it; we don't keep the photo.</li>
 <li><b>Stripe</b> processes subscription payments. A Business Admin enters card or bank details on Stripe's own
 pages, so they go to Stripe and never to Rotaserie. We keep the restaurant's Stripe customer number, its plan
 and whether it's paid; Stripe receives the restaurant's name and the Business Admin's email.</li>
@@ -156,7 +162,7 @@ change or remove records in the app (the logs of activity and schedule changes c
 while the restaurant uses Rotaserie and deleted with its data); you can also email us. A restaurant can ask us to delete all its data.</p>
 <p><b>Deleting your account:</b> anyone can delete their own account in the app (Account, then Delete my account; how-to at
 <a href="https://app.rotaserie.com/delete-account">app.rotaserie.com/delete-account</a>). Your name, email, password,
-two-step login, phone alerts, availability, calendar link, credentials, kudos and the reasons on your time-off requests are
+two-step login, phone alerts, availability, calendar link, credentials, kudos and the reasons on your time-off requests and call-outs are
 deleted from your account at once, with the emails waiting to be sent to you and the business's list of emails sent to you. The records your employer must keep by law (hours worked, pay, tips and shift history) stay with your employer
 under "Former staff" and a number, and your managers are emailed which name and email that was (a copy of that email stays
 in the business's list of sent emails, so it can match its payroll records). What was already written about you keeps your name
