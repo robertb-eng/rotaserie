@@ -248,7 +248,7 @@
     };
     var loopIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { inView.set(en.target, en.isIntersecting); settle(en.target); });
-    }, {threshold: 0.25});
+    }, {threshold: 0.1});
     loops.forEach(function (v) { loopIO.observe(v); });
     var all = function () { setTimeout(function () { loops.forEach(settle); }, 30); };
     if (toggle) toggle.addEventListener('click', all);
@@ -333,15 +333,43 @@
     });
   })();
 
+  // The hero plays the film by itself on computers, muted, from its Type to Build part (FROM seconds), round and round
+  // while seen; phones get the Type to Build recording instead (data-loop). Reduced motion: its still only.
+  var FROM = 2.6, heroSeen = false, heroWide = matchMedia('(min-width: 1001px)');
+  var playHero = function () {
+    var v = document.querySelector('.hf-wide');
+    if (!v || !heroWide.matches || calmMQ.matches || document.hidden) return;
+    if (!v.dataset.loaded) {
+      v.dataset.loaded = '1';
+      v.innerHTML = '<source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">';
+      v.addEventListener('loadedmetadata', function () { v.currentTime = FROM; });
+      v.addEventListener('ended', function () { v.currentTime = FROM; v.play(); });
+      v.load();
+    }
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  };
+  var hf = document.querySelector('.hf-wide');
+  if (hf && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      heroSeen = es[es.length - 1].isIntersecting;
+      if (heroSeen) playHero(); else hf.pause();
+    }, {threshold: 0.2}).observe(hf);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) hf.pause(); else if (heroSeen) playHero(); });
+  }
+
   // The film: opens full size and plays; closing stops it
-  var filmBox = document.querySelector('[data-filmbox]'), filmBtn = document.querySelector('[data-film]');
-  if (filmBox && filmBtn) {
-    if (!filmBox.showModal) filmBtn.hidden = true;
+  var filmBox = document.querySelector('[data-filmbox]'), filmBtns = [].slice.call(document.querySelectorAll('[data-film]'));
+  var heroFilm = document.querySelector('.hf-wide');
+  if (filmBox && filmBtns.length) {
+    if (!filmBox.showModal) filmBtns.forEach(function (b) { b.hidden = true; });
     else {
       var fv = filmBox.querySelector('video');
-      filmBtn.addEventListener('click', function () { filmBox.showModal(); var p = fv.play(); if (p && p.catch) p.catch(function () {}); });
+      filmBtns.forEach(function (b) { b.addEventListener('click', function () {
+        if (heroFilm) heroFilm.pause();
+        filmBox.showModal(); var p = fv.play(); if (p && p.catch) p.catch(function () {});
+      }); });
       filmBox.addEventListener('click', function (ev) { if (ev.target === filmBox || ev.target.closest('[data-film-close]')) filmBox.close(); });
-      filmBox.addEventListener('close', function () { fv.pause(); });
+      filmBox.addEventListener('close', function () { fv.pause(); if (heroFilm && heroSeen) playHero(); });
     }
   }
 
