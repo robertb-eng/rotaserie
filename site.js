@@ -88,8 +88,8 @@
       cells.forEach(function (row) { row.forEach(function (c) { c.textContent = ''; }); });
       shifts = 0; hours = 0; count.textContent = '0 shifts'; read.textContent = ''; box.innerHTML = typedHTML([], '', true);
     }
-    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (still || !('IntersectionObserver' in window)) {  // the finished week, no animation
+    // (it types even with reduced motion: Robert, Nov 10: a Type to Build preview is always moving on opening)
+    if (!('IntersectionObserver' in window)) {  // the finished week, no animation
       reset(); LINES.forEach(place); box.innerHTML = typedHTML(LINES.map(function (l) { return l.text; }), '', false);
       read.textContent = LINES[LINES.length - 1].read;
     } else {
@@ -240,7 +240,7 @@
     var inView = new Map();
     var shown = function (v) { return v.offsetParent !== null; };
     var settle = function (v) {
-      var want = inView.get(v) && shown(v) && !calmMQ.matches && !document.hidden;
+      var want = inView.get(v) && shown(v) && !document.hidden;  // (the product demo plays even with reduced motion: Robert, Nov 10)
       if (want) {
         if (!v.dataset.loaded) { v.querySelectorAll('source[data-src]').forEach(function (s) { s.src = s.dataset.src; }); v.dataset.loaded = '1'; v.load(); }
         var p = v.play(); if (p && p.catch) p.catch(function () {});
@@ -302,7 +302,7 @@
       v.innerHTML = '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">';
       v.load();
     };
-    var go = function (v) { if (!calmMQ.matches && seen && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
+    var go = function (v) { if (seen && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
     var show = function (step) {
       if (step === cur || !wide.matches) return;
       cur = step;
@@ -335,10 +335,10 @@
 
   // The hero plays the film by itself on computers, muted, from its Type to Build part (FROM seconds), round and round
   // while seen; phones get the Type to Build recording instead (data-loop). Reduced motion: its still only.
-  var FROM = 2.6, heroSeen = false, heroWide = matchMedia('(min-width: 1001px)');
+  var FROM = 8.4, heroSeen = false, heroPaused = false, heroWide = matchMedia('(min-width: 1001px)');
   var playHero = function () {
     var v = document.querySelector('.hf-wide');
-    if (!v || !heroWide.matches || calmMQ.matches || document.hidden) return;
+    if (!v || !heroWide.matches || document.hidden || heroPaused) return;
     if (!v.dataset.loaded) {
       v.dataset.loaded = '1';
       v.innerHTML = '<source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">';
@@ -348,6 +348,14 @@
     }
     var p = v.play(); if (p && p.catch) p.catch(function () {});
   };
+  var hf = document.querySelector('.hf-wide'), hfPause = document.querySelector('[data-hf-pause]');
+  if (hf && hfPause) hfPause.addEventListener('click', function () {  // (WCAG 2.2.2: moving content can be paused)
+    heroPaused = !heroPaused;
+    hfPause.classList.toggle('paused', heroPaused);
+    hfPause.setAttribute('aria-label', heroPaused ? 'Play the film' : 'Pause the film');
+    if (heroPaused) hf.pause(); else playHero();
+  });
+  if (hf) hf.addEventListener('click', function () { var b = document.querySelector('.hf-btn.wide'); if (b) b.click(); });
   var hf = document.querySelector('.hf-wide');
   if (hf && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {

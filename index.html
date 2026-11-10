@@ -44,23 +44,35 @@
 <!-- HERO: the product, moving (real app recordings) -->
 <section class="hero2 theater" id="top">
   <div class="wrap hero2-in">
-    <div class="hero-copy reveal">
-      <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
+    <div class="hero-copy">
+      <p class="tagline">Take more off your plate with Rotaserie.</p>
       <h1>Type the week. <em>Get the schedule.</em></h1>
-      <p class="lead">Rotaserie is the schedule app for restaurants and small teams. Type “maria tue-fri 9-5” the way you'd text it, and the week is built, checked and on everyone's phone.</p>
-      <div class="hero-actions center">
-        <a class="btn" href="#start" data-start>Get early access</a>
-        <button class="btn btn-ghost film-btn" type="button" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <span class="muted">1:12</span></button>
-        <a class="btn btn-ghost" href="#tour" data-tour>See how it works
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      </div>
+      <p class="lead">The schedule app for restaurants and small teams. It ends the late-night schedule, the swaps lost in group texts and the 6 AM scramble.</p>
+      <div class="hero-cta"><a class="btn btn-big" href="#start" data-start>Get early access</a></div>
+      <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
     </div>
-    <div class="hero-film reveal">
-      <button class="hf-screen" type="button" data-film aria-label="Watch the film full screen, with controls">
-        <video class="hf-wide" muted playsinline preload="none" disablepictureinpicture poster="img/film-hero-poster.webp" aria-hidden="true"></video>
-        <span class="hf-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</span>
-      </button>
+    <div class="hero-film">
+      <div class="hf-screen">
+        <video class="hf-wide" muted playsinline preload="none" disablepictureinpicture poster="img/film-hero-poster.webp" aria-label="The Rotaserie film, playing without sound: a week made in the real app"></video>
+        <div class="hf-ctl">
+          <button type="button" class="hf-btn" data-hf-pause aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <button type="button" class="hf-btn wide" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button>
+        </div>
+      </div>
+      <div class="demo hero-demo" data-demo role="img" aria-label="Demo: typing “maria tue-fri 9-5”, “sam sat 4p-11p” and “lee sun 10-6 cook” puts six shifts on the week">
+        <div class="demo-top"><span class="live" aria-hidden="true"></span>Type to Build<span class="wk">Mon 16 – Sun 22</span></div>
+        <div class="demo-box" data-demo-box>maria tue-fri 9-5
+sam sat 4p-11p
+lee sun 10-6 cook</div>
+        <p class="demo-read" data-demo-read aria-live="off"></p>
+        <div class="week" data-demo-week aria-hidden="true"></div>
+        <div class="demo-foot"><span data-demo-count></span><b>Ready to publish</b></div>
+      </div>
       <div class="phone-v hf-narrow"><video data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video></div>
+      <div class="hero-more">
+        <button class="btn btn-ghost film-btn" type="button" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <span class="muted">1:18</span></button>
+        <a class="btn btn-ghost" href="#why">Why Rotaserie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
