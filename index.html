@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
-<body>
+<body class="cinema">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" data-nav>
@@ -42,12 +42,12 @@
 <main id="main">
 
 <!-- HERO: the product, moving (real app recordings) -->
-<section class="hero2" id="top">
+<section class="hero2 theater" id="top">
   <div class="wrap hero2-in">
     <div class="hero-copy reveal">
       <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
       <h1>Type the week. <em>Get the schedule.</em></h1>
-      <p class="lead">Write “maria tue-fri 9-5” the way you'd text it. Rotaserie catches time off, overtime and short days as you go, then sends the week to everyone's phone.</p>
+      <p class="lead">Rotaserie is the schedule app for restaurants and small teams. Type “maria tue-fri 9-5” the way you'd text it, and the week is built, checked and on everyone's phone.</p>
       <div class="hero-actions">
         <a class="btn" href="#start" data-start>Get early access</a>
         <button class="btn btn-ghost film-btn" type="button" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <span class="muted">1:40</span></button>
@@ -57,10 +57,46 @@
     </div>
     <div class="stage reveal" data-tilt>
       <div class="laptop" data-par="-0.04">
-        <div class="lid"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-light-poster.webp" aria-label="The schedule builder on a computer: three typed lines become shifts on the week"><source data-src="img/tour/builder-light.webm" type="video/webm"><source data-src="img/tour/builder-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-dark-poster.webp" aria-label="The schedule builder on a computer: three typed lines become shifts on the week"><source data-src="img/tour/builder-dark.webm" type="video/webm"><source data-src="img/tour/builder-dark.mp4" type="video/mp4"></video></div>
+        <div class="lid"><video data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-light-poster.webp" aria-label="The schedule builder on a computer: three typed lines become shifts on the week"><source data-src="img/tour/builder-light.webm" type="video/webm"><source data-src="img/tour/builder-light.mp4" type="video/mp4"></video></div>
         <div class="base" aria-hidden="true"></div>
       </div>
-      <div class="phone-v" data-par="0.06"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: three typed lines become three shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-dark-poster.webp" aria-label="Type to Build on a phone: three typed lines become three shifts"><source data-src="img/tour/ttb-dark.webm" type="video/webm"><source data-src="img/tour/ttb-dark.mp4" type="video/mp4"></video></div>
+      <div class="phone-v" data-par="0.06"><video data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: three typed lines become three shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY: the jobs it takes off an owner's plate, each beside what Rotaserie does instead -->
+<section class="theater why" id="why">
+  <div class="wrap">
+    <div class="ch-head reveal"><p class="eyebrow">Why Rotaserie</p><h2>Three jobs that eat <em>your week.</em></h2></div>
+    <div class="pains">
+      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build: typed lines and the shifts they made"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video>
+        <div><p class="was">Building next week from scratch, late at night</p><h3>Type it like a text.</h3><p>One line per person, or copy last week. Rotaserie flags time off, overtime and short days before anyone sees the schedule.</p></div></article>
+      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="An open shift picked up from a phone, marked Requested"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video>
+        <div><p class="was">Swaps and time off scattered across group texts</p><h3>Requests in one place.</h3><p>Staff pick up shifts, trade and ask for time off from their phones. You approve with a tap.</p></div></article>
+      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="After I can't make it: the manager has been told"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video>
+        <div><p class="was">A 6 AM text: someone can't come in</p><h3>Call-outs reach you right away.</h3><p>They tap “I can't make it” and pick a reason. You're told at once, with a link to everyone who could cover.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- THE STORY: the device stays while the steps scroll past; each step plays its real recording (site.js) -->
+<section class="theater story" id="tour">
+  <div class="wrap">
+    <div class="ch-head reveal"><p class="eyebrow">See it work</p><h2>From typed lines <em>to a published week.</em></h2><p class="lead">The real app, recorded in real time with sample data.</p></div>
+    <div class="story-in">
+      <div class="story-stage" aria-hidden="true">
+        <div class="ss-phone"><video muted playsinline loop preload="none"></video><video muted playsinline loop preload="none"></video></div>
+        <div class="ss-laptop"><div class="lid"><video muted playsinline loop preload="none"></video></div><div class="base"></div></div>
+      </div>
+      <ol class="steps">
+        <li class="step" data-clip="ttb" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video><span class="n">1</span><h3>Type the week <em>like a text.</em></h3><p>One line per person, “maya wed 5-11”. Rotaserie shows what it read, asks when something is missing, and adds the shifts in one tap.</p></li>
+        <li class="step" data-clip="publish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-light-poster.webp" aria-label="Review and publish on a phone"><source data-src="img/tour/publish-light.webm" type="video/webm"><source data-src="img/tour/publish-light.mp4" type="video/mp4"></video><span class="n">2</span><h3>Check it, <em>then publish.</em></h3><p>Shifts, people, hours and anything urgent on one screen. Publish, and everyone is told by email and by phone alert if they turned alerts on.</p></li>
+        <li class="step" data-clip="staff" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="A staff member picks up an open shift"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video><span class="n">3</span><h3>Staff pick up shifts <em>in a tap.</em></h3><p>Their next shift, their week, and open shifts with an estimate of the pay. A manager approves pickups, or lets the simple ones go through.</p></li>
+        <li class="step" data-clip="callout" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="A staff member calls out of today's shift"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video><span class="n">4</span><h3>Call-outs reach you <em>right away.</em></h3><p>“I can't make it” on today's shift, a reason, and you're told at once, even in quiet hours.</p></li>
+        <li class="step" data-clip="spanish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/spanish-light-poster.webp" aria-label="The staff app in Spanish"><source data-src="img/tour/spanish-light.webm" type="video/webm"><source data-src="img/tour/spanish-light.mp4" type="video/mp4"></video><span class="n">5</span><h3>English <em>y español.</em></h3><p>Each person picks English or Spanish for their own screens, emails and phone alerts.</p></li>
+        <li class="step" data-clip="builder" data-frame="laptop"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-light-poster.webp" aria-label="The schedule builder on a computer"><source data-src="img/tour/builder-light.webm" type="video/webm"><source data-src="img/tour/builder-light.mp4" type="video/mp4"></video><span class="n">6</span><h3>The whole week <em>on a computer.</em></h3><p>Type, drag or copy last week on the big screen. The same checks run as you build.</p></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -77,35 +113,10 @@
   </div>
 </section>
 
-<!-- TOUR: the real app, recorded (README: Walkthrough clips); one clip plays at a time, the next follows, once through -->
-<section class="chapter tour" id="tour">
-  <div class="wrap">
-    <div class="ch-head reveal">
-      <p class="eyebrow">See it work</p>
-      <h2>From typed lines <em>to a published week.</em></h2>
-      <p class="lead">The real app, recorded in real time with sample data.</p>
-    </div>
-    <div class="tour-in reveal">
-      <div class="tour-stage" id="tour-stage" role="tabpanel" aria-labelledby="ch-ttb" data-frame="phone">
-        <video muted playsinline preload="none" disablepictureinpicture></video>
-        <button class="tour-play" type="button" aria-label="Play the walkthrough"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-      </div>
-      <ol class="tour-list" role="tablist" aria-label="Walkthrough">
-        <li role="presentation"><button role="tab" id="ch-ttb" aria-controls="tour-stage" aria-selected="true" data-clip="ttb" data-frame="phone" aria-labelledby="ch-ttb-t" aria-describedby="ch-ttb-d" data-label="Type to Build on a phone: three typed lines become three shifts"><b id="ch-ttb-t">Type the week like a text</b>
-          <span id="ch-ttb-d">One line per person. Rotaserie shows what it read, asks when something's missing, and adds the shifts in one tap.</span><i></i></button></li>
-        <li role="presentation"><button role="tab" id="ch-publish" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="publish" data-frame="phone" aria-labelledby="ch-publish-t" aria-describedby="ch-publish-d" data-label="Review and publish on a phone: the week at a glance, then Publish schedule"><b id="ch-publish-t">Check it, then publish</b>
-          <span id="ch-publish-d">Shifts, people and hours at a glance, and anything urgent to fix first. Publish tells everyone by email, and by phone alert if they've turned alerts on.</span><i></i></button></li>
-        <li role="presentation"><button role="tab" id="ch-staff" aria-controls="tour-stage" tabindex="-1" aria-selected="false" data-clip="staff" data-frame="phone" aria-labelledby="ch-staff-t" aria-describedby="ch-staff-d" data-label="A staff member picks up an open shift from their phone"><b id="ch-staff-t">Staff pick up shifts</b>
-          <span id="ch-staff-d">Their next shift, their week, and open shifts to pick up. A manager approves pickups, or you let the ones with nothing to check go through on their own.</span><i></i></button></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
 <section class="chapter" id="staff">
   <div class="wrap side">
     <div class="side-text reveal">
-      <p class="eyebrow">For your staff</p>
+      <p class="eyebrow">What your staff see</p>
       <h2>Their schedule, on their phone.</h2>
       <p class="lead">Staff don't download anything. You add them, and they scan your QR code to put Rotaserie on their phone and sign in once. From then on they see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
     </div>
@@ -125,28 +136,6 @@
         <img class="dk" src="img/new/p_schedule_dark.webp" width="780" height="1688" loading="lazy" alt="The week's schedule at night" data-zoom>
         <figcaption>The week<span>everyone's shifts</span></figcaption>
       </figure>
-    </div>
-  </div>
-</section>
-
-<!-- MOMENTS: the two that cost owners the most (call-outs, a bilingual crew), each a real recording -->
-<section class="chapter" id="moments">
-  <div class="wrap">
-    <div class="moment reveal">
-      <div class="phone-v small" data-par="0.05"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="A staff member taps I can't make it on today's shift, picks Sick, and the manager is told"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-dark-poster.webp" aria-label="A staff member taps I can't make it on today's shift, picks Sick, and the manager is told"><source data-src="img/tour/callout-dark.webm" type="video/webm"><source data-src="img/tour/callout-dark.mp4" type="video/mp4"></video></div>
-      <div>
-        <p class="eyebrow">The 6 AM call-out</p>
-        <h2>Call-outs reach you <em>right away.</em></h2>
-        <p class="lead">Your cook taps <b>I can't make it</b> on today's shift and picks a reason. You're told at once, even in quiet hours, with a link to everyone who could cover it.</p>
-      </div>
-    </div>
-    <div class="moment flip reveal">
-      <div class="phone-v small" data-par="0.05"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/spanish-light-poster.webp" aria-label="A staff member's home screen and schedule in Spanish"><source data-src="img/tour/spanish-light.webm" type="video/webm"><source data-src="img/tour/spanish-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/spanish-dark-poster.webp" aria-label="A staff member's home screen and schedule in Spanish"><source data-src="img/tour/spanish-dark.webm" type="video/webm"><source data-src="img/tour/spanish-dark.mp4" type="video/mp4"></video></div>
-      <div>
-        <p class="eyebrow">English y español</p>
-        <h2>Each person reads it <em>in their language.</em></h2>
-        <p class="lead">Each person picks English or Spanish for their own screens, emails and phone alerts. You schedule in yours; your kitchen reads theirs.</p>
-      </div>
     </div>
   </div>
 </section>

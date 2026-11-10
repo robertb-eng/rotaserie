@@ -288,6 +288,51 @@
     drift();
   }
 
+  // The story (Nov 10 2026): the step in the middle of the screen is the one shown; its real recording plays in the
+  // phone (two videos crossfade) or the laptop. Only on wide screens: on phones each step plays its own clip above its text (data-loop);
+  // with reduced motion the stage shows the step's still and nothing plays.
+  var story = document.querySelector('.story');
+  if (story && 'IntersectionObserver' in window) (function () {
+    var stage = story.querySelector('.story-stage'), steps = [].slice.call(story.querySelectorAll('.step'));
+    var pv = [].slice.call(stage.querySelectorAll('.ss-phone video')), lv = stage.querySelector('.ss-laptop video');
+    var front = 0, cur = null, wide = matchMedia('(min-width: 1001px)'), seen = false;
+    var src = function (v, clip) {
+      var base = 'img/tour/' + clip + '-light';
+      v.poster = base + '-poster.webp';
+      v.innerHTML = '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">';
+      v.load();
+    };
+    var go = function (v) { if (!calmMQ.matches && seen && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
+    var show = function (step) {
+      if (step === cur || !wide.matches) return;
+      cur = step;
+      steps.forEach(function (s) { s.classList.toggle('on', s === step); });
+      var clip = step.dataset.clip, frame = step.dataset.frame;
+      stage.dataset.frame = frame;
+      pv.concat(lv).forEach(function (v) { v.pause(); });
+      if (frame === 'laptop') { if (lv.dataset.clip !== clip) { src(lv, clip); lv.dataset.clip = clip; } lv.currentTime = 0; go(lv); return; }
+      var next = pv[1 - front];
+      src(next, clip);
+      next.addEventListener('loadeddata', function once() {
+        next.removeEventListener('loadeddata', once);
+        pv[front].classList.remove('front'); next.classList.add('front'); front = 1 - front; go(next);
+      });
+      if (calmMQ.matches) { pv[front].classList.remove('front'); next.classList.add('front'); front = 1 - front; }
+    };
+    pv[0].classList.add('front');
+    var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) show(en.target); }); }, {rootMargin: '-45% 0px -45% 0px'});
+    steps.forEach(function (s) { io.observe(s); });
+    new IntersectionObserver(function (es) {
+      seen = es[es.length - 1].isIntersecting;
+      var v = stage.dataset.frame === 'laptop' ? lv : pv[front];
+      if (seen) { if (!cur) show(steps[0]); go(v); } else pv.concat(lv).forEach(function (x) { x.pause(); });
+    }, {threshold: 0.1}).observe(stage);
+    document.addEventListener('visibilitychange', function () {
+      var v = stage.dataset.frame === 'laptop' ? lv : pv[front];
+      if (document.hidden) v.pause(); else go(v);
+    });
+  })();
+
   // The film: opens full size and plays; closing stops it
   var filmBox = document.querySelector('[data-filmbox]'), filmBtn = document.querySelector('[data-film]');
   if (filmBox && filmBtn) {
