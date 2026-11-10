@@ -657,3 +657,14 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){.hero-demo{animation:none}.hero-demo .live{animation:none}}
 @media (min-width:1001px){.hero-film{container-type:inline-size}.hero-demo{bottom:auto;top:calc(56.25cqw - 120px)}.hero2.theater .hero-more{margin-top:190px}}
 @media (min-width:1001px){.hero-demo{top:calc(56.25cqw - 62px);left:-74px}.hero2.theater .hero-more{margin-top:248px}}
+/* hero v5 (Robert, Nov 10: "side by side ... distribute them evenly"): film across the top of the right side; under it
+   the Type to Build preview and the two buttons side by side; nothing overlaps */
+@media (min-width:1001px){
+  .hero2.theater{padding-top:96px;padding-bottom:40px}
+  .hero-film{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-areas:"screen screen" "demo more";gap:18px;align-items:stretch;container-type:normal}
+  .hf-screen{grid-area:screen}
+  .hero-demo{grid-area:demo;position:static;width:auto;top:auto;left:auto;bottom:auto;animation:none;margin:0}
+  .hero2.theater .hero-more{grid-area:more;margin:0;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:12px}
+  .hero2.theater .hero-more .btn{justify-content:center;width:100%}
+}
+@media (min-width:1001px) and (max-height:820px){.hero2.theater{padding-top:86px;padding-bottom:24px}.hero-film{gap:14px}.hero-demo .week .cell{height:22px}.hero-demo .demo-box{height:58px}.hero-demo .demo-read{min-height:14px;margin:4px 2px 2px}}
