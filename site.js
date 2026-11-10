@@ -232,6 +232,62 @@
   })();
 
 
+  // v2: the product plays in its frames (hero, call-out, Spanish): each clip loads only when first seen, plays only
+  // while seen and shown (the other theme's copy stays still), loops; reduced motion leaves the still (its poster).
+  var calmMQ = matchMedia('(prefers-reduced-motion: reduce)');
+  var loops = [].slice.call(document.querySelectorAll('video[data-loop]'));
+  if (loops.length && 'IntersectionObserver' in window) {
+    var inView = new Map();
+    var shown = function (v) { return v.offsetParent !== null; };
+    var settle = function (v) {
+      var want = inView.get(v) && shown(v) && !calmMQ.matches && !document.hidden;
+      if (want) {
+        if (!v.dataset.loaded) { v.querySelectorAll('source[data-src]').forEach(function (s) { s.src = s.dataset.src; }); v.dataset.loaded = '1'; v.load(); }
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      } else if (!v.paused) v.pause();
+    };
+    var loopIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { inView.set(en.target, en.isIntersecting); settle(en.target); });
+    }, {threshold: 0.25});
+    loops.forEach(function (v) { loopIO.observe(v); });
+    var all = function () { setTimeout(function () { loops.forEach(settle); }, 30); };
+    if (toggle) toggle.addEventListener('click', all);
+    document.addEventListener('visibilitychange', all);
+    if (calmMQ.addEventListener) calmMQ.addEventListener('change', all);
+    var darkMQ = matchMedia('(prefers-color-scheme: dark)');
+    if (darkMQ.addEventListener) darkMQ.addEventListener('change', all);
+  }
+
+  // v2: the hero's devices lean toward the pointer (a mouse, not touch) and drift with the scroll
+  var stageEl = document.querySelector('[data-tilt]');
+  if (stageEl && matchMedia('(pointer: fine)').matches) {
+    var hero2 = stageEl.closest('section') || stageEl;
+    hero2.addEventListener('pointermove', function (ev) {
+      if (calmMQ.matches) return;
+      var r = stageEl.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5;
+      stageEl.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
+      stageEl.style.setProperty('--rx', (-y * 4).toFixed(2) + 'deg');
+    });
+    hero2.addEventListener('pointerleave', function () { stageEl.style.setProperty('--ry', '0deg'); stageEl.style.setProperty('--rx', '0deg'); });
+  }
+  var pars = [].slice.call(document.querySelectorAll('[data-par]'));
+  if (pars.length) {
+    var ticking = false;
+    var drift = function () {
+      ticking = false;
+      var mid = innerHeight / 2;
+      pars.forEach(function (el) {
+        if (calmMQ.matches) { el.style.removeProperty('--py'); return; }
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        el.style.setProperty('--py', ((r.top + r.height / 2 - mid) * parseFloat(el.dataset.par)).toFixed(1) + 'px');
+      });
+    };
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, {passive: true});
+    drift();
+  }
+
   // Click a screenshot to see it full size
   var zoom = document.querySelector('[data-zoombox]');
   if (zoom && zoom.showModal) {

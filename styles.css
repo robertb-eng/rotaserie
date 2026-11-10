@@ -375,3 +375,95 @@ p{margin:0}
   .legal{padding:26px 18px}
   .foot-in p:last-child{margin-left:0}
 }
+
+/* ===== v2 (Nov 10 2026): a simpler page that moves. The product plays in its frames (real recordings, site.js plays
+   them only while seen); the stage tilts toward the pointer and drifts with the scroll; sections arrive in turn.
+   Everything holds still with reduced motion. ===== */
+.hero2{padding:64px 0 30px;text-align:center;overflow:hidden}
+.hero-copy{max-width:860px;margin:0 auto}
+.hero2 h1{font-size:clamp(44px,7vw,92px);line-height:1}
+.hero2 h1 em{display:block}
+.hero2 .lead{margin:22px auto 0;max-width:680px}
+.stage{position:relative;max-width:1060px;margin:56px auto 0;perspective:1600px;--rx:0deg;--ry:0deg}
+.stage>*{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.laptop{transform:rotateX(calc(4deg + var(--rx))) rotateY(var(--ry)) translateY(var(--py,0px));transform-style:preserve-3d;margin-right:150px}
+.lid{background:#0b0f14;border-radius:22px 22px 6px 6px;padding:12px 12px 14px;box-shadow:var(--shadow-lg),inset 0 0 0 2px rgba(255,255,255,.08)}
+.lid video{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;background:var(--bg)}
+.base{height:16px;margin:0 -5%;border-radius:0 0 22px 22px;background:linear-gradient(180deg,#d9dde3,#a9b0ba);box-shadow:0 18px 40px -12px rgba(15,35,70,.5)}
+:root[data-theme=dark] .base{background:linear-gradient(180deg,#3a4250,#20262f)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .base{background:linear-gradient(180deg,#3a4250,#20262f)}}
+.phone-v{position:relative;width:min(270px,30%);border-radius:44px;padding:9px;background:#0b0f14;box-shadow:var(--shadow-lg),inset 0 0 0 2px rgba(255,255,255,.1)}
+.phone-v video{display:block;width:100%;aspect-ratio:780/1688;object-fit:cover;object-position:top;border-radius:35px;background:var(--bg)}
+.stage .phone-v{position:absolute;right:0;bottom:-40px;transform:rotateX(var(--rx)) rotateY(calc(var(--ry) * 1.6)) translateY(var(--py,0px)) translateZ(60px)}
+.phone-v.small{width:min(290px,80%);margin:0 auto}
+.stage:after{content:"";position:absolute;left:12%;right:12%;bottom:-70px;height:60px;border-radius:50%;background:rgba(15,35,70,.25);filter:blur(30px);z-index:-1}
+
+/* the moving line of how people type their week */
+.marquee{padding:90px 0 10px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mq-track{display:flex;gap:14px;width:max-content;animation:mq 38s linear infinite}
+.mq-track span{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:var(--bubble);box-shadow:var(--shadow);white-space:nowrap;font-size:16px}
+.mq-track code{font:600 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent-text)}
+@keyframes mq{to{transform:translateX(calc(-50% - 7px))}}
+.marquee:hover .mq-track{animation-play-state:paused}
+
+/* moments: one phone, one idea */
+.moment{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;max-width:980px;margin:0 auto}
+.moment+.moment{margin-top:110px}
+.moment.flip>:first-child{order:2}
+.moment .lead b{color:var(--ink)}
+.moment .phone-v{transform:translateY(var(--py,0px));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+
+/* sections arrive in turn; the staff phones fan in */
+.js .fan.reveal{opacity:1;transform:none}
+.js .fan .phone{transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .8s;opacity:0}
+.js .fan .phone:nth-child(1){transform:translateX(60%) rotate(-8deg)}
+.js .fan .phone:nth-child(2){transform:translateY(40px)}
+.js .fan .phone:nth-child(3){transform:translateX(-60%) rotate(8deg)}
+.js .fan.in .phone{opacity:1;transform:none}
+.js .fan.in .phone:nth-child(2){transition-delay:.12s}
+.js .fan.in .phone:nth-child(3){transition-delay:.24s}
+.js .hero2 .stage.reveal{transform:translateY(60px) scale(.96);transition:opacity 1.1s ease .15s,transform 1.2s cubic-bezier(.2,.7,.2,1) .15s}
+.js .hero2 .stage.reveal.in{transform:none}
+
+@media (max-width:1000px){
+  .laptop{margin-right:90px}
+  .moment,.moment.flip{grid-template-columns:1fr;gap:34px;text-align:center}
+  .moment.flip>:first-child{order:0}
+  .moment .lead{margin-left:auto;margin-right:auto}
+}
+@media (max-width:640px){
+  .hero2{padding-top:36px}
+  .stage{margin-top:40px}
+  .laptop{margin-right:0}
+  .stage .phone-v{width:34%;right:-6px;bottom:-30px;border-radius:30px;padding:6px}
+  .stage .phone-v video{border-radius:25px}
+  .marquee{padding-top:70px}
+}
+@media (prefers-reduced-motion:reduce){
+  .mq-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;padding:0 22px}
+  .mq-track span:nth-child(n+7){display:none}
+  .marquee{-webkit-mask:none;mask:none}
+  .stage>*,.js .fan .phone{transition:none}
+  .js .fan .phone,.js .hero2 .stage.reveal{opacity:1;transform:none}
+}
+
+/* side by side (Robert, Nov 10: the product in use beside every piece of text) */
+.hero2{text-align:left}
+.hero2-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:center}
+.hero2 .hero-copy{max-width:none;margin:0}
+.hero2 h1{font-size:clamp(42px,5.6vw,78px)}
+.hero2 .lead{margin-left:0}
+.hero2 .stage{margin:20px 0 40px}
+.side{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.side>.phone-v.small{width:min(300px,100%)}
+.side-text .lead{max-width:none}
+.side .phones{padding-bottom:70px;gap:18px}
+.ch-head.left{text-align:left;margin:0 0 28px}
+#faq .faq{max-width:none}
+#start .early{margin:0;max-width:none}
+@media (max-width:1000px){
+  .hero2-in,.side{grid-template-columns:1fr;gap:36px}
+  .hero2{text-align:center}.hero2 .lead{margin-left:auto}.hero2 .hero-actions{justify-content:center}
+  .side-text{text-align:center}.side-text .lead{margin-left:auto;margin-right:auto}
+  .ch-head.left{text-align:center}
+}
