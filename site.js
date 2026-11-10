@@ -4,7 +4,7 @@
   // When signup opens (LLC + Stripe live mode), put 'https://app.rotaserie.com/signup' here: every
   // "Get early access" button and the form then go straight to signup instead of an email.
   var SIGNUP_URL = '';
-  var EMAIL = 'robertebanchero@gmail.com';
+  var EMAIL = 'robert@rotaserie.com';
 
   var root = document.documentElement;
   root.classList.add('js');  // (also set by the inline script in <head>, before first paint)

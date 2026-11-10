@@ -19,7 +19,7 @@ PREVIEW ON THIS COMPUTER
   then visit http://localhost:8000
 
 BEFORE PUTTING IT ONLINE
-  1. Contact email: "Get early access" emails robertebanchero@gmail.com (site.js EMAIL, and
+  1. Contact email: "Get early access" emails robert@rotaserie.com (site.js EMAIL, and
      the mailto links in index.html).
   2. The name: Rotaserie by Spiros. rotaserie.com was unregistered in October 2026 - register it
      before someone else does, and search the trademark register (tmsearch.uspto.gov).
