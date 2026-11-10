@@ -288,6 +288,18 @@
     drift();
   }
 
+  // The film: opens full size and plays; closing stops it
+  var filmBox = document.querySelector('[data-filmbox]'), filmBtn = document.querySelector('[data-film]');
+  if (filmBox && filmBtn) {
+    if (!filmBox.showModal) filmBtn.hidden = true;
+    else {
+      var fv = filmBox.querySelector('video');
+      filmBtn.addEventListener('click', function () { filmBox.showModal(); var p = fv.play(); if (p && p.catch) p.catch(function () {}); });
+      filmBox.addEventListener('click', function (ev) { if (ev.target === filmBox || ev.target.closest('[data-film-close]')) filmBox.close(); });
+      filmBox.addEventListener('close', function () { fv.pause(); });
+    }
+  }
+
   // Click a screenshot to see it full size
   var zoom = document.querySelector('[data-zoombox]');
   if (zoom && zoom.showModal) {

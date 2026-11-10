@@ -1,0 +1,12 @@
+# Safety net: this repo is PUBLIC. Keep private stuff out.
+.env*
+*.key
+*.pem
+*.db
+*.sqlite
+*.log
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+private/
+notes/
