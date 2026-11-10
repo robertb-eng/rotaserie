@@ -668,3 +668,21 @@ p{margin:0}
   .hero2.theater .hero-more .btn{justify-content:center;width:100%}
 }
 @media (min-width:1001px) and (max-height:820px){.hero2.theater{padding-top:86px;padding-bottom:24px}.hero-film{gap:14px}.hero-demo .week .cell{height:22px}.hero-demo .demo-box{height:58px}.hero-demo .demo-read{min-height:14px;margin:4px 2px 2px}}
+/* phone layout fixes (Robert, Nov 10) */
+@media (max-width:1000px){
+  .hf-narrow{display:none!important}
+  .pain{display:block}
+  .pain-v{height:300px;min-height:0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .pain>div{padding:20px 22px 24px}
+}
+@media (max-width:700px){
+  .phones,.side .phones{display:flex;justify-content:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 22px 80px;margin:0 -22px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .phones::-webkit-scrollbar{display:none}
+  .phones .phone{flex:0 0 72%;max-width:none;scroll-snap-align:center}
+  .phones .lift{margin-top:0}
+  .js .fan .phone{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .mq-track{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;width:auto;scrollbar-width:none}
+  .mq-track span:nth-child(n+7){display:none}
+}
