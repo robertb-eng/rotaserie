@@ -338,7 +338,8 @@
   var FROM = 8.4, heroSeen = false, heroPaused = false, heroWide = matchMedia('(min-width: 1001px)');
   var playHero = function () {
     var v = document.querySelector('.hf-wide');
-    if (!v || !heroWide.matches || document.hidden || heroPaused) return;
+    var f = document.querySelector('[data-filmframe] video');
+    if (!v || !heroWide.matches || document.hidden || heroPaused || (f && !f.paused)) return;
     if (!v.dataset.loaded) {
       v.dataset.loaded = '1';
       v.innerHTML = '<source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">';
@@ -365,20 +366,36 @@
     document.addEventListener('visibilitychange', function () { if (document.hidden) hf.pause(); else if (heroSeen) playHero(); });
   }
 
-  // The film: opens full size and plays; closing stops it
-  var filmBox = document.querySelector('[data-filmbox]'), filmBtns = [].slice.call(document.querySelectorAll('[data-film]'));
-  var heroFilm = document.querySelector('.hf-wide');
-  if (filmBox && filmBtns.length) {
-    if (!filmBox.showModal) filmBtns.forEach(function (b) { b.hidden = true; });
-    else {
-      var fv = filmBox.querySelector('video');
-      filmBtns.forEach(function (b) { b.addEventListener('click', function () {
-        if (heroFilm) heroFilm.pause();
-        filmBox.showModal(); var p = fv.play(); if (p && p.catch) p.catch(function () {});
-      }); });
-      filmBox.addEventListener('click', function (ev) { if (ev.target === filmBox || ev.target.closest('[data-film-close]')) filmBox.close(); });
-      filmBox.addEventListener('close', function () { fv.pause(); if (heroFilm && heroSeen) playHero(); });
-    }
+  // The film sits on the page under Why Rotaserie; the button over it (or a click on it) starts it there. The hero's
+  // Full screen plays the same film full screen (or brings it into view where full screen isn't offered). While the
+  // film plays the hero waits (filmOn in playHero); out of view or out of full screen the film stops and the hero goes on.
+  var frame = document.querySelector('[data-filmframe]'), heroFilm = document.querySelector('.hf-wide');
+  if (frame) {
+    var fv = frame.querySelector('video'), playBtn = frame.querySelector('[data-film-play]');
+    var fsEl = function () { return document.fullscreenElement || document.webkitFullscreenElement; };
+    var startFilm = function () {
+      if (heroFilm) heroFilm.pause();
+      var p = fv.play(); if (p && p.catch) p.catch(function () {});
+    };
+    fv.addEventListener('play', function () { frame.classList.add('playing'); fv.controls = true; if (heroFilm) heroFilm.pause(); });
+    fv.addEventListener('pause', function () { if (heroSeen && !fsEl()) playHero(); });
+    if (playBtn) playBtn.addEventListener('click', function (ev) { ev.stopPropagation(); startFilm(); fv.focus(); });
+    frame.addEventListener('click', function () { if (!frame.classList.contains('playing')) startFilm(); });
+    var toFilm = function () { frame.scrollIntoView({behavior: 'smooth', block: 'center'}); };
+    [].forEach.call(document.querySelectorAll('[data-film]'), function (b) { b.addEventListener('click', function () {
+      startFilm();
+      var fs = fv.requestFullscreen || fv.webkitRequestFullscreen || fv.webkitEnterFullscreen;
+      if (!fs) return toFilm();
+      try { var r = fs.call(fv); if (r && r.catch) r.catch(toFilm); } catch (e) { toFilm(); }
+    }); });
+    var filmSeen = false, leftFs = function () { if (!fsEl() && !filmSeen) fv.pause(); };
+    document.addEventListener('fullscreenchange', leftFs);
+    document.addEventListener('webkitfullscreenchange', leftFs);
+    fv.addEventListener('webkitendfullscreen', function () { setTimeout(leftFs, 50); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+      filmSeen = es[es.length - 1].isIntersecting;
+      if (!filmSeen && !fsEl()) fv.pause();
+    }, {threshold: 0.25}).observe(frame);
   }
 
   // Click a screenshot to see it full size

@@ -473,13 +473,21 @@ p{margin:0}
 #start .early form .btn{grid-column:1/-1;justify-content:center}
 @media (max-width:640px){#start .early form{grid-template-columns:1fr}}
 
-/* the film (Nov 10 2026): a 100-second cut of the real app in use, opened from the hero */
+/* the film (Nov 10 2026): a 78-second cut of the real app in use, on the page under Why Rotaserie; the button sits
+   over it until it starts */
 .film-btn{border:0;cursor:pointer}
 .film-btn svg{fill:currentColor;stroke:none}
-.film-btn .muted{font-weight:600;font-size:14px}
-.film{border:0;padding:0;background:#000;width:min(94vw,1500px);max-height:94vh;overflow:visible;border-radius:18px}
-.film::backdrop{background:rgba(3,6,14,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.film video{display:block;width:100%;aspect-ratio:16/9;border-radius:18px;background:#05070d}
+.film-btn .muted{font-weight:600;font-size:.8em;color:inherit;opacity:.75}
+.film-sec{padding:20px 0 110px}
+.film-frame{position:relative;max-width:1120px;margin:0 auto;border-radius:22px;overflow:hidden;background:#05070d;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.12)}
+.film-frame video{display:block;width:100%;aspect-ratio:16/9;background:#05070d}
+.film-frame{cursor:pointer}.film-frame.playing{cursor:auto}
+.film-frame:before{content:"";position:absolute;inset:0;background:rgba(3,6,14,.35);pointer-events:none;transition:opacity .3s}
+.film-frame .film-btn{position:absolute;left:50%;top:76%;transform:translate(-50%,-50%);white-space:nowrap}
+.film-frame.playing:before{opacity:0}
+.film-frame.playing .film-btn{display:none}
+@media (max-width:640px){.film-sec{padding:10px 0 70px}.film-frame{border-radius:14px}.film-frame .film-btn{top:84%;padding:10px 16px;font-size:15px}}
 
 /* ===== the theater (Nov 10 2026: "an informative cinematic experience"): the top of the page is a dark room where
    the app's light screens are the light; always dark, in either theme, so the story reads the same ===== */
