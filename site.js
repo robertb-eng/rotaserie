@@ -35,6 +35,17 @@
     reveals.forEach(function (el) { io.observe(el); });
   } else reveals.forEach(function (el) { el.classList.add('in'); });
 
+  // Where-from code: a postcard, letter or email links to rotaserie.com/?from=pc-shoreline. The code is kept while the
+  // visitor looks around (this tab only) and goes with them to signup (the app counts sign-ups by code), or into the
+  // early-access email. Letters, digits and dashes only, as the app accepts.
+  var FROM = '';
+  try {
+    var m = /[?&]from=([a-z0-9](?:[a-z0-9-]{0,38}[a-z0-9])?)(?:&|$)/i.exec(location.search);
+    if (m) sessionStorage.setItem('rs-from', m[1].toLowerCase());
+    FROM = sessionStorage.getItem('rs-from') || '';
+  } catch (e) { /* storage off: the code only lasts on this page */ if (m) FROM = m[1].toLowerCase(); }
+  if (SIGNUP_URL && FROM) SIGNUP_URL += (SIGNUP_URL.indexOf('?') < 0 ? '?' : '&') + 'from=' + FROM;
+
   // Get early access: an email to Robert with the business filled in (until signup opens)
   if (SIGNUP_URL) {
     document.querySelectorAll('[data-start]').forEach(function (a) { a.href = SIGNUP_URL; });
@@ -46,7 +57,7 @@
     if (SIGNUP_URL) { location.href = SIGNUP_URL; return; }
     var biz = form.elements.business.value.trim(), kind = form.elements.kind.value;
     var body = 'Hi Robert,\n\nI\'d like early access to Rotaserie.\n\nBusiness: ' + biz + '\nKind of business: ' + kind +
-      '\nHow many people work there: \nHow we schedule today: \n\nThanks!';
+      '\nHow many people work there: \nHow we schedule today: \n\nThanks!' + (FROM ? '\n\n(Code: ' + FROM + ')' : '');
     location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Rotaserie early access: ' + biz) + '&body=' + encodeURIComponent(body);
   });
 
