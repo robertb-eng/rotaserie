@@ -232,21 +232,50 @@
       "join": "Staff join with your QR code. No app store needed.",
       "phones": [
         {
+          "shot": "my-shifts",
+          "lang": "",
           "cap": "Next shift",
           "sub": "and who's on with them",
           "alt": "An employee's home screen: their next shift, who they work with, and their week."
         },
         {
+          "shot": "open-shifts",
+          "lang": "",
           "cap": "Open shifts",
           "sub": "pick one up in a tap",
           "alt": "Open shifts an employee can pick up, each with estimated pay."
         },
         {
+          "shot": "schedule-staff",
+          "lang": "",
           "cap": "The week",
           "sub": "everyone's shifts",
           "alt": "The team's schedule for the week, day by day, on a phone."
         },
         {
+          "shot": "time-off",
+          "lang": "",
+          "cap": "Time off",
+          "sub": "asked from their phone",
+          "alt": "Asking for time off: first and last day and a reason."
+        },
+        {
+          "shot": "availability",
+          "lang": "",
+          "cap": "Availability",
+          "sub": "when they can work",
+          "alt": "An employee's availability: preferred hours on weekdays, not available on weekends."
+        },
+        {
+          "shot": "join-qr",
+          "lang": "",
+          "cap": "Joining",
+          "sub": "from your QR code",
+          "alt": "The welcome page a new employee opens from the QR code, to ask to join."
+        },
+        {
+          "shot": "my-shifts",
+          "lang": "es",
           "cap": "En español",
           "sub": "each person picks",
           "alt": "The same home screen in Spanish: the next shift, who they work with, and the week."
@@ -398,5 +427,7 @@
     },
     "terms": {},
     "privacy": {}
-  }
+  },
+  "prev": "Back",
+  "next": "More"
 }

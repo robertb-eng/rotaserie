@@ -325,7 +325,10 @@ button.tb-chip:hover{border-color:var(--fill-edge);background:var(--sel)}
 .phones figcaption b{font-size:var(--t-18)}
 .phones figcaption span{color:var(--muted);font-size:var(--t-14)}
 @media (min-width:600px){.phones{grid-auto-columns:38%}}
-@media (min-width:1024px){.staff-top{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--sp-8);align-items:start}.phones{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-inline:0;padding:0;overflow:visible}}
+@media (min-width:1024px){.staff-top{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--sp-8);align-items:start}.phones{grid-auto-columns:calc((100% - 3*var(--sp-4))/4.4);gap:var(--sp-4);margin-inline:0;padding:4px 4px var(--sp-2);scroll-padding-inline:4px}}
+.rail-wrap{position:relative}
+.rail-nav{display:none}
+@media (min-width:1024px){.js .rail-nav{display:flex;gap:8px;justify-content:flex-end;margin-top:var(--sp-2)}.rail-nav .icon-btn{border-color:var(--n-line-2);background:var(--n-surface)}.rail-nav .icon-btn[disabled]{opacity:.4;cursor:default}}
 
 /* every screen */
 .devices{position:relative;padding-bottom:var(--sp-6)}

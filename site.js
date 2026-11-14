@@ -134,6 +134,13 @@
 
   // The staff phones are a swipe row on small screens: arrow keys move it
   $$('[data-rail]').forEach(function (rail) {
+    var wrap = rail.parentNode, prev = $('[data-rail-prev]', wrap), next = $('[data-rail-next]', wrap);
+    if (prev && next) {
+      var step = function (dir) { rail.scrollBy({left: dir * rail.clientWidth * 0.7, behavior: calm ? 'auto' : 'smooth'}); };
+      var ends = function () { prev.disabled = rail.scrollLeft < 8; next.disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 8; };
+      prev.addEventListener('click', function () { step(-1); }); next.addEventListener('click', function () { step(1); });
+      rail.addEventListener('scroll', ends, {passive: true}); ends();
+    }
     rail.addEventListener('keydown', function (ev) {
       if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
       if (rail.scrollWidth <= rail.clientWidth) return;

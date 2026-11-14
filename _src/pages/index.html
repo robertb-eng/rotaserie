@@ -157,13 +157,13 @@
         <p class="join"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>{{home.staff.join}}</p>
       </div>
     </div>
-    <div class="phones" data-rail tabindex="0" role="group" aria-label="{{home.staff.label}}">
-      <figure><div class="phone">{{shot my-shifts alt=home.staff.phones.0.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.0.cap}}</b><span>{{home.staff.phones.0.sub}}</span></figcaption></figure>
-      <figure><div class="phone">{{shot open-shifts alt=home.staff.phones.1.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.1.cap}}</b><span>{{home.staff.phones.1.sub}}</span></figcaption></figure>
-      <figure><div class="phone">{{shot schedule-staff alt=home.staff.phones.2.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.2.cap}}</b><span>{{home.staff.phones.2.sub}}</span></figcaption></figure>
-      <figure><div class="phone">{{shot my-shifts lang=es alt=home.staff.phones.3.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b lang="es">{{home.staff.phones.3.cap}}</b><span>{{home.staff.phones.3.sub}}</span></figcaption></figure>
+    <div class="rail-wrap">
+      <div class="phones" data-rail tabindex="0" role="group" aria-label="{{home.staff.label}}">
+        {{#each home.staff.phones}}<figure><div class="phone">{{shot =shot lang==lang alt=alt sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"}}</div><figcaption><b>{{cap}}</b><span>{{sub}}</span></figcaption></figure>
+        {{/each}}
+      </div>
+      <div class="rail-nav" aria-hidden="true"><button type="button" class="icon-btn" data-rail-prev tabindex="-1" title="{{prev}}"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="icon-btn" data-rail-next tabindex="-1" title="{{next}}"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
     </div>
-    <p class="rail-hint" aria-hidden="true">{{swipe}}<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
   </div>
 </section>
 

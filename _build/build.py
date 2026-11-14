@@ -215,7 +215,10 @@ def emit(tree, scope, ctx, where, depth=0):
             if name.startswith("="):
                 name = str(scope.get(name[1:], where))
             alt = str(scope.get(opts["alt"], where)) if "alt" in opts else ""
-            out.append(shot_html(name, opts.get("lang", ctx["lang"]), ctx["base"], alt.replace('"', "&quot;"),
+            lang = opts.get("lang", "")
+            if lang.startswith("="):  # lang==key: the language comes from a value ("" = the page's)
+                lang = str(scope.get(lang[1:], where))
+            out.append(shot_html(name, lang or ctx["lang"], ctx["base"], alt.replace('"', "&quot;"),
                                  opts.get("sizes", "100vw"), opts.get("class", ""), "eager" in words, "nozoom" not in words))
         elif kind in ("if", "unless"):
             val = scope.get(node[1], where)
