@@ -58,7 +58,7 @@
       {{#each gen.ttb.points}}<li class="point">
         <div class="point-text"><span class="idx">{{@nn}}</span><h3>{{title}}</h3>{{#if body}}<p>{{body}}</p>{{/if}}</div>
         <div class="point-ex">{{#each examples}}<div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">{{text}}</code>{{#if ttb_live}}<button type="button" class="chip ex-try" data-ttb-try="{{text}}">{{home.type.try}}</button>{{/if}}</p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">{{text}}</code></span>{{#if ttb_live}}<button type="button" class="chip ex-try" data-ttb-try="{{text}}">{{home.type.try}}</button>{{/if}}</p>
           <div class="tb ex-out">{{html}}</div>
         </div>{{/each}}</div>
       </li>{{/each}}
