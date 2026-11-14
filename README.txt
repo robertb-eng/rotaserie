@@ -29,6 +29,8 @@ BUILDING THE PAGES
                 no Google Fonts. Licenses in fonts/OFL.txt
   img/tour/     walkthrough clips: <clip>-<light|dark>.webm/.mp4 and -poster.webp (ttb, publish, fill, staff)
   img/new/      real screenshots of the app, light and dark (the fictional "Harbor Street Bistro" demo)
+  img/app/      real screenshots of the app's current look: <shot>-<en|es>-<light|dark>-<pixel width>.webp/.avif
+                (the same made-up demo business; phones at 3x and 2x, computer screens at 2x and 1x)
 
 PREVIEW ON THIS COMPUTER
   Open index.html in a browser, or for the full experience serve the folder on a free port:
