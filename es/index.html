@@ -70,7 +70,6 @@
 <!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <ol class="hero-days" aria-hidden="true"><li>lun 16</li><li>mar 17</li><li>mié 18</li><li>jue 19</li><li>vie 20</li><li>sáb 21</li><li>dom 22</li></ol>
     <p class="label">Horarios para restaurantes y equipos pequeños</p>
     <h1 class="display">Escribe la semana. <em>Recibe el horario.</em></h1>
     <div class="hero-cols">
@@ -78,7 +77,7 @@
         <p class="lead">Escribe los turnos como los mandarías en un mensaje. Rotaserie te muestra lo que entendió, te avisa de los problemas y manda la semana al teléfono de cada persona.</p>
         <div class="actions">
           <a class="btn btn-big" href="#start" data-start>Pide acceso anticipado</a>
-          <a class="btn btn-big btn-ghost" href="#film" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Mira la película <span class="num">1:32</span></a>
+          <a class="btn btn-big btn-ghost" href="../img/film/film-es-1080.h264.mp4" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Mira la película <span class="num">1:32</span></a>
         </div>
         <ul class="proof"><li>Se usa cada semana en Spiros</li><li>English y español</li><li>Funciona en cualquier teléfono</li></ul>
       </div>
@@ -110,30 +109,6 @@ lena lun a jue 10 a 4</textarea>
   </div>
 </section>
 
-<!-- THE FILM: a dark band right under the hero. Nothing loads or plays until asked. -->
-<section class="film" id="film" data-film data-len="1:32">
-  <div class="wrap">
-    <div class="film-head">
-      <p class="label">La película · 1:32</p>
-      <h2>Una semana, de domingo en la noche a domingo en la noche.</h2>
-    </div>
-    <div class="film-frame" data-film-frame>
-      <video playsinline preload="none" data-4k poster="../img/film/poster-es-night.webp" width="1920" height="1080" aria-label="La película de Rotaserie: una semana en la app real, de un domingo en la noche al domingo siguiente. Sin sonido." data-film-video data-stem="../img/film/film-es">
-        <track kind="captions" srclang="es" label="Español" src="../img/film/film-es.vtt">
-      </video>
-      <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Ver la película</span><span class="num">1:32</span></button>
-      <noscript><a class="film-nojs" href="../img/film/film-es-1080.h264.mp4">Ver la película (MP4)</a></noscript>
-    </div>
-    <div class="film-foot">
-      <div class="film-chapters"><span class="label">Ir a</span>
-        <button type="button" class="chip" data-film-seek="18.1">Escribe la semana</button>
-        <button type="button" class="chip" data-film-seek="35.15">Publicar</button>
-        <button type="button" class="chip" data-film-seek="64.68">El aviso de las 6 AM</button>
-      </div>
-      <p class="film-note">Sin sonido. Los textos van en pantalla. <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button></p>
-    </div>
-  </div>
-</section>
 
 <!-- TYPE TO BUILD, in depth: four points, each with a real line and what the app's rules read from it -->
 <section class="sec" id="type">
@@ -375,6 +350,28 @@ lena lun a jue 10 a 4</textarea>
     </div>
   </div>
 </section>
+
+<!-- THE FILM: a player that opens from "Watch the film". Nothing loads or plays until asked. -->
+<dialog class="film film-dlg" id="film" data-film aria-labelledby="film-title">
+  <div class="film-head">
+    <div><p class="label">La película · 1:32</p><h2 id="film-title">Una semana, de domingo en la noche a domingo en la noche.</h2></div>
+    <button class="icon-btn film-close" type="button" data-film-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="film-frame" data-film-frame>
+    <video playsinline preload="none" data-4k poster="../img/film/poster-es-night.webp" width="1920" height="1080" aria-label="La película de Rotaserie: una semana en la app real, de un domingo en la noche al domingo siguiente. Sin sonido." data-film-video data-stem="../img/film/film-es">
+      <track kind="captions" srclang="es" label="Español" src="../img/film/film-es.vtt">
+    </video>
+    <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Ver la película</span><span class="num">1:32</span></button>
+  </div>
+  <div class="film-foot">
+    <div class="film-chapters"><span class="label">Ir a</span>
+      <button type="button" class="chip" data-film-seek="18.1">Escribe la semana</button>
+      <button type="button" class="chip" data-film-seek="35.15">Publicar</button>
+      <button type="button" class="chip" data-film-seek="64.68">El aviso de las 6 AM</button>
+    </div>
+    <p class="film-note">Sin sonido. Los textos van en pantalla. <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button></p>
+  </div>
+</dialog>
 </main>
 
 <footer class="foot">
@@ -389,7 +386,7 @@ lena lun a jue 10 a 4</textarea>
       <a href="#type">Escribir turnos</a>
       <a href="#owners">Para dueños</a>
       <a href="#staff">Para el equipo</a>
-      <a href="#film">La película</a>
+      <a href="#film" data-film-go>La película</a>
       <a href="#faq">Preguntas</a>
     </nav>
     <nav class="foot-col" aria-label="Empresa">

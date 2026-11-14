@@ -61,16 +61,7 @@
       "reset": "Reiniciar",
       "week_label": "Una semana de ejemplo",
       "added": "Ya empezaste una semana.",
-      "static_note": "Este ejemplo lo leyeron las mismas reglas que usa la app.",
-      "days": [
-        "lun 16",
-        "mar 17",
-        "mié 18",
-        "jue 19",
-        "vie 20",
-        "sáb 21",
-        "dom 22"
-      ]
+      "static_note": "Este ejemplo lo leyeron las mismas reglas que usa la app."
     },
     "film": {
       "suffix": "-es",

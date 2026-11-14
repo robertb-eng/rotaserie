@@ -74,10 +74,10 @@
     location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(fill(form.getAttribute('data-subject') || 'Rotaserie')) + '&body=' + encodeURIComponent(body);
   });
 
-  // The film: nothing loads until Play. The file is picked for the screen (4K on very large ones, 720p on phones) and
-  // for what the browser can play (AV1, else H.264).
+  // The film: a player that opens from "Watch the film" (and the footer link). Nothing loads until it opens. The file
+  // is picked for the screen (4K on very large ones, 720p on phones) and for what the browser can play (AV1, else H.264).
   var film = $('[data-film]');
-  if (film) {
+  if (film && film.showModal) {
     var frame = $('[data-film-frame]', film), video = $('[data-film-video]', film), play = $('[data-film-play]', film), loaded = false;
     var pickSource = function (full) {
       // 4K when the picture will really be that big: the film's frame in the page, or (full screen) the display itself
@@ -106,7 +106,7 @@
     };
     play.addEventListener('click', function () { start(null); video.focus(); });
     $$('[data-film-seek]', film).forEach(function (b) {
-      b.addEventListener('click', function () { start(parseFloat(b.getAttribute('data-film-seek'))); frame.scrollIntoView({block: 'center', behavior: calm ? 'auto' : 'smooth'}); });
+      b.addEventListener('click', function () { start(parseFloat(b.getAttribute('data-film-seek'))); });
     });
     var full = $('[data-film-full]', film);
     if (full) full.addEventListener('click', function () {
@@ -114,17 +114,23 @@
       var fs = video.requestFullscreen || video.webkitRequestFullscreen || video.webkitEnterFullscreen;
       if (fs) { try { var r = fs.call(video); if (r && r.catch) r.catch(function () {}); } catch (e) { /* not allowed */ } }
     });
-    $$('[data-film-go]').forEach(function (a) {
-      a.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        film.scrollIntoView({block: 'start', behavior: calm ? 'auto' : 'smooth'});
-        start(null);
-      });
+    var opener = null;
+    var open = function (ev) {
+      if (ev) ev.preventDefault();
+      opener = document.activeElement;
+      if (!film.open) film.showModal();
+      start(null);
+      video.focus({preventScroll: true});
+    };
+    $$('[data-film-go]').forEach(function (a) { a.addEventListener('click', open); });
+    if (location.hash === '#film') open();  // (a link to rotaserie.com/#film opens the film)
+    $('[data-film-close]', film).addEventListener('click', function () { film.close(); });
+    film.addEventListener('click', function (ev) { if (ev.target === film) film.close(); });  // (a click outside the player)
+    film.addEventListener('close', function () {
+      video.pause();
+      if (location.hash === '#film') history.replaceState(null, '', location.pathname + location.search);
+      if (opener && opener.focus) opener.focus({preventScroll: true});
     });
-    // out of view: pause
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) {
-      if (!en[0].isIntersecting && loaded && !video.paused && !document.fullscreenElement) video.pause();
-    }, {threshold: 0}).observe(frame);
   }
 
   // Click a screenshot to see it large

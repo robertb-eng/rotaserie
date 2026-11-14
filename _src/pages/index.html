@@ -8,7 +8,6 @@
 <!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <ol class="hero-days" aria-hidden="true">{{#each home.hero.days}}<li>{{this}}</li>{{/each}}</ol>
     <p class="label">{{home.hero.label}}</p>
     <h1 class="display">{{home.hero.title_a}} <em>{{home.hero.title_b}}</em></h1>
     <div class="hero-cols">
@@ -16,7 +15,7 @@
         <p class="lead">{{home.hero.lead}}</p>
         <div class="actions">
           <a class="btn btn-big" href="#start" data-start>{{cta}}</a>
-          <a class="btn btn-big btn-ghost" href="#film" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>{{home.hero.film}} <span class="num">{{home.hero.film_len}}</span></a>
+          <a class="btn btn-big btn-ghost" href="{{base}}img/film/film{{home.film.suffix}}-1080.h264.mp4" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>{{home.hero.film}} <span class="num">{{home.hero.film_len}}</span></a>
         </div>
         <ul class="proof">{{#each home.hero.proof}}<li>{{this}}</li>{{/each}}</ul>
       </div>
@@ -25,30 +24,6 @@
   </div>
 </section>
 
-<!-- THE FILM: a dark band right under the hero. Nothing loads or plays until asked. -->
-<section class="film" id="film" data-film data-len="{{home.hero.film_len}}">
-  <div class="wrap">
-    <div class="film-head">
-      <p class="label">{{home.film.label}}</p>
-      <h2>{{home.film.title}}</h2>
-    </div>
-    <div class="film-frame" data-film-frame>
-      <video playsinline preload="none" data-4k poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
-        <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{home.film.suffix}}.vtt">
-      </video>
-      <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
-      <noscript><a class="film-nojs" href="{{base}}img/film/film{{home.film.suffix}}-1080.h264.mp4">{{home.film.nojs}}</a></noscript>
-    </div>
-    <div class="film-foot">
-      <div class="film-chapters"><span class="label">{{home.film.chapters_label}}</span>
-        <button type="button" class="chip" data-film-seek="{{home.film.ch.0}}">{{home.film.chapters.0}}</button>
-        <button type="button" class="chip" data-film-seek="{{home.film.ch.1}}">{{home.film.chapters.1}}</button>
-        <button type="button" class="chip" data-film-seek="{{home.film.ch.2}}">{{home.film.chapters.2}}</button>
-      </div>
-      <p class="film-note">{{home.film.note}} <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>{{home.film.full}}</button></p>
-    </div>
-  </div>
-</section>
 
 <!-- TYPE TO BUILD, in depth: four points, each with a real line and what the app's rules read from it -->
 <section class="sec" id="type">
@@ -255,3 +230,25 @@
     </div>
   </div>
 </section>
+
+<!-- THE FILM: a player that opens from "Watch the film". Nothing loads or plays until asked. -->
+<dialog class="film film-dlg" id="film" data-film aria-labelledby="film-title">
+  <div class="film-head">
+    <div><p class="label">{{home.film.label}}</p><h2 id="film-title">{{home.film.title}}</h2></div>
+    <button class="icon-btn film-close" type="button" data-film-close aria-label="{{foot.zoom_close}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="film-frame" data-film-frame>
+    <video playsinline preload="none" data-4k poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
+      <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{home.film.suffix}}.vtt">
+    </video>
+    <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
+  </div>
+  <div class="film-foot">
+    <div class="film-chapters"><span class="label">{{home.film.chapters_label}}</span>
+      <button type="button" class="chip" data-film-seek="{{home.film.ch.0}}">{{home.film.chapters.0}}</button>
+      <button type="button" class="chip" data-film-seek="{{home.film.ch.1}}">{{home.film.chapters.1}}</button>
+      <button type="button" class="chip" data-film-seek="{{home.film.ch.2}}">{{home.film.chapters.2}}</button>
+    </div>
+    <p class="film-note">{{home.film.note}} <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>{{home.film.full}}</button></p>
+  </div>
+</dialog>

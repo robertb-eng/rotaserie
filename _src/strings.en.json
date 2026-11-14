@@ -61,16 +61,7 @@
       "reset": "Reset",
       "week_label": "A sample week",
       "added": "That's a week started.",
-      "static_note": "This example was read by the same rules the app uses.",
-      "days": [
-        "Mon 16",
-        "Tue 17",
-        "Wed 18",
-        "Thu 19",
-        "Fri 20",
-        "Sat 21",
-        "Sun 22"
-      ]
+      "static_note": "This example was read by the same rules the app uses."
     },
     "film": {
       "suffix": "",
