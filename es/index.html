@@ -126,8 +126,8 @@ lena lun a jue 10 a 4</textarea>
     <div class="film-foot">
       <div class="film-chapters"><span class="label">Ir a</span>
         <button type="button" class="chip" data-film-seek="18.1">Escribe la semana</button>
-        <button type="button" class="chip" data-film-seek="34.85">Publicar</button>
-        <button type="button" class="chip" data-film-seek="64.38">El aviso de las 6 AM</button>
+        <button type="button" class="chip" data-film-seek="35.15">Publicar</button>
+        <button type="button" class="chip" data-film-seek="64.68">El aviso de las 6 AM</button>
       </div>
       <p class="film-note">Sin sonido. Los textos van en pantalla. <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button></p>
     </div>
@@ -259,13 +259,19 @@ lena lun a jue 10 a 4</textarea>
 
 <!-- THE SWAP: the app's four steps, with both phones -->
 <section class="sec" id="swap">
-  <div class="wrap swap">
+  <div class="wrap swap" data-swap data-lang="es" data-live data-src="../demo/swap.js">
     <div class="swap-text">
       <header class="sec-head"><p class="label"><span class="idx">03</span>El cambio, de los dos lados</p><h2>Un cambio de turno sin el chat de grupo.</h2><p class="lead">Cuatro pasos, como lo hace la app.</p></header>
       <ol class="steps">
-        <li><span class="idx">01</span><div><b>Pedir cambio</b><p>En su turno, tocan Pedir cambio.</p></div></li><li><span class="idx">02</span><div><b>Pedírselo a un compañero</b><p>Eligen el turno que quieren a cambio y se lo piden a esa persona.</p></div></li><li><span class="idx">03</span><div><b>Acepta</b><p>El compañero toca Aceptar, o lo rechaza.</p></div></li><li><span class="idx">04</span><div><b>Tú apruebas</b><p>Tocas Aprobar, o lo rechazas con una nota.</p></div></li>
+        <li data-swap-step><span class="idx">01</span><div><b>Pedir cambio</b><p>En su turno, tocan Pedir cambio.</p></div></li><li data-swap-step><span class="idx">02</span><div><b>Pedírselo a un compañero</b><p>Eligen el turno que quieren a cambio y se lo piden a esa persona.</p></div></li><li data-swap-step><span class="idx">03</span><div><b>Acepta</b><p>El compañero toca Aceptar, o lo rechaza.</p></div></li><li data-swap-step><span class="idx">04</span><div><b>Tú apruebas</b><p>Tocas Aprobar, o lo rechazas con una nota.</p></div></li>
       </ol>
       <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Se les avisa a las dos personas.</p>
+    </div>
+    <div class="swap-live">
+      <p class="label" data-swap-who></p>
+      <div class="phone swap-phone" data-swap-stage></div>
+      <p class="swap-flash" data-swap-flash hidden></p>
+      <p class="sr" aria-live="polite" data-swap-live></p>
     </div>
     <div class="swap-art">
       <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="../img/app/swap-request-es-light-780.avif 780w, ../img/app/swap-request-es-light-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="../img/app/swap-request-es-light-780.webp" srcset="../img/app/swap-request-es-light-780.webp 780w, ../img/app/swap-request-es-light-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Cambiar un turno: los compañeros que pueden tomarlo, cada uno con un botón para pedírselo." data-zoom="../img/app/swap-request-es-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="../img/app/swap-request-es-dark-780.avif 780w, ../img/app/swap-request-es-dark-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="../img/app/swap-request-es-dark-780.webp" srcset="../img/app/swap-request-es-dark-780.webp 780w, ../img/app/swap-request-es-dark-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Cambiar un turno: los compañeros que pueden tomarlo, cada uno con un botón para pedírselo." data-zoom="../img/app/swap-request-es-dark-1170.webp"></picture></span></div><figcaption class="label">Su teléfono</figcaption></figure>
