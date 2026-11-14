@@ -162,27 +162,34 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, {rootMargin: '0px 0px -6% 0px', threshold: 0.05});
-    $$('.sec-head, .point, .tile, .type-shot, .type-end, .steps, .swap-art, .phones figure, .devices, .photo, .faq, .founder, .values, .split').forEach(function (el) {
+    $$('.sec-head, .point, .tile, .week-demo, .type-shot, .type-end, .steps, .swap-art, .phones figure, .devices, .photo, .faq, .founder, .values, .split').forEach(function (el) {
       if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('rv'); io.observe(el); }
     });
   }
 
-  // The Type to Build demo: its script arrives when the pane is near the screen and the browser is idle
-  var pane = $('[data-ttb]');
-  if (pane && pane.hasAttribute('data-live')) {
-    var slow = (navigator.deviceMemory && navigator.deviceMemory < 2) || (navigator.connection && navigator.connection.saveData);
+  // The demos: each script arrives when its part of the page is near the screen and the browser is idle.
+  // RotaLoad fetches a file once, whoever asks (the demos share the sample week in demo/state.js).
+  var loads = {};
+  window.RotaLoad = function (src) {
+    if (!loads[src]) loads[src] = new Promise(function (ok, fail) {
+      var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = function () { delete loads[src]; fail(); }; document.head.appendChild(s);
+    });
+    return loads[src];
+  };
+  var slow = (navigator.deviceMemory && navigator.deviceMemory < 2) || (navigator.connection && navigator.connection.saveData);
+  var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 300); };
+  $$('[data-live][data-src]').forEach(function (el) {
+    if (slow) return;
     var load = function () {
-      if (load.done) return; load.done = true;
-      var s = document.createElement('script'); s.src = pane.getAttribute('data-src'); s.defer = true; document.head.appendChild(s);
+      var src = el.getAttribute('data-src'), need = (el.getAttribute('data-needs') || '').split(' ').filter(Boolean);
+      need.reduce(function (p, n) { return p.then(function () { return window.RotaLoad(src.replace(/[^/]*$/, n)); }); }, Promise.resolve())
+        .then(function () { return window.RotaLoad(src); }).catch(function () { /* the static version stays */ });
     };
-    if (!slow) {
-      var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 300); };
-      if ('IntersectionObserver' in window) {
-        var po = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { po.disconnect(); idle(load); } }, {rootMargin: '300px'});
-        po.observe(pane);
-      } else idle(load);
-    }
-  }
+    if ('IntersectionObserver' in window) {
+      var po = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { po.disconnect(); idle(load); } }, {rootMargin: '300px'});
+      po.observe(el);
+    } else idle(load);
+  });
 
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();

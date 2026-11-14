@@ -379,6 +379,17 @@
       "note": "This opens an email to Robert, the founder. Or write to",
       "mail_body": "Hi Robert,\n\nI'd like early access to Rotaserie.\n\nBusiness: {biz}\nKind of business: {kind}\nHow many people work there: \nHow we schedule today: \n\nThanks!",
       "mail_subject": "Rotaserie early access: {biz}"
+    },
+    "week": {
+      "label": "Try the week",
+      "title": "Move a shift. See what it says.",
+      "manager": "Manager",
+      "employee": "Employee",
+      "view_aria": "Whose view",
+      "note": "A simplified week. The real Builder does more.",
+      "whose": "Whose phone",
+      "phone_note": "Their phone shows the same week. Add or move a shift and it changes here too.",
+      "week_label": "Harbor Street Bistro · Nov 16 – 22"
     }
   },
   "langbar": {

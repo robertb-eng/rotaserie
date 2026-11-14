@@ -18,6 +18,7 @@ BUILDING THE PAGES
       python3 _build/build.py           writes the pages and sitemap.xml
       python3 _build/build.py --check   fails if a built page is out of date (run before every push)
       node _tests/ttb.test.js           the Type to Build tests
+      node _tests/week.test.js          the week demo's sums and warnings
   Terms and Privacy come from the app: run the app's tools/export_legal.py, then
       python3 _build/build.py --import-legal
 
@@ -39,7 +40,8 @@ WHAT'S HERE
                 and only there
   styles.css    the layout and components (light and dark, phone to wide screen)
   site.js       light/dark switch, the phone menu, the film player, early access form, screenshot zoom
-  demo/         Try Type to Build: state.js (the made-up sample week), read.js (reads and draws), ttb.js (the pane)
+  demo/         the demos: state.js (the made-up sample week they share), read.js (reads and draws typed lines),
+                ttb.js (the Type to Build pane), week.js (the week you can move shifts on, and the phone)
   vendor/       typebuild.js: the app's own Type to Build parser, copied byte for byte (never edit it here);
                 typebuild.version records the app commit and the file's SHA-256
   fonts/        the app's fonts (Atkinson Hyperlegible Next and Mono), self-hosted. Licenses in fonts/OFL.txt
