@@ -25,8 +25,8 @@
     "about": "Quiénes somos",
     "spiros": "Spiros",
     "facts": "Datos",
-    "terms": "Términos (en inglés)",
-    "privacy": "Privacidad (en inglés)",
+    "terms": "Términos",
+    "privacy": "Privacidad",
     "film": "La película",
     "contact": "Escríbele a Robert",
     "copy": "TICO VENTURES LLC · Shoreline, Washington",
@@ -455,8 +455,19 @@
     },
     "facts": {},
     "terms": {},
-    "privacy": {}
+    "privacy": {},
+    "404": {}
   },
   "prev": "Atrás",
-  "next": "Más"
+  "next": "Más",
+  "p404": {
+    "label": "404",
+    "title_a": "Esta página",
+    "title_b": "no está en el horario.",
+    "lead": "Puede que la dirección tenga un error, o que la página se haya movido.",
+    "home": "Ir al inicio",
+    "try": "Probar Escribir turnos",
+    "es": "",
+    "es_link": ""
+  }
 }
