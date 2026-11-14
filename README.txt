@@ -3,63 +3,63 @@ ROTASERIE PRODUCT SITE
 
 The website for Rotaserie, separate from the app itself. Plain HTML, CSS and a little JavaScript. The pages are
 built from _src/ by a small Python script (standard library only) and the built pages are committed, so any web host
-can serve the folder as is.
+can serve the folder as is. Nothing runs on GitHub: every build, test and check below runs on your own computer.
 
 BUILDING THE PAGES
   Edit the sources in _src/, never the built .html files in this folder:
+      _src/strings.en.json  every word on the pages, by section (one file per language)
       _src/layout.html      the page around the content: head, top bar, footer
-      _src/partials/        pieces the layout pulls in (the two top bars)
+      _src/partials/        pieces the layout and pages pull in (top bar, footer, the Type to Build pane)
       _src/pages/           one file per page: settings in a <!--meta ... --> block, then the page's content
-      _src/site.json        defaults for every page
+      _src/site.json        settings for every page, and the switches (below)
+      _src/generated/       written by _build/prerender.js: don't edit by hand
   Then:
+      node _build/prerender.js          only after changing a Type to Build example, demo/ or vendor/typebuild.js
       python3 _build/build.py           writes the pages and sitemap.xml
       python3 _build/build.py --check   fails if a built page is out of date (run before every push)
+      node _tests/ttb.test.js           the Type to Build tests
   Terms and Privacy come from the app: run the app's tools/export_legal.py, then
       python3 _build/build.py --import-legal
 
-  tokens.css    the app's colours, type, shapes and motion, copied from the app's stylesheet
-  robots.txt, sitemap.xml   for search engines (sitemap.xml is written by the build)
+SWITCHES (_src/site.json)
+  pricing      false until the price is public. When true, the Pricing section and its top-bar link appear; their
+               words are read from _src/partials/pricing.html and the strings file, which must exist first.
+  ttb_live     true: visitors can type in the Type to Build pane. false: the pane shows its starting example only.
+  langs        the languages built. The first is served at /, each other one in its own folder (/es/).
+  SIGNUP_URL   at the top of site.js. While empty, the call-to-action buttons open an email to Robert; set it to the
+               signup address when signup opens and every button and the form go there instead.
 
-  index.html    home: Type to Build demo, See it work (walkthrough clips), managers, staff, owners, kinds of business, Spiros, FAQ, Get early access
+WHAT'S HERE
+  index.html    home: Type to Build (live), the film, how it reads a line, for owners, the swap, for staff,
+                every screen, Spiros, questions, early access
   about.html    about us, Spiros, and the founder's story
-  styles.css    the design (light and dark mode, phone to wide screen)
-  site.js       light/dark switch, fade-in on scroll, the Type to Build demo, the walkthrough player, early access form, click-to-zoom
-                (SIGNUP_URL at the top: set it to https://app.rotaserie.com/signup when signup opens)
-  fonts/        the app's fonts (Atkinson Hyperlegible Next and Mono; Newsreader until the new look), self-hosted:
-                no Google Fonts. Licenses in fonts/OFL.txt
-  img/tour/     walkthrough clips: <clip>-<light|dark>.webm/.mp4 and -poster.webp (ttb, publish, fill, staff)
-  img/new/      real screenshots of the app, light and dark (the fictional "Harbor Street Bistro" demo)
-  img/app/      real screenshots of the app's current look: <shot>-<en|es>-<light|dark>-<pixel width>.webp/.avif
-                (the same made-up demo business; phones at 3x and 2x, computer screens at 2x and 1x)
+  facts.html    what Rotaserie does and doesn't do, one checked line each (the app's tools/check_facts.py reads it)
+  terms.html, privacy.html   exported from the app
+  tokens.css    the app's colours, type, shapes and motion, copied from the app's stylesheet: change a value there
+                and only there
+  styles.css    the layout and components (light and dark, phone to wide screen)
+  site.js       light/dark switch, the phone menu, the film player, early access form, screenshot zoom
+  demo/         Try Type to Build: state.js (the made-up sample week), read.js (reads and draws), ttb.js (the pane)
+  vendor/       typebuild.js: the app's own Type to Build parser, copied byte for byte (never edit it here);
+                typebuild.version records the app commit and the file's SHA-256
+  fonts/        the app's fonts (Atkinson Hyperlegible Next and Mono), self-hosted. Licenses in fonts/OFL.txt
+  img/app/      real screenshots of the app with the made-up "Harbor Street Bistro" demo:
+                <screen>-<en|es>-<light|dark>-<pixel width>.webp and .avif
+  img/film/     the film, its posters, captions (WebVTT) and chapter times
+  robots.txt, sitemap.xml, llms.txt   for search engines and assistants (sitemap.xml is written by the build)
 
 PREVIEW ON THIS COMPUTER
-  Open index.html in a browser, or for the full experience serve the folder on a free port:
-      cd ~/Documents/Rotaserie-Site && python3 -m http.server 8000
+      python3 -m http.server 8000 --bind 127.0.0.1
   then visit http://localhost:8000
 
-BEFORE PUTTING IT ONLINE
-  1. Contact email: "Get early access" emails robert@rotaserie.com (site.js EMAIL, and
-     the mailto links in index.html).
-  2. The name: Rotaserie by Spiros. rotaserie.com was unregistered in October 2026 - register it
-     before someone else does, and search the trademark register (tmsearch.uspto.gov).
-  3. Pricing: the FAQ says "get in touch" - add real pricing when you have it.
+RULES FOR EVERY CHANGE
+  1. Every line about the product must be true of the app today. facts.html is checked by the app's
+     tools/check_facts.py; keep the home page to the same claims.
+  2. Screenshots show made-up people only (the demo team), never real staff.
+  3. This repository is public, on every branch: no drafts of prices or unannounced wording.
+  4. Keep the system: radii of 2, 4 and 6px, three shadows, the type sizes in tokens.css, an 8px grid.
 
-HOSTING IT FOR FREE (any one of these)
-  - Render: New > Static Site, point it at a GitHub repo holding this folder; publish
-    directory "." (no build command).
-  - Netlify or Cloudflare Pages: drag this folder onto their "deploy" page.
-  - GitHub Pages: push this folder to a repo and turn on Pages in its settings.
-  Then point your own domain at it in that service's settings.
-
-UPDATING SCREENSHOTS
-  The images in img/new/ are WebP files captured from the real app at 1280x800 (desktop)
-  and 390x844 at 2x (phone), each in light (_light) and dark (_dark). Replace a file with
-  the same name to update it. Every claim on the pages was checked against the app's code
-  (Nov 7 2026): re-check when a feature changes.
-
-WALKTHROUGH CLIPS
-  img/tour/ holds four clips recorded from the real app (demo business, sample data set up per clip),
-  phone 780x1688 and computer 1600x1024, each light and dark: WebM (VP9) + MP4 (H.264) + a WebP poster
-  taken from the middle of the clip. They're recorded with the app's private screenshot tools (see the
-  notes); the Fill clip is recorded on its own, after the others. Retake them, and the screenshots, when the app's look
-  or these features change; keep the captions in index.html true for every business's settings.
+UPDATING THE PARSER COPY
+  Copy the app's static/typebuild.js over vendor/typebuild.js, update vendor/typebuild.version (commit and SHA-256),
+  then run node _build/prerender.js, node _tests/ttb.test.js --update (read the changes it records) and the build.
+  ROTASERIE_APP=<app checkout> node _tests/ttb.test.js checks the copy is identical to that checkout's.

@@ -5,14 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Terms of Service · Rotaserie</title>
 <meta name="description" content="Terms of Service for Rotaserie, shift scheduling for small businesses, built in Washington State.">
-<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://rotaserie.com/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+<meta property="og:site_name" content="Rotaserie">
+<meta property="og:url" content="https://rotaserie.com/terms.html">
 <meta property="og:title" content="Terms of Service · Rotaserie">
-<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
+<meta property="og:image" content="https://rotaserie.com/img/share-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -21,20 +31,23 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie</a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="index.html#managers">For managers</a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="32" height="32">Rotaserie</a>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="index.html#type">Type to Build</a>
+      <a href="index.html#owners">For owners</a>
       <a href="index.html#staff">For staff</a>
-      <a href="index.html#kinds">Businesses</a>
-      <a href="about.html">About</a>
       <a href="index.html#faq">FAQ</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
-      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="index.html#start" data-start>Get early access</a>
+      <a class="btn btn-sm" href="index.html#start" data-start><span class="cta-long">Get early access</span><span class="cta-short" aria-hidden="true">Get access</span></a>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -138,15 +151,39 @@ will tell businesses by email. Using Rotaserie after a change means you accept i
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
-    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
-    <p class="muted">© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p>
+    <div class="foot-brand">
+      <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+      <p>Scheduling for restaurants and small teams, built in Washington State.</p>
+      
+    </div>
+    <nav class="foot-col" aria-label="Product">
+      <p class="label">Product</p>
+      <a href="index.html#type">Type to Build</a>
+      <a href="index.html#owners">For owners</a>
+      <a href="index.html#staff">For staff</a>
+      <a href="index.html#film">The film</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <nav class="foot-col" aria-label="Company">
+      <p class="label">Company</p>
+      <a href="about.html">About us</a>
+      <a href="https://ilovespiros.com/" target="_blank" rel="noopener">Spiros</a>
+      <a href="mailto:robert@rotaserie.com?subject=Rotaserie">Email Robert</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <p class="label">Legal</p>
+      <a href="facts.html">Facts</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
   </div>
+  <div class="wrap foot-end"><p>© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p></div>
 </footer>
 
 <dialog class="zoom" data-zoombox aria-label="Screenshot">
   <button class="zoom-close" type="button" aria-label="Close" data-zoom-close>×</button>
   <img alt="">
 </dialog>
+
 </body>
 </html>

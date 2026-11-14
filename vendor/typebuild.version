@@ -1,0 +1,3 @@
+app commit: 646fe7dfc4440795120169bb4407f16273e8e255
+sha256: a7c2af6c61c052941417d13972c267f14a44043f1150cabd4ee9d291830ae59e
+source: static/typebuild.js in the Rotaserie app, copied byte for byte. Never edit it here.
