@@ -1,20 +1,37 @@
 ROTASERIE PRODUCT SITE
 ======================
 
-A standalone two-page website (home and About) that showcases Rotaserie, separate from the app itself.
-Plain HTML, CSS and a little JavaScript: no build step, and it works on any web host.
+The website for Rotaserie, separate from the app itself. Plain HTML, CSS and a little JavaScript. The pages are
+built from _src/ by a small Python script (standard library only) and the built pages are committed, so any web host
+can serve the folder as is.
+
+BUILDING THE PAGES
+  Edit the sources in _src/, never the built .html files in this folder:
+      _src/layout.html      the page around the content: head, top bar, footer
+      _src/partials/        pieces the layout pulls in (the two top bars)
+      _src/pages/           one file per page: settings in a <!--meta ... --> block, then the page's content
+      _src/site.json        defaults for every page
+  Then:
+      python3 _build/build.py           writes the pages and sitemap.xml
+      python3 _build/build.py --check   fails if a built page is out of date (run before every push)
+  Terms and Privacy come from the app: run the app's tools/export_legal.py, then
+      python3 _build/build.py --import-legal
+
+  tokens.css    the app's colours, type, shapes and motion, copied from the app's stylesheet
+  robots.txt, sitemap.xml   for search engines (sitemap.xml is written by the build)
 
   index.html    home: Type to Build demo, See it work (walkthrough clips), managers, staff, owners, kinds of business, Spiros, FAQ, Get early access
   about.html    about us, Spiros, and the founder's story
   styles.css    the design (light and dark mode, phone to wide screen)
   site.js       light/dark switch, fade-in on scroll, the Type to Build demo, the walkthrough player, early access form, click-to-zoom
                 (SIGNUP_URL at the top: set it to https://app.rotaserie.com/signup when signup opens)
-  fonts/        the app's fonts (Atkinson Hyperlegible Next, Newsreader), self-hosted: no Google Fonts
+  fonts/        the app's fonts (Atkinson Hyperlegible Next and Mono; Newsreader until the new look), self-hosted:
+                no Google Fonts. Licenses in fonts/OFL.txt
   img/tour/     walkthrough clips: <clip>-<light|dark>.webm/.mp4 and -poster.webp (ttb, publish, fill, staff)
   img/new/      real screenshots of the app, light and dark (the fictional "Harbor Street Bistro" demo)
 
 PREVIEW ON THIS COMPUTER
-  Open index.html in a browser, or for the full experience:
+  Open index.html in a browser, or for the full experience serve the folder on a free port:
       cd ~/Documents/Rotaserie-Site && python3 -m http.server 8000
   then visit http://localhost:8000
 
