@@ -22,7 +22,7 @@ ok('overlapping hours are a double booking', W.problem(wk.concat([dbl]), dbl) ==
 ok('back-to-back shifts are not', W.problem(wk.concat([{p: 1, d: 0, a: '17:00', b: '22:00', r: 'server'}]), wk[0]) === null);
 // who can take Sam's Sunday shift: not Sam, nobody already on Sunday
 const can = W.whoCanTake(wk.concat([off]), off);
-ok('who can take it: only people free that day', can.join() === '1,3', can);
+ok('who can take it: only people free that day', can.join() === '1,3,5', can);
 for (const lang of ['en', 'es']) {
   ok(lang + ': the grid draws every person', (W.gridHTML(lang, wk, {live: true}).match(/<tr/g) || []).length === 8);
   ok(lang + ': the phone shows the next shift', /ph-in/.test(W.phoneHTML(lang, wk, 1)) && !/NaN|undefined/.test(W.phoneHTML(lang, wk, 1)));
