@@ -4,237 +4,380 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rotaserie · Type the week, get the schedule</title>
-<meta name="description" content="Scheduling for small businesses, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are caught as you go, and the published week goes to everyone by email and phone alert.">
-<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Scheduling for restaurants and small teams, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are flagged as you build, and the published week goes to everyone by email and phone alert.">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://rotaserie.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+<meta property="og:site_name" content="Rotaserie">
+<meta property="og:url" content="https://rotaserie.com/">
 <meta property="og:title" content="Rotaserie · Type the week, get the schedule">
-<meta property="og:description" content="Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants, cafés, shops, salons and studios.">
-<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
+<meta property="og:description" content="Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants and small teams, in English and Spanish.">
+<meta property="og:image" content="https://rotaserie.com/img/share-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://rotaserie.com/#org","name":"Rotaserie","legalName":"TICO VENTURES LLC","url":"https://rotaserie.com/","logo":"https://rotaserie.com/img/apple-touch-icon.png","email":"robert@rotaserie.com","address":{"@type":"PostalAddress","addressLocality":"Shoreline","addressRegion":"WA","addressCountry":"US"}},
+{"@type":"SoftwareApplication","name":"Rotaserie","url":"https://rotaserie.com/","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","inLanguage":["en","es"],"description":"Scheduling for restaurants and small teams, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are flagged as you build, and the published week goes to everyone by email and phone alert.","image":"https://rotaserie.com/img/share-en.png","publisher":{"@id":"https://rotaserie.com/#org"}},
+{"@type":"VideoObject","name":"A week, from Sunday night to Sunday night.","description":"The Rotaserie film: a week in the real app, from Sunday night to the next Sunday. No sound.","thumbnailUrl":"https://rotaserie.com/img/film/poster-night.jpg","uploadDate":"2026-11-14","duration":"PT1M32S","contentUrl":"https://rotaserie.com/img/film/film-1080.h264.mp4"},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to type the schedule?","acceptedAnswer":{"@type":"Answer","text":"No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a consistent schedule that fills itself in."}},{"@type":"Question","name":"Does AI make my schedule?","acceptedAnswer":{"@type":"Answer","text":"No. Type to Build follows fixed rules. The one AI step is reading a photo at setup, if you choose it."}},{"@type":"Question","name":"Do my staff need to download an app?","acceptedAnswer":{"@type":"Answer","text":"No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app."}},{"@type":"Question","name":"Is it only for restaurants?","acceptedAnswer":{"@type":"Answer","text":"No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times."}},{"@type":"Question","name":"Is it in Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts."}},{"@type":"Question","name":"Does it replace my point of sale or time clock?","acceptedAnswer":{"@type":"Answer","text":"No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one."}},{"@type":"Question","name":"What doesn't it do?","acceptedAnswer":{"@type":"Answer","text":"It doesn't run payroll, process tip payouts, connect to a point-of-sale system, or track staff by GPS."}},{"@type":"Question","name":"Can I get my data out?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can download all your data whenever you like."}},{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"One price per location, with every feature included. Ask for early access and we'll walk you through it."}}]}
+]}</script>
 </head>
-<body class="cinema">
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie</a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#tour">How it works</a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="32" height="32">Rotaserie</a>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="#type">Type to Build</a>
+      <a href="#owners">For owners</a>
       <a href="#staff">For staff</a>
-      <a href="about.html">About</a>
       <a href="#faq">FAQ</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
-      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="#start" data-start>Get early access</a>
+      <a class="btn btn-sm" href="#start" data-start><span class="cta-long">Get early access</span><span class="cta-short" aria-hidden="true">Get access</span></a>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-<!-- HERO: the product, moving (real app recordings) -->
-<section class="hero2 theater" id="top">
-  <div class="wrap hero2-in">
-    <div class="hero-copy">
-      <p class="tagline">Take more off your plate with Rotaserie.</p>
-      <h1>Type the week. <em>Get the schedule.</em></h1>
-      <p class="lead">The schedule app for restaurants and small teams. It ends the late-night schedule, the swaps lost in group texts and the 6 AM scramble.</p>
-      <div class="hero-cta"><a class="btn btn-big" href="#start" data-start>Get early access</a></div>
-      <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
-    </div>
-    <div class="hero-film">
-      <div class="hf-screen">
-        <video class="hf-wide" muted playsinline preload="none" disablepictureinpicture poster="img/film-hero-poster.webp" aria-label="The Rotaserie film, playing without sound: a week made in the real app"></video>
-        <div class="hf-ctl">
-          <button type="button" class="hf-btn" data-hf-pause aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-          <button type="button" class="hf-btn wide" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button>
+<!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <ol class="hero-days" aria-hidden="true"><li>Mon 16</li><li>Tue 17</li><li>Wed 18</li><li>Thu 19</li><li>Fri 20</li><li>Sat 21</li><li>Sun 22</li></ol>
+    <p class="label">Scheduling for restaurants and small teams</p>
+    <h1 class="display">Type the week. <em>Get the schedule.</em></h1>
+    <div class="hero-cols">
+      <div class="hero-copy">
+        <p class="lead">Write shifts the way you'd text them. Rotaserie shows what it read, flags problems, and sends the week to everyone's phone.</p>
+        <div class="actions">
+          <a class="btn btn-big" href="#start" data-start>Get early access</a>
+          <a class="btn btn-big btn-ghost" href="#film" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Watch the film <span class="num">1:32</span></a>
+        </div>
+        <ul class="proof"><li>Used every week at Spiros</li><li>English y español</li><li>Works on any phone</li></ul>
+      </div>
+      <div class="pane ttb" id="try" data-ttb data-lang="en" data-live data-src="demo/ttb.js">
+        <div class="ttb-head"><b>Type to build</b><span class="label">Try it · nothing is saved</span></div>
+        <div class="ttb-body">
+          <div class="ttb-box">
+            <label class="sr" for="ttb-text">Shifts to add, as you'd text them</label>
+            <textarea id="ttb-text" class="ttb-text" rows="3" maxlength="400" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" translate="no" data-ttb-text>maya wed 5-11
+lena m-th 10-4</textarea>
+          </div>
+          <div class="ttb-chips" data-ttb-chips><span class="label">Try one</span><button type="button" class="chip" data-ttb-try="maya wed 5-11" translate="no">maya wed 5-11</button><button type="button" class="chip" data-ttb-try="lena m-th 10-4" translate="no">lena m-th 10-4</button><button type="button" class="chip" data-ttb-try="priya wensday 445-8 pls" translate="no">priya wensday 445-8 pls</button><button type="button" class="chip" data-ttb-try="tom mon-fri from 11" translate="no">tom mon-fri from 11</button><button type="button" class="chip" data-ttb-try="diego miércoles a viernes 9 a 5 mesero" translate="no">diego miércoles a viernes 9 a 5 mesero</button></div>
+          <div class="ttb-res">
+            <div class="tb" data-ttb-out><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">maya</span> <span class="tb-m ok">wed</span> <span class="tb-m assumed" title="5p–11p, from your usual shift times">5<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="5p–11p, from your usual shift times">11<span class="sr"> (assumed)</span></span><br><span class="tb-m ok">lena</span> <span class="tb-m ok">m</span><span class="tb-m ok">-</span><span class="tb-m ok">th</span> <span class="tb-m assumed" title="10a–4p, from your usual shift times">10<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="10a–4p, from your usual shift times">4<span class="sr"> (assumed)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Maya Torres</span><span class="tb-when">Wed · 5p–11p · Server</span><span class="tb-n">1 shift</span></li><li class="tb-shift"><span class="tb-who" translate="no">Lena Park</span><span class="tb-when">Mon–Thu · 10a–4p · Cook</span><span class="tb-n">4 shifts</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">5-11</span> 5p–11p, from your usual shift times</li><li><span class="tb-m assumed" translate="no">10-4</span> 10a–4p, from your usual shift times</li></ul></div></div>
+            <div class="ttb-acts"><button type="button" class="btn btn-ghost" data-ttb-reset>Reset</button><button type="button" class="btn ttb-add" data-ttb-add>Add 5 shifts</button></div>
+            <p class="ttb-done" data-ttb-done hidden>That's a week started. <a href="#start" data-start>Get early access</a></p>
+            <p class="sr" aria-live="polite" data-ttb-live></p>
+          </div>
+          <div class="ttb-week">
+            <p class="label ttb-week-k"><span>A sample week</span><span class="num">Nov 16 – 22</span></p>
+            <div class="wk-wrap" data-ttb-grid><table class="wk"><thead><tr><th scope="col" class="wk-team">Team</th><th scope="col"><span>Mon</span> <b>16</b></th><th scope="col"><span>Tue</span> <b>17</b></th><th scope="col"><span>Wed</span> <b>18</b></th><th scope="col"><span>Thu</span> <b>19</b></th><th scope="col"><span>Fri</span> <b>20</b></th><th scope="col"><span>Sat</span> <b>21</b></th><th scope="col"><span>Sun</span> <b>22</b></th></tr></thead><tbody><tr><th scope="row"><span class="wk-name" translate="no">Maya</span><span class="wk-h">24h</span></th><td><span class="sh s0"><b>11a–</b><b>5p</b><small>Server</small></span></td><td><span class="sh s0"><b>11a–</b><b>5p</b><small>Server</small></span></td><td><span class="sh s0 typed"><b>5p–</b><b>11p</b><small>Server<span class="sr"> · typed</span></small></span></td><td><span class="sh s0"><b>11a–</b><b>5p</b><small>Server</small></span></td><td></td><td></td><td></td></tr><tr><th scope="row"><span class="wk-name" translate="no">Diego</span><span class="wk-h">23h</span></th><td><span class="sh s0"><b>4p–</b><b>10p</b><small>Server</small></span></td><td><span class="sh s0"><b>4p–</b><b>10p</b><small>Server</small></span></td><td></td><td></td><td></td><td><span class="sh s0"><b>4p–</b><b>10p</b><small>Server</small></span></td><td><span class="sh s0"><b>4p–</b><b>9p</b><small>Server</small></span></td></tr><tr><th scope="row"><span class="wk-name" translate="no">Priya</span><span class="wk-h">12h</span></th><td></td><td><span class="sh s1"><b>11a–</b><b>5p</b><small>Busser</small></span></td><td></td><td><span class="sh s1"><b>11a–</b><b>5p</b><small>Busser</small></span></td><td></td><td></td><td></td></tr><tr><th scope="row"><span class="wk-name" translate="no">Sam</span><span class="wk-h">24h</span></th><td></td><td></td><td><span class="sh s1"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class="sh s1"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class="sh s1"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class="sh s1"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td></td></tr><tr><th scope="row"><span class="wk-name" translate="no">Lena</span><span class="wk-h">42h</span></th><td><span class="sh s2 typed"><b>10a–</b><b>4p</b><small>Cook<span class="sr"> · typed</span></small></span></td><td><span class="sh s2 typed"><b>10a–</b><b>4p</b><small>Cook<span class="sr"> · typed</span></small></span></td><td><span class="sh s2 typed"><b>10a–</b><b>4p</b><small>Cook<span class="sr"> · typed</span></small></span></td><td><span class="sh s2 typed"><b>10a–</b><b>4p</b><small>Cook<span class="sr"> · typed</span></small></span></td><td><span class="sh s2"><b>10a–</b><b>4p</b><small>Cook</small></span></td><td><span class="sh s2"><b>10a–</b><b>4p</b><small>Cook</small></span></td><td><span class="sh s2"><b>10a–</b><b>4p</b><small>Cook</small></span></td></tr><tr><th scope="row"><span class="wk-name" translate="no">Tom</span><span class="wk-h">12h</span></th><td></td><td></td><td></td><td></td><td></td><td><span class="sh s2"><b>5p–</b><b>11p</b><small>Cook</small></span></td><td><span class="sh s2"><b>3p–</b><b>9p</b><small>Cook</small></span></td></tr></tbody></table></div>
+            <p class="wk-key"><span><i class="s0"></i>Server</span><span><i class="s1"></i>Busser</span><span><i class="s2"></i>Cook</span><span><i class="typed"></i>typed</span></p>
+            <p class="ttb-totals num" data-ttb-totals>23 shifts · 137 hours, 5 typed</p>
+          </div>
         </div>
       </div>
-      <div class="demo hero-demo" data-demo role="img" aria-label="Demo: typing “maria tue-fri 9-5”, “sam sat 4p-11p” and “lee sun 10-6 cook” puts six shifts on the week">
-        <div class="demo-top"><span class="live" aria-hidden="true"></span>Type to Build<span class="wk">Mon 16 – Sun 22</span></div>
-        <div class="demo-box" data-demo-box>maria tue-fri 9-5
-sam sat 4p-11p
-lee sun 10-6 cook</div>
-        <p class="demo-read" data-demo-read aria-live="off"></p>
-        <div class="week" data-demo-week aria-hidden="true"></div>
-        <div class="demo-foot"><span data-demo-count></span><b>Ready to publish</b></div>
-      </div>
-      <div class="phone-v hf-narrow"><video data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video></div>
-      <div class="hero-more">
-        <a class="btn btn-ghost" href="#why">Why Rotaserie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- WHY: the jobs it takes off an owner's plate, each beside what Rotaserie does instead -->
-<section class="theater why" id="why">
+<!-- THE FILM: a dark band right under the hero. Nothing loads or plays until asked. -->
+<section class="film" id="film" data-film data-len="1:32">
   <div class="wrap">
-    <div class="ch-head reveal"><p class="eyebrow">Why Rotaserie</p><h2>Three jobs that eat <em>your week.</em></h2></div>
-    <div class="pains">
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build: typed lines and the shifts they made"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video>
-        <div><p class="was">Building next week from scratch, late at night</p><h3>Type it like a text.</h3><p>One line per person, or copy last week. Rotaserie flags time off, overtime and short days before anyone sees the schedule.</p></div></article>
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="An open shift picked up from a phone, marked Requested"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video>
-        <div><p class="was">Swaps and time off scattered across group texts</p><h3>Requests in one place.</h3><p>Staff pick up shifts, trade and ask for time off from their phones. You approve with a tap.</p></div></article>
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="After I can't make it: the manager has been told"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video>
-        <div><p class="was">A 6 AM text: someone can't come in</p><h3>Call-outs reach you right away.</h3><p>They tap “I can't make it” and pick a reason. You're told at once, with a link to everyone who could cover.</p></div></article>
+    <div class="film-head">
+      <p class="label">The film · 1:32</p>
+      <h2>A week, from Sunday night to Sunday night.</h2>
     </div>
-  </div>
-</section>
-
-<!-- THE FILM (Robert, Nov 10): on the page, not a pop-up; the button over it starts it here -->
-<section class="theater film-sec" id="film">
-  <div class="wrap">
-    <div class="film-frame reveal" data-filmframe>
-      <video playsinline preload="none" poster="img/film-poster.webp" aria-label="Rotaserie: a week made in the real app">
-        <source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">
+    <div class="film-frame" data-film-frame>
+      <video playsinline preload="none" poster="img/film/poster-night.webp" width="1920" height="1080" aria-label="The Rotaserie film: a week in the real app, from Sunday night to the next Sunday. No sound." data-film-video data-stem="img/film/film">
+        <track kind="captions" srclang="en" label="English" src="img/film/film.vtt">
       </video>
-      <button class="btn btn-big film-btn" type="button" data-film-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <span class="muted">1:18</span></button>
+      <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Play the film</span><span class="num">1:32</span></button>
+      <noscript><a class="film-nojs" href="img/film/film-1080.h264.mp4">Watch the film (MP4)</a></noscript>
+    </div>
+    <div class="film-foot">
+      <div class="film-chapters"><span class="label">Jump to</span>
+        <button type="button" class="chip" data-film-seek="18.1">Type the week</button>
+        <button type="button" class="chip" data-film-seek="34.85">Publish</button>
+        <button type="button" class="chip" data-film-seek="64.38">The 6 AM call-out</button>
+      </div>
+      <p class="film-note">No sound. Captions are on screen. <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button></p>
     </div>
   </div>
 </section>
 
-<!-- THE STORY: the device stays while the steps scroll past; each step plays its real recording (site.js) -->
-<section class="theater story" id="tour">
+<!-- TYPE TO BUILD, in depth: four points, each with a real line and what the app's rules read from it -->
+<section class="sec" id="type">
   <div class="wrap">
-    <div class="ch-head reveal"><p class="eyebrow">See it work</p><h2>From typed lines <em>to a published week.</em></h2><p class="lead">The real app, recorded in real time with sample data.</p></div>
-    <div class="story-in">
-      <div class="story-stage" aria-hidden="true">
-        <div class="ss-phone"><video muted playsinline loop preload="none"></video><video muted playsinline loop preload="none"></video></div>
-        <div class="ss-laptop"><div class="lid"><video muted playsinline loop preload="none"></video></div><div class="base"></div></div>
-      </div>
+    <header class="sec-head"><p class="label"><span class="idx">01</span>Type to Build</p><h2>How it reads what you type.</h2></header>
+    <ol class="points">
+      <li class="point">
+        <div class="point-text"><span class="idx">01</span><h3>Type it like a text.</h3><p>One line per person.</p></div>
+        <div class="point-ex"><div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">maya wed 5-11</code><button type="button" class="chip ex-try" data-ttb-try="maya wed 5-11">Try this line</button></p>
+          <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">maya</span> <span class="tb-m ok">wed</span> <span class="tb-m assumed" title="5p–11p, from your usual shift times">5<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="5p–11p, from your usual shift times">11<span class="sr"> (assumed)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Maya Torres</span><span class="tb-when">Wed · 5p–11p · Server</span><span class="tb-n">1 shift</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">5-11</span> 5p–11p, from your usual shift times</li></ul></div></div>
+        </div></div>
+      </li><li class="point">
+        <div class="point-text"><span class="idx">02</span><h3>You check before anything is saved.</h3><p>It shows what it read and what it assumed.</p></div>
+        <div class="point-ex"><div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">lena m-th 10-4</code><button type="button" class="chip ex-try" data-ttb-try="lena m-th 10-4">Try this line</button></p>
+          <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">lena</span> <span class="tb-m ok">m</span><span class="tb-m ok">-</span><span class="tb-m ok">th</span> <span class="tb-m assumed" title="10a–4p, from your usual shift times">10<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="10a–4p, from your usual shift times">4<span class="sr"> (assumed)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Lena Park</span><span class="tb-when">Mon–Thu · 10a–4p · Cook</span><span class="tb-n">4 shifts</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">10-4</span> 10a–4p, from your usual shift times</li></ul></div></div>
+        </div></div>
+      </li><li class="point">
+        <div class="point-text"><span class="idx">03</span><h3>It asks instead of guessing.</h3><p>No end time, or two people with the same name? It asks.</p></div>
+        <div class="point-ex"><div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">tom mon-fri from 11</code><button type="button" class="chip ex-try" data-ttb-try="tom mon-fri from 11">Try this line</button></p>
+          <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">tom</span> <span class="tb-m ok">mon</span><span class="tb-m ok">-</span><span class="tb-m ok">fri</span> <span class="tb-m ignored" title="ignored">from<span class="sr"> (ignored)</span></span> <span class="tb-m ok">11</span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift wait"><span class="tb-who" translate="no">Tom Becker</span><span class="tb-when">Mon–Fri · 11a–?</span><span class="tb-n">needs times</span></li></ul><ul class="tb-asks" aria-label="Questions"><li><span class="tb-q" aria-hidden="true">?</span><div class="tb-qbody"><span>Until when?</span><span class="tb-chips"><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="0">Until 3p</button><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="1">Until 5p</button><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="2">Until 7p</button></span></div></li></ul></div>
+        </div></div>
+      </li><li class="point">
+        <div class="point-text"><span class="idx">04</span><h3>Typos and Spanish are fine.</h3></div>
+        <div class="point-ex"><div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">priya wensday 445-8 pls</code><button type="button" class="chip ex-try" data-ttb-try="priya wensday 445-8 pls">Try this line</button></p>
+          <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">priya</span> <span class="tb-m ok">wensday</span> <span class="tb-m assumed" title="4:45p–8p, from your usual shift times">445<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="4:45p–8p, from your usual shift times">8<span class="sr"> (assumed)</span></span> <span class="tb-m ignored" title="ignored">pls<span class="sr"> (ignored)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Priya Nair</span><span class="tb-when">Wed · 4:45p–8p · Busser</span><span class="tb-n">1 shift</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">445-8</span> 4:45p–8p, from your usual shift times</li></ul></div></div>
+        </div><div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">diego miércoles a viernes 9 a 5 mesero</code><button type="button" class="chip ex-try" data-ttb-try="diego miércoles a viernes 9 a 5 mesero">Try this line</button></p>
+          <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">diego</span> <span class="tb-m ok">miércoles</span> <span class="tb-m ok">a</span> <span class="tb-m ok">viernes</span> <span class="tb-m assumed" title="9a–5p, from your usual shift times">9<span class="sr"> (assumed)</span></span> <span class="tb-m ok">a</span> <span class="tb-m assumed" title="9a–5p, from your usual shift times">5<span class="sr"> (assumed)</span></span> <span class="tb-m ok">mesero</span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Diego Ruiz</span><span class="tb-when">Wed–Fri · 9a–5p · Server</span><span class="tb-n">3 shifts</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">9 a 5</span> 9a–5p, from your usual shift times</li></ul></div></div>
+        </div></div>
+      </li>
+    </ol>
+    <div class="type-end">
+      <p class="noai"><b>No AI builds your schedule.</b> Type to Build follows fixed rules, so the same words always give the same shifts.</p>
+      <p class="other">Don't want to type? Drag shifts on the week, copy last week, or keep a consistent schedule.</p>
+    </div>
+    <figure class="browser type-shot">
+      <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+      <span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/ttb-panel-en-light-1440.avif 1440w, img/app/ttb-panel-en-light-2880.avif 2880w" sizes="(min-width:1280px) 1200px, 94vw"><img src="img/app/ttb-panel-en-light-1440.webp" srcset="img/app/ttb-panel-en-light-1440.webp 1440w, img/app/ttb-panel-en-light-2880.webp 2880w" sizes="(min-width:1280px) 1200px, 94vw" width="1440" height="900" loading="lazy" decoding="async" alt="The Rotaserie schedule builder with Type to build open: three typed lines, what it read, and a card for each person, ready to add 9 shifts." data-zoom="img/app/ttb-panel-en-light-2880.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/ttb-panel-en-dark-1440.avif 1440w, img/app/ttb-panel-en-dark-2880.avif 2880w" sizes="(min-width:1280px) 1200px, 94vw"><img src="img/app/ttb-panel-en-dark-1440.webp" srcset="img/app/ttb-panel-en-dark-1440.webp 1440w, img/app/ttb-panel-en-dark-2880.webp 2880w" sizes="(min-width:1280px) 1200px, 94vw" width="1440" height="900" loading="lazy" decoding="async" alt="The Rotaserie schedule builder with Type to build open: three typed lines, what it read, and a card for each person, ready to add 9 shifts." data-zoom="img/app/ttb-panel-en-dark-2880.webp"></picture></span>
+      <figcaption>The real Builder, with Type to build open</figcaption>
+    </figure>
+    <figure class="type-phone"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/ttb-phone-en-light-780.avif 780w, img/app/ttb-phone-en-light-1170.avif 1170w" sizes="78vw"><img src="img/app/ttb-phone-en-light-780.webp" srcset="img/app/ttb-phone-en-light-780.webp 780w, img/app/ttb-phone-en-light-1170.webp 1170w" sizes="78vw" width="780" height="1688" loading="lazy" decoding="async" alt="Type to build on a phone: three typed lines and the shifts Rotaserie read from them." data-zoom="img/app/ttb-phone-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/ttb-phone-en-dark-780.avif 780w, img/app/ttb-phone-en-dark-1170.avif 1170w" sizes="78vw"><img src="img/app/ttb-phone-en-dark-780.webp" srcset="img/app/ttb-phone-en-dark-780.webp 780w, img/app/ttb-phone-en-dark-1170.webp 1170w" sizes="78vw" width="780" height="1688" loading="lazy" decoding="async" alt="Type to build on a phone: three typed lines and the shifts Rotaserie read from them." data-zoom="img/app/ttb-phone-en-dark-1170.webp"></picture></span></div><figcaption class="label">The real Builder, with Type to build open</figcaption></figure>
+  </div>
+</section>
+
+<!-- FOR OWNERS: ten things the app does, each with a real screen -->
+<section class="sec sec-alt" id="owners">
+  <div class="wrap">
+    <header class="sec-head"><p class="label"><span class="idx">02</span>For owners and managers</p><h2>You stay in charge. <em>Rotaserie does the checking.</em></h2></header>
+    <div class="tiles" data-rail tabindex="0" role="group" aria-label="For owners and managers">
+      <article class="tile t-wide t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">01</span>The week</p><h3>The whole week on one grid.</h3><p>Drag a shift to another person or day, copy last week, or start from a template. Hours and estimated labor cost add up as you build.</p></div>
+        <div class="tile-art"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/builder-grid-en-light-1085.avif 1085w, img/app/builder-grid-en-light-2170.avif 2170w" sizes="(min-width:1000px) 760px, 92vw"><img src="img/app/builder-grid-en-light-1085.webp" srcset="img/app/builder-grid-en-light-1085.webp 1085w, img/app/builder-grid-en-light-2170.webp 2170w" sizes="(min-width:1000px) 760px, 92vw" width="1085" height="650" loading="lazy" decoding="async" alt="The week in the schedule builder: each person's shifts by day, with hours and estimated labor cost at the top of each day." data-zoom="img/app/builder-grid-en-light-2170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/builder-grid-en-dark-1085.avif 1085w, img/app/builder-grid-en-dark-2170.avif 2170w" sizes="(min-width:1000px) 760px, 92vw"><img src="img/app/builder-grid-en-dark-1085.webp" srcset="img/app/builder-grid-en-dark-1085.webp 1085w, img/app/builder-grid-en-dark-2170.webp 2170w" sizes="(min-width:1000px) 760px, 92vw" width="1085" height="650" loading="lazy" decoding="async" alt="The week in the schedule builder: each person's shifts by day, with hours and estimated labor cost at the top of each day." data-zoom="img/app/builder-grid-en-dark-2170.webp"></picture></span></div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">02</span>Warnings</p><h3>Warnings, not walls.</h3><p>Overtime, time off, double booking, short rest and short-staffed days are flagged while you build. You decide what to do.</p></div>
+        <div class="tile-art"><span class="shot up"><picture class="lt"><source type="image/avif" srcset="img/app/builder-warning-en-light-300.avif 300w, img/app/builder-warning-en-light-601.avif 601w" sizes="(min-width:1000px) 340px, 92vw"><img src="img/app/builder-warning-en-light-300.webp" srcset="img/app/builder-warning-en-light-300.webp 300w, img/app/builder-warning-en-light-601.webp 601w" sizes="(min-width:1000px) 340px, 92vw" width="300" height="807" loading="lazy" decoding="async" alt="The builder's suggestions, including “Maya Torres: 48h this week, 8h overtime at 1.5×”." data-zoom="img/app/builder-warning-en-light-601.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/builder-warning-en-dark-300.avif 300w, img/app/builder-warning-en-dark-601.avif 601w" sizes="(min-width:1000px) 340px, 92vw"><img src="img/app/builder-warning-en-dark-300.webp" srcset="img/app/builder-warning-en-dark-300.webp 300w, img/app/builder-warning-en-dark-601.webp 601w" sizes="(min-width:1000px) 340px, 92vw" width="300" height="807" loading="lazy" decoding="async" alt="The builder's suggestions, including “Maya Torres: 48h this week, 8h overtime at 1.5×”." data-zoom="img/app/builder-warning-en-dark-601.webp"></picture></span></div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">03</span>Labor rules</p><h3>Washington rules checked.</h3><p>Meal breaks, rest between shifts, overtime, minors' hours and minimum wage. They're helpers, not legal advice.</p></div>
+        <div class="tile-art"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/builder-rules-en-light-300.avif 300w, img/app/builder-rules-en-light-601.avif 601w" sizes="(min-width:1000px) 340px, 92vw"><img src="img/app/builder-rules-en-light-300.webp" srcset="img/app/builder-rules-en-light-300.webp 300w, img/app/builder-rules-en-light-601.webp 601w" sizes="(min-width:1000px) 340px, 92vw" width="300" height="807" loading="lazy" decoding="async" alt="Washington limits for minors flagged in the builder: hours a 16- or 17-year-old may work on a school day and in a school week." data-zoom="img/app/builder-rules-en-light-601.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/builder-rules-en-dark-300.avif 300w, img/app/builder-rules-en-dark-601.avif 601w" sizes="(min-width:1000px) 340px, 92vw"><img src="img/app/builder-rules-en-dark-300.webp" srcset="img/app/builder-rules-en-dark-300.webp 300w, img/app/builder-rules-en-dark-601.webp 601w" sizes="(min-width:1000px) 340px, 92vw" width="300" height="807" loading="lazy" decoding="async" alt="Washington limits for minors flagged in the builder: hours a 16- or 17-year-old may work on a school day and in a school week." data-zoom="img/app/builder-rules-en-dark-601.webp"></picture></span></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">04</span>Today</p><h3>Today.</h3><p>What needs you first: who's short, what's waiting, next week's schedule.</p></div>
+        <div class="tile-art"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/today-en-light-780.avif 780w, img/app/today-en-light-1170.avif 1170w" sizes="270px"><img src="img/app/today-en-light-780.webp" srcset="img/app/today-en-light-780.webp 780w, img/app/today-en-light-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="The manager's Today screen: short of the minimum today, the next schedule ready to review and publish, and requests waiting." data-zoom="img/app/today-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/today-en-dark-780.avif 780w, img/app/today-en-dark-1170.avif 1170w" sizes="270px"><img src="img/app/today-en-dark-780.webp" srcset="img/app/today-en-dark-780.webp 780w, img/app/today-en-dark-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="The manager's Today screen: short of the minimum today, the next schedule ready to review and publish, and requests waiting." data-zoom="img/app/today-en-dark-1170.webp"></picture></span></div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">05</span>Publish</p><h3>Publish, and see who hasn't looked.</h3><p>Each person is told what changed for them, by email and phone alert. Tell everyone sends the whole schedule again.</p></div>
+        <div class="tile-art"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/publish-en-light-780.avif 780w, img/app/publish-en-light-1170.avif 1170w" sizes="270px"><img src="img/app/publish-en-light-780.webp" srcset="img/app/publish-en-light-780.webp 780w, img/app/publish-en-light-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Review and publish: shifts, people, hours and labor cost, nothing urgent, and email and phone alerts ticked." data-zoom="img/app/publish-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/publish-en-dark-780.avif 780w, img/app/publish-en-dark-1170.avif 1170w" sizes="270px"><img src="img/app/publish-en-dark-780.webp" srcset="img/app/publish-en-dark-780.webp 780w, img/app/publish-en-dark-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Review and publish: shifts, people, hours and labor cost, nothing urgent, and email and phone alerts ticked." data-zoom="img/app/publish-en-dark-1170.webp"></picture></span></div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">06</span>Requests</p><h3>Requests in one place.</h3><p>Swaps, pickups, time off and availability, approved in a tap.</p></div>
+        <div class="tile-art"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/requests-en-light-780.avif 780w, img/app/requests-en-light-1170.avif 1170w" sizes="270px"><img src="img/app/requests-en-light-780.webp" srcset="img/app/requests-en-light-780.webp 780w, img/app/requests-en-light-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline." data-zoom="img/app/requests-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/requests-en-dark-780.avif 780w, img/app/requests-en-dark-1170.avif 1170w" sizes="270px"><img src="img/app/requests-en-dark-780.webp" srcset="img/app/requests-en-dark-780.webp 780w, img/app/requests-en-dark-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline." data-zoom="img/app/requests-en-dark-1170.webp"></picture></span></div></div>
+      </article>
+      <article class="tile t-wide t-pair">
+        <div class="tile-text"><p class="label"><span class="idx">07</span>Call-outs</p><h3>Call-outs.</h3><p>“I can't make it” reaches you at once, and you can offer the shift to people who can work it.</p></div>
+        <div class="tile-art">
+          <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/cant-make-it-en-light-780.avif 780w, img/app/cant-make-it-en-light-1170.avif 1170w" sizes="250px"><img src="img/app/cant-make-it-en-light-780.webp" srcset="img/app/cant-make-it-en-light-780.webp 780w, img/app/cant-make-it-en-light-1170.webp 1170w" sizes="250px" width="780" height="1688" loading="lazy" decoding="async" alt="“I can't make it” on an employee's next shift, with a reason and Tell my manager." data-zoom="img/app/cant-make-it-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/cant-make-it-en-dark-780.avif 780w, img/app/cant-make-it-en-dark-1170.avif 1170w" sizes="250px"><img src="img/app/cant-make-it-en-dark-780.webp" srcset="img/app/cant-make-it-en-dark-780.webp 780w, img/app/cant-make-it-en-dark-1170.webp 1170w" sizes="250px" width="780" height="1688" loading="lazy" decoding="async" alt="“I can't make it” on an employee's next shift, with a reason and Tell my manager." data-zoom="img/app/cant-make-it-en-dark-1170.webp"></picture></span></div><figcaption class="label">Their phone</figcaption></figure>
+          <span class="pair-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/callout-manager-en-light-780.avif 780w, img/app/callout-manager-en-light-1170.avif 1170w" sizes="250px"><img src="img/app/callout-manager-en-light-780.webp" srcset="img/app/callout-manager-en-light-780.webp 780w, img/app/callout-manager-en-light-1170.webp 1170w" sizes="250px" width="780" height="1688" loading="lazy" decoding="async" alt="Find cover after a call-out: the best people to take Sam's Friday shift, each with Assign." data-zoom="img/app/callout-manager-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/callout-manager-en-dark-780.avif 780w, img/app/callout-manager-en-dark-1170.avif 1170w" sizes="250px"><img src="img/app/callout-manager-en-dark-780.webp" srcset="img/app/callout-manager-en-dark-780.webp 780w, img/app/callout-manager-en-dark-1170.webp 1170w" sizes="250px" width="780" height="1688" loading="lazy" decoding="async" alt="Find cover after a call-out: the best people to take Sam's Friday shift, each with Assign." data-zoom="img/app/callout-manager-en-dark-1170.webp"></picture></span></div><figcaption class="label">Your phone</figcaption></figure>
+        </div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">08</span>Setup</p><h3>Start from what you have.</h3><p>A photo of your current schedule, rows pasted from a spreadsheet, or a CSV file. You check it before anything is saved.</p></div>
+        <div class="tile-art"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/photo-setup-en-light-780.avif 780w, img/app/photo-setup-en-light-1170.avif 1170w" sizes="270px"><img src="img/app/photo-setup-en-light-780.webp" srcset="img/app/photo-setup-en-light-780.webp 780w, img/app/photo-setup-en-light-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Setup from a photo: the names and shifts read from a schedule photo, to check before anything is saved." data-zoom="img/app/photo-setup-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/photo-setup-en-dark-780.avif 780w, img/app/photo-setup-en-dark-1170.avif 1170w" sizes="270px"><img src="img/app/photo-setup-en-dark-780.webp" srcset="img/app/photo-setup-en-dark-780.webp 780w, img/app/photo-setup-en-dark-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Setup from a photo: the names and shifts read from a schedule photo, to check before anything is saved." data-zoom="img/app/photo-setup-en-dark-1170.webp"></picture></span></div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">09</span>Every week</p><h3>Consistent schedules.</h3><p>Shifts someone works every week fill themselves in.</p></div>
+        <div class="tile-art"><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/consistent-en-light-780.avif 780w, img/app/consistent-en-light-1170.avif 1170w" sizes="270px"><img src="img/app/consistent-en-light-780.webp" srcset="img/app/consistent-en-light-780.webp 780w, img/app/consistent-en-light-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Maya's consistent schedule: the shifts she works every week." data-zoom="img/app/consistent-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/consistent-en-dark-780.avif 780w, img/app/consistent-en-dark-1170.avif 1170w" sizes="270px"><img src="img/app/consistent-en-dark-780.webp" srcset="img/app/consistent-en-dark-780.webp 780w, img/app/consistent-en-dark-1170.webp 1170w" sizes="270px" width="780" height="1688" loading="lazy" decoding="async" alt="Maya's consistent schedule: the shifts she works every week." data-zoom="img/app/consistent-en-dark-1170.webp"></picture></span></div></div>
+      </article>
+      <article class="tile t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">10</span>Hours and pay</p><h3>Hours, labor cost and a pay summary</h3><p>to download, with an optional time clock.</p></div>
+        <div class="tile-art"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/pay-table-en-light-1090.avif 1090w, img/app/pay-table-en-light-2180.avif 2180w" sizes="(min-width:1000px) 760px, 92vw"><img src="img/app/pay-table-en-light-1090.webp" srcset="img/app/pay-table-en-light-1090.webp 1090w, img/app/pay-table-en-light-2180.webp 2180w" sizes="(min-width:1000px) 760px, 92vw" width="1090" height="595" loading="lazy" decoding="async" alt="The pay summary for the month: each person's rate, shifts, hours and pay, with a CSV download." data-zoom="img/app/pay-table-en-light-2180.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/pay-table-en-dark-1090.avif 1090w, img/app/pay-table-en-dark-2180.avif 2180w" sizes="(min-width:1000px) 760px, 92vw"><img src="img/app/pay-table-en-dark-1090.webp" srcset="img/app/pay-table-en-dark-1090.webp 1090w, img/app/pay-table-en-dark-2180.webp 2180w" sizes="(min-width:1000px) 760px, 92vw" width="1090" height="595" loading="lazy" decoding="async" alt="The pay summary for the month: each person's rate, shifts, hours and pay, with a CSV download." data-zoom="img/app/pay-table-en-dark-2180.webp"></picture></span></div>
+      </article>
+    </div>
+    <p class="rail-hint to-700" aria-hidden="true">Swipe for more<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
+  </div>
+</section>
+
+<!-- THE SWAP: the app's four steps, with both phones -->
+<section class="sec" id="swap">
+  <div class="wrap swap">
+    <div class="swap-text">
+      <header class="sec-head"><p class="label"><span class="idx">03</span>The swap, both sides</p><h2>A swap without the group text.</h2><p class="lead">Four steps, as the app does it.</p></header>
       <ol class="steps">
-        <li class="step" data-clip="ttb" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video><span class="n">1</span><h3>Type the week <em>like a text.</em></h3><p>One line per person, “maya wed 5-11”. Rotaserie shows what it read, asks when something is missing, and adds the shifts in one tap.</p></li>
-        <li class="step" data-clip="publish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-light-poster.webp" aria-label="Review and publish on a phone"><source data-src="img/tour/publish-light.webm" type="video/webm"><source data-src="img/tour/publish-light.mp4" type="video/mp4"></video><span class="n">2</span><h3>Check it, <em>then publish.</em></h3><p>Shifts, people, hours and anything urgent on one screen. Publish, and everyone is told by email and by phone alert if they turned alerts on.</p></li>
-        <li class="step" data-clip="staff" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="A staff member picks up an open shift"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video><span class="n">3</span><h3>Staff pick up shifts <em>in a tap.</em></h3><p>Their next shift, their week, and open shifts with an estimate of the pay. A manager approves pickups, or lets the simple ones go through.</p></li>
-        <li class="step" data-clip="callout" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="A staff member calls out of today's shift"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video><span class="n">4</span><h3>Call-outs reach you <em>right away.</em></h3><p>“I can't make it” on today's shift, a reason, and you're told at once, even in quiet hours.</p></li>
-        <li class="step" data-clip="spanish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/spanish-light-poster.webp" aria-label="The staff app in Spanish"><source data-src="img/tour/spanish-light.webm" type="video/webm"><source data-src="img/tour/spanish-light.mp4" type="video/mp4"></video><span class="n">5</span><h3>English <em>y español.</em></h3><p>Each person picks English or Spanish for their own screens, emails and phone alerts.</p></li>
-        <li class="step" data-clip="builder" data-frame="laptop"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-light-poster.webp" aria-label="The schedule builder on a computer"><source data-src="img/tour/builder-light.webm" type="video/webm"><source data-src="img/tour/builder-light.mp4" type="video/mp4"></video><span class="n">6</span><h3>The whole week <em>on a computer.</em></h3><p>Type, drag or copy last week on the big screen. The same checks run as you build.</p></li>
+        <li><span class="idx">01</span><div><b>Request swap</b><p>On their shift, they tap Request swap.</p></div></li><li><span class="idx">02</span><div><b>Ask a coworker</b><p>They pick the shift they'd like in return and ask that coworker.</p></div></li><li><span class="idx">03</span><div><b>They accept</b><p>The coworker taps Accept, or declines.</p></div></li><li><span class="idx">04</span><div><b>You approve</b><p>You tap Approve, or decline with a note.</p></div></li>
       </ol>
+      <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Both people are told.</p>
+    </div>
+    <div class="swap-art">
+      <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/swap-request-en-light-780.avif 780w, img/app/swap-request-en-light-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/swap-request-en-light-780.webp" srcset="img/app/swap-request-en-light-780.webp 780w, img/app/swap-request-en-light-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Trading a shift: the coworkers who can take it, each with a button to ask them." data-zoom="img/app/swap-request-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/swap-request-en-dark-780.avif 780w, img/app/swap-request-en-dark-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/swap-request-en-dark-780.webp" srcset="img/app/swap-request-en-dark-780.webp 780w, img/app/swap-request-en-dark-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Trading a shift: the coworkers who can take it, each with a button to ask them." data-zoom="img/app/swap-request-en-dark-1170.webp"></picture></span></div><figcaption class="label">Their phone</figcaption></figure>
+      <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/requests-en-light-780.avif 780w, img/app/requests-en-light-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/requests-en-light-780.webp" srcset="img/app/requests-en-light-780.webp 780w, img/app/requests-en-light-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline." data-zoom="img/app/requests-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/requests-en-dark-780.avif 780w, img/app/requests-en-dark-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/requests-en-dark-780.webp" srcset="img/app/requests-en-dark-780.webp 780w, img/app/requests-en-dark-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline." data-zoom="img/app/requests-en-dark-1170.webp"></picture></span></div><figcaption class="label">Your phone</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- WHO IT'S FOR: one moving line of the way people type their week -->
-<section class="marquee" aria-label="Rotaserie is for restaurants, cafés and bakeries, shops, salons, fitness studios and field service">
-  <div class="mq-track" aria-hidden="true">
-    <span><b>Restaurants</b><code>maria tue-fri 4p-10p</code></span><span><b>Cafés</b><code>jo mon-fri 6a-2p</code></span>
-    <span><b>Shops</b><code>ben sat-sun 10-6</code></span><span><b>Salons</b><code>ana tue-sat 9-5</code></span>
-    <span><b>Fitness studios</b><code>kai mon wed fri 5a-1p</code></span><span><b>Field service</b><code>rico mon-thu 7-5</code></span>
-    <span class="dup"><b>Restaurants</b><code>maria tue-fri 4p-10p</code></span><span class="dup"><b>Cafés</b><code>jo mon-fri 6a-2p</code></span>
-    <span class="dup"><b>Shops</b><code>ben sat-sun 10-6</code></span><span class="dup"><b>Salons</b><code>ana tue-sat 9-5</code></span>
-    <span class="dup"><b>Fitness studios</b><code>kai mon wed fri 5a-1p</code></span><span class="dup"><b>Field service</b><code>rico mon-thu 7-5</code></span>
-  </div>
-</section>
-
-<section class="chapter" id="staff">
-  <div class="wrap side">
-    <div class="side-text reveal">
-      <p class="eyebrow">What your staff see</p>
-      <h2>Their schedule, on their phone.</h2>
-      <p class="lead">Staff don't download anything. You add them, and they scan your QR code to put Rotaserie on their phone and sign in once. From then on they see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
-    </div>
-    <div class="phones fan reveal">
-      <figure class="phone">
-        <img class="lt" src="img/new/p_home_light.webp" width="780" height="1688" loading="lazy" alt="Staff home: the next shift in two days, with who else is working" data-zoom>
-        <img class="dk" src="img/new/p_home_dark.webp" width="780" height="1688" loading="lazy" alt="Staff home at night" data-zoom>
-        <figcaption>Next shift<span>with who's on with you</span></figcaption>
-      </figure>
-      <figure class="phone lift">
-        <img class="lt" src="img/new/p_market_light.webp" width="780" height="1688" loading="lazy" alt="Open shifts to pick up, with estimated pay" data-zoom>
-        <img class="dk" src="img/new/p_market_dark.webp" width="780" height="1688" loading="lazy" alt="Open shifts at night" data-zoom>
-        <figcaption>Open shifts<span>pick one up in a tap</span></figcaption>
-      </figure>
-      <figure class="phone">
-        <img class="lt" src="img/new/p_schedule_light.webp" width="780" height="1688" loading="lazy" alt="The week's schedule on a phone" data-zoom>
-        <img class="dk" src="img/new/p_schedule_dark.webp" width="780" height="1688" loading="lazy" alt="The week's schedule at night" data-zoom>
-        <figcaption>The week<span>everyone's shifts</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="clients">
+<!-- FOR STAFF -->
+<section class="sec sec-alt" id="staff">
   <div class="wrap">
-    <div class="band-in reveal">
-      <div>
-        <p class="eyebrow">Where it started</p>
-        <h2>Spiros runs on Rotaserie.</h2>
-        <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, to give a busy manager her time back. It runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
-        <div class="hero-actions"><a class="btn" href="about.html">Read the story</a>
-          <a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros</a></div>
+    <div class="staff-top">
+      <header class="sec-head"><p class="label"><span class="idx">04</span>For staff</p><h2>Their schedule, on their phone.</h2></header>
+      <div class="staff-list">
+        <ul class="checks"><li>Next shift and who's on with them</li><li>Pick up an open shift</li><li>Swap or give a shift away</li><li>Ask for time off and set availability</li><li>Alerts by email and phone, in English or Spanish</li></ul>
+        <p class="join"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>Staff join with your QR code. No app store needed.</p>
       </div>
-      <figure class="place-photo">
-        <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
-        <figcaption>Spiro's Pizza &amp; Pasta, Shoreline, Washington</figcaption>
-      </figure>
     </div>
+    <div class="rail-wrap">
+      <div class="phones" data-rail tabindex="0" role="group" aria-label="For staff">
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/my-shifts-en-light-780.avif 780w, img/app/my-shifts-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/my-shifts-en-light-780.webp" srcset="img/app/my-shifts-en-light-780.webp 780w, img/app/my-shifts-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="An employee's home screen: their next shift, who they work with, and their week." data-zoom="img/app/my-shifts-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/my-shifts-en-dark-780.avif 780w, img/app/my-shifts-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/my-shifts-en-dark-780.webp" srcset="img/app/my-shifts-en-dark-780.webp 780w, img/app/my-shifts-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="An employee's home screen: their next shift, who they work with, and their week." data-zoom="img/app/my-shifts-en-dark-1170.webp"></picture></span></div><figcaption><b>Next shift</b><span>and who's on with them</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/open-shifts-en-light-780.avif 780w, img/app/open-shifts-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/open-shifts-en-light-780.webp" srcset="img/app/open-shifts-en-light-780.webp 780w, img/app/open-shifts-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="Open shifts an employee can pick up, each with estimated pay." data-zoom="img/app/open-shifts-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/open-shifts-en-dark-780.avif 780w, img/app/open-shifts-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/open-shifts-en-dark-780.webp" srcset="img/app/open-shifts-en-dark-780.webp 780w, img/app/open-shifts-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="Open shifts an employee can pick up, each with estimated pay." data-zoom="img/app/open-shifts-en-dark-1170.webp"></picture></span></div><figcaption><b>Open shifts</b><span>pick one up in a tap</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/schedule-staff-en-light-780.avif 780w, img/app/schedule-staff-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/schedule-staff-en-light-780.webp" srcset="img/app/schedule-staff-en-light-780.webp 780w, img/app/schedule-staff-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The team's schedule for the week, day by day, on a phone." data-zoom="img/app/schedule-staff-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/schedule-staff-en-dark-780.avif 780w, img/app/schedule-staff-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/schedule-staff-en-dark-780.webp" srcset="img/app/schedule-staff-en-dark-780.webp 780w, img/app/schedule-staff-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The team's schedule for the week, day by day, on a phone." data-zoom="img/app/schedule-staff-en-dark-1170.webp"></picture></span></div><figcaption><b>The week</b><span>everyone's shifts</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/time-off-en-light-780.avif 780w, img/app/time-off-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/time-off-en-light-780.webp" srcset="img/app/time-off-en-light-780.webp 780w, img/app/time-off-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="Asking for time off: first and last day and a reason." data-zoom="img/app/time-off-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/time-off-en-dark-780.avif 780w, img/app/time-off-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/time-off-en-dark-780.webp" srcset="img/app/time-off-en-dark-780.webp 780w, img/app/time-off-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="Asking for time off: first and last day and a reason." data-zoom="img/app/time-off-en-dark-1170.webp"></picture></span></div><figcaption><b>Time off</b><span>asked from their phone</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/availability-en-light-780.avif 780w, img/app/availability-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/availability-en-light-780.webp" srcset="img/app/availability-en-light-780.webp 780w, img/app/availability-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="An employee's availability: preferred hours on weekdays, not available on weekends." data-zoom="img/app/availability-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/availability-en-dark-780.avif 780w, img/app/availability-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/availability-en-dark-780.webp" srcset="img/app/availability-en-dark-780.webp 780w, img/app/availability-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="An employee's availability: preferred hours on weekdays, not available on weekends." data-zoom="img/app/availability-en-dark-1170.webp"></picture></span></div><figcaption><b>Availability</b><span>when they can work</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/join-qr-en-light-780.avif 780w, img/app/join-qr-en-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/join-qr-en-light-780.webp" srcset="img/app/join-qr-en-light-780.webp 780w, img/app/join-qr-en-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The welcome page a new employee opens from the QR code, to ask to join." data-zoom="img/app/join-qr-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/join-qr-en-dark-780.avif 780w, img/app/join-qr-en-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/join-qr-en-dark-780.webp" srcset="img/app/join-qr-en-dark-780.webp 780w, img/app/join-qr-en-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The welcome page a new employee opens from the QR code, to ask to join." data-zoom="img/app/join-qr-en-dark-1170.webp"></picture></span></div><figcaption><b>Joining</b><span>from your QR code</span></figcaption></figure>
+        <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/my-shifts-es-light-780.avif 780w, img/app/my-shifts-es-light-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/my-shifts-es-light-780.webp" srcset="img/app/my-shifts-es-light-780.webp 780w, img/app/my-shifts-es-light-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The same home screen in Spanish: the next shift, who they work with, and the week." data-zoom="img/app/my-shifts-es-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/my-shifts-es-dark-780.avif 780w, img/app/my-shifts-es-dark-1170.avif 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"><img src="img/app/my-shifts-es-dark-780.webp" srcset="img/app/my-shifts-es-dark-780.webp 780w, img/app/my-shifts-es-dark-1170.webp 1170w" sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw" width="780" height="1688" loading="lazy" decoding="async" alt="The same home screen in Spanish: the next shift, who they work with, and the week." data-zoom="img/app/my-shifts-es-dark-1170.webp"></picture></span></div><figcaption><b>En español</b><span>each person picks</span></figcaption></figure>
+        
+      </div>
+      <div class="rail-nav" aria-hidden="true"><button type="button" class="icon-btn" data-rail-prev tabindex="-1" title="Back"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="icon-btn" data-rail-next tabindex="-1" title="More"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERY SCREEN -->
+<section class="sec" id="screens">
+  <div class="wrap screens">
+    <header class="sec-head"><p class="label"><span class="idx">05</span>Every screen</p><h2>Phone, tablet and computer, in any browser.</h2><p class="lead">Staff add it to their home screen and get phone alerts like any app.</p></header>
+    <div class="devices">
+      <figure class="browser">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+        <span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/builder-week-en-light-1440.avif 1440w, img/app/builder-week-en-light-2880.avif 2880w" sizes="(min-width:1000px) 720px, 92vw"><img src="img/app/builder-week-en-light-1440.webp" srcset="img/app/builder-week-en-light-1440.webp 1440w, img/app/builder-week-en-light-2880.webp 2880w" sizes="(min-width:1000px) 720px, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="The week in the schedule builder on a computer." data-zoom="img/app/builder-week-en-light-2880.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/builder-week-en-dark-1440.avif 1440w, img/app/builder-week-en-dark-2880.avif 2880w" sizes="(min-width:1000px) 720px, 92vw"><img src="img/app/builder-week-en-dark-1440.webp" srcset="img/app/builder-week-en-dark-1440.webp 1440w, img/app/builder-week-en-dark-2880.webp 2880w" sizes="(min-width:1000px) 720px, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="The week in the schedule builder on a computer." data-zoom="img/app/builder-week-en-dark-2880.webp"></picture></span>
+      </figure>
+      <div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/today-en-light-780.avif 780w, img/app/today-en-light-1170.avif 1170w" sizes="(min-width:700px) 220px, 34vw"><img src="img/app/today-en-light-780.webp" srcset="img/app/today-en-light-780.webp 780w, img/app/today-en-light-1170.webp 1170w" sizes="(min-width:700px) 220px, 34vw" width="780" height="1688" loading="lazy" decoding="async" alt="The manager's Today screen on a phone." data-zoom="img/app/today-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/today-en-dark-780.avif 780w, img/app/today-en-dark-1170.avif 1170w" sizes="(min-width:700px) 220px, 34vw"><img src="img/app/today-en-dark-780.webp" srcset="img/app/today-en-dark-780.webp 780w, img/app/today-en-dark-1170.webp 1170w" sizes="(min-width:700px) 220px, 34vw" width="780" height="1688" loading="lazy" decoding="async" alt="The manager's Today screen on a phone." data-zoom="img/app/today-en-dark-1170.webp"></picture></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE IT STARTED -->
+<section class="sec sec-alt" id="spiros">
+  <div class="wrap proof-in">
+    <div>
+      <header class="sec-head"><p class="label"><span class="idx">06</span>Where it started</p><h2>Spiros runs on Rotaserie.</h2></header>
+      <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, to give a busy manager her time back. It runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
+      <div class="actions"><a class="btn" href="about.html">Read the story</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    </div>
+    <figure class="photo">
+      <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
+      <figcaption class="label">Spiro's Pizza &amp; Pasta · Shoreline, Washington</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="chapter" id="faq">
-  <div class="wrap side">
-    <div class="phone-v small reveal" data-par="0.04"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="A staff member picks up an open shift from their phone"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-dark-poster.webp" aria-label="A staff member picks up an open shift from their phone"><source data-src="img/tour/staff-dark.webm" type="video/webm"><source data-src="img/tour/staff-dark.mp4" type="video/mp4"></video></div>
-    <div>
-    <div class="ch-head left reveal"><p class="eyebrow">Questions</p><h2>What owners ask first.</h2></div>
-    <div class="faq reveal">
-      <details><summary>Do I have to type the schedule?</summary><p>No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a regular schedule that fills itself in.</p></details>
-      <details><summary>Do my staff need to download an app?</summary><p>No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app.</p></details>
-      <details><summary>Is it only for restaurants?</summary><p>No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times.</p></details>
-      <details><summary>Does it replace my point of sale or time clock?</summary><p>No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one.</p></details>
-      <details><summary>Is it in Spanish?</summary><p>Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts.</p></details>
-      <details><summary>How much does it cost?</summary><p>One price per location, with every feature included. Ask for early access and we'll walk you through it.</p></details>
-    </div>
+<section class="sec" id="faq">
+  <div class="wrap faq-in">
+    <header class="sec-head"><p class="label"><span class="idx">07</span>Questions</p><h2>What owners ask first.</h2></header>
+    <div class="faq">
+      <details><summary><span>Do I have to type the schedule?</span><i aria-hidden="true"></i></summary><p>No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a consistent schedule that fills itself in.</p></details>
+      <details><summary><span>Does AI make my schedule?</span><i aria-hidden="true"></i></summary><p>No. Type to Build follows fixed rules. The one AI step is reading a photo at setup, if you choose it.</p></details>
+      <details><summary><span>Do my staff need to download an app?</span><i aria-hidden="true"></i></summary><p>No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app.</p></details>
+      <details><summary><span>Is it only for restaurants?</span><i aria-hidden="true"></i></summary><p>No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times.</p></details>
+      <details><summary><span>Is it in Spanish?</span><i aria-hidden="true"></i></summary><p>Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts.</p></details>
+      <details><summary><span>Does it replace my point of sale or time clock?</span><i aria-hidden="true"></i></summary><p>No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one.</p></details>
+      <details><summary><span>What doesn't it do?</span><i aria-hidden="true"></i></summary><p>It doesn't run payroll, process tip payouts, connect to a point-of-sale system, or track staff by GPS.</p></details>
+      <details><summary><span>Can I get my data out?</span><i aria-hidden="true"></i></summary><p>Yes. You can download all your data whenever you like.</p></details>
+      <details><summary><span>How much does it cost?</span><i aria-hidden="true"></i></summary><p>One price per location, with every feature included. Ask for early access and we'll walk you through it.</p></details>
+      
     </div>
   </div>
 </section>
 
-<!-- GET EARLY ACCESS -->
-<section class="cta" id="start">
-  <div class="wrap side">
-    <div class="phone-v small reveal" data-par="0.04"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-light-poster.webp" aria-label="Review and publish on a phone: the week at a glance, then Publish schedule"><source data-src="img/tour/publish-light.webm" type="video/webm"><source data-src="img/tour/publish-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-dark-poster.webp" aria-label="Review and publish on a phone: the week at a glance, then Publish schedule"><source data-src="img/tour/publish-dark.webm" type="video/webm"><source data-src="img/tour/publish-dark.mp4" type="video/mp4"></video></div>
-    <div class="early reveal">
-      <img src="img/logo.svg" alt="" width="60" height="60">
-      <h2>Take more off your plate <em>with Rotaserie.</em></h2>
+<!-- EARLY ACCESS -->
+<section class="start" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <p class="label">Early access</p>
+      <h2 class="display">That's next week, handled.</h2>
       <p class="lead">Rotaserie is in early access. Tell us about your business and we'll set it up with you; your team can be on it the same day.</p>
-      <form data-early action="mailto:robert@rotaserie.com" method="get">
+    </div>
+    <div class="pane start-form">
+      <form data-early action="mailto:robert@rotaserie.com" method="get" data-body="Hi Robert,&#10;&#10;I&#x27;d like early access to Rotaserie.&#10;&#10;Business: {biz}&#10;Kind of business: {kind}&#10;How many people work there: &#10;How we schedule today: &#10;&#10;Thanks!" data-subject="Rotaserie early access: {biz}">
         <input type="hidden" name="subject" value="Rotaserie early access">
         <label>Your business<input name="business" autocomplete="organization" placeholder="e.g. Lilac Street Café" required></label>
         <label>Kind of business
-          <select name="kind">
-            <option>Restaurant</option><option>Café or bakery</option><option>Shop</option><option>Salon</option>
-            <option>Fitness studio</option><option>Field service</option><option>Something else</option>
-          </select></label>
-        <button class="btn" type="submit">Get early access</button>
+          <select name="kind"><option>Restaurant</option><option>Café or bakery</option><option>Shop</option><option>Salon</option><option>Fitness studio</option><option>Field service</option><option>Something else</option></select></label>
+        <button class="btn btn-big" type="submit">Get early access</button>
       </form>
       <p class="small" data-mailnote>This opens an email to Robert, the founder. Or write to <a href="mailto:robert@rotaserie.com?subject=Rotaserie%20early%20access">robert@rotaserie.com</a>.</p>
     </div>
   </div>
 </section>
-
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
-    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="facts.html">Facts</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
-    <p class="muted">© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p>
+    <div class="foot-brand">
+      <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+      <p>Scheduling for restaurants and small teams, built in Washington State.</p>
+      
+    </div>
+    <nav class="foot-col" aria-label="Product">
+      <p class="label">Product</p>
+      <a href="#type">Type to Build</a>
+      <a href="#owners">For owners</a>
+      <a href="#staff">For staff</a>
+      <a href="#film">The film</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <nav class="foot-col" aria-label="Company">
+      <p class="label">Company</p>
+      <a href="about.html">About us</a>
+      <a href="https://ilovespiros.com/" target="_blank" rel="noopener">Spiros</a>
+      <a href="mailto:robert@rotaserie.com?subject=Rotaserie">Email Robert</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <p class="label">Legal</p>
+      <a href="facts.html">Facts</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
   </div>
+  <div class="wrap foot-end"><p>© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p></div>
 </footer>
 
 <dialog class="zoom" data-zoombox aria-label="Screenshot">
   <button class="zoom-close" type="button" aria-label="Close" data-zoom-close>×</button>
   <img alt="">
 </dialog>
+
 </body>
 </html>

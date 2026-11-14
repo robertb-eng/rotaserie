@@ -1,0 +1,87 @@
+{
+ "hero": {
+  "text": "maya wed 5-11\nlena m-th 10-4",
+  "rows": 3,
+  "preview": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">maya</span> <span class=\"tb-m ok\">wed</span> <span class=\"tb-m assumed\" title=\"5p–11p, from your usual shift times\">5<span class=\"sr\"> (assumed)</span></span><span class=\"tb-m ok\">-</span><span class=\"tb-m assumed\" title=\"5p–11p, from your usual shift times\">11<span class=\"sr\"> (assumed)</span></span><br><span class=\"tb-m ok\">lena</span> <span class=\"tb-m ok\">m</span><span class=\"tb-m ok\">-</span><span class=\"tb-m ok\">th</span> <span class=\"tb-m assumed\" title=\"10a–4p, from your usual shift times\">10<span class=\"sr\"> (assumed)</span></span><span class=\"tb-m ok\">-</span><span class=\"tb-m assumed\" title=\"10a–4p, from your usual shift times\">4<span class=\"sr\"> (assumed)</span></span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Maya Torres</span><span class=\"tb-when\">Wed · 5p–11p · Server</span><span class=\"tb-n\">1 shift</span></li><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Lena Park</span><span class=\"tb-when\">Mon–Thu · 10a–4p · Cook</span><span class=\"tb-n\">4 shifts</span></li></ul><div class=\"tb-assumed\"><span class=\"tb-k\">Assumed</span><ul><li><span class=\"tb-m assumed\" translate=\"no\">5-11</span> 5p–11p, from your usual shift times</li><li><span class=\"tb-m assumed\" translate=\"no\">10-4</span> 10a–4p, from your usual shift times</li></ul></div>",
+  "grid": "<table class=\"wk\"><thead><tr><th scope=\"col\" class=\"wk-team\">Team</th><th scope=\"col\"><span>Mon</span> <b>16</b></th><th scope=\"col\"><span>Tue</span> <b>17</b></th><th scope=\"col\"><span>Wed</span> <b>18</b></th><th scope=\"col\"><span>Thu</span> <b>19</b></th><th scope=\"col\"><span>Fri</span> <b>20</b></th><th scope=\"col\"><span>Sat</span> <b>21</b></th><th scope=\"col\"><span>Sun</span> <b>22</b></th></tr></thead><tbody><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Maya</span><span class=\"wk-h\">24h</span></th><td><span class=\"sh s0\"><b>11a–</b><b>5p</b><small>Server</small></span></td><td><span class=\"sh s0\"><b>11a–</b><b>5p</b><small>Server</small></span></td><td><span class=\"sh s0 typed\"><b>5p–</b><b>11p</b><small>Server<span class=\"sr\"> · typed</span></small></span></td><td><span class=\"sh s0\"><b>11a–</b><b>5p</b><small>Server</small></span></td><td></td><td></td><td></td></tr><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Diego</span><span class=\"wk-h\">23h</span></th><td><span class=\"sh s0\"><b>4p–</b><b>10p</b><small>Server</small></span></td><td><span class=\"sh s0\"><b>4p–</b><b>10p</b><small>Server</small></span></td><td></td><td></td><td></td><td><span class=\"sh s0\"><b>4p–</b><b>10p</b><small>Server</small></span></td><td><span class=\"sh s0\"><b>4p–</b><b>9p</b><small>Server</small></span></td></tr><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Priya</span><span class=\"wk-h\">12h</span></th><td></td><td><span class=\"sh s1\"><b>11a–</b><b>5p</b><small>Busser</small></span></td><td></td><td><span class=\"sh s1\"><b>11a–</b><b>5p</b><small>Busser</small></span></td><td></td><td></td><td></td></tr><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Sam</span><span class=\"wk-h\">24h</span></th><td></td><td></td><td><span class=\"sh s1\"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class=\"sh s1\"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class=\"sh s1\"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td><span class=\"sh s1\"><b>4p–</b><b>10p</b><small>Busser</small></span></td><td></td></tr><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Lena</span><span class=\"wk-h\">42h</span></th><td><span class=\"sh s2 typed\"><b>10a–</b><b>4p</b><small>Cook<span class=\"sr\"> · typed</span></small></span></td><td><span class=\"sh s2 typed\"><b>10a–</b><b>4p</b><small>Cook<span class=\"sr\"> · typed</span></small></span></td><td><span class=\"sh s2 typed\"><b>10a–</b><b>4p</b><small>Cook<span class=\"sr\"> · typed</span></small></span></td><td><span class=\"sh s2 typed\"><b>10a–</b><b>4p</b><small>Cook<span class=\"sr\"> · typed</span></small></span></td><td><span class=\"sh s2\"><b>10a–</b><b>4p</b><small>Cook</small></span></td><td><span class=\"sh s2\"><b>10a–</b><b>4p</b><small>Cook</small></span></td><td><span class=\"sh s2\"><b>10a–</b><b>4p</b><small>Cook</small></span></td></tr><tr><th scope=\"row\"><span class=\"wk-name\" translate=\"no\">Tom</span><span class=\"wk-h\">12h</span></th><td></td><td></td><td></td><td></td><td></td><td><span class=\"sh s2\"><b>5p–</b><b>11p</b><small>Cook</small></span></td><td><span class=\"sh s2\"><b>3p–</b><b>9p</b><small>Cook</small></span></td></tr></tbody></table>",
+  "add": "Add 5 shifts",
+  "n": 5,
+  "totals": "23 shifts · 137 hours, 5 typed",
+  "live": "5 shifts read for Maya Torres and Lena Park.",
+  "week": "Nov 16 – 22"
+ },
+ "key": "<span><i class=\"s0\"></i>Server</span><span><i class=\"s1\"></i>Busser</span><span><i class=\"s2\"></i>Cook</span><span><i class=\"typed\"></i>typed</span>",
+ "chips": [
+  {
+   "text": "maya wed 5-11"
+  },
+  {
+   "text": "lena m-th 10-4"
+  },
+  {
+   "text": "priya wensday 445-8 pls"
+  },
+  {
+   "text": "tom mon-fri from 11"
+  },
+  {
+   "text": "diego miércoles a viernes 9 a 5 mesero"
+  }
+ ],
+ "points": [
+  {
+   "title": "Type it like a text.",
+   "body": "One line per person.",
+   "examples": [
+    {
+     "text": "maya wed 5-11",
+     "html": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">maya</span> <span class=\"tb-m ok\">wed</span> <span class=\"tb-m assumed\" title=\"5p–11p, from your usual shift times\">5<span class=\"sr\"> (assumed)</span></span><span class=\"tb-m ok\">-</span><span class=\"tb-m assumed\" title=\"5p–11p, from your usual shift times\">11<span class=\"sr\"> (assumed)</span></span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Maya Torres</span><span class=\"tb-when\">Wed · 5p–11p · Server</span><span class=\"tb-n\">1 shift</span></li></ul><div class=\"tb-assumed\"><span class=\"tb-k\">Assumed</span><ul><li><span class=\"tb-m assumed\" translate=\"no\">5-11</span> 5p–11p, from your usual shift times</li></ul></div>",
+     "n": 1,
+     "asks": false
+    }
+   ]
+  },
+  {
+   "title": "You check before anything is saved.",
+   "body": "It shows what it read and what it assumed.",
+   "examples": [
+    {
+     "text": "lena m-th 10-4",
+     "html": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">lena</span> <span class=\"tb-m ok\">m</span><span class=\"tb-m ok\">-</span><span class=\"tb-m ok\">th</span> <span class=\"tb-m assumed\" title=\"10a–4p, from your usual shift times\">10<span class=\"sr\"> (assumed)</span></span><span class=\"tb-m ok\">-</span><span class=\"tb-m assumed\" title=\"10a–4p, from your usual shift times\">4<span class=\"sr\"> (assumed)</span></span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Lena Park</span><span class=\"tb-when\">Mon–Thu · 10a–4p · Cook</span><span class=\"tb-n\">4 shifts</span></li></ul><div class=\"tb-assumed\"><span class=\"tb-k\">Assumed</span><ul><li><span class=\"tb-m assumed\" translate=\"no\">10-4</span> 10a–4p, from your usual shift times</li></ul></div>",
+     "n": 4,
+     "asks": false
+    }
+   ]
+  },
+  {
+   "title": "It asks instead of guessing.",
+   "body": "No end time, or two people with the same name? It asks.",
+   "examples": [
+    {
+     "text": "tom mon-fri from 11",
+     "html": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">tom</span> <span class=\"tb-m ok\">mon</span><span class=\"tb-m ok\">-</span><span class=\"tb-m ok\">fri</span> <span class=\"tb-m ignored\" title=\"ignored\">from<span class=\"sr\"> (ignored)</span></span> <span class=\"tb-m ok\">11</span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift wait\"><span class=\"tb-who\" translate=\"no\">Tom Becker</span><span class=\"tb-when\">Mon–Fri · 11a–?</span><span class=\"tb-n\">needs times</span></li></ul><ul class=\"tb-asks\" aria-label=\"Questions\"><li><span class=\"tb-q\" aria-hidden=\"true\">?</span><div class=\"tb-qbody\"><span>Until when?</span><span class=\"tb-chips\"><button type=\"button\" class=\"tb-chip\" data-tb=\"fix\" data-q=\"0\" data-o=\"0\">Until 3p</button><button type=\"button\" class=\"tb-chip\" data-tb=\"fix\" data-q=\"0\" data-o=\"1\">Until 5p</button><button type=\"button\" class=\"tb-chip\" data-tb=\"fix\" data-q=\"0\" data-o=\"2\">Until 7p</button></span></div></li></ul>",
+     "n": 0,
+     "asks": true
+    }
+   ]
+  },
+  {
+   "title": "Typos and Spanish are fine.",
+   "body": "",
+   "examples": [
+    {
+     "text": "priya wensday 445-8 pls",
+     "html": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">priya</span> <span class=\"tb-m ok\">wensday</span> <span class=\"tb-m assumed\" title=\"4:45p–8p, from your usual shift times\">445<span class=\"sr\"> (assumed)</span></span><span class=\"tb-m ok\">-</span><span class=\"tb-m assumed\" title=\"4:45p–8p, from your usual shift times\">8<span class=\"sr\"> (assumed)</span></span> <span class=\"tb-m ignored\" title=\"ignored\">pls<span class=\"sr\"> (ignored)</span></span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Priya Nair</span><span class=\"tb-when\">Wed · 4:45p–8p · Busser</span><span class=\"tb-n\">1 shift</span></li></ul><div class=\"tb-assumed\"><span class=\"tb-k\">Assumed</span><ul><li><span class=\"tb-m assumed\" translate=\"no\">445-8</span> 4:45p–8p, from your usual shift times</li></ul></div>",
+     "n": 1,
+     "asks": false
+    },
+    {
+     "text": "diego miércoles a viernes 9 a 5 mesero",
+     "html": "<div class=\"tb-read\"><span class=\"tb-k\">What I read</span><p translate=\"no\"><span class=\"tb-m ok\">diego</span> <span class=\"tb-m ok\">miércoles</span> <span class=\"tb-m ok\">a</span> <span class=\"tb-m ok\">viernes</span> <span class=\"tb-m assumed\" title=\"9a–5p, from your usual shift times\">9<span class=\"sr\"> (assumed)</span></span> <span class=\"tb-m ok\">a</span> <span class=\"tb-m assumed\" title=\"9a–5p, from your usual shift times\">5<span class=\"sr\"> (assumed)</span></span> <span class=\"tb-m ok\">mesero</span></p></div><ul class=\"tb-shifts\" aria-label=\"Shifts\"><li class=\"tb-shift\"><span class=\"tb-who\" translate=\"no\">Diego Ruiz</span><span class=\"tb-when\">Wed–Fri · 9a–5p · Server</span><span class=\"tb-n\">3 shifts</span></li></ul><div class=\"tb-assumed\"><span class=\"tb-k\">Assumed</span><ul><li><span class=\"tb-m assumed\" translate=\"no\">9 a 5</span> 9a–5p, from your usual shift times</li></ul></div>",
+     "n": 3,
+     "asks": false
+    }
+   ]
+  }
+ ]
+}

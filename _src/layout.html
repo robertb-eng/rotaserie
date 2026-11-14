@@ -1,40 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{lang}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
-<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{{url}}">
+{{#if has_es}}<link rel="alternate" hreflang="en" href="{{url_en}}">
+<link rel="alternate" hreflang="es" href="{{url_es}}">
+<link rel="alternate" hreflang="x-default" href="{{url_en}}">
+{{/if}}<meta property="og:type" content="website">
+<meta property="og:locale" content="{{locale}}">
+{{#each other_locales}}<meta property="og:locale:alternate" content="{{this}}">
+{{/each}}
+<meta property="og:site_name" content="Rotaserie">
+<meta property="og:url" content="{{url}}">
 <meta property="og:title" content="{{og_title}}">
 {{#if og_description}}<meta property="og:description" content="{{og_description}}">
-{{/if}}<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
-<link rel="icon" href="img/logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+{{/if}}<meta property="og:image" content="https://rotaserie.com/img/share-{{lang}}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{base}}img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{base}}img/apple-touch-icon.png">
+<link rel="preload" href="{{base}}fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="styles.css">
-<script src="site.js" defer></script>
-</head>
+<link rel="stylesheet" href="{{base}}tokens.css">
+<link rel="stylesheet" href="{{base}}styles.css">
+<script src="{{base}}site.js" defer></script>
+{{#if is_home}}{{> head-home}}{{/if}}</head>
 <body{{#if body_class}} class="{{body_class}}"{{/if}}>
-<a class="skip" href="#main">Skip to content</a>
-
+<a class="skip" href="#main">{{skip}}</a>
+{{#if is_en}}{{#if has_es}}<div class="langbar" data-langbar hidden><p lang="es">{{langbar.text}} <a href="{{href_es}}" lang="es" hreflang="es" data-lang="es">{{langbar.link}}</a></p><button type="button" class="icon-btn" data-langbar-close aria-label="{{langbar.close}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+{{/if}}{{/if}}
 {{> nav}}
 <main id="main">
 {{main}}</main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
-    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · {{#if foot_facts}}<a href="facts.html">Facts</a> · {{/if}}<a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
-    <p class="muted">© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p>
-  </div>
-</footer>
-
-<dialog class="zoom" data-zoombox aria-label="Screenshot">
-  <button class="zoom-close" type="button" aria-label="Close" data-zoom-close>×</button>
-  <img alt="">
-</dialog>
+{{> foot}}
 </body>
 </html>

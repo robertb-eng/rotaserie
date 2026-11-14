@@ -1,88 +1,65 @@
 <!--meta
 {
-  "title": "About Rotaserie · Built at Spiros",
-  "description": "Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, by Robert Banchero to give his mom her time back. Now it's ready to help other small businesses do the same.",
-  "og_title": "About Rotaserie · Built at Spiros",
-  "og_description": "Scheduling built at a working restaurant, to give a busy manager her time back.",
   "sitemap_order": 20
 }
 -->
 
-<!-- ABOUT US -->
-<section class="hero about-hero">
-  <div class="wrap about-intro reveal">
-    <p class="pill"><span class="dot"></span>About us</p>
-    <h1>Built at a restaurant, <em>for small teams.</em></h1>
-    <p class="lead">Rotaserie is scheduling made by someone who grew up working the floor, for the manager who makes next week's schedule on a phone between rushes at a restaurant, café, shop, salon or studio.</p>
+<section class="page-hero">
+  <div class="wrap page-hero-in">
+    <p class="label">{{a.label}}</p>
+    <h1>{{a.title_a}} <em>{{a.title_b}}</em></h1>
+    <p class="lead">{{a.lead}}</p>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="chapter" id="founder">
-  <div class="wrap founder reveal">
+<section class="sec" id="founder">
+  <div class="wrap founder">
     <div class="founder-card">
-      <img class="founder-photo" src="img/founder.webp" width="1200" height="900" loading="lazy" alt="The founder with three members of the Spiro's kitchen team" data-zoom>
+      <img src="{{base}}img/founder.webp" width="1200" height="900" loading="lazy" decoding="async" alt="{{a.founder_alt}}" data-zoom>
       <b>Robert Banchero</b>
-      <span class="muted">Founder, TICO VENTURES LLC</span>
-      <a class="btn btn-sm" href="mailto:robert@rotaserie.com?subject=Rotaserie">Email Robert</a>
+      <span class="label">{{a.founder_role}}</span>
+      <a class="btn btn-sm" href="mailto:{{email}}?subject=Rotaserie">{{a.founder_mail}}</a>
     </div>
     <div class="founder-story">
-      <p class="eyebrow">Meet the founder</p>
-      <h2>Why I built Rotaserie.</h2>
-      <p>I grew up working at Spiros. I saw how much of my mom's time went into the schedule: building the week,
-        keeping up with swaps and time-off requests, and fixing it all again when plans changed.</p>
-      <p>I wanted to give her that time back, so I built Rotaserie. Now the schedule at Spiros is built and shared from
-        one place, and everyone has it on their phone.</p>
-      <p>Lots of small restaurants and businesses lose those same hours every week. I want to help them the way it helped
-        my mom.</p>
-      <p class="signature">Robert Banchero</p>
+      <header class="sec-head"><p class="label"><span class="idx">01</span>{{a.founder_label}}</p><h2>{{a.founder_title}}</h2></header>
+      {{#each a.story}}<p>{{this}}</p>
+      {{/each}}<p class="signature">Robert Banchero</p>
     </div>
   </div>
 </section>
 
-<section class="chapter">
+<section class="sec sec-alt">
   <div class="wrap">
-    <div class="values reveal">
-      <div><b>Simple first</b><p>If it takes a training session, it's too complicated. Staff scan a QR code, sign in once, and they're set.</p></div>
-      <div><b>Set up with you</b><p>We help you get your team, roles and usual shifts in, so you're running the same day.</p></div>
-      <div><b>One fair price</b><p>One price per location with everything included, and your data is always yours to take with you.</p></div>
+    <div class="values">
+      {{#each a.values}}<div><p class="label"><span class="idx">{{@nn}}</span></p><b>{{k}}</b><p>{{body}}</p></div>
+      {{/each}}
     </div>
   </div>
 </section>
 
-<!-- SPIROS -->
-<section class="chapter" id="clients">
+<section class="sec" id="clients">
   <div class="wrap split">
-    <div class="ch-copy reveal">
-      <p class="eyebrow">Clients</p>
-      <h2>Every week at Spiros.</h2>
-      <p class="lead">Spiros, a restaurant in Shoreline, Washington, is where Rotaserie was built and where it runs every week.</p>
-      <ul class="checks">
-        <li>The weekly schedule is built and published in Rotaserie</li>
-        <li>Staff swap shifts, pick up open ones and request time off from their phones</li>
-        <li>Managers approve requests in one place instead of in group texts</li>
-      </ul>
-      <div class="hero-actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    <div>
+      <header class="sec-head"><p class="label"><span class="idx">02</span>{{a.clients_label}}</p><h2>{{a.clients_title}}</h2><p class="lead">{{a.clients_lead}}</p></header>
+      <ul class="checks">{{#each a.checks}}<li>{{this}}</li>{{/each}}</ul>
+      <div class="actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
     </div>
-    <figure class="place-photo reveal">
-      <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
-      <figcaption>Spiro's Pizza &amp; Pasta, Aurora Avenue, Shoreline</figcaption>
+    <figure class="photo">
+      <img src="{{base}}img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="{{home.proof.alt}}" data-zoom>
+      <figcaption class="label">{{a.photo_cap}}</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="start">
-  <div class="wrap"><div class="early reveal">
-    <img src="img/logo.svg" alt="" width="56" height="56">
-    <h2>Let's give you <em>your time back.</em></h2>
-    <p class="lead">Tell us about your business, and we'll set it up with you.</p>
-    <div class="hero-actions center">
-      <a class="btn" href="index.html#start" data-start>Get early access</a>
-      <a class="btn btn-ghost" href="index.html#tour">See how it works</a>
+<section class="start end" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <h2 class="display">{{a.end_title_a}} <em>{{a.end_title_b}}</em></h2>
+      <p class="lead">{{a.end_lead}}</p>
+      <div class="actions">
+        <a class="btn btn-big" href="{{to.index}}#start" data-start>{{cta}}</a>
+        <a class="btn btn-big btn-ghost" href="{{to.index}}#type">{{a.end_more}}</a>
+      </div>
     </div>
   </div>
-</div>
 </section>
-
