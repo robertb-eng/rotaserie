@@ -79,20 +79,22 @@
   var film = $('[data-film]');
   if (film) {
     var frame = $('[data-film-frame]', film), video = $('[data-film-video]', film), play = $('[data-film-play]', film), loaded = false;
-    var pickSource = function () {
-      var stem = video.getAttribute('data-stem'), w = Math.max(window.innerWidth, window.innerHeight) * (window.devicePixelRatio || 1);
+    var pickSource = function (full) {
+      // 4K when the picture will really be that big: the film's frame in the page, or (full screen) the display itself
+      var dpr = window.devicePixelRatio || 1, stem = video.getAttribute('data-stem');
+      var w = full ? Math.max(screen.width, screen.height) * dpr : frame.getBoundingClientRect().width * dpr;
       var can = function (type) { try { return !!video.canPlayType(type).replace('no', ''); } catch (e) { return false; } };
       var saver = navigator.connection && navigator.connection.saveData;
-      if (window.innerWidth < 800 || saver) return stem + '-720.h264.mp4';
+      if ((window.innerWidth < 800 && !full) || saver) return stem + '-720.h264.mp4';
       if (video.hasAttribute('data-4k') && w >= 3000) return stem + '-2160.h264.mp4';
       if (can('video/mp4; codecs="av01.0.09M.08"')) return stem + '-1080.av1.mp4';
       return stem + '-1080.h264.mp4';
     };
-    var start = function (at) {
+    var start = function (at, full) {
       if (!loaded) {
         loaded = true;
         video.muted = true;  // (the film has no sound; muted, a browser always lets it start)
-        video.src = pickSource();
+        video.src = pickSource(full);
         video.controls = true;
         var tr = video.textTracks && video.textTracks[0];
         if (tr) tr.mode = 'hidden';  // (the film's words are in the picture; the track is there for anyone who turns it on)
@@ -108,7 +110,7 @@
     });
     var full = $('[data-film-full]', film);
     if (full) full.addEventListener('click', function () {
-      start(null);
+      start(null, true);
       var fs = video.requestFullscreen || video.webkitRequestFullscreen || video.webkitEnterFullscreen;
       if (fs) { try { var r = fs.call(video); if (r && r.catch) r.catch(function () {}); } catch (e) { /* not allowed */ } }
     });
