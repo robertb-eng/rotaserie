@@ -33,7 +33,7 @@
       <h2>{{home.film.title}}</h2>
     </div>
     <div class="film-frame" data-film-frame>
-      <video playsinline preload="none" poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
+      <video playsinline preload="none" data-4k poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
         <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{home.film.suffix}}.vtt">
       </video>
       <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
