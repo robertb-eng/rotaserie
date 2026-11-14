@@ -1,0 +1,402 @@
+{
+  "lang_name": "English",
+  "skip": "Skip to content",
+  "cta": "Get early access",
+  "swipe": "Swipe for more",
+  "nav": {
+    "aria": "Sections",
+    "home_aria": "Rotaserie, home",
+    "type": "Type to Build",
+    "owners": "For owners",
+    "staff": "For staff",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "about": "About",
+    "menu": "Menu",
+    "theme": "Switch between light and dark",
+    "lang_aria": "Language"
+  },
+  "foot": {
+    "line": "Scheduling for restaurants and small teams, built in Washington State.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "about": "About us",
+    "spiros": "Spiros",
+    "facts": "Facts",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "film": "The film",
+    "contact": "Email Robert",
+    "copy": "TICO VENTURES LLC · Shoreline, Washington",
+    "zoom_aria": "Screenshot",
+    "zoom_close": "Close"
+  },
+  "home": {
+    "hero": {
+      "label": "Scheduling for restaurants and small teams",
+      "title_a": "Type the week.",
+      "title_b": "Get the schedule.",
+      "lead": "Write shifts the way you'd text them. Rotaserie shows what it read, flags problems, and sends the week to everyone's phone.",
+      "film": "Watch the film",
+      "film_len": "1:32",
+      "proof": [
+        "Used every week at Spiros",
+        "English y español",
+        "Works on any phone"
+      ],
+      "pane_title": "Type to build",
+      "pane_label": "Try it · nothing is saved",
+      "box_label": "Shifts to add, as you'd text them",
+      "example": "maya wed 5-11\nlena m-th 10-4",
+      "chips_label": "Try one",
+      "chips": [
+        "maya wed 5-11",
+        "lena m-th 10-4",
+        "priya wensday 445-8 pls",
+        "tom mon-fri from 11",
+        "diego miércoles a viernes 9 a 5 mesero"
+      ],
+      "reset": "Reset",
+      "week_label": "A sample week",
+      "added": "That's a week started.",
+      "static_note": "This example was read by the same rules the app uses."
+    },
+    "film": {
+      "label": "The film · 1:32",
+      "title": "A week, from Sunday night to Sunday night.",
+      "play": "Play the film",
+      "full": "Full screen",
+      "note": "No sound. Captions are on screen.",
+      "aria": "The Rotaserie film: a week in the real app, from Sunday night to the next Sunday. No sound.",
+      "chapters_label": "Jump to",
+      "chapters": [
+        "Type the week",
+        "Publish",
+        "The 6 AM call-out"
+      ],
+      "nojs": "Watch the film (MP4)"
+    },
+    "type": {
+      "label": "Type to Build",
+      "title": "How it reads what you type.",
+      "points": [
+        {
+          "title": "Type it like a text.",
+          "body": "One line per person.",
+          "examples": [
+            "maya wed 5-11"
+          ]
+        },
+        {
+          "title": "You check before anything is saved.",
+          "body": "It shows what it read and what it assumed.",
+          "examples": [
+            "lena m-th 10-4"
+          ]
+        },
+        {
+          "title": "It asks instead of guessing.",
+          "body": "No end time, or two people with the same name? It asks.",
+          "examples": [
+            "tom mon-fri from 11"
+          ]
+        },
+        {
+          "title": "Typos and Spanish are fine.",
+          "body": "",
+          "examples": [
+            "priya wensday 445-8 pls",
+            "diego miércoles a viernes 9 a 5 mesero"
+          ]
+        }
+      ],
+      "try": "Try this line",
+      "no_ai_title": "No AI builds your schedule.",
+      "no_ai": "Type to Build follows fixed rules, so the same words always give the same shifts.",
+      "other": "Don't want to type? Drag shifts on the week, copy last week, or keep a consistent schedule.",
+      "shot_alt": "The Rotaserie schedule builder with Type to build open: three typed lines, what it read, and a card for each person, ready to add 9 shifts.",
+      "shot_cap": "The real Builder, with Type to build open",
+      "phone_alt": "Type to build on a phone: three typed lines and the shifts Rotaserie read from them."
+    },
+    "owners": {
+      "label": "For owners and managers",
+      "title_a": "You stay in charge.",
+      "title_b": "Rotaserie does the checking.",
+      "tiles": [
+        {
+          "k": "The week",
+          "title": "The whole week on one grid.",
+          "body": "Drag a shift to another person or day, copy last week, or start from a template. Hours and estimated labor cost add up as you build.",
+          "alt": "The week in the schedule builder: each person's shifts by day, with hours and estimated labor cost at the top of each day."
+        },
+        {
+          "k": "Warnings",
+          "title": "Warnings, not walls.",
+          "body": "Overtime, time off, double booking, short rest and short-staffed days are flagged while you build. You decide what to do.",
+          "alt": "The builder's suggestions, including “Maya Torres: 48h this week, 8h overtime at 1.5×”."
+        },
+        {
+          "k": "Labor rules",
+          "title": "Washington rules checked.",
+          "body": "Meal breaks, rest between shifts, overtime, minors' hours and minimum wage. They're helpers, not legal advice.",
+          "alt": "Washington limits for minors flagged in the builder: hours a 16- or 17-year-old may work on a school day and in a school week."
+        },
+        {
+          "k": "Today",
+          "title": "Today.",
+          "body": "What needs you first: who's short, what's waiting, next week's schedule.",
+          "alt": "The manager's Today screen: short of the minimum today, the next schedule ready to review and publish, and requests waiting."
+        },
+        {
+          "k": "Publish",
+          "title": "Publish, and see who hasn't looked.",
+          "body": "Each person is told what changed for them, by email and phone alert. Tell everyone sends the whole schedule again.",
+          "alt": "Review and publish: shifts, people, hours and labor cost, nothing urgent, and email and phone alerts ticked.",
+          "alt2": "“Tell everyone”: send the whole published schedule to the team again, by email and phone alert."
+        },
+        {
+          "k": "Requests",
+          "title": "Requests in one place.",
+          "body": "Swaps, pickups, time off and availability, approved in a tap.",
+          "alt": "Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline."
+        },
+        {
+          "k": "Call-outs",
+          "title": "Call-outs.",
+          "body": "“I can't make it” reaches you at once, and you can offer the shift to people who can work it.",
+          "alt": "“I can't make it” on an employee's next shift, with a reason and Tell my manager.",
+          "alt2": "Find cover after a call-out: the best people to take Sam's Friday shift, each with Assign.",
+          "cap": "Their phone",
+          "cap2": "Your phone"
+        },
+        {
+          "k": "Setup",
+          "title": "Start from what you have.",
+          "body": "A photo of your current schedule, rows pasted from a spreadsheet, or a CSV file. You check it before anything is saved.",
+          "alt": "Setup from a photo: the names and shifts read from a schedule photo, to check before anything is saved.",
+          "alt2": "Importing the team from pasted spreadsheet rows: a preview of three people before saving."
+        },
+        {
+          "k": "Every week",
+          "title": "Consistent schedules.",
+          "body": "Shifts someone works every week fill themselves in.",
+          "alt": "Maya's consistent schedule: the shifts she works every week."
+        },
+        {
+          "k": "Hours and pay",
+          "title": "Hours, labor cost and a pay summary",
+          "body": "to download, with an optional time clock.",
+          "alt": "The pay summary for the month: each person's rate, shifts, hours and pay, with a CSV download."
+        }
+      ]
+    },
+    "swap": {
+      "label": "The swap, both sides",
+      "title": "A swap without the group text.",
+      "lead": "Four steps, as the app does it.",
+      "steps": [
+        {
+          "k": "Request swap",
+          "body": "On their shift, they tap Request swap."
+        },
+        {
+          "k": "Ask a coworker",
+          "body": "They pick the shift they'd like in return and ask that coworker."
+        },
+        {
+          "k": "They accept",
+          "body": "The coworker taps Accept, or declines."
+        },
+        {
+          "k": "You approve",
+          "body": "You tap Approve, or decline with a note."
+        }
+      ],
+      "end": "Both people are told.",
+      "cap_staff": "Their phone",
+      "cap_mgr": "Your phone",
+      "alt_staff": "Trading a shift: the coworkers who can take it, each with a button to ask them.",
+      "alt_mgr": "Requests waiting for the manager: an open-shift pickup and a swap, each checked for double booking and overtime, with Approve and Decline."
+    },
+    "staff": {
+      "label": "For staff",
+      "title": "Their schedule, on their phone.",
+      "points": [
+        "Next shift and who's on with them",
+        "Pick up an open shift",
+        "Swap or give a shift away",
+        "Ask for time off and set availability",
+        "Alerts by email and phone, in English or Spanish"
+      ],
+      "join": "Staff join with your QR code. No app store needed.",
+      "phones": [
+        {
+          "cap": "Next shift",
+          "sub": "and who's on with them",
+          "alt": "An employee's home screen: their next shift, who they work with, and their week."
+        },
+        {
+          "cap": "Open shifts",
+          "sub": "pick one up in a tap",
+          "alt": "Open shifts an employee can pick up, each with estimated pay."
+        },
+        {
+          "cap": "The week",
+          "sub": "everyone's shifts",
+          "alt": "The team's schedule for the week, day by day, on a phone."
+        },
+        {
+          "cap": "En español",
+          "sub": "each person picks",
+          "alt": "The same home screen in Spanish: the next shift, who they work with, and the week."
+        }
+      ]
+    },
+    "screens": {
+      "label": "Every screen",
+      "title": "Phone, tablet and computer, in any browser.",
+      "body": "Staff add it to their home screen and get phone alerts like any app.",
+      "alt_desk": "The week in the schedule builder on a computer.",
+      "alt_phone": "The manager's Today screen on a phone."
+    },
+    "proof": {
+      "label": "Where it started",
+      "title": "Spiros runs on Rotaserie.",
+      "body": "Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, to give a busy manager her time back. It runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.",
+      "story": "Read the story",
+      "visit": "Visit Spiros",
+      "alt": "Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign",
+      "cap": "Spiro's Pizza &amp; Pasta · Shoreline, Washington"
+    },
+    "pricing": {
+      "label": "Pricing"
+    },
+    "faq": {
+      "label": "Questions",
+      "title": "What owners ask first.",
+      "items": [
+        {
+          "q": "Do I have to type the schedule?",
+          "a": "No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a consistent schedule that fills itself in."
+        },
+        {
+          "q": "Does AI make my schedule?",
+          "a": "No. Type to Build follows fixed rules. The one AI step is reading a photo at setup, if you choose it."
+        },
+        {
+          "q": "Do my staff need to download an app?",
+          "a": "No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app."
+        },
+        {
+          "q": "Is it only for restaurants?",
+          "a": "No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times."
+        },
+        {
+          "q": "Is it in Spanish?",
+          "a": "Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts."
+        },
+        {
+          "q": "Does it replace my point of sale or time clock?",
+          "a": "No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one."
+        },
+        {
+          "q": "What doesn't it do?",
+          "a": "It doesn't run payroll, process tip payouts, connect to a point-of-sale system, or track staff by GPS."
+        },
+        {
+          "q": "Can I get my data out?",
+          "a": "Yes. You can download all your data whenever you like."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "One price per location, with every feature included. Ask for early access and we'll walk you through it."
+        }
+      ]
+    },
+    "start": {
+      "label": "Early access",
+      "title": "That's next week, handled.",
+      "lead": "Rotaserie is in early access. Tell us about your business and we'll set it up with you; your team can be on it the same day.",
+      "business": "Your business",
+      "business_ph": "e.g. Lilac Street Café",
+      "kind": "Kind of business",
+      "kinds": [
+        "Restaurant",
+        "Café or bakery",
+        "Shop",
+        "Salon",
+        "Fitness studio",
+        "Field service",
+        "Something else"
+      ],
+      "subject": "Rotaserie early access",
+      "note": "This opens an email to Robert, the founder. Or write to"
+    }
+  },
+  "pages": {
+    "index": {
+      "title": "Rotaserie · Type the week, get the schedule",
+      "description": "Scheduling for restaurants and small teams, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are flagged as you build, and the published week goes to everyone by email and phone alert.",
+      "og_title": "Rotaserie · Type the week, get the schedule",
+      "og_description": "Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants and small teams, in English and Spanish."
+    },
+    "about": {
+      "title": "About Rotaserie · Built at Spiros",
+      "description": "Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, by Robert Banchero to give his mom her time back. Now it's ready to help other small businesses do the same.",
+      "og_title": "About Rotaserie · Built at Spiros",
+      "og_description": "Scheduling built at a working restaurant, to give a busy manager her time back.",
+      "a": {
+        "label": "About us",
+        "title_a": "Built at a restaurant,",
+        "title_b": "for small teams.",
+        "lead": "Rotaserie is scheduling made by someone who grew up working the floor, for the manager who makes next week's schedule on a phone between rushes at a restaurant, café, shop, salon or studio.",
+        "founder_label": "Meet the founder",
+        "founder_title": "Why I built Rotaserie.",
+        "founder_alt": "The founder with three members of the Spiro's kitchen team",
+        "founder_role": "Founder, TICO VENTURES LLC",
+        "founder_mail": "Email Robert",
+        "story": [
+          "I grew up working at Spiros. I saw how much of my mom's time went into the schedule: building the week, keeping up with swaps and time-off requests, and fixing it all again when plans changed.",
+          "I wanted to give her that time back, so I built Rotaserie. Now the schedule at Spiros is built and shared from one place, and everyone has it on their phone.",
+          "Lots of small restaurants and businesses lose those same hours every week. I want to help them the way it helped my mom."
+        ],
+        "values": [
+          {
+            "k": "Simple first",
+            "body": "If it takes a training session, it's too complicated. Staff scan a QR code, sign in once, and they're set."
+          },
+          {
+            "k": "Set up with you",
+            "body": "We help you get your team, roles and usual shifts in, so you're running the same day."
+          },
+          {
+            "k": "One fair price",
+            "body": "One price per location with everything included, and your data is always yours to take with you."
+          }
+        ],
+        "clients_label": "Clients",
+        "clients_title": "Every week at Spiros.",
+        "clients_lead": "Spiros, a restaurant in Shoreline, Washington, is where Rotaserie was built and where it runs every week.",
+        "checks": [
+          "The weekly schedule is built and published in Rotaserie",
+          "Staff swap shifts, pick up open ones and request time off from their phones",
+          "Managers approve requests in one place instead of in group texts"
+        ],
+        "photo_cap": "Spiro's Pizza &amp; Pasta · Aurora Avenue, Shoreline",
+        "end_title_a": "Let's give you",
+        "end_title_b": "your time back.",
+        "end_lead": "Tell us about your business, and we'll set it up with you.",
+        "end_more": "See how it works"
+      }
+    },
+    "facts": {
+      "title": "Rotaserie: the facts",
+      "description": "What Rotaserie does and doesn't do, in plain words: scheduling for independent restaurants and cafés, in English and Spanish, built in Shoreline, Washington.",
+      "og_title": "Rotaserie: the facts",
+      "og_description": "What Rotaserie does and doesn't do, in plain words."
+    },
+    "terms": {},
+    "privacy": {}
+  }
+}

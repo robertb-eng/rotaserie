@@ -1,17 +1,20 @@
-/* Rotaserie product site: theme switch, scroll-in animation, the Type to Build demo, early access, screenshot zoom. */
+/* Rotaserie product site: light/dark switch, the phone menu, the film, early access, screenshot zoom, fade-in on scroll.
+   The Type to Build demo is its own script (demo/ttb.js), loaded only when the pane is near the screen. */
 (function () {
   'use strict';
-  // When signup opens (LLC + Stripe live mode), put 'https://app.rotaserie.com/signup' here: every
-  // "Get early access" button and the form then go straight to signup instead of an email.
+  // When signup opens, put the signup address here: every call-to-action button and the form then go straight to it.
   var SIGNUP_URL = '';
   var EMAIL = 'robert@rotaserie.com';
 
   var root = document.documentElement;
-  root.classList.add('js');  // (also set by the inline script in <head>, before first paint)
+  root.classList.add('js');
+  var $ = function (sel, el) { return (el || document).querySelector(sel); };
+  var $$ = function (sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); };
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Light/dark: follows the device until the visitor picks one, then remembers it
   try { var saved = localStorage.getItem('sb-theme'); if (saved) root.dataset.theme = saved; } catch (e) { /* storage off */ }
-  var toggle = document.querySelector('[data-theme-toggle]');
+  var toggle = $('[data-theme-toggle]');
   function isDark() { return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
   function showState() { if (toggle) toggle.setAttribute('aria-pressed', isDark() ? 'true' : 'false'); }
   if (toggle) toggle.addEventListener('click', function () {
@@ -21,19 +24,22 @@
   });
   showState();
 
-  // A line under the header once the page scrolls
-  var nav = document.querySelector('[data-nav]');
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
+  // Top bar: a line once the page scrolls; the menu on phones
+  var nav = $('[data-nav]'), menu = $('[data-menu]');
+  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, {passive: true}); onScroll();
+  function setMenu(open) { nav.classList.toggle('open', open); menu.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  if (nav && menu) {
+    menu.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+    $$('.nav-links a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menu.focus(); } });
+    document.addEventListener('click', function (ev) { if (nav.classList.contains('open') && !nav.contains(ev.target)) setMenu(false); });
+  }
 
-  // Sections fade up as they come into view
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
-    reveals.forEach(function (el) { io.observe(el); });
-  } else reveals.forEach(function (el) { el.classList.add('in'); });
+  // The language a visitor picked is remembered (the links work without this)
+  $$('[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function () { try { localStorage.setItem('rs-lang', a.getAttribute('data-lang')); } catch (e) { /* storage off */ } });
+  });
 
   // Where-from code: a postcard, letter or email links to rotaserie.com/?from=pc-shoreline. The code is kept while the
   // visitor looks around (this tab only) and goes with them to signup (the app counts sign-ups by code), or into the
@@ -46,12 +52,12 @@
   } catch (e) { /* storage off: the code only lasts on this page */ if (m) FROM = m[1].toLowerCase(); }
   if (SIGNUP_URL && FROM) SIGNUP_URL += (SIGNUP_URL.indexOf('?') < 0 ? '?' : '&') + 'from=' + FROM;
 
-  // Get early access: an email to Robert with the business filled in (until signup opens)
+  // Early access: an email to Robert with the business filled in (until signup opens)
   if (SIGNUP_URL) {
-    document.querySelectorAll('[data-start]').forEach(function (a) { a.href = SIGNUP_URL; });
-    document.querySelectorAll('[data-early], [data-mailnote]').forEach(function (el) { el.hidden = true; });
+    $$('[data-start]').forEach(function (a) { a.href = SIGNUP_URL; });
+    $$('[data-early], [data-mailnote]').forEach(function (el) { el.hidden = true; });
   }
-  var form = document.querySelector('[data-early]');
+  var form = $('[data-early]');
   if (form) form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     if (SIGNUP_URL) { location.href = SIGNUP_URL; return; }
@@ -61,365 +67,107 @@
     location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Rotaserie early access: ' + biz) + '&body=' + encodeURIComponent(body);
   });
 
-  // The Type to Build demo: each line is typed, then its shifts appear on the week
-  var demo = document.querySelector('[data-demo]');
-  if (demo) {
-    var DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    var PEOPLE = ['Maria', 'Sam', 'Lee'];
-    var LINES = [
-      {text: 'maria tue-fri 9-5', who: 0, days: [1, 2, 3, 4], time: '9a–5p', hours: 8, role: 'Server', cls: '', read: 'Maria Lopez · Tue–Fri · 9a–5p'},
-      {text: 'sam sat 4p-11p', who: 1, days: [5], time: '4p–11p', hours: 7, role: 'Busser', cls: 'bus', read: 'Sam Okafor · Sat · 4p–11p'},
-      {text: 'lee sun 10-6 cook', who: 2, days: [6], time: '10a–6p', hours: 8, role: 'Cook', cls: 'cook', read: 'Lee Park · Sun · 10a–6p · Cook'}
-    ];
-    var box = demo.querySelector('[data-demo-box]'), read = demo.querySelector('[data-demo-read]');
-    var week = demo.querySelector('[data-demo-week]'), count = demo.querySelector('[data-demo-count]');
-    var cells = [];
-    var html = '<span></span>' + DAYS.map(function (d) { return '<span class="h">' + d + '</span>'; }).join('');
-    PEOPLE.forEach(function (p) { html += '<span class="who">' + p + '</span>' + DAYS.map(function () { return '<span class="cell"></span>'; }).join(''); });
-    week.innerHTML = html;
-    week.querySelectorAll('.cell').forEach(function (c, i) { (cells[Math.floor(i / 7)] = cells[Math.floor(i / 7)] || []).push(c); });
-
-    var shifts = 0, hours = 0;
-    function place(line) {
-      line.days.forEach(function (d, i) {
-        var chip = document.createElement('span');
-        chip.className = 'chip ' + line.cls;
-        chip.style.animationDelay = (i * 90) + 'ms';
-        chip.innerHTML = line.time + '<small>' + line.role + '</small>';
-        cells[line.who][d].appendChild(chip);
-        shifts += 1; hours += line.hours;
-      });
-      count.textContent = shifts + (shifts === 1 ? ' shift · ' : ' shifts · ') + hours + ' hours';
-    }
-    function typedHTML(done, current, caret) {
-      var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
-      return done.map(function (l) { return '<span class="done">' + esc(l) + '</span>\n'; }).join('') + esc(current) + (caret ? '<span class="caret"></span>' : '');
-    }
-    function reset() {
-      cells.forEach(function (row) { row.forEach(function (c) { c.textContent = ''; }); });
-      shifts = 0; hours = 0; count.textContent = '0 shifts'; read.textContent = ''; box.innerHTML = typedHTML([], '', true);
-    }
-    // (it types even with reduced motion: Robert, Nov 10: a Type to Build preview is always moving on opening)
-    if (!('IntersectionObserver' in window)) {  // the finished week, no animation
-      reset(); LINES.forEach(place); box.innerHTML = typedHTML(LINES.map(function (l) { return l.text; }), '', false);
-      read.textContent = LINES[LINES.length - 1].read;
-    } else {
-      var visible = false, running = false, timer = null;
-      var wait = function (ms) { return new Promise(function (ok) { timer = setTimeout(ok, ms); }); };
-      var whenVisible = function () { return new Promise(function (ok) { (function check() { if (visible) ok(); else timer = setTimeout(check, 300); })(); }); };
-      var run = async function () {
-        running = true;
-        for (;;) {
-          reset(); await wait(700);
-          var done = [];
-          for (var n = 0; n < LINES.length; n++) {
-            var line = LINES[n];
-            for (var k = 1; k <= line.text.length; k++) {
-              await whenVisible();
-              box.innerHTML = typedHTML(done, line.text.slice(0, k), true);
-              await wait(55 + Math.random() * 70);
-            }
-            await wait(350);
-            read.textContent = line.read;
-            place(line);
-            done.push(line.text);
-            await wait(1100);
-          }
-          box.innerHTML = typedHTML(done, '', true);
-          await wait(4500);
-        }
-      };
-      reset();
-      new IntersectionObserver(function (entries) {
-        visible = entries[0].isIntersecting;
-        if (visible && !running) run();
-      }, {threshold: 0.3}).observe(demo);
-    }
-  }
-
-  // The walkthrough: real app clips, one at a time, once through. One state, `going` (not `running`: the demo above has one, and `var`s share the function), says whether the walkthrough is
-  // going (playing, or between two clips): the button shows it (pause while going, play otherwise; WCAG 2.2.2), the
-  // visitor's pause stops it, picking a chapter or Play starts it. Off screen the clip waits and picks up on return.
-  // Nothing loads (not even the still) until the section is seen; clips come in the visitor's theme (a theme change
-  // starts the chapter again in the new colours). Reduced motion: nothing plays until asked, and no next clip follows.
-  // The section shows only once this runs (class tour-on, styles.css); the clips are described in README.
-  var tour = document.querySelector('.tour');
-  if (tour) (function () {  // (its own scope: the demo above has `var running`, `timer`... and vars share a function)
-    var tabs = [].slice.call(tour.querySelectorAll('[data-clip]'));
-    var stage = tour.querySelector('.tour-stage'), video = stage.querySelector('video'), btn = stage.querySelector('.tour-play');
-    var still = matchMedia('(prefers-reduced-motion: reduce)'), calm = still.matches, hasIO = 'IntersectionObserver' in window;
-    var onChange = function (mq, fn) { if (mq.addEventListener) mq.addEventListener('change', fn); else if (mq.addListener) mq.addListener(fn); };  // (older Safari)
-    onChange(still, function () { calm = still.matches; if (calm && going) { setGoing(false); video.pause(); } });
-    var seen = !hasIO, met = !hasIO, going = false, cur = 0, played = 0, timer = 0, atEnd = false, failed = false, seekTo = 0;
-    var setGoing = function (on) {
-      going = on;
-      if (!on) clearTimeout(timer);
-      btn.classList.toggle('pausing', on);
-      btn.setAttribute('aria-label', on ? 'Pause the walkthrough' : 'Play the walkthrough');
+  // The film: nothing loads until Play. The file is picked for the screen (4K on very large ones, 720p on phones) and
+  // for what the browser can play (AV1, else H.264).
+  var film = $('[data-film]');
+  if (film) {
+    var frame = $('[data-film-frame]', film), video = $('[data-film-video]', film), play = $('[data-film-play]', film), loaded = false;
+    var pickSource = function () {
+      var stem = video.getAttribute('data-stem'), w = Math.max(window.innerWidth, window.innerHeight) * (window.devicePixelRatio || 1);
+      var can = function (type) { try { return !!video.canPlayType(type).replace('no', ''); } catch (e) { return false; } };
+      var saver = navigator.connection && navigator.connection.saveData;
+      if (window.innerWidth < 800 || saver) return stem + '-720.h264.mp4';
+      if (video.hasAttribute('data-4k') && w >= 3000) return stem + '-2160.h264.mp4';
+      if (can('video/mp4; codecs="av01.0.09M.08"')) return stem + '-1080.av1.mp4';
+      return stem + '-1080.h264.mp4';
     };
-    var play = function () {
-      var p = video.play();
-      if (p && p.catch) p.catch(function (err) { if (!err || err.name !== 'AbortError') { failed = err && err.name !== 'NotAllowedError'; setGoing(false); } });  // (refused or unplayable: it rests)
+    var start = function (at) {
+      if (!loaded) {
+        loaded = true;
+        video.src = pickSource();
+        video.controls = true;
+        var tr = video.textTracks && video.textTracks[0];
+        if (tr) tr.mode = 'hidden';  // (the film's words are in the picture; the track is there for anyone who turns it on)
+        frame.classList.add('on');
+      }
+      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p = video.play(); if (p && p.catch) p.catch(function () {}); };
+      if (at != null && video.readyState < 1) video.addEventListener('loadedmetadata', go, {once: true}); else go();
+      if (at != null && video.readyState < 1) video.load();
     };
-    // load chapter i (its still once the section has been seen; its clip only when `withClip`), and play it if going and seen
-    var load = function (i, withClip, atEndKeep, picked) {
-      clearTimeout(timer);
-      cur = i; atEnd = false; failed = false; seekTo = 0;
-      var b = tabs[i], base = 'img/tour/' + b.dataset.clip + '-' + (isDark() ? 'dark' : 'light');
-      var kb = tabs.indexOf(document.activeElement) >= 0 && !picked;  // (a keyboard user's place among the tabs stays put)
-      tabs.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); if (!kb) x.tabIndex = k === i ? 0 : -1; });
-      if (!atEndKeep) b.style.setProperty('--p', 0);  // (finished chapters keep their full bar)
-      stage.dataset.frame = b.dataset.frame;
-      stage.setAttribute('aria-labelledby', b.id);
-      video.setAttribute('aria-label', b.dataset.label || '');
-      if (met) video.poster = base + '-poster.webp';
-      video.innerHTML = withClip ? '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">' : '';
-      video.preload = 'none';
-      video.load();
-      if (withClip && going && seen) play();
-    };
-    var start = function (i) { played = 0; setGoing(true); load(i, true, false, true); };
-    video.addEventListener('loadedmetadata', function () { if (seekTo) { video.currentTime = seekTo; seekTo = 0; } });
-    var nextClip = function () { load((cur + 1) % tabs.length, true); };
-    video.addEventListener('error', function (ev) {  // (a clip that won't load: it rests; only when the LAST source fails:
-      var last = video.querySelector('source:last-of-type');  // Safari refuses the WebM, then plays the MP4)
-      if (ev.target === video || ev.target === last) { failed = true; setGoing(false); }
-    }, true);
-    video.addEventListener('timeupdate', function () {
-      if (video.duration) tabs[cur].style.setProperty('--p', (video.currentTime / video.duration).toFixed(3));
+    play.addEventListener('click', function () { start(null); video.focus(); });
+    $$('[data-film-seek]', film).forEach(function (b) {
+      b.addEventListener('click', function () { start(parseFloat(b.getAttribute('data-film-seek'))); frame.scrollIntoView({block: 'center', behavior: calm ? 'auto' : 'smooth'}); });
     });
-    video.addEventListener('ended', function () {
-      tabs[cur].style.setProperty('--p', 1);
-      played++;
-      atEnd = true;
-      if (!going || calm || played >= tabs.length) { setGoing(false); return; }  // (once through, then it rests)
-      timer = setTimeout(nextClip, 900);  // (off screen, the next one waits: see below)
+    var full = $('[data-film-full]', film);
+    if (full) full.addEventListener('click', function () {
+      start(null);
+      var fs = video.requestFullscreen || video.webkitRequestFullscreen || video.webkitEnterFullscreen;
+      if (fs) { try { var r = fs.call(video); if (r && r.catch) r.catch(function () {}); } catch (e) { /* not allowed */ } }
     });
-    btn.addEventListener('click', function () {
-      if (going) { setGoing(false); video.pause(); return; }
-      if (atEnd) start((cur + 1) % tabs.length);  // (after a clip ended: the next one)
-      else if (video.currentSrc && !failed) { setGoing(true); play(); }  // (after a pause: on from the same moment; a failed clip starts afresh)
-      else start(cur);
-    });
-    var bring = function () {  // on a phone the stage sits above the list: a picked chapter's clip comes into view
-      setTimeout(function () {  // (after the frame has changed size)
-        var r = stage.getBoundingClientRect(), shown = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-        if (shown < r.height * 0.6) stage.scrollIntoView({block: 'nearest', behavior: calm ? 'auto' : 'smooth'});
-      }, calm ? 0 : 520);
-    };
-    tabs.forEach(function (b, i) {
-      b.addEventListener('click', function () { start(i); bring(); });
-      b.addEventListener('keydown', function (ev) {  // a tab list: arrows, Home and End move the focus; Enter or Space plays
-        var n = {ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1}[ev.key];
-        if (n === undefined || ev.altKey || ev.ctrlKey || ev.metaKey) return;  // (browser shortcuts pass)
-        ev.preventDefault(); n = (n + tabs.length) % tabs.length;
-        tabs.forEach(function (x, k) { x.tabIndex = k === n ? 0 : -1; }); tabs[n].focus();  // (Tab returns to it)
+    $$('[data-film-go]').forEach(function (a) {
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        film.scrollIntoView({block: 'start', behavior: calm ? 'auto' : 'smooth'});
+        start(null);
       });
     });
-    var retheme = function () {  // the same chapter in the new colours: on from its start, paused at the same moment, its still if ended
-      if (!met) return;  // (nothing shown yet: the first sight loads the right theme)
-      var ended = atEnd, at = video.currentSrc && !ended ? video.currentTime : 0;
-      load(cur, !ended && (going || !!video.currentSrc), ended);
-      if (ended) { atEnd = true; if (going) timer = setTimeout(nextClip, 900); }
-      else if (at && !going) { seekTo = at; video.preload = 'metadata'; video.load(); }  // (paused: the same moment, in the new colours)
-    };
-    if (toggle) toggle.addEventListener('click', retheme);
-    var dark = matchMedia('(prefers-color-scheme: dark)');
-    onChange(dark, function () { if (!root.dataset.theme) retheme(); });
-    setGoing(!calm && hasIO);  // (it starts by itself the first time it's seen)
-    load(0, false);
-    if (hasIO) new IntersectionObserver(function (entries) {
-      seen = entries[entries.length - 1].isIntersecting;  // (the newest, after a fast flick)
-      if (seen && !met) { met = true; load(cur, going); return; }
-      if (seen && going && video.paused && !video.ended) { if (!video.currentSrc) load(cur, true); else play(); }
-      else if (!seen && !video.paused) video.pause();  // (still going: it picks up when back in view)
-    }, {threshold: 0.35}).observe(stage);
-    tour.classList.add('tour-on');  // (shown only now that it can play; a #tour link lands once it's there)
-    if (location.hash === '#tour' && scrollY < 10) tour.scrollIntoView({behavior: 'instant'});  // (not over a restored scroll)
-    document.querySelectorAll('a[data-tour]').forEach(function (a) { a.href = a.getAttribute('href').replace('#managers', '#tour'); });  // (in step with the section)
-    document.addEventListener('visibilitychange', function () {  // (a hidden browser tab: the clip waits)
-      if (document.hidden) { if (!video.paused) video.pause(); } else if (going && seen && video.paused && !atEnd && video.currentSrc) play();
-    });
-  })();
-
-
-  // v2: the product plays in its frames (hero, call-out, Spanish): each clip loads only when first seen, plays only
-  // while seen and shown (the other theme's copy stays still), loops; reduced motion leaves the still (its poster).
-  var calmMQ = matchMedia('(prefers-reduced-motion: reduce)');
-  var loops = [].slice.call(document.querySelectorAll('video[data-loop]'));
-  if (loops.length && 'IntersectionObserver' in window) {
-    var inView = new Map();
-    var shown = function (v) { return v.offsetParent !== null; };
-    var settle = function (v) {
-      var want = inView.get(v) && shown(v) && !document.hidden;  // (the product demo plays even with reduced motion: Robert, Nov 10)
-      if (want) {
-        if (!v.dataset.loaded) { v.querySelectorAll('source[data-src]').forEach(function (s) { s.src = s.dataset.src; }); v.dataset.loaded = '1'; v.load(); }
-        var p = v.play(); if (p && p.catch) p.catch(function () {});
-      } else if (!v.paused) v.pause();
-    };
-    var loopIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { inView.set(en.target, en.isIntersecting); settle(en.target); });
-    }, {threshold: 0.1});
-    loops.forEach(function (v) { loopIO.observe(v); });
-    var all = function () { setTimeout(function () { loops.forEach(settle); }, 30); };
-    if (toggle) toggle.addEventListener('click', all);
-    document.addEventListener('visibilitychange', all);
-    if (calmMQ.addEventListener) calmMQ.addEventListener('change', all);
-    var darkMQ = matchMedia('(prefers-color-scheme: dark)');
-    if (darkMQ.addEventListener) darkMQ.addEventListener('change', all);
+    // out of view: pause
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting && loaded && !video.paused && !document.fullscreenElement) video.pause();
+    }, {threshold: 0}).observe(frame);
   }
 
-  // v2: the hero's devices lean toward the pointer (a mouse, not touch) and drift with the scroll
-  var stageEl = document.querySelector('[data-tilt]');
-  if (stageEl && matchMedia('(pointer: fine)').matches) {
-    var hero2 = stageEl.closest('section') || stageEl;
-    hero2.addEventListener('pointermove', function (ev) {
-      if (calmMQ.matches) return;
-      var r = stageEl.getBoundingClientRect();
-      var x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5;
-      stageEl.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
-      stageEl.style.setProperty('--rx', (-y * 4).toFixed(2) + 'deg');
-    });
-    hero2.addEventListener('pointerleave', function () { stageEl.style.setProperty('--ry', '0deg'); stageEl.style.setProperty('--rx', '0deg'); });
-  }
-  var pars = [].slice.call(document.querySelectorAll('[data-par]'));
-  if (pars.length) {
-    var ticking = false;
-    var drift = function () {
-      ticking = false;
-      var mid = innerHeight / 2;
-      pars.forEach(function (el) {
-        if (calmMQ.matches) { el.style.removeProperty('--py'); return; }
-        var r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > innerHeight + 200) return;
-        el.style.setProperty('--py', ((r.top + r.height / 2 - mid) * parseFloat(el.dataset.par)).toFixed(1) + 'px');
-      });
-    };
-    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, {passive: true});
-    drift();
-  }
-
-  // The story (Nov 10 2026): the step in the middle of the screen is the one shown; its real recording plays in the
-  // phone (two videos crossfade) or the laptop. Only on wide screens: on phones each step plays its own clip above its text (data-loop);
-  // with reduced motion the stage shows the step's still and nothing plays.
-  var story = document.querySelector('.story');
-  if (story && 'IntersectionObserver' in window) (function () {
-    var stage = story.querySelector('.story-stage'), steps = [].slice.call(story.querySelectorAll('.step'));
-    var pv = [].slice.call(stage.querySelectorAll('.ss-phone video')), lv = stage.querySelector('.ss-laptop video');
-    var front = 0, cur = null, wide = matchMedia('(min-width: 1001px)'), seen = false;
-    var src = function (v, clip) {
-      var base = 'img/tour/' + clip + '-light';
-      v.poster = base + '-poster.webp';
-      v.innerHTML = '<source src="' + base + '.webm" type="video/webm"><source src="' + base + '.mp4" type="video/mp4">';
-      v.load();
-    };
-    var go = function (v) { if (seen && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
-    var show = function (step) {
-      if (step === cur || !wide.matches) return;
-      cur = step;
-      steps.forEach(function (s) { s.classList.toggle('on', s === step); });
-      var clip = step.dataset.clip, frame = step.dataset.frame;
-      stage.dataset.frame = frame;
-      pv.concat(lv).forEach(function (v) { v.pause(); });
-      if (frame === 'laptop') { if (lv.dataset.clip !== clip) { src(lv, clip); lv.dataset.clip = clip; } lv.currentTime = 0; go(lv); return; }
-      var next = pv[1 - front];
-      src(next, clip);
-      next.addEventListener('loadeddata', function once() {
-        next.removeEventListener('loadeddata', once);
-        pv[front].classList.remove('front'); next.classList.add('front'); front = 1 - front; go(next);
-      });
-      if (calmMQ.matches) { pv[front].classList.remove('front'); next.classList.add('front'); front = 1 - front; }
-    };
-    pv[0].classList.add('front');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) show(en.target); }); }, {rootMargin: '-45% 0px -45% 0px'});
-    steps.forEach(function (s) { io.observe(s); });
-    new IntersectionObserver(function (es) {
-      seen = es[es.length - 1].isIntersecting;
-      var v = stage.dataset.frame === 'laptop' ? lv : pv[front];
-      if (seen) { if (!cur) show(steps[0]); go(v); } else pv.concat(lv).forEach(function (x) { x.pause(); });
-    }, {threshold: 0.1}).observe(stage);
-    document.addEventListener('visibilitychange', function () {
-      var v = stage.dataset.frame === 'laptop' ? lv : pv[front];
-      if (document.hidden) v.pause(); else go(v);
-    });
-  })();
-
-  // The hero plays the film by itself on computers, muted, from its Type to Build part (FROM seconds), round and round
-  // while seen; phones get the Type to Build recording instead (data-loop). Reduced motion: its still only.
-  var FROM = 8.4, heroSeen = false, heroPaused = false, heroWide = matchMedia('(min-width: 1001px)');
-  var playHero = function () {
-    var v = document.querySelector('.hf-wide');
-    var f = document.querySelector('[data-filmframe] video');
-    if (!v || !heroWide.matches || document.hidden || heroPaused || (f && !f.paused)) return;
-    if (!v.dataset.loaded) {
-      v.dataset.loaded = '1';
-      v.innerHTML = '<source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">';
-      v.addEventListener('loadedmetadata', function () { v.currentTime = FROM; });
-      v.addEventListener('ended', function () { v.currentTime = FROM; v.play(); });
-      v.load();
-    }
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
-  };
-  var hf = document.querySelector('.hf-wide'), hfPause = document.querySelector('[data-hf-pause]');
-  if (hf && hfPause) hfPause.addEventListener('click', function () {  // (WCAG 2.2.2: moving content can be paused)
-    heroPaused = !heroPaused;
-    hfPause.classList.toggle('paused', heroPaused);
-    hfPause.setAttribute('aria-label', heroPaused ? 'Play the film' : 'Pause the film');
-    if (heroPaused) hf.pause(); else playHero();
-  });
-  if (hf) hf.addEventListener('click', function () { var b = document.querySelector('.hf-btn.wide'); if (b) b.click(); });
-  var hf = document.querySelector('.hf-wide');
-  if (hf && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) {
-      heroSeen = es[es.length - 1].isIntersecting;
-      if (heroSeen) playHero(); else hf.pause();
-    }, {threshold: 0.2}).observe(hf);
-    document.addEventListener('visibilitychange', function () { if (document.hidden) hf.pause(); else if (heroSeen) playHero(); });
-  }
-
-  // The film sits on the page under Why Rotaserie; the button over it (or a click on it) starts it there. The hero's
-  // Full screen plays the same film full screen (or brings it into view where full screen isn't offered). While the
-  // film plays the hero waits (filmOn in playHero); out of view or out of full screen the film stops and the hero goes on.
-  var frame = document.querySelector('[data-filmframe]'), heroFilm = document.querySelector('.hf-wide');
-  if (frame) {
-    var fv = frame.querySelector('video'), playBtn = frame.querySelector('[data-film-play]');
-    var fsEl = function () { return document.fullscreenElement || document.webkitFullscreenElement; };
-    var startFilm = function () {
-      if (heroFilm) heroFilm.pause();
-      var p = fv.play(); if (p && p.catch) p.catch(function () {});
-    };
-    fv.addEventListener('play', function () { frame.classList.add('playing'); fv.controls = true; if (heroFilm) heroFilm.pause(); });
-    fv.addEventListener('pause', function () { if (heroSeen && !fsEl()) playHero(); });
-    if (playBtn) playBtn.addEventListener('click', function (ev) { ev.stopPropagation(); startFilm(); fv.focus(); });
-    frame.addEventListener('click', function () { if (!frame.classList.contains('playing')) startFilm(); });
-    var toFilm = function () { frame.scrollIntoView({behavior: 'smooth', block: 'center'}); };
-    [].forEach.call(document.querySelectorAll('[data-film]'), function (b) { b.addEventListener('click', function () {
-      startFilm();
-      var fs = fv.requestFullscreen || fv.webkitRequestFullscreen || fv.webkitEnterFullscreen;
-      if (!fs) return toFilm();
-      try { var r = fs.call(fv); if (r && r.catch) r.catch(toFilm); } catch (e) { toFilm(); }
-    }); });
-    var filmSeen = false, leftFs = function () { if (!fsEl() && !filmSeen) fv.pause(); };
-    document.addEventListener('fullscreenchange', leftFs);
-    document.addEventListener('webkitfullscreenchange', leftFs);
-    fv.addEventListener('webkitendfullscreen', function () { setTimeout(leftFs, 50); });
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
-      filmSeen = es[es.length - 1].isIntersecting;
-      if (!filmSeen && !fsEl()) fv.pause();
-    }, {threshold: 0.25}).observe(frame);
-  }
-
-  // Click a screenshot to see it full size
-  var zoom = document.querySelector('[data-zoombox]');
-  if (zoom && zoom.showModal) {
-    var big = zoom.querySelector('img');
+  // Click a screenshot to see it large
+  var box = $('[data-zoombox]');
+  if (box && box.showModal) {
+    var big = $('img', box);
     document.addEventListener('click', function (ev) {
-      var img = ev.target.closest('[data-zoom]');
-      if (img) { big.src = img.currentSrc || img.src; big.alt = img.alt; zoom.showModal(); return; }
-      if (ev.target === zoom || ev.target.closest('[data-zoom-close]')) zoom.close();
+      var img = ev.target.closest && ev.target.closest('img[data-zoom]');
+      if (!img) return;
+      big.src = img.getAttribute('data-zoom') || img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.showModal();
+    });
+    box.addEventListener('click', function (ev) { if (ev.target === box || ev.target.closest('[data-zoom-close]') || ev.target === big) box.close(); });
+    box.addEventListener('close', function () { big.removeAttribute('src'); });
+  } else $$('img[data-zoom]').forEach(function (i) { i.style.cursor = 'auto'; });
+
+  // The staff phones are a swipe row on small screens: arrow keys move it
+  $$('[data-rail]').forEach(function (rail) {
+    rail.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      if (rail.scrollWidth <= rail.clientWidth) return;
+      rail.scrollBy({left: (ev.key === 'ArrowRight' ? 1 : -1) * rail.clientWidth * 0.7, behavior: calm ? 'auto' : 'smooth'});
+      ev.preventDefault();
+    });
+  });
+
+  // Sections fade up as they come into view (only what starts below the screen, so nothing above the fold waits)
+  if ('IntersectionObserver' in window && !calm) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {rootMargin: '0px 0px -6% 0px', threshold: 0.05});
+    $$('.sec-head, .point, .tile, .type-shot, .type-end, .steps, .swap-art, .phones figure, .devices, .photo, .faq, .founder, .values, .split').forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('rv'); io.observe(el); }
     });
   }
 
-  var year = document.querySelector('[data-year]');
-  if (year) year.textContent = new Date().getFullYear();
+  // The Type to Build demo: its script arrives when the pane is near the screen and the browser is idle
+  var pane = $('[data-ttb]');
+  if (pane && pane.hasAttribute('data-live')) {
+    var slow = (navigator.deviceMemory && navigator.deviceMemory < 2) || (navigator.connection && navigator.connection.saveData);
+    var load = function () {
+      if (load.done) return; load.done = true;
+      var s = document.createElement('script'); s.src = pane.getAttribute('data-src'); s.defer = true; document.head.appendChild(s);
+    };
+    if (!slow) {
+      var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 300); };
+      if ('IntersectionObserver' in window) {
+        var po = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { po.disconnect(); idle(load); } }, {rootMargin: '300px'});
+        po.observe(pane);
+      } else idle(load);
+    }
+  }
+
+  $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();

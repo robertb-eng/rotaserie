@@ -1,195 +1,229 @@
 <!--meta
 {
-  "title": "Rotaserie · Type the week, get the schedule",
-  "description": "Scheduling for small businesses, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are caught as you go, and the published week goes to everyone by email and phone alert.",
-  "og_title": "Rotaserie · Type the week, get the schedule",
-  "og_description": "Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants, cafés, shops, salons and studios.",
   "sitemap_order": 10,
-  "body_class": "cinema",
-  "partials": {
-    "nav": "nav-home"
-  }
+  "body_class": "home"
 }
 -->
 
-<!-- HERO: the product, moving (real app recordings) -->
-<section class="hero2 theater" id="top">
-  <div class="wrap hero2-in">
-    <div class="hero-copy">
-      <p class="tagline">Take more off your plate with Rotaserie.</p>
-      <h1>Type the week. <em>Get the schedule.</em></h1>
-      <p class="lead">The schedule app for restaurants and small teams. It ends the late-night schedule, the swaps lost in group texts and the 6 AM scramble.</p>
-      <div class="hero-cta"><a class="btn btn-big" href="#start" data-start>Get early access</a></div>
-      <p class="pill"><span class="dot"></span>Built and used every week at Spiros</p>
-    </div>
-    <div class="hero-film">
-      <div class="hf-screen">
-        <video class="hf-wide" muted playsinline preload="none" disablepictureinpicture poster="img/film-hero-poster.webp" aria-label="The Rotaserie film, playing without sound: a week made in the real app"></video>
-        <div class="hf-ctl">
-          <button type="button" class="hf-btn" data-hf-pause aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-          <button type="button" class="hf-btn wide" data-film><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button>
+<!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <ol class="hero-days" aria-hidden="true"><li>Mon 16</li><li>Tue 17</li><li>Wed 18</li><li>Thu 19</li><li>Fri 20</li><li>Sat 21</li><li>Sun 22</li></ol>
+    <p class="label">{{home.hero.label}}</p>
+    <h1 class="display">{{home.hero.title_a}} <em>{{home.hero.title_b}}</em></h1>
+    <div class="hero-cols">
+      <div class="hero-copy">
+        <p class="lead">{{home.hero.lead}}</p>
+        <div class="actions">
+          <a class="btn btn-big" href="#start" data-start>{{cta}}</a>
+          <a class="btn btn-big btn-ghost" href="#film" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>{{home.hero.film}} <span class="num">{{home.hero.film_len}}</span></a>
         </div>
+        <ul class="proof">{{#each home.hero.proof}}<li>{{this}}</li>{{/each}}</ul>
       </div>
-      <div class="demo hero-demo" data-demo role="img" aria-label="Demo: typing “maria tue-fri 9-5”, “sam sat 4p-11p” and “lee sun 10-6 cook” puts six shifts on the week">
-        <div class="demo-top"><span class="live" aria-hidden="true"></span>Type to Build<span class="wk">Mon 16 – Sun 22</span></div>
-        <div class="demo-box" data-demo-box>maria tue-fri 9-5
-sam sat 4p-11p
-lee sun 10-6 cook</div>
-        <p class="demo-read" data-demo-read aria-live="off"></p>
-        <div class="week" data-demo-week aria-hidden="true"></div>
-        <div class="demo-foot"><span data-demo-count></span><b>Ready to publish</b></div>
-      </div>
-      <div class="phone-v hf-narrow"><video data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video></div>
-      <div class="hero-more">
-        <a class="btn btn-ghost" href="#why">Why Rotaserie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      </div>
+      {{> ttb}}
     </div>
   </div>
 </section>
 
-<!-- WHY: the jobs it takes off an owner's plate, each beside what Rotaserie does instead -->
-<section class="theater why" id="why">
+<!-- THE FILM: a dark band right under the hero. Nothing loads or plays until asked. -->
+<section class="film" id="film" data-film data-len="{{home.hero.film_len}}">
   <div class="wrap">
-    <div class="ch-head reveal"><p class="eyebrow">Why Rotaserie</p><h2>Three jobs that eat <em>your week.</em></h2></div>
-    <div class="pains">
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build: typed lines and the shifts they made"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video>
-        <div><p class="was">Building next week from scratch, late at night</p><h3>Type it like a text.</h3><p>One line per person, or copy last week. Rotaserie flags time off, overtime and short days before anyone sees the schedule.</p></div></article>
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="An open shift picked up from a phone, marked Requested"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video>
-        <div><p class="was">Swaps and time off scattered across group texts</p><h3>Requests in one place.</h3><p>Staff pick up shifts, trade and ask for time off from their phones. You approve with a tap.</p></div></article>
-      <article class="pain reveal"><video class="pain-v" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="After I can't make it: the manager has been told"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video>
-        <div><p class="was">A 6 AM text: someone can't come in</p><h3>Call-outs reach you right away.</h3><p>They tap “I can't make it” and pick a reason. You're told at once, with a link to everyone who could cover.</p></div></article>
+    <div class="film-head">
+      <p class="label">{{home.film.label}}</p>
+      <h2>{{home.film.title}}</h2>
     </div>
-  </div>
-</section>
-
-<!-- THE FILM (Robert, Nov 10): on the page, not a pop-up; the button over it starts it here -->
-<section class="theater film-sec" id="film">
-  <div class="wrap">
-    <div class="film-frame reveal" data-filmframe>
-      <video playsinline preload="none" poster="img/film-poster.webp" aria-label="Rotaserie: a week made in the real app">
-        <source src="img/film.webm" type="video/webm"><source src="img/film.mp4" type="video/mp4">
+    <div class="film-frame" data-film-frame>
+      <video playsinline preload="none" poster="{{base}}img/film/poster{{film_suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{film_suffix}}">
+        <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{film_suffix}}.vtt">
       </video>
-      <button class="btn btn-big film-btn" type="button" data-film-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the film <span class="muted">1:18</span></button>
+      <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
+      <noscript><a class="film-nojs" href="{{base}}img/film/film{{film_suffix}}-1080.h264.mp4">{{home.film.nojs}}</a></noscript>
+    </div>
+    <div class="film-foot">
+      <div class="film-chapters"><span class="label">{{home.film.chapters_label}}</span>
+        <button type="button" class="chip" data-film-seek="{{film_ch.0}}">{{home.film.chapters.0}}</button>
+        <button type="button" class="chip" data-film-seek="{{film_ch.1}}">{{home.film.chapters.1}}</button>
+        <button type="button" class="chip" data-film-seek="{{film_ch.2}}">{{home.film.chapters.2}}</button>
+      </div>
+      <p class="film-note">{{home.film.note}} <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>{{home.film.full}}</button></p>
     </div>
   </div>
 </section>
 
-<!-- THE STORY: the device stays while the steps scroll past; each step plays its real recording (site.js) -->
-<section class="theater story" id="tour">
+<!-- TYPE TO BUILD, in depth: four points, each with a real line and what the app's rules read from it -->
+<section class="sec" id="type">
   <div class="wrap">
-    <div class="ch-head reveal"><p class="eyebrow">See it work</p><h2>From typed lines <em>to a published week.</em></h2><p class="lead">The real app, recorded in real time with sample data.</p></div>
-    <div class="story-in">
-      <div class="story-stage" aria-hidden="true">
-        <div class="ss-phone"><video muted playsinline loop preload="none"></video><video muted playsinline loop preload="none"></video></div>
-        <div class="ss-laptop"><div class="lid"><video muted playsinline loop preload="none"></video></div><div class="base"></div></div>
-      </div>
+    <header class="sec-head"><p class="label"><span class="idx">01</span>{{home.type.label}}</p><h2>{{home.type.title}}</h2></header>
+    <ol class="points">
+      {{#each gen.ttb.points}}<li class="point">
+        <div class="point-text"><span class="idx">{{@nn}}</span><h3>{{title}}</h3>{{#if body}}<p>{{body}}</p>{{/if}}</div>
+        <div class="point-ex">{{#each examples}}<div class="ex">
+          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">{{text}}</code>{{#if ttb_live}}<button type="button" class="chip ex-try" data-ttb-try="{{text}}">{{home.type.try}}</button>{{/if}}</p>
+          <div class="tb ex-out">{{html}}</div>
+        </div>{{/each}}</div>
+      </li>{{/each}}
+    </ol>
+    <div class="type-end">
+      <p class="noai"><b>{{home.type.no_ai_title}}</b> {{home.type.no_ai}}</p>
+      <p class="other">{{home.type.other}}</p>
+    </div>
+    <figure class="browser type-shot">
+      <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+      {{shot ttb-panel alt=home.type.shot_alt sizes="(min-width:1280px) 1200px, 94vw"}}
+      <figcaption>{{home.type.shot_cap}}</figcaption>
+    </figure>
+    <figure class="type-phone"><div class="phone">{{shot ttb-phone alt=home.type.phone_alt sizes="78vw"}}</div><figcaption class="label">{{home.type.shot_cap}}</figcaption></figure>
+  </div>
+</section>
+
+<!-- FOR OWNERS: ten things the app does, each with a real screen -->
+<section class="sec sec-alt" id="owners">
+  <div class="wrap">
+    <header class="sec-head"><p class="label"><span class="idx">02</span>{{home.owners.label}}</p><h2>{{home.owners.title_a}} <em>{{home.owners.title_b}}</em></h2></header>
+    <div class="tiles" data-rail tabindex="0" role="group" aria-label="{{home.owners.label}}">
+      <article class="tile t-wide t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">01</span>{{home.owners.tiles.0.k}}</p><h3>{{home.owners.tiles.0.title}}</h3><p>{{home.owners.tiles.0.body}}</p></div>
+        <div class="tile-art">{{shot builder-grid alt=home.owners.tiles.0.alt sizes="(min-width:1000px) 760px, 92vw"}}</div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">02</span>{{home.owners.tiles.1.k}}</p><h3>{{home.owners.tiles.1.title}}</h3><p>{{home.owners.tiles.1.body}}</p></div>
+        <div class="tile-art">{{shot builder-warning class="up" alt=home.owners.tiles.1.alt sizes="(min-width:1000px) 340px, 92vw"}}</div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">03</span>{{home.owners.tiles.2.k}}</p><h3>{{home.owners.tiles.2.title}}</h3><p>{{home.owners.tiles.2.body}}</p></div>
+        <div class="tile-art">{{shot builder-rules alt=home.owners.tiles.2.alt sizes="(min-width:1000px) 340px, 92vw"}}</div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">04</span>{{home.owners.tiles.3.k}}</p><h3>{{home.owners.tiles.3.title}}</h3><p>{{home.owners.tiles.3.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot today alt=home.owners.tiles.3.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">05</span>{{home.owners.tiles.4.k}}</p><h3>{{home.owners.tiles.4.title}}</h3><p>{{home.owners.tiles.4.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot publish alt=home.owners.tiles.4.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">06</span>{{home.owners.tiles.5.k}}</p><h3>{{home.owners.tiles.5.title}}</h3><p>{{home.owners.tiles.5.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot requests lang=en alt=home.owners.tiles.5.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-wide t-pair">
+        <div class="tile-text"><p class="label"><span class="idx">07</span>{{home.owners.tiles.6.k}}</p><h3>{{home.owners.tiles.6.title}}</h3><p>{{home.owners.tiles.6.body}}</p></div>
+        <div class="tile-art">
+          <figure><div class="phone">{{shot cant-make-it alt=home.owners.tiles.6.alt sizes="250px"}}</div><figcaption class="label">{{home.owners.tiles.6.cap}}</figcaption></figure>
+          <span class="pair-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <figure><div class="phone">{{shot callout-manager alt=home.owners.tiles.6.alt2 sizes="250px"}}</div><figcaption class="label">{{home.owners.tiles.6.cap2}}</figcaption></figure>
+        </div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">08</span>{{home.owners.tiles.7.k}}</p><h3>{{home.owners.tiles.7.title}}</h3><p>{{home.owners.tiles.7.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot photo-setup alt=home.owners.tiles.7.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">09</span>{{home.owners.tiles.8.k}}</p><h3>{{home.owners.tiles.8.title}}</h3><p>{{home.owners.tiles.8.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot consistent alt=home.owners.tiles.8.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">10</span>{{home.owners.tiles.9.k}}</p><h3>{{home.owners.tiles.9.title}}</h3><p>{{home.owners.tiles.9.body}}</p></div>
+        <div class="tile-art">{{shot pay-table alt=home.owners.tiles.9.alt sizes="(min-width:1000px) 760px, 92vw"}}</div>
+      </article>
+    </div>
+    <p class="rail-hint to-700" aria-hidden="true">{{swipe}}<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
+  </div>
+</section>
+
+<!-- THE SWAP: the app's four steps, with both phones -->
+<section class="sec" id="swap">
+  <div class="wrap swap">
+    <div class="swap-text">
+      <header class="sec-head"><p class="label"><span class="idx">03</span>{{home.swap.label}}</p><h2>{{home.swap.title}}</h2><p class="lead">{{home.swap.lead}}</p></header>
       <ol class="steps">
-        <li class="step" data-clip="ttb" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/ttb-light-poster.webp" aria-label="Type to Build on a phone: typed lines become shifts"><source data-src="img/tour/ttb-light.webm" type="video/webm"><source data-src="img/tour/ttb-light.mp4" type="video/mp4"></video><span class="n">1</span><h3>Type the week <em>like a text.</em></h3><p>One line per person, “maya wed 5-11”. Rotaserie shows what it read, asks when something is missing, and adds the shifts in one tap.</p></li>
-        <li class="step" data-clip="publish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-light-poster.webp" aria-label="Review and publish on a phone"><source data-src="img/tour/publish-light.webm" type="video/webm"><source data-src="img/tour/publish-light.mp4" type="video/mp4"></video><span class="n">2</span><h3>Check it, <em>then publish.</em></h3><p>Shifts, people, hours and anything urgent on one screen. Publish, and everyone is told by email and by phone alert if they turned alerts on.</p></li>
-        <li class="step" data-clip="staff" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="A staff member picks up an open shift"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video><span class="n">3</span><h3>Staff pick up shifts <em>in a tap.</em></h3><p>Their next shift, their week, and open shifts with an estimate of the pay. A manager approves pickups, or lets the simple ones go through.</p></li>
-        <li class="step" data-clip="callout" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/callout-light-poster.webp" aria-label="A staff member calls out of today's shift"><source data-src="img/tour/callout-light.webm" type="video/webm"><source data-src="img/tour/callout-light.mp4" type="video/mp4"></video><span class="n">4</span><h3>Call-outs reach you <em>right away.</em></h3><p>“I can't make it” on today's shift, a reason, and you're told at once, even in quiet hours.</p></li>
-        <li class="step" data-clip="spanish" data-frame="phone"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/spanish-light-poster.webp" aria-label="The staff app in Spanish"><source data-src="img/tour/spanish-light.webm" type="video/webm"><source data-src="img/tour/spanish-light.mp4" type="video/mp4"></video><span class="n">5</span><h3>English <em>y español.</em></h3><p>Each person picks English or Spanish for their own screens, emails and phone alerts.</p></li>
-        <li class="step" data-clip="builder" data-frame="laptop"><video class="step-still" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/builder-light-poster.webp" aria-label="The schedule builder on a computer"><source data-src="img/tour/builder-light.webm" type="video/webm"><source data-src="img/tour/builder-light.mp4" type="video/mp4"></video><span class="n">6</span><h3>The whole week <em>on a computer.</em></h3><p>Type, drag or copy last week on the big screen. The same checks run as you build.</p></li>
+        {{#each home.swap.steps}}<li><span class="idx">{{@nn}}</span><div><b>{{k}}</b><p>{{body}}</p></div></li>{{/each}}
       </ol>
+      <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{home.swap.end}}</p>
+    </div>
+    <div class="swap-art">
+      <figure><div class="phone">{{shot swap-request alt=home.swap.alt_staff sizes="(min-width:700px) 280px, 44vw"}}</div><figcaption class="label">{{home.swap.cap_staff}}</figcaption></figure>
+      <figure><div class="phone">{{shot requests lang=en alt=home.swap.alt_mgr sizes="(min-width:700px) 280px, 44vw"}}</div><figcaption class="label">{{home.swap.cap_mgr}}</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- WHO IT'S FOR: one moving line of the way people type their week -->
-<section class="marquee" aria-label="Rotaserie is for restaurants, cafés and bakeries, shops, salons, fitness studios and field service">
-  <div class="mq-track" aria-hidden="true">
-    <span><b>Restaurants</b><code>maria tue-fri 4p-10p</code></span><span><b>Cafés</b><code>jo mon-fri 6a-2p</code></span>
-    <span><b>Shops</b><code>ben sat-sun 10-6</code></span><span><b>Salons</b><code>ana tue-sat 9-5</code></span>
-    <span><b>Fitness studios</b><code>kai mon wed fri 5a-1p</code></span><span><b>Field service</b><code>rico mon-thu 7-5</code></span>
-    <span class="dup"><b>Restaurants</b><code>maria tue-fri 4p-10p</code></span><span class="dup"><b>Cafés</b><code>jo mon-fri 6a-2p</code></span>
-    <span class="dup"><b>Shops</b><code>ben sat-sun 10-6</code></span><span class="dup"><b>Salons</b><code>ana tue-sat 9-5</code></span>
-    <span class="dup"><b>Fitness studios</b><code>kai mon wed fri 5a-1p</code></span><span class="dup"><b>Field service</b><code>rico mon-thu 7-5</code></span>
-  </div>
-</section>
-
-<section class="chapter" id="staff">
-  <div class="wrap side">
-    <div class="side-text reveal">
-      <p class="eyebrow">What your staff see</p>
-      <h2>Their schedule, on their phone.</h2>
-      <p class="lead">Staff don't download anything. You add them, and they scan your QR code to put Rotaserie on their phone and sign in once. From then on they see their next shift, pick up open shifts, swap with a coworker and ask for time off, in English or Spanish.</p>
-    </div>
-    <div class="phones fan reveal">
-      <figure class="phone">
-        <img class="lt" src="img/new/p_home_light.webp" width="780" height="1688" loading="lazy" alt="Staff home: the next shift in two days, with who else is working" data-zoom>
-        <img class="dk" src="img/new/p_home_dark.webp" width="780" height="1688" loading="lazy" alt="Staff home at night" data-zoom>
-        <figcaption>Next shift<span>with who's on with you</span></figcaption>
-      </figure>
-      <figure class="phone lift">
-        <img class="lt" src="img/new/p_market_light.webp" width="780" height="1688" loading="lazy" alt="Open shifts to pick up, with estimated pay" data-zoom>
-        <img class="dk" src="img/new/p_market_dark.webp" width="780" height="1688" loading="lazy" alt="Open shifts at night" data-zoom>
-        <figcaption>Open shifts<span>pick one up in a tap</span></figcaption>
-      </figure>
-      <figure class="phone">
-        <img class="lt" src="img/new/p_schedule_light.webp" width="780" height="1688" loading="lazy" alt="The week's schedule on a phone" data-zoom>
-        <img class="dk" src="img/new/p_schedule_dark.webp" width="780" height="1688" loading="lazy" alt="The week's schedule at night" data-zoom>
-        <figcaption>The week<span>everyone's shifts</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="clients">
+<!-- FOR STAFF -->
+<section class="sec sec-alt" id="staff">
   <div class="wrap">
-    <div class="band-in reveal">
-      <div>
-        <p class="eyebrow">Where it started</p>
-        <h2>Spiros runs on Rotaserie.</h2>
-        <p class="lead">Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, to give a busy manager her time back. It runs Spiros's schedule every week: building the week, swaps, time off and publishing to the whole team.</p>
-        <div class="hero-actions"><a class="btn" href="about.html">Read the story</a>
-          <a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros</a></div>
+    <div class="staff-top">
+      <header class="sec-head"><p class="label"><span class="idx">04</span>{{home.staff.label}}</p><h2>{{home.staff.title}}</h2></header>
+      <div class="staff-list">
+        <ul class="checks">{{#each home.staff.points}}<li>{{this}}</li>{{/each}}</ul>
+        <p class="join"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>{{home.staff.join}}</p>
       </div>
-      <figure class="place-photo">
-        <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
-        <figcaption>Spiro's Pizza &amp; Pasta, Shoreline, Washington</figcaption>
+    </div>
+    <div class="phones" data-rail tabindex="0" role="group" aria-label="{{home.staff.label}}">
+      <figure><div class="phone">{{shot my-shifts alt=home.staff.phones.0.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.0.cap}}</b><span>{{home.staff.phones.0.sub}}</span></figcaption></figure>
+      <figure><div class="phone">{{shot open-shifts alt=home.staff.phones.1.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.1.cap}}</b><span>{{home.staff.phones.1.sub}}</span></figcaption></figure>
+      <figure><div class="phone">{{shot schedule-staff alt=home.staff.phones.2.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b>{{home.staff.phones.2.cap}}</b><span>{{home.staff.phones.2.sub}}</span></figcaption></figure>
+      <figure><div class="phone">{{shot my-shifts lang=es alt=home.staff.phones.3.alt sizes="(min-width:1000px) 262px, (min-width:600px) 40vw, 70vw"}}</div><figcaption><b lang="es">{{home.staff.phones.3.cap}}</b><span>{{home.staff.phones.3.sub}}</span></figcaption></figure>
+    </div>
+    <p class="rail-hint" aria-hidden="true">{{swipe}}<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
+  </div>
+</section>
+
+<!-- EVERY SCREEN -->
+<section class="sec" id="screens">
+  <div class="wrap screens">
+    <header class="sec-head"><p class="label"><span class="idx">05</span>{{home.screens.label}}</p><h2>{{home.screens.title}}</h2><p class="lead">{{home.screens.body}}</p></header>
+    <div class="devices">
+      <figure class="browser">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+        {{shot builder-week alt=home.screens.alt_desk sizes="(min-width:1000px) 720px, 92vw"}}
       </figure>
+      <div class="phone">{{shot today alt=home.screens.alt_phone sizes="(min-width:700px) 220px, 34vw"}}</div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="chapter" id="faq">
-  <div class="wrap side">
-    <div class="phone-v small reveal" data-par="0.04"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-light-poster.webp" aria-label="A staff member picks up an open shift from their phone"><source data-src="img/tour/staff-light.webm" type="video/webm"><source data-src="img/tour/staff-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/staff-dark-poster.webp" aria-label="A staff member picks up an open shift from their phone"><source data-src="img/tour/staff-dark.webm" type="video/webm"><source data-src="img/tour/staff-dark.mp4" type="video/mp4"></video></div>
+<!-- WHERE IT STARTED -->
+<section class="sec sec-alt" id="spiros">
+  <div class="wrap proof-in">
     <div>
-    <div class="ch-head left reveal"><p class="eyebrow">Questions</p><h2>What owners ask first.</h2></div>
-    <div class="faq reveal">
-      <details><summary>Do I have to type the schedule?</summary><p>No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a regular schedule that fills itself in.</p></details>
-      <details><summary>Do my staff need to download an app?</summary><p>No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app.</p></details>
-      <details><summary>Is it only for restaurants?</summary><p>No. It was built at a restaurant, and it's ready for cafés, shops, salons, fitness studios and field crews, each with its own starting roles and shift times.</p></details>
-      <details><summary>Does it replace my point of sale or time clock?</summary><p>No. Keep clocking in where you do now. Rotaserie handles the schedule, swaps, time off and messages around it, and has its own time clock if you want one.</p></details>
-      <details><summary>Is it in Spanish?</summary><p>Yes. Everyone chooses English or Spanish for their own screens, emails and phone alerts.</p></details>
-      <details><summary>How much does it cost?</summary><p>One price per location, with every feature included. Ask for early access and we'll walk you through it.</p></details>
+      <header class="sec-head"><p class="label"><span class="idx">06</span>{{home.proof.label}}</p><h2>{{home.proof.title}}</h2></header>
+      <p class="lead">{{home.proof.body}}</p>
+      <div class="actions"><a class="btn" href="about.html">{{home.proof.story}}</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
     </div>
+    <figure class="photo">
+      <img src="{{base}}img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="{{home.proof.alt}}" data-zoom>
+      <figcaption class="label">{{home.proof.cap}}</figcaption>
+    </figure>
+  </div>
+</section>
+{{#if pricing}}{{> pricing}}{{/if}}
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-in">
+    <header class="sec-head"><p class="label"><span class="idx">07</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
+    <div class="faq">
+      {{#each home.faq.items}}<details><summary><span>{{q}}</span><i aria-hidden="true"></i></summary><p>{{a}}</p></details>
+      {{/each}}
     </div>
   </div>
 </section>
 
-<!-- GET EARLY ACCESS -->
-<section class="cta" id="start">
-  <div class="wrap side">
-    <div class="phone-v small reveal" data-par="0.04"><video class="lt" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-light-poster.webp" aria-label="Review and publish on a phone: the week at a glance, then Publish schedule"><source data-src="img/tour/publish-light.webm" type="video/webm"><source data-src="img/tour/publish-light.mp4" type="video/mp4"></video><video class="dk" data-loop muted loop playsinline preload="none" disablepictureinpicture poster="img/tour/publish-dark-poster.webp" aria-label="Review and publish on a phone: the week at a glance, then Publish schedule"><source data-src="img/tour/publish-dark.webm" type="video/webm"><source data-src="img/tour/publish-dark.mp4" type="video/mp4"></video></div>
-    <div class="early reveal">
-      <img src="img/logo.svg" alt="" width="60" height="60">
-      <h2>Take more off your plate <em>with Rotaserie.</em></h2>
-      <p class="lead">Rotaserie is in early access. Tell us about your business and we'll set it up with you; your team can be on it the same day.</p>
-      <form data-early action="mailto:robert@rotaserie.com" method="get">
-        <input type="hidden" name="subject" value="Rotaserie early access">
-        <label>Your business<input name="business" autocomplete="organization" placeholder="e.g. Lilac Street Café" required></label>
-        <label>Kind of business
-          <select name="kind">
-            <option>Restaurant</option><option>Café or bakery</option><option>Shop</option><option>Salon</option>
-            <option>Fitness studio</option><option>Field service</option><option>Something else</option>
-          </select></label>
-        <button class="btn" type="submit">Get early access</button>
+<!-- EARLY ACCESS -->
+<section class="start" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <p class="label">{{home.start.label}}</p>
+      <h2 class="display">{{home.start.title}}</h2>
+      <p class="lead">{{home.start.lead}}</p>
+    </div>
+    <div class="pane start-form">
+      <form data-early action="mailto:{{email}}" method="get">
+        <input type="hidden" name="subject" value="{{home.start.subject}}">
+        <label>{{home.start.business}}<input name="business" autocomplete="organization" placeholder="{{home.start.business_ph}}" required></label>
+        <label>{{home.start.kind}}
+          <select name="kind">{{#each home.start.kinds}}<option>{{this}}</option>{{/each}}</select></label>
+        <button class="btn btn-big" type="submit">{{cta}}</button>
       </form>
-      <p class="small" data-mailnote>This opens an email to Robert, the founder. Or write to <a href="mailto:robert@rotaserie.com?subject=Rotaserie%20early%20access">robert@rotaserie.com</a>.</p>
+      <p class="small" data-mailnote>{{home.start.note}} <a href="mailto:{{email}}?subject=Rotaserie%20early%20access">{{email}}</a>.</p>
     </div>
   </div>
 </section>
-

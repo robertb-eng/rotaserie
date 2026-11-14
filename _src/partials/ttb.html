@@ -1,0 +1,22 @@
+<div class="pane ttb" id="try" data-ttb data-lang="{{lang}}"{{#if ttb_live}} data-live data-src="{{base}}demo/ttb.js"{{/if}}>
+        <div class="ttb-head"><b>{{home.hero.pane_title}}</b><span class="label">{{home.hero.pane_label}}</span></div>
+        <div class="ttb-body">
+          <div class="ttb-box">
+            <label class="sr" for="ttb-text">{{home.hero.box_label}}</label>
+            <textarea id="ttb-text" class="ttb-text" rows="{{gen.ttb.hero.rows}}" maxlength="400" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" translate="no" data-ttb-text{{#unless ttb_live}} readonly{{/unless}}>{{gen.ttb.hero.text}}</textarea>
+          </div>
+          {{#if ttb_live}}<div class="ttb-chips" data-ttb-chips><span class="label">{{home.hero.chips_label}}</span>{{#each gen.ttb.chips}}<button type="button" class="chip" data-ttb-try="{{text}}" translate="no">{{text}}</button>{{/each}}</div>
+          {{/if}}<div class="ttb-res">
+            <div class="tb" data-ttb-out>{{gen.ttb.hero.preview}}</div>
+            <div class="ttb-acts">{{#if ttb_live}}<button type="button" class="btn btn-ghost" data-ttb-reset>{{home.hero.reset}}</button>{{/if}}<button type="button" class="btn ttb-add" data-ttb-add{{#unless ttb_live}} disabled{{/unless}}>{{gen.ttb.hero.add}}</button></div>
+            <p class="ttb-done" data-ttb-done hidden>{{home.hero.added}} <a href="#start" data-start>{{cta}}</a></p>
+            <p class="sr" aria-live="polite" data-ttb-live></p>
+          </div>
+          <div class="ttb-week">
+            <p class="label ttb-week-k"><span>{{home.hero.week_label}}</span><span class="num">{{gen.ttb.hero.week}}</span></p>
+            <div class="wk-wrap" data-ttb-grid>{{gen.ttb.hero.grid}}</div>
+            <p class="wk-key">{{gen.ttb.key}}</p>
+            <p class="ttb-totals num" data-ttb-totals>{{gen.ttb.hero.totals}}</p>
+          </div>
+        </div>
+      </div>

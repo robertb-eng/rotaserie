@@ -1,6 +1,20 @@
 {
+  "langs": [
+    "en"
+  ],
   "body_class": "",
   "og_description": "",
-  "foot_facts": true,
-  "partials": {}
+  "pricing": false,
+  "signup_url": "",
+  "ttb_live": true,
+  "film_len_iso": "PT1M32S",
+  "email": "robert@rotaserie.com",
+  "partials": {},
+  "film_suffix": "",
+  "film_ch": [
+    16,
+    37,
+    66
+  ],
+  "film_date": "2026-11-14"
 }

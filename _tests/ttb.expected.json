@@ -1,0 +1,324 @@
+{
+ "maya wed 5-11": {
+  "n": 1,
+  "rows": [
+   "Maya Torres|Wed|17:00-23:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "lena m-th 10-4": {
+  "n": 4,
+  "rows": [
+   "Lena Park|Mon,Tue,Wed,Thu|10:00-16:00|cook"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "priya wensday 445-8 pls": {
+  "n": 1,
+  "rows": [
+   "Priya Nair|Wed|16:45-20:00|busser"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "tom mon-fri from 11": {
+  "n": 0,
+  "rows": [],
+  "waiting": 1,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "until:Until 3p,Until 5p,Until 7p"
+  ]
+ },
+ "diego miércoles a viernes 9 a 5 mesero": {
+  "n": 3,
+  "rows": [
+   "Diego Ruiz|Wed,Thu,Fri|09:00-17:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "sam fri sat 4p-10p": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 2,
+  "other": false,
+  "asks": []
+ },
+ "maya torres thursday 11am to 5pm": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "LENA FRI 10-4 COOK": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "tom sat sun 5-11 cook": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 2,
+  "other": false,
+  "asks": []
+ },
+ "diego lunes 4 a 10": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "priya martes y jueves 11 a 5": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 2,
+  "other": false,
+  "asks": []
+ },
+ "sam sab 4-10 ayudante": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "lena viernes 10 a 4 cocinera": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "maya mie 5-11": {
+  "n": 1,
+  "rows": [
+   "Maya Torres|Wed|17:00-23:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "tom vie 5p-11p": {
+  "n": 1,
+  "rows": [
+   "Tom Becker|Fri|17:00-23:00|cook"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "maya & diego fri 5-10": {
+  "n": 2,
+  "rows": [
+   "Maya Torres|Fri|17:00-22:00|server",
+   "Diego Ruiz|Fri|17:00-22:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "lena th 9-5 cook, tom f 5-11": {
+  "n": 2,
+  "rows": [
+   "Lena Park|Thu|09:00-17:00|cook",
+   "Tom Becker|Fri|17:00-23:00|cook"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "sam tues 430-9": {
+  "n": 1,
+  "rows": [
+   "Sam Okafor|Tue|16:30-21:00|busser"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "priya weds 11-3": {
+  "n": 1,
+  "rows": [
+   "Priya Nair|Wed|11:00-15:00|busser"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "diego thurs 9a-1p": {
+  "n": 1,
+  "rows": [
+   "Diego Ruiz|Thu|09:00-13:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "maya wed 5-11\nlena m-th 10-4": {
+  "n": 5,
+  "rows": [
+   "Maya Torres|Wed|17:00-23:00|server",
+   "Lena Park|Mon,Tue,Wed,Thu|10:00-16:00|cook"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "maya wed 5-11\nmaya wed 5-11": {
+  "n": 1,
+  "rows": [
+   "Maya Torres|Wed|17:00-23:00|server"
+  ],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "sam fri": {
+  "n": 0,
+  "rows": [],
+  "waiting": 1,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "times:"
+  ]
+ },
+ "maya 5-11": {
+  "n": 0,
+  "rows": [],
+  "waiting": 1,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "days:"
+  ]
+ },
+ "zzz blah": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "whois:Ignore it"
+  ]
+ },
+ "zzz fri 5-9": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "whois:Ignore it"
+  ]
+ },
+ "sam off tue": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": true,
+  "asks": []
+ },
+ "tom tomorrow 5-9": {
+  "n": 0,
+  "rows": [],
+  "waiting": 1,
+  "clash": 0,
+  "other": true,
+  "asks": [
+   "later:"
+  ]
+ },
+ "2 servers sat 5-10": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": true,
+  "asks": [
+   "until:Until 6p,Until 8p,Until 10p",
+   "later:"
+  ]
+ },
+ "everyone sat 9-5": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": true,
+  "asks": [
+   "later:"
+  ]
+ },
+ "maya mon 1p-5p": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 1,
+  "other": false,
+  "asks": []
+ },
+ "hello": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": [
+   "whois:Ignore it"
+  ]
+ },
+ "   ": {
+  "n": 0,
+  "rows": [],
+  "waiting": 0,
+  "clash": 0,
+  "other": false,
+  "asks": []
+ },
+ "<b>maya</b> wed 5-11": {
+  "n": 0,
+  "rows": [],
+  "waiting": 1,
+  "clash": 0,
+  "other": true,
+  "asks": [
+   "later:"
+  ]
+ }
+}

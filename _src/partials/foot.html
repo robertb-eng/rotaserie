@@ -1,0 +1,35 @@
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <a class="logo" href="index.html"><img src="{{base}}img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+      <p>{{foot.line}}</p>
+      {{#if multi_lang}}<div class="lang" role="group" aria-label="{{nav.lang_aria}}"><a href="{{href_en}}" lang="en" hreflang="en"{{#if is_en}} aria-current="true"{{/if}} data-lang="en">English</a><a href="{{href_es}}" lang="es" hreflang="es"{{#if is_es}} aria-current="true"{{/if}} data-lang="es">Español</a></div>{{/if}}
+    </div>
+    <nav class="foot-col" aria-label="{{foot.product}}">
+      <p class="label">{{foot.product}}</p>
+      <a href="{{home_href}}#type">{{nav.type}}</a>
+      <a href="{{home_href}}#owners">{{nav.owners}}</a>
+      <a href="{{home_href}}#staff">{{nav.staff}}</a>
+      <a href="{{home_href}}#film">{{foot.film}}</a>
+      <a href="{{home_href}}#faq">{{nav.faq}}</a>
+    </nav>
+    <nav class="foot-col" aria-label="{{foot.company}}">
+      <p class="label">{{foot.company}}</p>
+      <a href="about.html">{{foot.about}}</a>
+      <a href="https://ilovespiros.com/" target="_blank" rel="noopener">{{foot.spiros}}</a>
+      <a href="mailto:{{email}}?subject=Rotaserie">{{foot.contact}}</a>
+    </nav>
+    <nav class="foot-col" aria-label="{{foot.legal}}">
+      <p class="label">{{foot.legal}}</p>
+      <a href="facts.html">{{foot.facts}}</a>
+      <a href="terms.html">{{foot.terms}}</a>
+      <a href="privacy.html">{{foot.privacy}}</a>
+    </nav>
+  </div>
+  <div class="wrap foot-end"><p>© <span data-year>2026</span> {{foot.copy}}</p></div>
+</footer>
+
+<dialog class="zoom" data-zoombox aria-label="{{foot.zoom_aria}}">
+  <button class="zoom-close" type="button" aria-label="{{foot.zoom_close}}" data-zoom-close>×</button>
+  <img alt="">
+</dialog>

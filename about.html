@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About Rotaserie · Built at Spiros</title>
 <meta name="description" content="Rotaserie was built at Spiros, a restaurant in Shoreline, Washington, by Robert Banchero to give his mom her time back. Now it's ready to help other small businesses do the same.">
-<meta name="theme-color" content="#a9d8ff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a1230" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://rotaserie.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rotaserie">
+<meta property="og:url" content="https://rotaserie.com/about.html">
 <meta property="og:title" content="About Rotaserie · Built at Spiros">
 <meta property="og:description" content="Scheduling built at a working restaurant, to give a busy manager her time back.">
-<meta property="og:image" content="https://rotaserie.com/img/new/d_builder_light.webp">
+<meta property="og:image" content="https://rotaserie.com/img/share-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("sb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -22,117 +30,129 @@
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="34" height="34">Rotaserie</a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="index.html#managers">For managers</a>
+    <a class="logo" href="index.html" aria-label="Rotaserie, home"><img src="img/logo.svg" alt="" width="32" height="32">Rotaserie</a>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="index.html#type">Type to Build</a>
+      <a href="index.html#owners">For owners</a>
       <a href="index.html#staff">For staff</a>
-      <a href="index.html#kinds">Businesses</a>
-      <a href="about.html">About</a>
       <a href="index.html#faq">FAQ</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
-      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
+      <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
       <a class="btn btn-sm" href="index.html#start" data-start>Get early access</a>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ABOUT US -->
-<section class="hero about-hero">
-  <div class="wrap about-intro reveal">
-    <p class="pill"><span class="dot"></span>About us</p>
+<section class="page-hero">
+  <div class="wrap page-hero-in">
+    <p class="label">About us</p>
     <h1>Built at a restaurant, <em>for small teams.</em></h1>
     <p class="lead">Rotaserie is scheduling made by someone who grew up working the floor, for the manager who makes next week's schedule on a phone between rushes at a restaurant, café, shop, salon or studio.</p>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="chapter" id="founder">
-  <div class="wrap founder reveal">
+<section class="sec" id="founder">
+  <div class="wrap founder">
     <div class="founder-card">
-      <img class="founder-photo" src="img/founder.webp" width="1200" height="900" loading="lazy" alt="The founder with three members of the Spiro's kitchen team" data-zoom>
+      <img src="img/founder.webp" width="1200" height="900" loading="lazy" decoding="async" alt="The founder with three members of the Spiro's kitchen team" data-zoom>
       <b>Robert Banchero</b>
-      <span class="muted">Founder, TICO VENTURES LLC</span>
+      <span class="label">Founder, TICO VENTURES LLC</span>
       <a class="btn btn-sm" href="mailto:robert@rotaserie.com?subject=Rotaserie">Email Robert</a>
     </div>
     <div class="founder-story">
-      <p class="eyebrow">Meet the founder</p>
-      <h2>Why I built Rotaserie.</h2>
-      <p>I grew up working at Spiros. I saw how much of my mom's time went into the schedule: building the week,
-        keeping up with swaps and time-off requests, and fixing it all again when plans changed.</p>
-      <p>I wanted to give her that time back, so I built Rotaserie. Now the schedule at Spiros is built and shared from
-        one place, and everyone has it on their phone.</p>
-      <p>Lots of small restaurants and businesses lose those same hours every week. I want to help them the way it helped
-        my mom.</p>
+      <header class="sec-head"><p class="label"><span class="idx">01</span>Meet the founder</p><h2>Why I built Rotaserie.</h2></header>
+      <p>I grew up working at Spiros. I saw how much of my mom's time went into the schedule: building the week, keeping up with swaps and time-off requests, and fixing it all again when plans changed.</p>
+      <p>I wanted to give her that time back, so I built Rotaserie. Now the schedule at Spiros is built and shared from one place, and everyone has it on their phone.</p>
+      <p>Lots of small restaurants and businesses lose those same hours every week. I want to help them the way it helped my mom.</p>
       <p class="signature">Robert Banchero</p>
     </div>
   </div>
 </section>
 
-<section class="chapter">
+<section class="sec sec-alt">
   <div class="wrap">
-    <div class="values reveal">
-      <div><b>Simple first</b><p>If it takes a training session, it's too complicated. Staff scan a QR code, sign in once, and they're set.</p></div>
-      <div><b>Set up with you</b><p>We help you get your team, roles and usual shifts in, so you're running the same day.</p></div>
-      <div><b>One fair price</b><p>One price per location with everything included, and your data is always yours to take with you.</p></div>
+    <div class="values">
+      <div><p class="label"><span class="idx">01</span></p><b>Simple first</b><p>If it takes a training session, it's too complicated. Staff scan a QR code, sign in once, and they're set.</p></div>
+      <div><p class="label"><span class="idx">02</span></p><b>Set up with you</b><p>We help you get your team, roles and usual shifts in, so you're running the same day.</p></div>
+      <div><p class="label"><span class="idx">03</span></p><b>One fair price</b><p>One price per location with everything included, and your data is always yours to take with you.</p></div>
+      
     </div>
   </div>
 </section>
 
-<!-- SPIROS -->
-<section class="chapter" id="clients">
+<section class="sec" id="clients">
   <div class="wrap split">
-    <div class="ch-copy reveal">
-      <p class="eyebrow">Clients</p>
-      <h2>Every week at Spiros.</h2>
-      <p class="lead">Spiros, a restaurant in Shoreline, Washington, is where Rotaserie was built and where it runs every week.</p>
-      <ul class="checks">
-        <li>The weekly schedule is built and published in Rotaserie</li>
-        <li>Staff swap shifts, pick up open ones and request time off from their phones</li>
-        <li>Managers approve requests in one place instead of in group texts</li>
-      </ul>
-      <div class="hero-actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    <div>
+      <header class="sec-head"><p class="label"><span class="idx">02</span>Clients</p><h2>Every week at Spiros.</h2><p class="lead">Spiros, a restaurant in Shoreline, Washington, is where Rotaserie was built and where it runs every week.</p></header>
+      <ul class="checks"><li>The weekly schedule is built and published in Rotaserie</li><li>Staff swap shifts, pick up open ones and request time off from their phones</li><li>Managers approve requests in one place instead of in group texts</li></ul>
+      <div class="actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">Visit Spiros<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
     </div>
-    <figure class="place-photo reveal">
-      <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
-      <figcaption>Spiro's Pizza &amp; Pasta, Aurora Avenue, Shoreline</figcaption>
+    <figure class="photo">
+      <img src="img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Spiro's Pizza &amp; Pasta on Aurora Avenue in Shoreline, with a rainbow behind the sign" data-zoom>
+      <figcaption class="label">Spiro's Pizza &amp; Pasta · Aurora Avenue, Shoreline</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="start">
-  <div class="wrap"><div class="early reveal">
-    <img src="img/logo.svg" alt="" width="56" height="56">
-    <h2>Let's give you <em>your time back.</em></h2>
-    <p class="lead">Tell us about your business, and we'll set it up with you.</p>
-    <div class="hero-actions center">
-      <a class="btn" href="index.html#start" data-start>Get early access</a>
-      <a class="btn btn-ghost" href="index.html#tour">See how it works</a>
+<section class="start end" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <h2 class="display">Let's give you <em>your time back.</em></h2>
+      <p class="lead">Tell us about your business, and we'll set it up with you.</p>
+      <div class="actions">
+        <a class="btn btn-big" href="index.html#start" data-start>Get early access</a>
+        <a class="btn btn-big btn-ghost" href="index.html#type">See how it works</a>
+      </div>
     </div>
   </div>
-</div>
 </section>
-
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
-    <p>Scheduling for small businesses, built in Washington State. <a href="about.html">About us</a> · <a href="facts.html">Facts</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
-    <p class="muted">© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p>
+    <div class="foot-brand">
+      <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+      <p>Scheduling for restaurants and small teams, built in Washington State.</p>
+      
+    </div>
+    <nav class="foot-col" aria-label="Product">
+      <p class="label">Product</p>
+      <a href="index.html#type">Type to Build</a>
+      <a href="index.html#owners">For owners</a>
+      <a href="index.html#staff">For staff</a>
+      <a href="index.html#film">The film</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <nav class="foot-col" aria-label="Company">
+      <p class="label">Company</p>
+      <a href="about.html">About us</a>
+      <a href="https://ilovespiros.com/" target="_blank" rel="noopener">Spiros</a>
+      <a href="mailto:robert@rotaserie.com?subject=Rotaserie">Email Robert</a>
+    </nav>
+    <nav class="foot-col" aria-label="Legal">
+      <p class="label">Legal</p>
+      <a href="facts.html">Facts</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
   </div>
+  <div class="wrap foot-end"><p>© <span data-year>2026</span> TICO VENTURES LLC · Shoreline, Washington</p></div>
 </footer>
 
 <dialog class="zoom" data-zoombox aria-label="Screenshot">
   <button class="zoom-close" type="button" aria-label="Close" data-zoom-close>×</button>
   <img alt="">
 </dialog>
+
 </body>
 </html>
