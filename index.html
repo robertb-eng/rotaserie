@@ -8,8 +8,12 @@
 <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://rotaserie.com/">
+<link rel="alternate" hreflang="en" href="https://rotaserie.com/">
+<link rel="alternate" hreflang="es" href="https://rotaserie.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://rotaserie.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_US">
 
 <meta property="og:site_name" content="Rotaserie">
 <meta property="og:url" content="https://rotaserie.com/">
@@ -35,6 +39,7 @@
 </head>
 <body class="home">
 <a class="skip" href="#main">Skip to content</a>
+<div class="langbar" data-langbar hidden><p lang="es">¿Prefieres español? <a href="es/index.html" lang="es" hreflang="es" data-lang="es">Ver en español</a></p><button type="button" class="icon-btn" data-langbar-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
@@ -47,6 +52,7 @@
       <a href="about.html">About</a>
     </nav>
     <div class="nav-cta">
+      <div class="lang" role="group" aria-label="Language"><a href="index.html" lang="en" hreflang="en" aria-current="true" data-lang="en">EN</a><a href="es/index.html" lang="es" hreflang="es" data-lang="es">ES</a></div>
       <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
@@ -137,28 +143,28 @@ lena m-th 10-4</textarea>
       <li class="point">
         <div class="point-text"><span class="idx">01</span><h3>Type it like a text.</h3><p>One line per person.</p></div>
         <div class="point-ex"><div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">maya wed 5-11</code><button type="button" class="chip ex-try" data-ttb-try="maya wed 5-11">Try this line</button></p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">maya wed 5-11</code></span><button type="button" class="chip ex-try" data-ttb-try="maya wed 5-11">Try this line</button></p>
           <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">maya</span> <span class="tb-m ok">wed</span> <span class="tb-m assumed" title="5p–11p, from your usual shift times">5<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="5p–11p, from your usual shift times">11<span class="sr"> (assumed)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Maya Torres</span><span class="tb-when">Wed · 5p–11p · Server</span><span class="tb-n">1 shift</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">5-11</span> 5p–11p, from your usual shift times</li></ul></div></div>
         </div></div>
       </li><li class="point">
         <div class="point-text"><span class="idx">02</span><h3>You check before anything is saved.</h3><p>It shows what it read and what it assumed.</p></div>
         <div class="point-ex"><div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">lena m-th 10-4</code><button type="button" class="chip ex-try" data-ttb-try="lena m-th 10-4">Try this line</button></p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">lena m-th 10-4</code></span><button type="button" class="chip ex-try" data-ttb-try="lena m-th 10-4">Try this line</button></p>
           <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">lena</span> <span class="tb-m ok">m</span><span class="tb-m ok">-</span><span class="tb-m ok">th</span> <span class="tb-m assumed" title="10a–4p, from your usual shift times">10<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="10a–4p, from your usual shift times">4<span class="sr"> (assumed)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Lena Park</span><span class="tb-when">Mon–Thu · 10a–4p · Cook</span><span class="tb-n">4 shifts</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">10-4</span> 10a–4p, from your usual shift times</li></ul></div></div>
         </div></div>
       </li><li class="point">
         <div class="point-text"><span class="idx">03</span><h3>It asks instead of guessing.</h3><p>No end time, or two people with the same name? It asks.</p></div>
         <div class="point-ex"><div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">tom mon-fri from 11</code><button type="button" class="chip ex-try" data-ttb-try="tom mon-fri from 11">Try this line</button></p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">tom mon-fri from 11</code></span><button type="button" class="chip ex-try" data-ttb-try="tom mon-fri from 11">Try this line</button></p>
           <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">tom</span> <span class="tb-m ok">mon</span><span class="tb-m ok">-</span><span class="tb-m ok">fri</span> <span class="tb-m ignored" title="ignored">from<span class="sr"> (ignored)</span></span> <span class="tb-m ok">11</span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift wait"><span class="tb-who" translate="no">Tom Becker</span><span class="tb-when">Mon–Fri · 11a–?</span><span class="tb-n">needs times</span></li></ul><ul class="tb-asks" aria-label="Questions"><li><span class="tb-q" aria-hidden="true">?</span><div class="tb-qbody"><span>Until when?</span><span class="tb-chips"><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="0">Until 3p</button><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="1">Until 5p</button><button type="button" class="tb-chip" data-tb="fix" data-q="0" data-o="2">Until 7p</button></span></div></li></ul></div>
         </div></div>
       </li><li class="point">
         <div class="point-text"><span class="idx">04</span><h3>Typos and Spanish are fine.</h3></div>
         <div class="point-ex"><div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">priya wensday 445-8 pls</code><button type="button" class="chip ex-try" data-ttb-try="priya wensday 445-8 pls">Try this line</button></p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">priya wensday 445-8 pls</code></span><button type="button" class="chip ex-try" data-ttb-try="priya wensday 445-8 pls">Try this line</button></p>
           <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">priya</span> <span class="tb-m ok">wensday</span> <span class="tb-m assumed" title="4:45p–8p, from your usual shift times">445<span class="sr"> (assumed)</span></span><span class="tb-m ok">-</span><span class="tb-m assumed" title="4:45p–8p, from your usual shift times">8<span class="sr"> (assumed)</span></span> <span class="tb-m ignored" title="ignored">pls<span class="sr"> (ignored)</span></span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Priya Nair</span><span class="tb-when">Wed · 4:45p–8p · Busser</span><span class="tb-n">1 shift</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">445-8</span> 4:45p–8p, from your usual shift times</li></ul></div></div>
         </div><div class="ex">
-          <p class="ex-line"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">diego miércoles a viernes 9 a 5 mesero</code><button type="button" class="chip ex-try" data-ttb-try="diego miércoles a viernes 9 a 5 mesero">Try this line</button></p>
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">diego miércoles a viernes 9 a 5 mesero</code></span><button type="button" class="chip ex-try" data-ttb-try="diego miércoles a viernes 9 a 5 mesero">Try this line</button></p>
           <div class="tb ex-out"><div class="tb-read"><span class="tb-k">What I read</span><p translate="no"><span class="tb-m ok">diego</span> <span class="tb-m ok">miércoles</span> <span class="tb-m ok">a</span> <span class="tb-m ok">viernes</span> <span class="tb-m assumed" title="9a–5p, from your usual shift times">9<span class="sr"> (assumed)</span></span> <span class="tb-m ok">a</span> <span class="tb-m assumed" title="9a–5p, from your usual shift times">5<span class="sr"> (assumed)</span></span> <span class="tb-m ok">mesero</span></p></div><ul class="tb-shifts" aria-label="Shifts"><li class="tb-shift"><span class="tb-who" translate="no">Diego Ruiz</span><span class="tb-when">Wed–Fri · 9a–5p · Server</span><span class="tb-n">3 shifts</span></li></ul><div class="tb-assumed"><span class="tb-k">Assumed</span><ul><li><span class="tb-m assumed" translate="no">9 a 5</span> 9a–5p, from your usual shift times</li></ul></div></div>
         </div></div>
       </li>
@@ -376,7 +382,7 @@ lena m-th 10-4</textarea>
     <div class="foot-brand">
       <a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
       <p>Scheduling for restaurants and small teams, built in Washington State.</p>
-      
+      <div class="lang" role="group" aria-label="Language"><a href="index.html" lang="en" hreflang="en" aria-current="true" data-lang="en">English</a><a href="es/index.html" lang="es" hreflang="es" data-lang="es">Español</a></div>
     </div>
     <nav class="foot-col" aria-label="Product">
       <p class="label">Product</p>

@@ -14,6 +14,8 @@ Sources
     _src/layout.html          the page around <main>: head, top bar, footer
     _src/partials/*.html      pieces the layout or a page pulls in with {{> name}}
     _src/pages/*.html         one file per page: a JSON block in <!--meta ... --> then the inside of <main>
+    _src/pages/<lang>/*.html  a page written out in one language (the Facts page's translation); it must keep the
+                              same lists, line for line, as the page it translates
 
 Template rules (small on purpose)
     {{key}}  {{a.b.c}}          a value, inserted as written (values are HTML). Looked up in the nearest {{#each}} item
@@ -62,12 +64,24 @@ def fail(msg):
     sys.exit("build: " + msg)
 
 
-def load_page(name):
-    text = read(os.path.join(SRC, "pages", name + ".html"))
+def own_page(name, lang):
+    """A page written out in one language (_src/pages/<lang>/<name>.html), for pages whose text can't come from the
+    strings file: the Facts page is checked word for word in English, so its translation is its own file."""
+    return os.path.exists(os.path.join(SRC, "pages", lang, name + ".html"))
+
+
+def load_page(name, lang=None):
+    rel = os.path.join("pages", lang, name + ".html") if lang else os.path.join("pages", name + ".html")
+    text = read(os.path.join(SRC, rel))
     m = META.match(text)
     if not m:
-        fail(f"_src/pages/{name}.html must start with a <!--meta ... --> block")
+        fail(f"_src/{rel} must start with a <!--meta ... --> block")
     return json.loads(m.group(1)), text[m.end():]
+
+
+def list_shape(text):
+    """How many lines each list on a page has, in order: a translation must match its original."""
+    return [len(re.findall(r"<li\b", ul)) for ul in re.findall(r"<ul\b.*?</ul>", text, re.S)]
 
 
 # ------------------------------------------------------------------------------------------------ pictures
@@ -302,11 +316,18 @@ def build():
             name = fn[:-5]
             meta, main = load_page(name)
             words = strings[lg].get("pages", {}).get(name, {})
-            if lg != first and not words:
+            own = lg != first and own_page(name, lg)
+            if own:
+                base_main = main
+                meta, main = load_page(name, lg)
+                if list_shape(main) != list_shape(base_main):
+                    fail(f"_src/pages/{lg}/{fn} must have the same lists, line for line, as _src/pages/{fn}: "
+                         f"{list_shape(main)} against {list_shape(base_main)}")
+            if lg != first and not words and not own:
                 continue  # (a page with no words in this language isn't built in it)
             ctx = dict(site)
             ctx.update(strings[lg])
-            ctx.update({k: v for k, v in meta.items() if lg == first or k not in PER_PAGE})
+            ctx.update({k: v for k, v in meta.items() if lg == first or own or k not in PER_PAGE})
             ctx.update(words)
             file = meta.get("out", fn)
             out = prefix + file
@@ -316,7 +337,7 @@ def build():
             ctx.update({"has_es": False, "is_es": False, "href_es": "", "url_es": ""})  # (until Spanish is built)
             for other in langs:
                 there = ("" if other == first else other + "/") + file
-                has = other == first or bool(strings[other].get("pages", {}).get(name))
+                has = other == first or bool(strings[other].get("pages", {}).get(name)) or own_page(name, other)
                 ctx["has_" + other] = has
                 ctx["url_" + other] = public_url(there if has else ("" if other == first else other + "/") + "index.html")
                 ctx["href_" + other] = file if other == lg else ctx["base"] + (there if has else ("" if other == first else other + "/") + "index.html")
@@ -326,7 +347,7 @@ def build():
             for other_fn in sorted(os.listdir(os.path.join(SRC, "pages"))):
                 if other_fn.endswith(".html"):
                     nm = other_fn[:-5]
-                    here = lg == first or bool(strings[lg].get("pages", {}).get(nm))
+                    here = lg == first or bool(strings[lg].get("pages", {}).get(nm)) or own_page(nm, lg)
                     ctx["to"][nm] = other_fn if here else ctx["base"] + other_fn
             ctx["mail_body_attr"] = html.escape(strings[lg]["home"]["start"].get("mail_body", ""), quote=True).replace("\n", "&#10;")
             ctx["locale"] = site.get("og_locale", {}).get(lg, lg)

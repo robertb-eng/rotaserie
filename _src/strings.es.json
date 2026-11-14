@@ -1,0 +1,462 @@
+{
+  "lang_name": "Español",
+  "skip": "Ir al contenido",
+  "cta": "Pide acceso anticipado",
+  "cta_short": "Acceso",
+  "swipe": "Desliza para ver más",
+  "nav": {
+    "aria": "Secciones",
+    "home_aria": "Rotaserie, inicio",
+    "type": "Escribir turnos",
+    "owners": "Para dueños",
+    "staff": "Para el equipo",
+    "pricing": "Precio",
+    "faq": "Preguntas",
+    "about": "Quiénes somos",
+    "menu": "Menú",
+    "theme": "Cambiar entre claro y oscuro",
+    "lang_aria": "Idioma"
+  },
+  "foot": {
+    "line": "Horarios para restaurantes y equipos pequeños, hecho en el estado de Washington.",
+    "product": "Producto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "about": "Quiénes somos",
+    "spiros": "Spiros",
+    "facts": "Datos",
+    "terms": "Términos (en inglés)",
+    "privacy": "Privacidad (en inglés)",
+    "film": "La película",
+    "contact": "Escríbele a Robert",
+    "copy": "TICO VENTURES LLC · Shoreline, Washington",
+    "zoom_aria": "Captura de pantalla",
+    "zoom_close": "Cerrar"
+  },
+  "home": {
+    "hero": {
+      "label": "Horarios para restaurantes y equipos pequeños",
+      "title_a": "Escribe la semana.",
+      "title_b": "Recibe el horario.",
+      "lead": "Escribe los turnos como los mandarías en un mensaje. Rotaserie te muestra lo que entendió, te avisa de los problemas y manda la semana al teléfono de cada persona.",
+      "film": "Mira la película",
+      "film_len": "1:32",
+      "proof": [
+        "Se usa cada semana en Spiros",
+        "English y español",
+        "Funciona en cualquier teléfono"
+      ],
+      "pane_title": "Escribir turnos",
+      "pane_label": "Pruébalo · no se guarda nada",
+      "box_label": "Turnos para agregar, como los escribirías en un mensaje",
+      "example": "maya mié 5-11\nlena lun a jue 10 a 4",
+      "chips_label": "Prueba uno",
+      "chips": [
+        "maya mié 5-11",
+        "lena lun a jue 10 a 4",
+        "priya miercoles 445-8 porfa",
+        "tom lun a vie desde 11",
+        "diego wed-fri 9-5 server"
+      ],
+      "reset": "Reiniciar",
+      "week_label": "Una semana de ejemplo",
+      "added": "Ya empezaste una semana.",
+      "static_note": "Este ejemplo lo leyeron las mismas reglas que usa la app.",
+      "days": [
+        "lun 16",
+        "mar 17",
+        "mié 18",
+        "jue 19",
+        "vie 20",
+        "sáb 21",
+        "dom 22"
+      ]
+    },
+    "film": {
+      "suffix": "-es",
+      "ch": [
+        18.1,
+        35.15,
+        64.68
+      ],
+      "label": "La película · 1:32",
+      "title": "Una semana, de domingo en la noche a domingo en la noche.",
+      "play": "Ver la película",
+      "full": "Pantalla completa",
+      "note": "Sin sonido. Los textos van en pantalla.",
+      "aria": "La película de Rotaserie: una semana en la app real, de un domingo en la noche al domingo siguiente. Sin sonido.",
+      "chapters_label": "Ir a",
+      "chapters": [
+        "Escribe la semana",
+        "Publicar",
+        "El aviso de las 6 AM"
+      ],
+      "nojs": "Ver la película (MP4)"
+    },
+    "type": {
+      "label": "Escribir turnos",
+      "title": "Cómo lee lo que escribes.",
+      "points": [
+        {
+          "title": "Escríbelo como un mensaje.",
+          "body": "Una línea por persona.",
+          "examples": [
+            "maya mié 5-11"
+          ]
+        },
+        {
+          "title": "Tú revisas antes de que se guarde nada.",
+          "body": "Te muestra lo que entendió y lo que supuso.",
+          "examples": [
+            "lena lun a jue 10 a 4"
+          ]
+        },
+        {
+          "title": "Pregunta en vez de adivinar.",
+          "body": "¿Falta la hora de salida, o hay dos personas con el mismo nombre? Pregunta.",
+          "examples": [
+            "tom lun a vie desde 11"
+          ]
+        },
+        {
+          "title": "Los errores de dedo y el inglés no son problema.",
+          "body": "",
+          "examples": [
+            "priya miercoles 445-8 porfa",
+            "diego wed-fri 9-5 server"
+          ]
+        }
+      ],
+      "try": "Probar esta línea",
+      "no_ai_title": "Ninguna IA arma tu horario.",
+      "no_ai": "Escribir turnos sigue reglas fijas, así que las mismas palabras siempre dan los mismos turnos.",
+      "other": "¿No quieres escribir? Arrastra los turnos en la semana, copia la semana pasada o usa un horario fijo.",
+      "shot_alt": "El creador de horarios de Rotaserie con Escribir turnos abierto: tres líneas escritas, lo que entendió y una tarjeta por persona, listo para agregar 9 turnos.",
+      "shot_cap": "El Creador real, con Escribir turnos abierto",
+      "phone_alt": "Escribir turnos en un teléfono: tres líneas escritas y los turnos que Rotaserie entendió."
+    },
+    "owners": {
+      "label": "Para dueños y gerentes",
+      "title_a": "Tú sigues al mando.",
+      "title_b": "Rotaserie hace la revisión.",
+      "tiles": [
+        {
+          "k": "La semana",
+          "title": "Toda la semana en una cuadrícula.",
+          "body": "Arrastra un turno a otra persona o a otro día, copia la semana pasada o empieza con una plantilla. Las horas y el costo estimado de mano de obra se van sumando mientras armas el horario.",
+          "alt": "La semana en el creador de horarios: los turnos de cada persona por día, con horas y costo estimado de mano de obra arriba de cada día."
+        },
+        {
+          "k": "Avisos",
+          "title": "Avisos, no bloqueos.",
+          "body": "Te avisa de tiempo extra, días libres, doble turno, poco descanso y días con poco personal mientras armas el horario. Tú decides qué hacer.",
+          "alt": "Las sugerencias del creador, incluida “Maya Torres: 48 h esta semana, 8 h extra a 1.5×”."
+        },
+        {
+          "k": "Reglas laborales",
+          "title": "Revisa las reglas de Washington.",
+          "body": "Descansos para comer, descanso entre turnos, tiempo extra, horas de menores y salario mínimo. Son ayudas, no asesoría legal.",
+          "alt": "Límites de Washington para menores señalados en el creador: horas que puede trabajar alguien de 16 o 17 años en un día y una semana de clases."
+        },
+        {
+          "k": "Hoy",
+          "title": "Hoy.",
+          "body": "Lo que te necesita primero: dónde falta gente, qué está esperando, el horario de la próxima semana.",
+          "alt": "La pantalla Hoy del gerente: faltan personas hoy, el próximo horario listo para revisar y publicar, y solicitudes pendientes."
+        },
+        {
+          "k": "Publicar",
+          "title": "Publica y mira quién no lo ha visto.",
+          "body": "A cada persona se le avisa qué cambió para ella, por correo y con un aviso al teléfono. Avisar a todos manda el horario completo otra vez.",
+          "alt": "Revisar y publicar: turnos, personas, horas y costo de mano de obra, nada urgente, y correo y avisos al teléfono marcados.",
+          "alt2": "“Avisar a todos”: mandar de nuevo el horario publicado a todo el equipo, por correo y aviso al teléfono."
+        },
+        {
+          "k": "Solicitudes",
+          "title": "Las solicitudes en un solo lugar.",
+          "body": "Cambios, turnos tomados, días libres y disponibilidad, aprobados con un toque.",
+          "alt": "Solicitudes para el gerente, en la versión en inglés de la app: tomar un turno abierto y un cambio, revisados por doble turno y tiempo extra, con Aprobar y Rechazar."
+        },
+        {
+          "k": "Ausencias",
+          "title": "Ausencias.",
+          "body": "“No puedo ir” te llega al momento, y puedes ofrecer el turno a quienes pueden trabajarlo.",
+          "alt": "“No puedo ir” en el próximo turno de un empleado, con un motivo y Avisar a mi gerente.",
+          "alt2": "Buscar reemplazo después de una ausencia: las mejores personas para el turno del viernes de Sam, cada una con Asignar.",
+          "cap": "Su teléfono",
+          "cap2": "Tu teléfono"
+        },
+        {
+          "k": "Para empezar",
+          "title": "Empieza con lo que ya tienes.",
+          "body": "Una foto de tu horario actual, filas pegadas de una hoja de cálculo o un archivo CSV. Lo revisas antes de que se guarde nada.",
+          "alt": "Configuración con una foto: los nombres y turnos leídos de la foto de un horario, para revisar antes de guardar.",
+          "alt2": "Importar el equipo desde filas pegadas de una hoja de cálculo: vista previa de tres personas antes de guardar."
+        },
+        {
+          "k": "Cada semana",
+          "title": "Horarios fijos.",
+          "body": "Los turnos que alguien trabaja cada semana se llenan solos.",
+          "alt": "El horario fijo de Maya: los turnos que trabaja cada semana."
+        },
+        {
+          "k": "Horas y pago",
+          "title": "Horas, costo de mano de obra y un resumen de pagos",
+          "body": "para descargar, y la opción de marcar entrada y salida.",
+          "alt": "El resumen de pagos del mes: tarifa, turnos, horas y pago de cada persona, con descarga en CSV."
+        }
+      ]
+    },
+    "swap": {
+      "label": "El cambio, de los dos lados",
+      "title": "Un cambio de turno sin el chat de grupo.",
+      "lead": "Cuatro pasos, como lo hace la app.",
+      "steps": [
+        {
+          "k": "Pedir cambio",
+          "body": "En su turno, tocan Pedir cambio."
+        },
+        {
+          "k": "Pedírselo a un compañero",
+          "body": "Eligen el turno que quieren a cambio y se lo piden a esa persona."
+        },
+        {
+          "k": "Acepta",
+          "body": "El compañero toca Aceptar, o lo rechaza."
+        },
+        {
+          "k": "Tú apruebas",
+          "body": "Tocas Aprobar, o lo rechazas con una nota."
+        }
+      ],
+      "end": "Se les avisa a las dos personas.",
+      "cap_staff": "Su teléfono",
+      "cap_mgr": "Tu teléfono",
+      "alt_staff": "Cambiar un turno: los compañeros que pueden tomarlo, cada uno con un botón para pedírselo.",
+      "alt_mgr": "Solicitudes para el gerente, en la versión en inglés de la app: tomar un turno abierto y un cambio, con Aprobar y Rechazar."
+    },
+    "staff": {
+      "label": "Para el equipo",
+      "title": "Su horario, en su teléfono.",
+      "points": [
+        "Su próximo turno y con quién les toca",
+        "Tomar un turno abierto",
+        "Cambiar o dejar un turno",
+        "Pedir días libres y marcar su disponibilidad",
+        "Avisos por correo y al teléfono, en inglés o en español"
+      ],
+      "join": "El equipo se une con tu código QR. Sin tienda de apps.",
+      "phones": [
+        {
+          "shot": "my-shifts",
+          "lang": "",
+          "cap": "Próximo turno",
+          "sub": "y con quién les toca",
+          "alt": "La pantalla de inicio de un empleado: su próximo turno, con quién trabaja y su semana."
+        },
+        {
+          "shot": "open-shifts",
+          "lang": "",
+          "cap": "Turnos abiertos",
+          "sub": "se toman con un toque",
+          "alt": "Turnos abiertos que un empleado puede tomar, cada uno con el pago estimado."
+        },
+        {
+          "shot": "schedule-staff",
+          "lang": "",
+          "cap": "La semana",
+          "sub": "los turnos de todos",
+          "alt": "El horario del equipo para la semana, día por día, en un teléfono."
+        },
+        {
+          "shot": "time-off",
+          "lang": "",
+          "cap": "Días libres",
+          "sub": "se piden desde el teléfono",
+          "alt": "Pedir días libres: primer y último día y un motivo."
+        },
+        {
+          "shot": "availability",
+          "lang": "",
+          "cap": "Disponibilidad",
+          "sub": "cuándo pueden trabajar",
+          "alt": "La disponibilidad de un empleado: horas preferidas entre semana, no disponible los fines de semana."
+        },
+        {
+          "shot": "join-qr",
+          "lang": "",
+          "cap": "Para unirse",
+          "sub": "con tu código QR",
+          "alt": "La página de bienvenida que abre un empleado nuevo con el código QR, para pedir unirse."
+        },
+        {
+          "shot": "my-shifts",
+          "lang": "en",
+          "cap": "In English",
+          "sub": "cada persona elige",
+          "alt": "La misma pantalla de inicio en inglés: el próximo turno, con quién trabaja y la semana."
+        }
+      ]
+    },
+    "screens": {
+      "label": "En cualquier pantalla",
+      "title": "Teléfono, tableta y computadora, en cualquier navegador.",
+      "body": "El equipo lo agrega a su pantalla de inicio y recibe avisos al teléfono como con cualquier app.",
+      "alt_desk": "La semana en el creador de horarios en una computadora.",
+      "alt_phone": "La pantalla Hoy del gerente en un teléfono."
+    },
+    "proof": {
+      "label": "Dónde empezó",
+      "title": "Spiros funciona con Rotaserie.",
+      "body": "Rotaserie se hizo en Spiros, un restaurante en Shoreline, Washington, para devolverle su tiempo a una gerente muy ocupada. Lleva el horario de Spiros cada semana: armar la semana, los cambios, los días libres y publicar para todo el equipo.",
+      "story": "Lee la historia",
+      "visit": "Visita Spiros",
+      "alt": "Spiro's Pizza &amp; Pasta en la avenida Aurora, en Shoreline, con un arcoíris detrás del letrero",
+      "cap": "Spiro's Pizza &amp; Pasta · Shoreline, Washington"
+    },
+    "pricing": {
+      "label": "Precio"
+    },
+    "faq": {
+      "label": "Preguntas",
+      "title": "Lo primero que preguntan los dueños.",
+      "items": [
+        {
+          "q": "¿Tengo que escribir el horario?",
+          "a": "No. Escribir es la forma más rápida, pero también puedes arrastrar turnos en la semana, tocar tus horarios de turno habituales, copiar la semana pasada o usar un horario fijo que se llena solo."
+        },
+        {
+          "q": "¿Una IA hace mi horario?",
+          "a": "No. Escribir turnos sigue reglas fijas. El único paso con IA es leer una foto al configurar, si tú lo eliges."
+        },
+        {
+          "q": "¿Mi equipo tiene que descargar una app?",
+          "a": "No. Rotaserie funciona en el navegador de cualquier teléfono. El equipo lo agrega a su pantalla de inicio y recibe avisos al teléfono como con cualquier app."
+        },
+        {
+          "q": "¿Es solo para restaurantes?",
+          "a": "No. Se hizo en un restaurante, y está listo para cafés, tiendas, salones, estudios de ejercicio y cuadrillas de servicio, cada uno con sus propios puestos y horarios de turno para empezar."
+        },
+        {
+          "q": "¿Está en español?",
+          "a": "Sí. Cada persona elige inglés o español para sus propias pantallas, correos y avisos al teléfono."
+        },
+        {
+          "q": "¿Reemplaza mi punto de venta o mi reloj de entrada?",
+          "a": "No. Sigue registrando entradas donde lo haces ahora. Rotaserie se encarga del horario, los cambios, los días libres y los mensajes alrededor, y tiene su propio registro de entrada y salida si lo quieres."
+        },
+        {
+          "q": "¿Qué no hace?",
+          "a": "No hace la nómina, no procesa el pago de propinas, no se conecta a un sistema de punto de venta ni rastrea al equipo por GPS."
+        },
+        {
+          "q": "¿Puedo sacar mis datos?",
+          "a": "Sí. Puedes descargar todos tus datos cuando quieras."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Un precio por local, con todas las funciones incluidas. Pide acceso anticipado y te lo explicamos."
+        }
+      ]
+    },
+    "start": {
+      "label": "Acceso anticipado",
+      "title": "Listo: la próxima semana ya está.",
+      "lead": "Rotaserie está en acceso anticipado. Cuéntanos de tu negocio y lo configuramos contigo; tu equipo puede estar usándolo el mismo día.",
+      "business": "Tu negocio",
+      "business_ph": "p. ej. Café Calle Lila",
+      "kind": "Tipo de negocio",
+      "kinds": [
+        "Restaurante",
+        "Café o panadería",
+        "Tienda",
+        "Salón",
+        "Estudio de ejercicio",
+        "Servicio a domicilio",
+        "Otro"
+      ],
+      "subject": "Acceso anticipado a Rotaserie",
+      "note": "Esto abre un correo para Robert, el fundador. O escribe a",
+      "mail_body": "Hola Robert:\n\nQuiero acceso anticipado a Rotaserie.\n\nNegocio: {biz}\nTipo de negocio: {kind}\nCuántas personas trabajan ahí: \nCómo hacemos el horario hoy: \n\n¡Gracias!",
+      "mail_subject": "Acceso anticipado a Rotaserie: {biz}"
+    },
+    "week": {
+      "label": "Prueba la semana",
+      "title": "Mueve un turno. Mira lo que te dice.",
+      "manager": "Gerente",
+      "employee": "Empleado",
+      "view_aria": "De quién es la vista",
+      "note": "Una semana simplificada. El Creador real hace más.",
+      "whose": "El teléfono de",
+      "phone_note": "Su teléfono muestra la misma semana. Agrega o mueve un turno y aquí también cambia.",
+      "week_label": "Harbor Street Bistro · 16 – 22 nov"
+    }
+  },
+  "langbar": {
+    "text": "",
+    "link": "",
+    "close": "Cerrar"
+  },
+  "pages": {
+    "index": {
+      "title": "Rotaserie · Escribe la semana, recibe el horario",
+      "description": "Horarios para restaurantes y equipos pequeños, hecho en un restaurante de verdad. Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Te avisa de los problemas mientras armas el horario, y la semana publicada le llega a cada persona por correo y aviso al teléfono.",
+      "og_title": "Rotaserie · Escribe la semana, recibe el horario",
+      "og_description": "Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Horarios para restaurantes y equipos pequeños, en inglés y en español."
+    },
+    "about": {
+      "title": "Quiénes somos · Rotaserie, hecho en Spiros",
+      "description": "Robert Banchero hizo Rotaserie en Spiros, un restaurante en Shoreline, Washington, para devolverle su tiempo a su mamá. Ahora está listo para ayudar a otros negocios pequeños a hacer lo mismo.",
+      "og_title": "Quiénes somos · Rotaserie, hecho en Spiros",
+      "og_description": "Horarios hechos en un restaurante de verdad, para devolverle su tiempo a una gerente muy ocupada.",
+      "a": {
+        "label": "Quiénes somos",
+        "title_a": "Hecho en un restaurante,",
+        "title_b": "para equipos pequeños.",
+        "lead": "Rotaserie es un sistema de horarios hecho por alguien que creció trabajando en el piso, para quien arma el horario de la próxima semana en el teléfono, entre una hora pico y otra, en un restaurante, café, tienda, salón o estudio.",
+        "founder_label": "Conoce al fundador",
+        "founder_title": "Por qué hice Rotaserie.",
+        "founder_alt": "El fundador con tres integrantes del equipo de cocina de Spiro's",
+        "founder_role": "Fundador, TICO VENTURES LLC",
+        "founder_mail": "Escríbele a Robert",
+        "story": [
+          "Crecí trabajando en Spiros. Vi cuánto tiempo de mi mamá se iba en el horario: armar la semana, estar al tanto de los cambios y las solicitudes de días libres, y arreglarlo todo otra vez cuando cambiaban los planes.",
+          "Quise devolverle ese tiempo, así que hice Rotaserie. Ahora el horario de Spiros se arma y se comparte desde un solo lugar, y todos lo tienen en su teléfono.",
+          "Muchos restaurantes y negocios pequeños pierden esas mismas horas cada semana. Quiero ayudarlos como ayudó a mi mamá."
+        ],
+        "values": [
+          {
+            "k": "Primero, sencillo",
+            "body": "Si hace falta una capacitación, es demasiado complicado. El equipo escanea un código QR, entra una vez y listo."
+          },
+          {
+            "k": "Lo configuramos contigo",
+            "body": "Te ayudamos a cargar tu equipo, los puestos y los turnos habituales, para que empieces el mismo día."
+          },
+          {
+            "k": "Un precio justo",
+            "body": "Un precio por local con todo incluido, y tus datos siempre son tuyos para llevártelos."
+          }
+        ],
+        "clients_label": "Clientes",
+        "clients_title": "Cada semana en Spiros.",
+        "clients_lead": "Spiros, un restaurante en Shoreline, Washington, es donde se hizo Rotaserie y donde se usa cada semana.",
+        "checks": [
+          "El horario de la semana se arma y se publica en Rotaserie",
+          "El equipo cambia turnos, toma los abiertos y pide días libres desde su teléfono",
+          "Los gerentes aprueban las solicitudes en un solo lugar, no en chats de grupo"
+        ],
+        "photo_cap": "Spiro's Pizza &amp; Pasta · Avenida Aurora, Shoreline",
+        "end_title_a": "Te devolvemos",
+        "end_title_b": "tu tiempo.",
+        "end_lead": "Cuéntanos de tu negocio y lo configuramos contigo.",
+        "end_more": "Mira cómo funciona"
+      }
+    },
+    "facts": {},
+    "terms": {},
+    "privacy": {}
+  },
+  "prev": "Atrás",
+  "next": "Más"
+}

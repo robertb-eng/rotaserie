@@ -248,7 +248,8 @@ button.tb-chip:hover{border-color:var(--fill-edge);background:var(--sel)}
 .point-ex{display:grid;gap:12px;align-content:start;min-width:0}
 .ex{background:var(--n-surface);border:1px solid var(--n-line-2);border-radius:var(--r-1);box-shadow:var(--sh-1);min-width:0}
 .ex-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 8px 8px 14px;min-height:48px;background:var(--n-sunk);border-bottom:1px solid var(--n-line);border-radius:var(--r-1) var(--r-1) 0 0}
-.ex-line code{flex:1 1 auto;font:600 var(--t-16)/1.4 var(--mono);min-width:0}
+.ex-typed{display:flex;align-items:baseline;gap:10px;flex:1 1 180px;min-width:0}
+.ex-line code{font:600 var(--t-16)/1.4 var(--mono);min-width:0}
 .ex-try{margin-left:auto}
 .ex-caret{color:var(--gold-500);font:700 var(--t-18)/1 var(--mono)}
 .ex-out{margin:0;padding:12px 14px 14px}
@@ -562,3 +563,6 @@ button.ph-btn.go{outline:2px solid var(--fill);outline-offset:3px}
   @keyframes fadein{from{opacity:0}to{opacity:1}}
 }
 @media print{.nav,.film,.start,.foot,.zoom{display:none}body{background:#fff}}
+/* without scripts the demos are pictures of a result: nothing that looks pressable and isn't */
+html:not(.js) .ttb-chips,html:not(.js) .ttb-acts,html:not(.js) .ex-try,html:not(.js) .week-emp-text,html:not(.js) .film-chapters,html:not(.js) .film-note .chip,html:not(.js) .film-play,html:not(.js) .theme-btn,html:not(.js) .rail-nav{display:none}
+html:not(.js) .ttb-text{pointer-events:none}
