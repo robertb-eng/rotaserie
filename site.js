@@ -36,10 +36,17 @@
     document.addEventListener('click', function (ev) { if (nav.classList.contains('open') && !nav.contains(ev.target)) setMenu(false); });
   }
 
-  // The language a visitor picked is remembered (the links work without this)
-  $$('[data-lang]').forEach(function (a) {
-    a.addEventListener('click', function () { try { localStorage.setItem('rs-lang', a.getAttribute('data-lang')); } catch (e) { /* storage off */ } });
-  });
+  // The language a visitor picked is remembered (the links work without this). A visitor whose browser is set to
+  // Spanish, and who hasn't picked, sees one small bar on English pages offering Spanish. Never a redirect.
+  var picked = null;
+  try { picked = localStorage.getItem('rs-lang'); } catch (e) { /* storage off */ }
+  var pick = function (l) { try { localStorage.setItem('rs-lang', l); } catch (e) { /* storage off */ } };
+  $$('[data-lang]').forEach(function (a) { a.addEventListener('click', function () { pick(a.getAttribute('data-lang')); }); });
+  var bar = $('[data-langbar]');
+  if (bar && !picked && /^es\b/i.test(navigator.language || '')) {
+    bar.hidden = false;
+    $('[data-langbar-close]', bar).addEventListener('click', function () { bar.hidden = true; pick('en'); });
+  }
 
   // Where-from code: a postcard, letter or email links to rotaserie.com/?from=pc-shoreline. The code is kept while the
   // visitor looks around (this tab only) and goes with them to signup (the app counts sign-ups by code), or into the
@@ -62,9 +69,9 @@
     ev.preventDefault();
     if (SIGNUP_URL) { location.href = SIGNUP_URL; return; }
     var biz = form.elements.business.value.trim(), kind = form.elements.kind.value;
-    var body = 'Hi Robert,\n\nI\'d like early access to Rotaserie.\n\nBusiness: ' + biz + '\nKind of business: ' + kind +
-      '\nHow many people work there: \nHow we schedule today: \n\nThanks!' + (FROM ? '\n\n(Code: ' + FROM + ')' : '');
-    location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Rotaserie early access: ' + biz) + '&body=' + encodeURIComponent(body);
+    var fill = function (t) { return t.replace('{biz}', biz).replace('{kind}', kind); };
+    var body = fill(form.getAttribute('data-body') || '') + (FROM ? '\n\n(Code: ' + FROM + ')' : '');
+    location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(fill(form.getAttribute('data-subject') || 'Rotaserie')) + '&body=' + encodeURIComponent(body);
   });
 
   // The film: nothing loads until Play. The file is picked for the screen (4K on very large ones, 720p on phones) and
@@ -84,6 +91,7 @@
     var start = function (at) {
       if (!loaded) {
         loaded = true;
+        video.muted = true;  // (the film has no sound; muted, a browser always lets it start)
         video.src = pickSource();
         video.controls = true;
         var tr = video.textTracks && video.textTracks[0];

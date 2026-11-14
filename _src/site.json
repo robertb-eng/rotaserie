@@ -10,11 +10,9 @@
   "film_len_iso": "PT1M32S",
   "email": "robert@rotaserie.com",
   "partials": {},
-  "film_suffix": "",
-  "film_ch": [
-    16,
-    37,
-    66
-  ],
-  "film_date": "2026-11-14"
+  "film_date": "2026-11-14",
+  "og_locale": {
+    "en": "en_US",
+    "es": "es_US"
+  }
 }

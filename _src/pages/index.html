@@ -8,7 +8,7 @@
 <!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <ol class="hero-days" aria-hidden="true"><li>Mon 16</li><li>Tue 17</li><li>Wed 18</li><li>Thu 19</li><li>Fri 20</li><li>Sat 21</li><li>Sun 22</li></ol>
+    <ol class="hero-days" aria-hidden="true">{{#each home.hero.days}}<li>{{this}}</li>{{/each}}</ol>
     <p class="label">{{home.hero.label}}</p>
     <h1 class="display">{{home.hero.title_a}} <em>{{home.hero.title_b}}</em></h1>
     <div class="hero-cols">
@@ -33,17 +33,17 @@
       <h2>{{home.film.title}}</h2>
     </div>
     <div class="film-frame" data-film-frame>
-      <video playsinline preload="none" poster="{{base}}img/film/poster{{film_suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{film_suffix}}">
-        <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{film_suffix}}.vtt">
+      <video playsinline preload="none" poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
+        <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{home.film.suffix}}.vtt">
       </video>
       <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
-      <noscript><a class="film-nojs" href="{{base}}img/film/film{{film_suffix}}-1080.h264.mp4">{{home.film.nojs}}</a></noscript>
+      <noscript><a class="film-nojs" href="{{base}}img/film/film{{home.film.suffix}}-1080.h264.mp4">{{home.film.nojs}}</a></noscript>
     </div>
     <div class="film-foot">
       <div class="film-chapters"><span class="label">{{home.film.chapters_label}}</span>
-        <button type="button" class="chip" data-film-seek="{{film_ch.0}}">{{home.film.chapters.0}}</button>
-        <button type="button" class="chip" data-film-seek="{{film_ch.1}}">{{home.film.chapters.1}}</button>
-        <button type="button" class="chip" data-film-seek="{{film_ch.2}}">{{home.film.chapters.2}}</button>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.0}}">{{home.film.chapters.0}}</button>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.1}}">{{home.film.chapters.1}}</button>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.2}}">{{home.film.chapters.2}}</button>
       </div>
       <p class="film-note">{{home.film.note}} <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>{{home.film.full}}</button></p>
     </div>
@@ -187,7 +187,7 @@
     <div>
       <header class="sec-head"><p class="label"><span class="idx">06</span>{{home.proof.label}}</p><h2>{{home.proof.title}}</h2></header>
       <p class="lead">{{home.proof.body}}</p>
-      <div class="actions"><a class="btn" href="about.html">{{home.proof.story}}</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+      <div class="actions"><a class="btn" href="{{to.about}}">{{home.proof.story}}</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
     </div>
     <figure class="photo">
       <img src="{{base}}img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="{{home.proof.alt}}" data-zoom>
@@ -216,7 +216,7 @@
       <p class="lead">{{home.start.lead}}</p>
     </div>
     <div class="pane start-form">
-      <form data-early action="mailto:{{email}}" method="get">
+      <form data-early action="mailto:{{email}}" method="get" data-body="{{mail_body_attr}}" data-subject="{{home.start.mail_subject}}">
         <input type="hidden" name="subject" value="{{home.start.subject}}">
         <label>{{home.start.business}}<input name="business" autocomplete="organization" placeholder="{{home.start.business_ph}}" required></label>
         <label>{{home.start.kind}}

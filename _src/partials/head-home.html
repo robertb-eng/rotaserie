@@ -1,6 +1,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://rotaserie.com/#org","name":"Rotaserie","legalName":"TICO VENTURES LLC","url":"https://rotaserie.com/","logo":"https://rotaserie.com/img/apple-touch-icon.png","email":"{{email}}","address":{"@type":"PostalAddress","addressLocality":"Shoreline","addressRegion":"WA","addressCountry":"US"}},
 {"@type":"SoftwareApplication","name":"Rotaserie","url":"{{url}}","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","inLanguage":["en","es"],"description":{{json description}},"image":"https://rotaserie.com/img/share-{{lang}}.png","publisher":{"@id":"https://rotaserie.com/#org"}},
-{"@type":"VideoObject","name":{{json home.film.title}},"description":{{json home.film.aria}},"thumbnailUrl":"https://rotaserie.com/img/film/poster{{film_suffix}}-night.jpg","uploadDate":"{{film_date}}","duration":"{{film_len_iso}}","contentUrl":"https://rotaserie.com/img/film/film{{film_suffix}}-1080.h264.mp4"},
+{"@type":"VideoObject","name":{{json home.film.title}},"description":{{json home.film.aria}},"thumbnailUrl":"https://rotaserie.com/img/film/poster{{home.film.suffix}}-night.jpg","uploadDate":"{{film_date}}","duration":"{{film_len_iso}}","contentUrl":"https://rotaserie.com/img/film/film{{home.film.suffix}}-1080.h264.mp4"},
 {"@type":"FAQPage","mainEntity":[{{#each home.faq.items}}{{#unless @first}},{{/unless}}{"@type":"Question","name":{{json q}},"acceptedAnswer":{"@type":"Answer","text":{{json a}}}}{{/each}}]}
 ]}</script>

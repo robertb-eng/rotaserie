@@ -280,7 +280,11 @@ def build():
     first = langs[0]
     strings = {lg: load_json(os.path.join(SRC, f"strings.{lg}.json")) for lg in langs}
     for lg in langs[1:]:
-        bad = same_shape(strings[first], strings[lg])
+        # (a page with no words in this language isn't built in it: its links go to the first language's page)
+        want = dict(strings[first], pages={k: v for k, v in strings[first].get("pages", {}).items()
+                                           if strings[lg].get("pages", {}).get(k)})
+        have = dict(strings[lg], pages={k: v for k, v in strings[lg].get("pages", {}).items() if v})
+        bad = same_shape(want, have)
         if bad:
             fail(f"strings.{lg}.json doesn't match strings.{first}.json at: " + ", ".join(bad[:12]))
     gen_dir = os.path.join(SRC, "generated")
@@ -309,13 +313,24 @@ def build():
             ctx.update({"lang": lg, "base": "../" if prefix else "", "gen": gen, "page": name, "file": file,
                         "url": public_url(out), "is_home": name == "index", "multi_lang": len(langs) > 1,
                         "home_href": "" if name == "index" else "index.html"})
+            ctx.update({"has_es": False, "is_es": False, "href_es": "", "url_es": ""})  # (until Spanish is built)
             for other in langs:
                 there = ("" if other == first else other + "/") + file
                 has = other == first or bool(strings[other].get("pages", {}).get(name))
                 ctx["has_" + other] = has
                 ctx["url_" + other] = public_url(there if has else ("" if other == first else other + "/") + "index.html")
-                ctx["href_" + other] = ctx["base"] + (there if has else ("" if other == first else other + "/") + "index.html")
+                ctx["href_" + other] = file if other == lg else ctx["base"] + (there if has else ("" if other == first else other + "/") + "index.html")
                 ctx["is_" + other] = other == lg
+            # {{to.about}}: the page in this language if it is built in it, else the first language's
+            ctx["to"] = {}
+            for other_fn in sorted(os.listdir(os.path.join(SRC, "pages"))):
+                if other_fn.endswith(".html"):
+                    nm = other_fn[:-5]
+                    here = lg == first or bool(strings[lg].get("pages", {}).get(nm))
+                    ctx["to"][nm] = other_fn if here else ctx["base"] + other_fn
+            ctx["mail_body_attr"] = html.escape(strings[lg]["home"]["start"].get("mail_body", ""), quote=True).replace("\n", "&#10;")
+            ctx["locale"] = site.get("og_locale", {}).get(lg, lg)
+            ctx["other_locales"] = [site.get("og_locale", {}).get(o, o) for o in langs if o != lg and ctx["has_" + o]]
             ctx["partials"] = {**site.get("partials", {}), **meta.get("partials", {})}
             ctx["main"] = render(main, ctx, f"pages/{fn}")
             files[out] = render(layout, ctx, f"layout for {fn}")

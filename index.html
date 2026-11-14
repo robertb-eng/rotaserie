@@ -9,6 +9,8 @@
 <meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://rotaserie.com/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
 <meta property="og:site_name" content="Rotaserie">
 <meta property="og:url" content="https://rotaserie.com/">
 <meta property="og:title" content="Rotaserie · Type the week, get the schedule">
@@ -49,7 +51,7 @@
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="#start" data-start>Get early access</a>
+      <a class="btn btn-sm" href="#start" data-start><span class="cta-long">Get early access</span><span class="cta-short" aria-hidden="true">Get access</span></a>
       <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
       </button>
@@ -118,9 +120,9 @@ lena m-th 10-4</textarea>
     </div>
     <div class="film-foot">
       <div class="film-chapters"><span class="label">Jump to</span>
-        <button type="button" class="chip" data-film-seek="16">Type the week</button>
-        <button type="button" class="chip" data-film-seek="37">Publish</button>
-        <button type="button" class="chip" data-film-seek="66">The 6 AM call-out</button>
+        <button type="button" class="chip" data-film-seek="18.1">Type the week</button>
+        <button type="button" class="chip" data-film-seek="34.85">Publish</button>
+        <button type="button" class="chip" data-film-seek="64.38">The 6 AM call-out</button>
       </div>
       <p class="film-note">No sound. Captions are on screen. <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button></p>
     </div>
@@ -328,7 +330,7 @@ lena m-th 10-4</textarea>
       <p class="lead">Rotaserie is in early access. Tell us about your business and we'll set it up with you; your team can be on it the same day.</p>
     </div>
     <div class="pane start-form">
-      <form data-early action="mailto:robert@rotaserie.com" method="get">
+      <form data-early action="mailto:robert@rotaserie.com" method="get" data-body="Hi Robert,&#10;&#10;I&#x27;d like early access to Rotaserie.&#10;&#10;Business: {biz}&#10;Kind of business: {kind}&#10;How many people work there: &#10;How we schedule today: &#10;&#10;Thanks!" data-subject="Rotaserie early access: {biz}">
         <input type="hidden" name="subject" value="Rotaserie early access">
         <label>Your business<input name="business" autocomplete="organization" placeholder="e.g. Lilac Street Café" required></label>
         <label>Kind of business

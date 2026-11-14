@@ -63,9 +63,12 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .chip:active{transform:translateY(1px)}
 .chip svg{width:14px;height:14px}
 @media (min-width:1024px) and (pointer:fine){.chip{min-height:32px}}
-.icon-btn{display:inline-grid;place-items:center;width:44px;height:44px;padding:0;background:transparent;border:1px solid transparent;border-radius:var(--r-1);color:var(--ink);cursor:pointer}
+.icon-btn{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;padding:0;background:transparent;border:1px solid transparent;border-radius:var(--r-1);color:var(--ink);cursor:pointer}
 .icon-btn:hover{border-color:var(--n-line-2);background:var(--n-surface)}
 .icon-btn svg{width:20px;height:20px}
+
+.langbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:4px var(--gutter);background:var(--sel);border-bottom:1px solid var(--n-line-2);font-size:var(--t-14)}
+.langbar a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 
 /* ---------- top bar: the red line, then glass ---------- */
 .nav{position:sticky;top:0;z-index:50;border-top:3px solid var(--topline);background:var(--glass);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border-bottom:1px solid transparent;transition:border-color var(--dur-state) var(--ease-out)}
@@ -82,7 +85,7 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 :root[data-theme=dark] .theme-btn .moon{display:block}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .theme-btn .sun{display:none}:root:not([data-theme=light]) .theme-btn .moon{display:block}}
 .lang{display:inline-flex;border:1px solid var(--n-line-2);border-radius:var(--r-1);overflow:hidden}
-.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:42px;padding:0 10px;color:var(--ink);font:600 var(--t-12)/1 var(--mono);letter-spacing:.06em;text-decoration:none}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 10px;color:var(--ink);font:600 var(--t-12)/1 var(--mono);letter-spacing:.06em;text-decoration:none}
 .lang a[aria-current]{background:var(--ink);color:var(--n-bg)}
 .menu-btn{display:none}
 .menu-btn path{transition:transform var(--dur-state) var(--ease-out),opacity var(--dur-out) var(--ease-out);transform-origin:12px 12px}
@@ -99,8 +102,9 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
   html:not(.js) .nav-in{flex-wrap:wrap}
   html:not(.js) .nav-links{order:3;width:100%;margin:0;overflow-x:auto}
 }
-@media (max-width:479px){.logo{font-size:var(--t-18);gap:8px}.nav .theme-btn{display:none}.nav .btn-sm{padding:0 12px}}
-@media (max-width:379px){.nav .lang a{min-width:34px;padding:0 6px}.nav .btn-sm{padding:0 10px}}
+.cta-short{display:none}
+@media (max-width:479px){.logo{font-size:var(--t-18);gap:8px}.nav .theme-btn{display:none}.nav .btn-sm{padding:0 10px}.nav .lang~.btn .cta-long{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.nav .lang~.btn .cta-short{display:inline}.nav-in{gap:6px}.nav-cta{gap:6px}}
+@media (max-width:379px){.nav .logo{font-size:0;gap:0;min-width:44px;justify-content:center}}
 
 /* ---------- hero: the headline on the schedule's lines ---------- */
 .hero,.start,.page-hero{position:relative;overflow:hidden}
@@ -120,6 +124,7 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .proof li{display:flex;align-items:center;gap:8px}
 .proof li::before{content:"";width:6px;height:6px;background:var(--fill);border-radius:var(--r-1);flex:none}
 @media (max-width:759px){.hero-days{display:none}.hero .label{margin-top:var(--sp-3)}.hero-in::before{-webkit-mask-image:linear-gradient(#000,transparent 38%);mask-image:linear-gradient(#000,transparent 38%)}.hero::before{-webkit-mask-image:linear-gradient(#000,transparent 38%);mask-image:linear-gradient(#000,transparent 38%)}.hero-copy .actions .btn{flex:1 1 auto}}
+@media (max-width:1023px){.hero-cols{gap:var(--sp-3)}.hero-copy{display:contents}.hero-copy>*{order:1}.hero-copy .actions,.hero-copy .proof{margin-top:0}.hero .ttb{order:2}.hero-copy .proof{order:3}}
 @media (min-width:1024px){
   .hero .display{max-width:none}
   .hero-cols{grid-template-columns:minmax(0,4fr) minmax(0,8fr);margin-top:var(--sp-3)}
@@ -146,7 +151,7 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .ttb-text{display:block;width:100%;padding:10px 12px;background:var(--n-sunk);border:1px solid var(--n-line-2);border-radius:var(--r-1);font:500 var(--t-16)/1.6 var(--mono);resize:none}
 .ttb-text:focus{outline:2px solid var(--fill);outline-offset:1px;border-color:var(--fill-edge)}
 .ttb-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-@media (max-width:699px){.ttb-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:0;padding-right:16px}.ttb-chips::-webkit-scrollbar{display:none}.ttb-chips .label{width:auto;flex:none;margin-right:4px}.ttb-chips .chip{flex:none;white-space:nowrap}}
+@media (max-width:699px){.ttb .ttb-chips .label{width:auto}.ttb-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:0;padding-right:16px}.ttb-chips::-webkit-scrollbar{display:none}.ttb-chips .label{width:auto;flex:none;margin-right:4px}.ttb-chips .chip{flex:none;white-space:nowrap}}
 .ttb-chips .label{width:100%}
 .ttb-acts{display:flex;gap:8px;margin-top:14px}
 .ttb-add{flex:1}
@@ -242,8 +247,9 @@ button.tb-chip:hover{border-color:var(--fill-edge);background:var(--sel)}
 .point-text p{font-size:var(--t-18);color:var(--muted)}
 .point-ex{display:grid;gap:12px;align-content:start;min-width:0}
 .ex{background:var(--n-surface);border:1px solid var(--n-line-2);border-radius:var(--r-1);box-shadow:var(--sh-1);min-width:0}
-.ex-line{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 14px;min-height:48px;background:var(--n-sunk);border-bottom:1px solid var(--n-line);border-radius:var(--r-1) var(--r-1) 0 0}
-.ex-line code{flex:1;font:600 var(--t-16)/1.4 var(--mono);min-width:0}
+.ex-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 8px 8px 14px;min-height:48px;background:var(--n-sunk);border-bottom:1px solid var(--n-line);border-radius:var(--r-1) var(--r-1) 0 0}
+.ex-line code{flex:1 1 auto;font:600 var(--t-16)/1.4 var(--mono);min-width:0}
+.ex-try{margin-left:auto}
 .ex-caret{color:var(--gold-500);font:700 var(--t-18)/1 var(--mono)}
 .ex-out{margin:0;padding:12px 14px 14px}
 .ex-out .tb-read{display:none}

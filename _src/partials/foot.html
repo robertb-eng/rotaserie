@@ -1,9 +1,9 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <div class="foot-brand">
-      <a class="logo" href="index.html"><img src="{{base}}img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
+      <a class="logo" href="{{to.index}}"><img src="{{base}}img/logo.svg" alt="" width="28" height="28">Rotaserie</a>
       <p>{{foot.line}}</p>
-      {{#if multi_lang}}<div class="lang" role="group" aria-label="{{nav.lang_aria}}"><a href="{{href_en}}" lang="en" hreflang="en"{{#if is_en}} aria-current="true"{{/if}} data-lang="en">English</a><a href="{{href_es}}" lang="es" hreflang="es"{{#if is_es}} aria-current="true"{{/if}} data-lang="es">Español</a></div>{{/if}}
+      {{#if has_es}}<div class="lang" role="group" aria-label="{{nav.lang_aria}}"><a href="{{href_en}}" lang="en" hreflang="en"{{#if is_en}} aria-current="true"{{/if}} data-lang="en">English</a><a href="{{href_es}}" lang="es" hreflang="es"{{#if is_es}} aria-current="true"{{/if}} data-lang="es">Español</a></div>{{/if}}
     </div>
     <nav class="foot-col" aria-label="{{foot.product}}">
       <p class="label">{{foot.product}}</p>
@@ -15,15 +15,15 @@
     </nav>
     <nav class="foot-col" aria-label="{{foot.company}}">
       <p class="label">{{foot.company}}</p>
-      <a href="about.html">{{foot.about}}</a>
+      <a href="{{to.about}}">{{foot.about}}</a>
       <a href="https://ilovespiros.com/" target="_blank" rel="noopener">{{foot.spiros}}</a>
       <a href="mailto:{{email}}?subject=Rotaserie">{{foot.contact}}</a>
     </nav>
     <nav class="foot-col" aria-label="{{foot.legal}}">
       <p class="label">{{foot.legal}}</p>
-      <a href="facts.html">{{foot.facts}}</a>
-      <a href="terms.html">{{foot.terms}}</a>
-      <a href="privacy.html">{{foot.privacy}}</a>
+      <a href="{{to.facts}}">{{foot.facts}}</a>
+      <a href="{{to.terms}}">{{foot.terms}}</a>
+      <a href="{{to.privacy}}">{{foot.privacy}}</a>
     </nav>
   </div>
   <div class="wrap foot-end"><p>© <span data-year>2026</span> {{foot.copy}}</p></div>

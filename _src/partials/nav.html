@@ -1,21 +1,21 @@
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="index.html" aria-label="{{nav.home_aria}}"><img src="{{base}}img/logo.svg" alt="" width="32" height="32">Rotaserie</a>
+    <a class="logo" href="{{to.index}}" aria-label="{{nav.home_aria}}"><img src="{{base}}img/logo.svg" alt="" width="32" height="32">Rotaserie</a>
     <nav class="nav-links" id="nav-links" aria-label="{{nav.aria}}">
       <a href="{{home_href}}#type">{{nav.type}}</a>
       <a href="{{home_href}}#owners">{{nav.owners}}</a>
       <a href="{{home_href}}#staff">{{nav.staff}}</a>
       {{#if pricing}}<a href="{{home_href}}#pricing">{{nav.pricing}}</a>
       {{/if}}<a href="{{home_href}}#faq">{{nav.faq}}</a>
-      <a href="about.html">{{nav.about}}</a>
+      <a href="{{to.about}}">{{nav.about}}</a>
     </nav>
     <div class="nav-cta">
-      {{#if multi_lang}}<div class="lang" role="group" aria-label="{{nav.lang_aria}}"><a href="{{href_en}}" lang="en" hreflang="en"{{#if is_en}} aria-current="true"{{/if}} data-lang="en">EN</a><a href="{{href_es}}" lang="es" hreflang="es"{{#if is_es}} aria-current="true"{{/if}} data-lang="es">ES</a></div>
+      {{#if has_es}}<div class="lang" role="group" aria-label="{{nav.lang_aria}}"><a href="{{href_en}}" lang="en" hreflang="en"{{#if is_en}} aria-current="true"{{/if}} data-lang="en">EN</a><a href="{{href_es}}" lang="es" hreflang="es"{{#if is_es}} aria-current="true"{{/if}} data-lang="es">ES</a></div>
       {{/if}}<button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="{{nav.theme}}">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <a class="btn btn-sm" href="{{home_href}}#start" data-start>{{cta}}</a>
+      <a class="btn btn-sm" href="{{home_href}}#start" data-start><span class="cta-long">{{cta}}</span><span class="cta-short" aria-hidden="true">{{cta_short}}</span></a>
       <button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="{{nav.menu}}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path class="m1" d="M4 7h16"/><path class="m2" d="M4 12h16"/><path class="m3" d="M4 17h16"/></svg>
       </button>

@@ -47,7 +47,7 @@
     [/^Who is “(.*)”\?$/, '¿Quién es “$1”?'], [/^Ignore it$/, 'Ignorarlo'], [/^Just this week$/, 'Solo esta semana'],
     [/^not understood yet$/, 'todavía no lo entiendo'], [/^not understood$/, 'no lo entendí'],
     [/^a name that is also a word$/, 'un nombre que también es una palabra'],
-    [/^“(.*)” read as (.*)$/, '“$1” leído como $2'], [/^A line typed twice: read once$/, 'Una línea escrita dos veces: se leyó una vez'], [/^Noon$/, 'Mediodía'], [/^Midnight$/, 'Medianoche']
+    [/^“(.*)” read as (.*)$/, '“$1” leído como $2'], [/^A line typed twice: read once$/, 'Una línea escrita dos veces: leída una vez'], [/^Noon$/, 'Mediodía'], [/^Midnight$/, 'Medianoche']
   ];
   function tr(lang, s) {
     if (lang !== 'es' || !s) return s || '';
