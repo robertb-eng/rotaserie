@@ -80,6 +80,28 @@
 <section class="sec sec-alt" id="owners">
   <div class="wrap">
     <header class="sec-head"><p class="label"><span class="idx">02</span>{{home.owners.label}}</p><h2>{{home.owners.title_a}} <em>{{home.owners.title_b}}</em></h2></header>
+    <div class="pane week-demo" id="week" data-week data-lang="{{lang}}" data-live data-src="{{base}}demo/week.js" data-needs="state.js">
+      <div class="week-head">
+        <div><p class="label">{{home.week.label}}</p><h3>{{home.week.title}}</h3></div>
+        <div class="seg" role="group" aria-label="{{home.week.view_aria}}"><button type="button" data-week-view="manager" aria-pressed="true">{{home.week.manager}}</button><button type="button" data-week-view="employee" aria-pressed="false">{{home.week.employee}}</button></div>
+      </div>
+      <div class="week-pane" data-week-pane="manager">
+        <p class="label week-k"><span>{{home.week.week_label}}</span><span class="num" data-week-total>{{gen.week.total}}</span></p>
+        <div class="wk-wrap" data-week-grid>{{gen.week.grid}}</div>
+        <div class="week-warn" data-week-warn role="status" hidden></div>
+        <div class="week-bar" data-week-bar><span>{{home.week.note}}</span></div>
+        <p class="week-note">{{home.week.note}}</p>
+        <p class="sr" aria-live="polite" data-week-live></p>
+      </div>
+      <div class="week-pane week-emp" data-week-pane="employee">
+        <div class="week-emp-text">
+          <label class="label" for="week-who">{{home.week.whose}}</label>
+          <select id="week-who" data-week-who>{{gen.week.people}}</select>
+          <p>{{home.week.phone_note}}</p>
+        </div>
+        <div class="phone week-phone" data-week-phone>{{gen.week.phone}}</div>
+      </div>
+    </div>
     <div class="tiles" data-rail tabindex="0" role="group" aria-label="{{home.owners.label}}">
       <article class="tile t-wide t-desk">
         <div class="tile-text"><p class="label"><span class="idx">01</span>{{home.owners.tiles.0.k}}</p><h3>{{home.owners.tiles.0.title}}</h3><p>{{home.owners.tiles.0.body}}</p></div>

@@ -7,7 +7,7 @@
 'use strict';
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const ROOT = path.dirname(__dirname), SRC = path.join(ROOT, '_src');
-const R = require(path.join(ROOT, 'demo', 'read.js')), ST = require(path.join(ROOT, 'demo', 'state.js'));
+const R = require(path.join(ROOT, 'demo', 'read.js')), ST = require(path.join(ROOT, 'demo', 'state.js')), WK = require(path.join(ROOT, 'demo', 'week.js'));
 
 // the vendored parser must be the recorded copy
 const ver = fs.readFileSync(path.join(ROOT, 'vendor', 'typebuild.version'), 'utf8');
@@ -35,9 +35,13 @@ for (const lang of site.langs || ['en']) {
       if (!R.known(s)) { console.error(`prerender: ${lang}: no translation for “${s}” (from “${c}”)`); process.exit(1); }
     }
   }
-  const file = path.join(SRC, 'generated', `ttb.${lang}.json`), text = JSON.stringify(out, null, 1) + '\n';
-  if (process.argv.includes('--check')) { if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== text) stale.push(path.relative(ROOT, file)); }
-  else { fs.mkdirSync(path.dirname(file), {recursive: true}); fs.writeFileSync(file, text); console.log('wrote', path.relative(ROOT, file)); }
+  const wk = {grid: WK.gridHTML(lang, ST.fresh(), {}), total: WK.totalText(lang, ST.fresh()), phone: WK.phoneHTML(lang, ST.fresh(), ST.people[0].id),
+              people: ST.people.map((p) => `<option value="${p.id}">${p.name}</option>`).join('')};
+  for (const [name, data] of [['ttb', out], ['week', wk]]) {
+    const file = path.join(SRC, 'generated', `${name}.${lang}.json`), text = JSON.stringify(data, null, 1) + '\n';
+    if (process.argv.includes('--check')) { if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== text) stale.push(path.relative(ROOT, file)); }
+    else { fs.mkdirSync(path.dirname(file), {recursive: true}); fs.writeFileSync(file, text); console.log('wrote', path.relative(ROOT, file)); }
+  }
 }
 if (stale.length) { console.error('prerender: out of date (run node _build/prerender.js):', stale.join(', ')); process.exit(1); }
 if (process.argv.includes('--check')) console.log('prerender: up to date');
