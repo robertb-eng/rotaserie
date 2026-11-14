@@ -1,0 +1,36 @@
+# Rotaserie
+
+> Horarios para restaurantes y cafés independientes (primero en el estado de Washington), en inglés y en español.
+> Arma la próxima semana, mándala al teléfono de cada persona y atiende cambios, días libres y ausencias. Hecho en
+> Shoreline, Washington, por TICO VENTURES LLC. Los datos revisados, línea por línea, están en inglés en la
+> [página de datos](https://rotaserie.com/facts.html); este archivo es su traducción.
+
+## Qué hace
+- Escribir turnos: escribe la semana con palabras sencillas, en inglés o en español, y se convierte en un horario que revisas antes de guardar.
+- Configuración con una foto del horario actual: se lee una vez; el gerente lo revisa antes de que se guarde nada.
+- El equipo se une con un código QR y elige su propia contraseña; funciona en el navegador de cualquier teléfono, sin tienda de apps.
+- Cada pantalla y cada correo en inglés o en español, según elija cada persona.
+- Al publicar, a cada persona se le avisa qué cambió para ella, y se ve quién no ha visto el horario nuevo.
+- Horas de silencio para los negocios nuevos (de 10 pm a 7 am), salvo cambios urgentes en turnos que empiezan pronto.
+- "No puedo ir" desde el teléfono del empleado; el gerente puede ofrecer el turno a quienes pueden trabajarlo.
+- Cambios, turnos tomados, días libres y disponibilidad.
+- Revisa las reglas de Washington mientras armas el horario: descansos para comer, descanso entre turnos, tiempo extra, horas de menores, salario mínimo (son ayudas, no asesoría legal).
+- Horas y costo de mano de obra para el dueño, un resumen de pagos para descargar y la opción de marcar entrada y salida.
+
+## Qué no hace
+- No hace nómina, no paga propinas ni se conecta a un punto de venta. No rastrea por GPS.
+- Ninguna IA arma el horario; el único paso con IA es leer una foto al configurar, si el gerente lo elige.
+- Las apps de tienda para iPhone y Android todavía no están disponibles.
+
+## Precio
+- Un precio por local, personal ilimitado, todas las funciones incluidas. Se cancela cuando quieras desde la app; los datos se pueden descargar cuando quieras.
+
+## Contacto
+- robert@rotaserie.com
+- [Términos (en inglés)](https://rotaserie.com/terms.html)
+- [Privacidad (en inglés)](https://rotaserie.com/privacy.html)
+
+## Páginas
+- [Inicio](https://rotaserie.com/es/): Escribir turnos para probar, la película, y lo que reciben dueños y equipo
+- [Quiénes somos](https://rotaserie.com/es/about.html): quién lo hizo y por qué
+- [Datos (en inglés)](https://rotaserie.com/facts.html): qué hace y qué no, una línea revisada cada una
