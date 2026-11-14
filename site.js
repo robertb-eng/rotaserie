@@ -100,7 +100,7 @@
         if (tr) tr.mode = 'hidden';  // (the film's words are in the picture; the track is there for anyone who turns it on)
         frame.classList.add('on');
       }
-      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p = video.play(); if (p && p.catch) p.catch(function () {}); };
+      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p = video.play(); if (p && p.catch) p.catch(function () { frame.classList.remove('on'); }); };  // (a phone that won't start it by itself, e.g. Low Power Mode: the big play button comes back for one tap)
       if (at != null && video.readyState < 1) video.addEventListener('loadedmetadata', go, {once: true}); else go();
       if (at != null && video.readyState < 1) video.load();
     };
@@ -190,7 +190,8 @@
     if (slow) return;
     var load = function () {
       var src = el.getAttribute('data-src'), need = (el.getAttribute('data-needs') || '').split(' ').filter(Boolean);
-      need.reduce(function (p, n) { return p.then(function () { return window.RotaLoad(src.replace(/[^/]*$/, n)); }); }, Promise.resolve())
+      var v = (src.split('?')[1] || '');
+      need.reduce(function (p, n) { return p.then(function () { return window.RotaLoad(src.split('?')[0].replace(/[^/]*$/, n) + (v ? '?' + v : '')); }); }, Promise.resolve())
         .then(function () { return window.RotaLoad(src); }).catch(function () { /* the static version stays */ });
     };
     if ('IntersectionObserver' in window) {

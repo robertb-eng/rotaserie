@@ -27,12 +27,14 @@ Template rules (small on purpose)
     {{#each key}}..{{/each}}    once per item of a list; inside, {{this}} is the item, {{@n}} its number from 1,
                                 {{@nn}} the same with two digits, and an item's own keys are read first
     {{json key}}                the value as JSON text, for structured data
+    {{v}}                       the fingerprint of the files the pages load (asset_version): put ?v={{v}} on each
     {{shot name alt=key sizes="..." class="..." eager nozoom}}
                                 the <picture> pair (light and dark) for the app screenshot img/app/<name>-<lang>-...,
                                 with every width found on disk and the real dimensions ({{shot =key ...}} reads the
                                 name from a value)
 A missing key or partial stops the build.
 """
+import hashlib
 import html
 import json
 import os
@@ -288,9 +290,26 @@ def public_url(out):
     return ORIGIN + ("" if out == "index.html" else out[:-10] if out.endswith("/index.html") else out)
 
 
+ASSETS = ("tokens.css", "styles.css", "site.js", "demo", "vendor")  # (what the pages load; images and films keep their names)
+
+
+def asset_version():
+    """A short fingerprint of everything in ASSETS: it changes whenever any of them changes."""
+    h = hashlib.sha256()
+    for a in ASSETS:
+        p = os.path.join(ROOT, a)
+        files = [p] if os.path.isfile(p) else sorted(os.path.join(d, f) for d, _, fs in os.walk(p) for f in fs)
+        for f in files:
+            h.update(os.path.relpath(f, ROOT).encode())
+            with open(f, "rb") as fh:
+                h.update(fh.read())
+    return h.hexdigest()[:10]
+
+
 def build():
     """Return {output path relative to ROOT: text}."""
     site = load_json(os.path.join(SRC, "site.json"))
+    site["v"] = asset_version()
     layout = read(os.path.join(SRC, "layout.html"))
     langs = site.get("langs", ["en"])
     first = langs[0]

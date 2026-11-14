@@ -11,7 +11,9 @@
   var grid = $('[data-ttb-grid]'), totals = $('[data-ttb-totals]'), live = $('[data-ttb-live]'), done = $('[data-ttb-done]');
   var first = box.value, R = null, ST = null, last = null, timer = null, ready = false, waiting = [];
 
+  var v = (pane.getAttribute('data-src').split('?')[1] || '');
   function script(src) {
+    src += v ? '?' + v : '';
     if (window.RotaLoad) return window.RotaLoad(base + src);  // (site.js: each file once, whoever asks)
     return new Promise(function (ok, fail) {
       var s = document.createElement('script'); s.src = base + src; s.onload = ok; s.onerror = fail; document.head.appendChild(s);
