@@ -41,7 +41,8 @@ WHAT'S HERE
   styles.css    the layout and components (light and dark, phone to wide screen)
   site.js       light/dark switch, the phone menu, the film player, early access form, screenshot zoom
   demo/         the demos: state.js (the made-up sample week they share), read.js (reads and draws typed lines),
-                ttb.js (the Type to Build pane), week.js (the week you can move shifts on, and the phone)
+                ttb.js (the Type to Build pane), week.js (the week you can move shifts on, and the phone),
+                swap.js (the swap, tapped through in its four steps)
   vendor/       typebuild.js: the app's own Type to Build parser, copied byte for byte (never edit it here);
                 typebuild.version records the app commit and the file's SHA-256
   fonts/        the app's fonts (Atkinson Hyperlegible Next and Mono), self-hosted. Licenses in fonts/OFL.txt

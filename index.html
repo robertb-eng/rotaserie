@@ -254,13 +254,19 @@ lena m-th 10-4</textarea>
 
 <!-- THE SWAP: the app's four steps, with both phones -->
 <section class="sec" id="swap">
-  <div class="wrap swap">
+  <div class="wrap swap" data-swap data-lang="en" data-live data-src="demo/swap.js">
     <div class="swap-text">
       <header class="sec-head"><p class="label"><span class="idx">03</span>The swap, both sides</p><h2>A swap without the group text.</h2><p class="lead">Four steps, as the app does it.</p></header>
       <ol class="steps">
-        <li><span class="idx">01</span><div><b>Request swap</b><p>On their shift, they tap Request swap.</p></div></li><li><span class="idx">02</span><div><b>Ask a coworker</b><p>They pick the shift they'd like in return and ask that coworker.</p></div></li><li><span class="idx">03</span><div><b>They accept</b><p>The coworker taps Accept, or declines.</p></div></li><li><span class="idx">04</span><div><b>You approve</b><p>You tap Approve, or decline with a note.</p></div></li>
+        <li data-swap-step><span class="idx">01</span><div><b>Request swap</b><p>On their shift, they tap Request swap.</p></div></li><li data-swap-step><span class="idx">02</span><div><b>Ask a coworker</b><p>They pick the shift they'd like in return and ask that coworker.</p></div></li><li data-swap-step><span class="idx">03</span><div><b>They accept</b><p>The coworker taps Accept, or declines.</p></div></li><li data-swap-step><span class="idx">04</span><div><b>You approve</b><p>You tap Approve, or decline with a note.</p></div></li>
       </ol>
       <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Both people are told.</p>
+    </div>
+    <div class="swap-live">
+      <p class="label" data-swap-who></p>
+      <div class="phone swap-phone" data-swap-stage></div>
+      <p class="swap-flash" data-swap-flash hidden></p>
+      <p class="sr" aria-live="polite" data-swap-live></p>
     </div>
     <div class="swap-art">
       <figure><div class="phone"><span class="shot"><picture class="lt"><source type="image/avif" srcset="img/app/swap-request-en-light-780.avif 780w, img/app/swap-request-en-light-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/swap-request-en-light-780.webp" srcset="img/app/swap-request-en-light-780.webp 780w, img/app/swap-request-en-light-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Trading a shift: the coworkers who can take it, each with a button to ask them." data-zoom="img/app/swap-request-en-light-1170.webp"></picture><picture class="dk"><source type="image/avif" srcset="img/app/swap-request-en-dark-780.avif 780w, img/app/swap-request-en-dark-1170.avif 1170w" sizes="(min-width:700px) 280px, 44vw"><img src="img/app/swap-request-en-dark-780.webp" srcset="img/app/swap-request-en-dark-780.webp 780w, img/app/swap-request-en-dark-1170.webp 1170w" sizes="(min-width:700px) 280px, 44vw" width="780" height="1688" loading="lazy" decoding="async" alt="Trading a shift: the coworkers who can take it, each with a button to ask them." data-zoom="img/app/swap-request-en-dark-1170.webp"></picture></span></div><figcaption class="label">Their phone</figcaption></figure>

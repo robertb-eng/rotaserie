@@ -154,13 +154,19 @@
 
 <!-- THE SWAP: the app's four steps, with both phones -->
 <section class="sec" id="swap">
-  <div class="wrap swap">
+  <div class="wrap swap" data-swap data-lang="{{lang}}" data-live data-src="{{base}}demo/swap.js">
     <div class="swap-text">
       <header class="sec-head"><p class="label"><span class="idx">03</span>{{home.swap.label}}</p><h2>{{home.swap.title}}</h2><p class="lead">{{home.swap.lead}}</p></header>
       <ol class="steps">
-        {{#each home.swap.steps}}<li><span class="idx">{{@nn}}</span><div><b>{{k}}</b><p>{{body}}</p></div></li>{{/each}}
+        {{#each home.swap.steps}}<li data-swap-step><span class="idx">{{@nn}}</span><div><b>{{k}}</b><p>{{body}}</p></div></li>{{/each}}
       </ol>
       <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{home.swap.end}}</p>
+    </div>
+    <div class="swap-live">
+      <p class="label" data-swap-who></p>
+      <div class="phone swap-phone" data-swap-stage></div>
+      <p class="swap-flash" data-swap-flash hidden></p>
+      <p class="sr" aria-live="polite" data-swap-live></p>
     </div>
     <div class="swap-art">
       <figure><div class="phone">{{shot swap-request alt=home.swap.alt_staff sizes="(min-width:700px) 280px, 44vw"}}</div><figcaption class="label">{{home.swap.cap_staff}}</figcaption></figure>
