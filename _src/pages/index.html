@@ -55,7 +55,7 @@
 <section class="sec sec-alt" id="owners">
   <div class="wrap">
     <header class="sec-head"><p class="label"><span class="idx">02</span>{{home.owners.label}}</p><h2>{{home.owners.title_a}} <em>{{home.owners.title_b}}</em></h2></header>
-    <div class="pane week-demo" id="week" data-week data-lang="{{lang}}" data-live data-src="{{base}}demo/week.js" data-needs="state.js">
+    <div class="pane week-demo" id="week" data-week data-lang="{{lang}}" data-live data-src="{{base}}demo/week.js?v={{v}}" data-needs="state.js">
       <div class="week-head">
         <div><p class="label">{{home.week.label}}</p><h3>{{home.week.title}}</h3></div>
         <div class="seg" role="group" aria-label="{{home.week.view_aria}}"><button type="button" data-week-view="manager" aria-pressed="true">{{home.week.manager}}</button><button type="button" data-week-view="employee" aria-pressed="false">{{home.week.employee}}</button></div>
@@ -129,7 +129,7 @@
 
 <!-- THE SWAP: the app's four steps, with both phones -->
 <section class="sec" id="swap">
-  <div class="wrap swap" data-swap data-lang="{{lang}}" data-live data-src="{{base}}demo/swap.js">
+  <div class="wrap swap" data-swap data-lang="{{lang}}" data-live data-src="{{base}}demo/swap.js?v={{v}}">
     <div class="swap-text">
       <header class="sec-head"><p class="label"><span class="idx">03</span>{{home.swap.label}}</p><h2>{{home.swap.title}}</h2><p class="lead">{{home.swap.lead}}</p></header>
       <ol class="steps">
