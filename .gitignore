@@ -10,3 +10,7 @@ Thumbs.db
 *:Zone.Identifier
 private/
 notes/
+
+# browser profiles that test tools can leave behind
+C:*
+lighthouse.*

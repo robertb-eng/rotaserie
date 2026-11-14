@@ -34,7 +34,16 @@
       [6, 5, '17:00', '23:00', 'cook'], [6, 6, '15:00', '21:00', 'cook']
     ]
   };
+  // approved time off, and open shifts someone could pick up
+  state.off = [{p: 4, d: 6}];
+  state.open = [{d: 2, a: '11:00', b: '17:00', r: 'cook'}, {d: 5, a: '11:00', b: '17:00', r: 'server'}, {d: 6, a: '16:00', b: '21:00', r: 'busser'}];
   state.fresh = function () { return state.start.map(function (s) { return {p: s[0], d: s[1], a: s[2], b: s[3], r: s[4]}; }); };
+  // the week as it stands on this page: every demo reads it and tells the others when it changes it
+  state.shifts = state.fresh();
+  state.last = null;  // (the person a shift was last typed for: the Employee view opens on their phone)
+  var subs = [];
+  state.on = function (f) { subs.push(f); };
+  state.set = function (week, from) { state.shifts = week; subs.forEach(function (f) { f(from); }); };
   if (typeof module !== 'undefined' && module.exports) module.exports = state;
   root.RotaDemoState = state;
 })(typeof window !== 'undefined' ? window : this);
