@@ -124,12 +124,10 @@
   "asks": []
  },
  "tom vie 5p-11p": {
-  "n": 1,
-  "rows": [
-   "Tom Becker|Fri|17:00-23:00|cook"
-  ],
+  "n": 0,
+  "rows": [],
   "waiting": 0,
-  "clash": 0,
+  "clash": 1,
   "other": false,
   "asks": []
  },
@@ -145,13 +143,12 @@
   "asks": []
  },
  "lena th 9-5 cook, tom f 5-11": {
-  "n": 2,
+  "n": 1,
   "rows": [
-   "Lena Park|Thu|09:00-17:00|cook",
-   "Tom Becker|Fri|17:00-23:00|cook"
+   "Lena Park|Thu|09:00-17:00|cook"
   ],
   "waiting": 0,
-  "clash": 0,
+  "clash": 1,
   "other": false,
   "asks": []
  },
