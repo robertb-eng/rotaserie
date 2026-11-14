@@ -35,7 +35,8 @@ WHAT'S HERE
                 every screen, Spiros, questions, early access
   about.html    about us, Spiros, and the founder's story
   facts.html    what Rotaserie does and doesn't do, one checked line each (the app's tools/check_facts.py reads it)
-  terms.html, privacy.html   exported from the app
+  terms.html, privacy.html   exported from the app (es/terms.html, es/privacy.html: Spanish summaries that link to them)
+  404.html      the page GitHub Pages shows for an address that doesn't exist (English, with a line to the Spanish home)
   tokens.css    the app's colours, type, shapes and motion, copied from the app's stylesheet: change a value there
                 and only there
   styles.css    the layout and components (light and dark, phone to wide screen)

@@ -460,8 +460,24 @@
       "og_description": "What Rotaserie does and doesn't do, in plain words."
     },
     "terms": {},
-    "privacy": {}
+    "privacy": {},
+    "404": {
+      "title": "Page not found · Rotaserie",
+      "description": "This page isn't on the schedule.",
+      "og_title": "Page not found · Rotaserie",
+      "og_description": ""
+    }
   },
   "prev": "Back",
-  "next": "More"
+  "next": "More",
+  "p404": {
+    "label": "404",
+    "title_a": "This page",
+    "title_b": "isn't on the schedule.",
+    "lead": "The address may have a typo, or the page has moved.",
+    "home": "Go to the home page",
+    "try": "Try Type to Build",
+    "es": "¿Buscabas la página en español?",
+    "es_link": "Ir al inicio en español"
+  }
 }

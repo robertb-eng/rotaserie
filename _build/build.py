@@ -15,7 +15,9 @@ Sources
     _src/partials/*.html      pieces the layout or a page pulls in with {{> name}}
     _src/pages/*.html         one file per page: a JSON block in <!--meta ... --> then the inside of <main>
     _src/pages/<lang>/*.html  a page written out in one language (the Facts page's translation); it must keep the
-                              same lists, line for line, as the page it translates
+                              same lists, line for line, as the page it translates, unless its meta says
+                              "summary": true (the Spanish Terms and Privacy, which summarise the English text)
+    "root_links": true        in a page's meta: every link starts at the site's root (the 404 page, served at any path)
 
 Template rules (small on purpose)
     {{key}}  {{a.b.c}}          a value, inserted as written (values are HTML). Looked up in the nearest {{#each}} item
@@ -320,7 +322,7 @@ def build():
             if own:
                 base_main = main
                 meta, main = load_page(name, lg)
-                if list_shape(main) != list_shape(base_main):
+                if not meta.get("summary") and list_shape(main) != list_shape(base_main):
                     fail(f"_src/pages/{lg}/{fn} must have the same lists, line for line, as _src/pages/{fn}: "
                          f"{list_shape(main)} against {list_shape(base_main)}")
             if lg != first and not words and not own:
@@ -352,6 +354,10 @@ def build():
             ctx["mail_body_attr"] = html.escape(strings[lg]["home"]["start"].get("mail_body", ""), quote=True).replace("\n", "&#10;")
             ctx["locale"] = site.get("og_locale", {}).get(lg, lg)
             ctx["other_locales"] = [site.get("og_locale", {}).get(o, o) for o in langs if o != lg and ctx["has_" + o]]
+            if meta.get("root_links"):  # (served at any address, so every link starts at the root)
+                ctx["base"] = "/"
+                ctx["home_href"] = "/"
+                ctx["to"] = {k: "/" + v.lstrip("./") for k, v in ctx["to"].items()}
             ctx["partials"] = {**site.get("partials", {}), **meta.get("partials", {})}
             ctx["main"] = render(main, ctx, f"pages/{fn}")
             files[out] = render(layout, ctx, f"layout for {fn}")

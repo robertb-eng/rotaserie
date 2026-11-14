@@ -535,6 +535,10 @@ button.ph-btn.go{outline:2px solid var(--fill);outline-offset:3px}
 @media (min-width:900px){.founder{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:var(--sp-8)}.values{grid-template-columns:repeat(3,1fr)}.values>div{padding:var(--sp-4) var(--sp-3);border-right:1px solid var(--n-line-2)}.values>div:first-child{padding-left:0}.values>div:last-child{border-right:0}.split{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--sp-8)}}
 
 /* Facts, Terms, Privacy: plain reading pages */
+.legal-note{padding:14px 16px;background:var(--sel);border:1px solid var(--n-line-2);border-left:3px solid var(--fill);border-radius:var(--r-1)}
+.p404 .page-hero-in{min-height:60vh;align-content:center}
+.p404 .actions{margin-top:var(--sp-2)}
+.p404-es{margin-top:var(--sp-2);color:var(--muted)}
 .chapter{padding-block:var(--sp-6) var(--sp-8)}
 .legal{max-width:calc(760px + 2*var(--gutter))}
 .legal h1{font-size:var(--t-40);letter-spacing:-.03em;line-height:1.05}
