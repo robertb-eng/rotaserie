@@ -162,7 +162,7 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, {rootMargin: '0px 0px -6% 0px', threshold: 0.05});
-    $$('.sec-head, .point, .tile, .week-demo, .type-shot, .type-end, .steps, .swap-art, .phones figure, .devices, .photo, .faq, .founder, .values, .split').forEach(function (el) {
+    $$('.sec-head, .point, .tile, .week-demo, .type-shot, .type-end, .steps, .swap-live, .swap-art, .phones figure, .devices, .photo, .faq, .founder, .values, .split').forEach(function (el) {
       if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('rv'); io.observe(el); }
     });
   }
