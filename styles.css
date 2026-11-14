@@ -563,3 +563,6 @@ button.ph-btn.go{outline:2px solid var(--fill);outline-offset:3px}
   @keyframes fadein{from{opacity:0}to{opacity:1}}
 }
 @media print{.nav,.film,.start,.foot,.zoom{display:none}body{background:#fff}}
+/* without scripts the demos are pictures of a result: nothing that looks pressable and isn't */
+html:not(.js) .ttb-chips,html:not(.js) .ttb-acts,html:not(.js) .ex-try,html:not(.js) .week-emp-text,html:not(.js) .film-chapters,html:not(.js) .film-note .chip,html:not(.js) .film-play,html:not(.js) .theme-btn,html:not(.js) .rail-nav{display:none}
+html:not(.js) .ttb-text{pointer-events:none}
