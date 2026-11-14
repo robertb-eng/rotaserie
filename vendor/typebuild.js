@@ -179,7 +179,7 @@
   // instruction is left out of the reading and marked ignored, with why, so nothing seems lost and nothing in it can
   // become a shift time: message stamps ("[10:32 AM]", "11/3/26, 9:41 PM -", a "Robert, 10:32 AM" line), senders
   // ("Robert:" in a pasted thread), "Sent from my iPhone", separator lines ("---"), list numbers ("1.", "2)"), a table's
-  // column names ("Name | Days | Hours"), questions and short replies in a thread ("can you do fri?", "Manny: yes"), and
+  // column names ("Name | Days | Hours"), questions and short replies in a thread ("can you do fri?", "Benny: yes"), and
   // a line typed again word for word ("duplicate ignored").
   // A thread is a message stamp anywhere, or two lines or more starting with a sender, one of them not someone here.
   // Answer: {toks: the tokens left, ign: [{from, to, why}], dups: how many lines were repeats}
@@ -193,7 +193,7 @@
   var STAMP_AP = '(?:\\s*[ap]\\.?\\s?m\\.?)?';
   var STAMP_BR = /^\s*\[[^\]\n]{0,24}\d{1,2}:\d{2}[^\]\n]{0,16}\]\s*/;  // "[10:32 AM]", "[11/3/26, 9:41:05 PM]"
   var STAMP_DT = new RegExp('^\\s*\\d{1,2}[/.-]\\d{1,2}[/.-]\\d{2,4},?\\s+\\d{1,2}:\\d{2}(?::\\d{2})?' + STAMP_AP + '\\s*(?:-\\s+|:\\s+)?');  // "11/3/26 9:41 PM", "3/11/2026, 21:41 - "
-  var SENDER = /^([a-z][a-z.'-]*(?: [a-z][a-z.'-]*){0,2}):\s+/;  // "Robert:", "Anita R.:"
+  var SENDER = /^([a-z][a-z.'-]*(?: [a-z][a-z.'-]*){0,2}):\s+/;  // "Robert:", "Priya R.:"
   var STAMP_LINE = new RegExp('^\\s*([a-z][a-z.\'-]*(?: [a-z][a-z.\'-]*){0,2}),\\s*\\d{1,2}:(\\d{2})(' + STAMP_AP + ')\\s*$');  // "Robert, 10:32 AM"
   // a heading at a line's start ("Update:", "FYI:", "Aviso:"): structure, never who sent it and never someone to schedule
   var HEADING_W = {update: 1, updates: 1, fyi: 1, btw: 1, edit: 1, edits: 1, ps: 1, re: 1, reminder: 1, schedule: 1, changes: 1, change: 1,
@@ -210,7 +210,7 @@
     var team = {};
     (people || []).forEach(function (x) { [x.first, x.nick].concat(x.lastParts || [], x.aliases || []).forEach(function (w) { if (w) team[w] = 1; }); });
     var heading = function (who) { var w0 = who.split(/[ .'-]+/).filter(Boolean)[0] || ''; return w0 in HEADING_W && !(w0 in team); };
-    // (who could have sent a message: a name, an initial after it ("Anita R."), never a day ("mon:", "m-f:"), a role or a
+    // (who could have sent a message: a name, an initial after it ("Priya R."), never a day ("mon:", "m-f:"), a role or a
     // shift word ("Server:", "Close:"), a heading ("Update:") or a column name)
     var sender = function (who) {
       var parts = who.split(/[ .'-]+/).filter(Boolean), w0 = parts[0] || '';
@@ -220,14 +220,14 @@
     };
     // A "Name, 10:32 AM" line alone is a message stamp when the name isn't anyone's here; with a name here or near one it
     // needs am/pm and either odd minutes or a name that isn't exactly someone's ("Dan, 10:32 AM" with a Daniel here is a
-    // stamp; "Manny, 10:30 AM" may be Manny at 10:30, days asked; "anita, 9:50" is Anita at 9:50)
+    // stamp; "Benny, 10:30 AM" may be Benny at 10:30, days asked; "priya, 9:50" is Priya at 9:50)
     var exact = function (who) { return who.split(/[ .'-]+/).filter(Boolean).every(function (w) { return w in team; }); };
     var stampLine = function (t) { var sl = STAMP_LINE.exec(t); return !!sl && (nameish(sl[1]) || (!!sl[3].trim() && (+sl[2] % 15 !== 0 || !exact(sl[1])))); };
     var onTeam = function (who) { return who.split(/[ .'-]+/).filter(Boolean).some(function (w) { return w in team; }); };
     var wordsOf = function (L, from) { return raw.filter(function (x) { return x.k === 'word' && x.from >= L.s + from && x.to <= L.s + L.t.length; }).map(function (x) { return x.v; }); };
     var replyW = function (x) { return x in REPLY_W && !(x in team); };  // ("will", "can" here are people, not replies)
     var replyish = function (L, from) { var r = L.t.slice(from), w = wordsOf(L, from); return /\?\s*$/.test(r) || (w.length && w.length <= 4 && !/\d/.test(r) && w.every(replyW)); };
-    // the first word after the sender and any reply words ("Robert: ok manny fri"): someone here?
+    // the first word after the sender and any reply words ("Robert: ok benny fri"): someone here?
     var namesFirst = function (L, from, who) { var w = wordsOf(L, from).filter(function (x, k, all) { return !all.slice(0, k + 1).every(function (y) { return y in REPLY_W; }); }); return !!w[0] && w[0] in team && who.split(' ').indexOf(w[0]) < 0; };
     var stripStamps = function (L, off) {  // the stamps at a place in a line ("[10:32 AM]", "11/3/26 9:41 PM -"): how far they go
       var m, rest = L.t.slice(off), o = off;
@@ -239,8 +239,8 @@
     // "Name, 10:33 AM" line is a stamp whoever the name is.
     var stamped = !!(chat && chat.stamped) || lines.some(function (L) { return STAMP_BR.test(L.t) || STAMP_DT.test(L.t) || stampLine(L.t); });
     // Without stamps, "Name:" is who sent it only when the name isn't someone here and the rest of the line names someone
-    // here first, or is a reply or a question ("Robert: ok manny fri 5-10"); that name is then the sender on every line.
-    // Someone here followed by someone else ("Jordan: manny fri 5-10") is asked, never guessed; a list ("Manny: m-f 11-7")
+    // here first, or is a reply or a question ("Robert: ok benny fri 5-10"); that name is then the sender on every line.
+    // Someone here followed by someone else ("Jordan: benny fri 5-10") is asked, never guessed; a list ("Benny: m-f 11-7")
     // keeps its people. (A line read again on its own keeps the whole message's senders, and only those.)
     var outside = {};
     ((chat && chat.senders) || []).forEach(function (w) { outside[w] = 1; });
@@ -281,7 +281,7 @@
         var h0 = L.s + off + lead(rest);
         ign.push({from: h0, to: h0 + sm[0].length, why: 'a heading'}); off += lead(rest) + sm[0].length; rest = t.slice(off);
       }
-      // a numbered list's number ("1. manny ...", "2) anita ..."): structure, never a time
+      // a numbered list's number ("1. benny ...", "2) priya ..."): structure, never a time
       var ln = /^(\s*)(\d{1,2}[.)])\s+(?=[a-z])/.exec(rest);
       if (ln) { var a1 = L.s + off + ln[1].length; ign.push({from: a1, to: a1 + ln[2].length, why: 'a list number'}); off += ln[0].length; rest = t.slice(off); }
       var words = wordsOf(L, off);  // (read words: a held-down "yesss" is "yes")
@@ -311,7 +311,7 @@
   // a siete", "cuatro cuarenta y cinco"), "a.m." / "p.m." / "o'clock" / "in the evening" after them, spoken punctuation
   // ("period", "comma", "dash", "colon", "new line", "punto", "coma", "nueva línea"), and the mix-ups by position: "too",
   // "two" or "2" between two times is "to" ("11 2 7"), "2" between two days a range ("m 2 f"), "for" or "4" between a
-  // name and a day is "for" ("manny 4 fri"), "for" before minutes is 4 ("for 45 to 8"), "won day" Monday. A word that is
+  // name and a day is "for" ("benny 4 fri"), "for" before minutes is 4 ("for 45 to 8"), "won day" Monday. A word that is
   // someone's name here is never read as one of these. Every mix-up is marked as assumed, with why (t.said); what has two
   // readings ("ate to for": 8 to 4?) is left as it is and asked, with a one-tap answer (hints).
   var EN_N = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12,
@@ -364,7 +364,7 @@
       // "won day", "mon day", "fri day": one day
       if (W(t) && W(nx, 'day') && (t.v + 'day') in DAY_WORDS) { out.push({k: 'word', v: t.v + 'day', from: t.from, to: nx.to, said: '“' + t.v + ' day” read as ' + DAYS[DAY_WORDS[t.v + 'day']]}); i++; continue; }
       if (W(t, 'won') && W(nx, 'day')) { out.push({k: 'word', v: 'monday', from: t.from, to: nx.to, said: '“won day” read as Monday'}); i++; continue; }
-      // "for" / "four" / "4" between a name and a day: "for" ("manny 4 fri")
+      // "for" / "four" / "4" between a name and a day: "for" ("benny 4 fri")
       if (pv && pv.k === 'word' && pv.v in named && dayW(nx) && !nx.stuck && (W(t, 'for') || W(t, 'four') || (t.k === 'num' && t.v === '4' && !t.mm && !t.ap))) {
         out.push({k: 'word', v: 'on', from: t.from, to: t.to, said: t.v === 'for' ? null : '“' + t.v + '” read as “for”'}); continue;
       }
@@ -384,7 +384,7 @@
           if (x.k === 'punct') return x.v === ',' || x.v === '&';
           return x.k === 'word' && (x.v === 'and' || x.v === 'y' || x.v in OFF_W || (x.v in persons && !(x.v in RANGE_WORDS)) || (!after && x.v in RANGE_WORDS));
         };
-        // (at a line's start "the" is ordinary, "the sat close is manny 5-10", and so is a person's "the" before a day, "manny the
+        // (at a line's start "the" is ordinary, "the sat close is benny 5-10", and so is a person's "the" before a day, "benny the
         // sat close"; asked after someone, off, a day or "and" where a day is missing, "sam off the and thu", "sam the and thu")
         var det = pv && pv.k === 'word' && pv.v in persons && dayW(nx);
         // (and right after a correction's word, before its times: "jordan mon 9-5 sorry the 10-6", autocorrect's "tue"?
@@ -516,7 +516,7 @@
     var people = (ctx.people || []).map(function (p) {
       var parts = nameParts(p.name);
       // (hy: the first name is hyphenated, "Jean-Luc", "So-Young": its second part alone names no one, its first part alone
-      // only when it is three letters or more and no word of the reading's: "so anita", "el lunes" aren't So-Young, El-Sayed)
+      // only when it is three letters or more and no word of the reading's: "so priya", "el lunes" aren't So-Young, El-Sayed)
       return {p: p, first: parts[0] || '', last: parts.slice(1).join(' '), lastParts: parts.slice(1), hy: /^[^\s-]+-[^\s]/.test(fold(String(p.name)).trim()),  // (a name with no letters: matches nothing)
               nick: p.nick ? nameParts(p.nick).join(' ') || null : null, aliases: (p.aliases || []).map(function (a) { return nameParts(a).join(' '); }).filter(Boolean)};
     });
@@ -618,7 +618,7 @@
       return to;
     };
     if (n) {  // first + last (or its first part), or first + initial
-      // (a nickname with the surname counts too: "dom ross", "manny garcia")
+      // (a nickname with the surname counts too: "dom ross", "benny garcia")
       // (a surname typed one letter off after the first name, "li sunn", is still that surname when the word is no one
       // else's and not one of the reading's)
       // ("maria y jose", "juan a las 5", "luis e ana": joining words, an initial only when someone of that first name has a
@@ -642,12 +642,12 @@
       if (hits.length && n.length > 1) ix.people.forEach(function (x) {
         if (hits.indexOf(x) < 0 && x.lastParts.length === 2 && x.lastParts[0] === w && (x.lastParts[1] === n || (n.length >= 4 && !taken(n) && near1(n, x.lastParts[1])))) hits.push(x);
       });
-      // a day's letter after a first name only one person has is the day ("manny m-f" with Manny Morales): an initial
+      // a day's letter after a first name only one person has is the day ("benny m-f" with Benny Morales): an initial
       // only where it tells two people apart
       if (hits.length && n.length === 1 && n in LETTER_DAYS && ix.people.filter(function (x) { return x.first === w; }).length === 1
           && !hits.some(function (x) { return x.last === n; })) hits = [];
       // (an initial after a given name of several words, "ha-eun c" with Ha-eun Chávez and Ha-eun Ortega, "mary-kate o":
-      // theirs where it tells people apart, or isn't a day's letter ("min-jun r fri" is Thursday, as "manny r fri" is);
+      // theirs where it tells people apart, or isn't a day's letter ("min-jun r fri" is Thursday, as "benny r fri" is);
       // never "y", "a", "o", "e": words)
       var t2 = hits.length && n.length > 1 ? tailOf(hits) : 0, ini2 = hits.length && n.length > 1 ? run[t2 + 1] : null;
       if (ini2 && ini2.t.v.length === 1 && !(ini2.t.v in JOIN_L)) {
@@ -730,7 +730,7 @@
         var aFirst = !!n && ix.people.some(function (x) { return x.first === n || x.nick === n || x.aliases.indexOf(n) >= 0; });
         var byLast2 = plain && !keyword(n) && !aFirst ? ix.people.filter(isLast) : [];  // (never a day's, role's, shift or particle word)
         if (!byLast2.length) return {cands: widen(cands, how), used: 1, how: how};
-        // ("eli garcia" with Elizabeth Kim and Manny Garcia here: the two readings disagree, so both are asked)
+        // ("eli garcia" with Elizabeth Kim and Benny Garcia here: the two readings disagree, so both are asked)
         return {cands: cands.concat(byLast2), used: run[tailOf(byLast2)].at - i + 1, how: how};
       };
       hits = ix.people.filter(function (x) { return x.first.indexOf(w) === 0 || (x.nick && x.nick.indexOf(w) === 0); });
@@ -1011,7 +1011,7 @@
         if (x.k === 'num') { o.time = true; continue; }
         if (x.k === 'sep' || x.k === 'other' || (x.k === 'punct' && x.v !== '*' && x.v !== '?')) continue;
         if (x.k !== 'word') { o.other = true; continue; }
-        if (afterDay && ix.words[x.v] && (x.v in DAY_WORDS || x.v in LETTER_DAYS)) { o.time = true; continue; }  // ("manny" / "mon" / "M": the M shift)
+        if (afterDay && ix.words[x.v] && (x.v in DAY_WORDS || x.v in LETTER_DAYS)) { o.time = true; continue; }  // ("benny" / "mon" / "M": the M shift)
         var pp = !noPeople && personAt(ix, line, n, true);
         // (a Spanish day's word that is someone's name is that person where the line reads it so: "fri" / "dom" / "11-7")
         if (pp && pp.how === 'name' && (!(x.v in DAY_WORDS) || pp.used >= 2 || mention(line, n) || (x.v in ES_DAYS && !(x.v in EN_DAYS)))) { o.people = true; n += pp.used - 1; continue; }
@@ -1069,8 +1069,8 @@
           while (q < toks.length && toks[q].k !== 'nl') line.push(toks[q++]);
           if (!line.some(function (x, n) { return x.k === 'word' && personAt(ix, line, n, true); })) { lineStart = false; continue; }
         }
-        // step 6, sent in pieces: a line with only what the one before lacks ("manny", then "m-f", then "11-7"; "m-f 11-7",
-        // then "manny"; "manny m-f 11-7", then "and sat"; "no 12-7" correcting it) is read with it, and the panel says so
+        // step 6, sent in pieces: a line with only what the one before lacks ("benny", then "m-f", then "11-7"; "m-f 11-7",
+        // then "benny"; "maya m-f 11-7", then "and sat"; "no 12-7" correcting it) is read with it, and the panel says so
         var q2 = i + 1;
         while (q2 < toks.length && toks[q2].k === 'nl') q2++;
         var nextLine = [], after = [];
@@ -1080,7 +1080,7 @@
         var after2 = [];
         while (q2 < toks.length && toks[q2].k === 'nl') q2++;
         while (q2 < toks.length && toks[q2].k !== 'nl') after2.push(toks[q2++]);
-        // (never across two senders of a pasted chat: "Robert: manny" / "Jordan: sat 5-10" are two messages)
+        // (never across two senders of a pasted chat: "Robert: benny" / "Jordan: sat 5-10" are two messages)
         if (cur.toks.length && nextLine.length && !cur.alone && senderOf(cur.toks[0]) === senderOf(nextLine[0])) {
           var A = kinds(cur.toks.filter(function (x) { return !cur.people.some(function (pp) { return pp.toks.indexOf(x) >= 0; }); }), true);
           A.people = cur.people.length > 0; A.other = A.other || !!cur.verb || !!cur.later;
@@ -1092,7 +1092,7 @@
             && !(A.people && B.people) && !(A.day && B.day) && !(A.time && B.time);
           var adds = !A.other && A.people && A.day && A.time && and0 && !B.other && B.day && !B.people && !B.time;  // ("and sat")
           var fixes = !A.other && A.people && no0 && !Bn.other && !Bn.people && (Bn.day !== Bn.time);  // ("no 12-7", "no thu")
-          // (the line below has someone the piece would also finish: "manny 11-7" / "tue" / "anita 4-8")
+          // (the line below has someone the piece would also finish: "benny 11-7" / "tue" / "priya 4-8")
           var C = fills && after.length ? kinds(after, false, B.day) : null;
           var D = C && after2.length ? kinds(after2, false, C.day) : null;
           var own = !!D && !D.other && !D.people && (!B.day || D.day) && (!B.time || D.time);  // (the line below has its own piece)
@@ -1107,10 +1107,10 @@
       var vb = t.k === 'swaparrow' || (t.k === 'word' && (t.v in MOVE_W || t.v in SWAP_W || t.v in COVER_W || t.v in GIVE_W || t.v === 'clear' || (esOn && (t.v in ES_ERASE || t.v === 'vacia'))));
       if (vb && t.k === 'word' && !(t.v in COVER_W) && cur.toks.length && (cur.anyDay || cur.anyTime)) fresh();
       if (vb) cur.verb = true;
-      // ("eve por sam", "jordan for anita": "for" right after one person names the one they cover)
+      // ("eve por sam", "jordan for priya": "for" right after one person names the one they cover)
       if (t.k === 'word' && (t.v === 'por' || t.v === 'for') && cur.people.length === 1 && cur.people[0].toks[cur.people[0].toks.length - 1] === toks[i - 1]
           && personAt(ix, toks, i + 1, true)) cur.verb = true;
-      // (a change names a second person: "give anita fri to jordan", "swap sam and will": never a new instruction, and a
+      // (a change names a second person: "give priya fri to jordan", "swap sam and will": never a new instruction, and a
       // name that is also a word, "will", counts after "and", "to", "for", "with" or the verb itself)
       var pv2 = toks[i - 1], joinW = cur.verb && cur.people.length === 1 && pv2 && (pv2.k === 'swaparrow' || (pv2.k === 'punct' && pv2.v === '&')
         || (pv2.k === 'word' && (pv2.v in {and: 1, n: 1, with: 1, to: 1, 'for': 1, y: 1, x: 1, por: 1, a: 1} || pv2.v in COVER_W || pv2.v in SWAP_W))
@@ -1160,7 +1160,7 @@
       if (!p && t.k === 'word' && ix.roleWords[t.v]) {
         var joinT = function (x) { return andWord(x) || (!!x && x.k === 'punct' && x.v === ','); };
         var lastP = cur.people.length ? cur.people[cur.people.length - 1].toks.slice(-1)[0] : null;
-        // (first on its line, "cook & hoang": "sam cook, anita host" and "sam fri 11-7 cook, anita sat" are roles)
+        // (first on its line, "cook & hoang": "sam cook, priya host" and "sam fri 11-7 cook, priya sat" are roles)
         var nextP = null;
         var side = joinT(toks[i - 1]) && lastP && lastP === toks[i - 2] ? 'after'
           : !cur.people.length && !cur.anyDay && !cur.anyTime && joinT(toks[i + 1]) && (nextP = (personAt(ix, toks, i + 2, true) || {}).cands) ? 'before' : null;
@@ -1237,7 +1237,7 @@
     // (a piece's question goes when either line it could belong to is taken back: its choice no longer stands)
     res.ask = res.ask.filter(function (q) { return !(q.kind === 'pieces' ? q.inst.some(dropped) : q.inst.every(dropped)); });
     // the lines each instruction was read from: lines read together are one for the panel ("units"), and said so (unless
-    // taken back: "manny" / "m-f" / "11-7" / "nvm" is only "Taken back")
+    // taken back: "benny" / "m-f" / "11-7" / "nvm" is only "Taken back")
     var textLines = text.split('\n');
     res.units = [];
     insts.forEach(function (I) {
@@ -1431,7 +1431,7 @@
         else if (cv in GIVE_W) kind = 'give';
         else if ((cv === 'clear' || cv in ES_ERASE || cv === 'vacia') && !I.people.length && !tk.slice(0, j).some(function (x) { return x.k === 'word' || x.k === 'num'; })) kind = 'clear';
         else if (cv === 'mejor' && tk[j + 1] && (tk[j + 1].k === 'num' || (tk[j + 1].k === 'word' && tk[j + 1].v === 'a'))) { cue.instead = cue.instead || c; continue; }  // "mejor a las 6"
-        else if ((cv === 'for' || cv === 'por') && I.people.length === 2 && I.people[0].tok.to <= c.from && c.to <= I.people[1].tok.from) kind = 'cover';  // "jordan for anita fri"
+        else if ((cv === 'for' || cv === 'por') && I.people.length === 2 && I.people[0].tok.to <= c.from && c.to <= I.people[1].tok.from) kind = 'cover';  // "jordan for priya fri"
         else if (cv === 'instead') { cue.instead = cue.instead || c; continue; }
         else if (cv === 'extend' || cv === 'extended') { cue.extend = cue.extend || c; continue; }
         else continue;
@@ -1645,7 +1645,7 @@
           (cueT.words || []).forEach(function (x) { if (x !== cueT.start && x !== cueT.end) x.chg = true; });
           if (cueT.trail) cueT.trail.chg = true;
           [cueT.start, cueT.end].forEach(function (x) { if (x) x.cueT = true; });
-        } else if (cueT.end && !cueT.start) {  // "anita wed til 9" with no shift that day: from when?
+        } else if (cueT.end && !cueT.start) {  // "priya wed til 9" with no shift that day: from when?
           cueT.end.time = true; (cueT.words || []).forEach(function (x) { x.time = true; });
           timeAmbig = {t: cueT.end, q: 'From when?'}; times = {};
         } else cueT = {};
@@ -1877,7 +1877,7 @@
           return;
         }
         if (chg === 'cover' || chg === 'give') {
-          if (I.people.length !== 2 || fromIx == null) { ask('cover', chg === 'give' ? 'Give whose shift to whom? (“give anita fri to jordan”)' : 'Who covers whom? (“jordan covers anita fri”)'); return; }
+          if (I.people.length !== 2 || fromIx == null) { ask('cover', chg === 'give' ? 'Give whose shift to whom? (“give priya fri to jordan”)' : 'Who covers whom? (“jordan covers priya fri”)'); return; }
           var fr = who[fromIx], tw = who[toIx];
           if (!fr || !tw) return;
           if (fr.id === tw.id) { ask('cover', 'That’s the same person twice.'); return; }
@@ -1992,12 +1992,12 @@
         if (!mk) return null;
         var postNum = post.filter(function (x) { return x.k === 'num'; }), postDay = post.filter(function (x) { return isDay(tk.indexOf(x)); });
         if (!postNum.length && !postDay.length) return null;  // ("no wait" or "wait" at the end: a take-back, or asked)
-        // ("sorry, manny mon 11-7": said before anything it could correct, it's only a word)
+        // ("sorry, benny mon 11-7": said before anything it could correct, it's only a word)
         if (!pre.some(function (x) { return x.k === 'num' || isDay(tk.indexOf(x)); }) && !I.people.some(function (pp) { return pp.tok.from < mk[0].from; })) {
           mk.forEach(function (x) { x.fix = true; mark(x, 'ignored'); });
           return null;
         }
-        if (I.people.some(function (pp) { return pp.tok.from > mk[0].from; })) return {later: true};  // ("no not manny marcus")
+        if (I.people.some(function (pp) { return pp.tok.from > mk[0].from; })) return {later: true};  // ("no not benny marcus")
         var filler = [];
         var odd = post.filter(function (x) {
           var kk = tk.indexOf(x);
@@ -2109,7 +2109,7 @@
         mark(t, 'ignored');
       });
       // a time read one way of two is said, on the numbers themselves: never a silent guess (the standard)
-      if (!times && !timeAmbig && G && G.end && !G.start) { timeAmbig = {t: g0, q: '“' + g0.v + '”: from when?'}; times = {}; g0.time = true; }  // ("anita closes fri")
+      if (!times && !timeAmbig && G && G.end && !G.start) { timeAmbig = {t: g0, q: '“' + g0.v + '”: from when?'}; times = {}; g0.time = true; }  // ("priya closes fri")
       if (!times && !timeAmbig && g0) { g0.time = true; }
       if (codeOff) timeAmbig = timeAmbig || {t: codeOff.t, q: '“' + codeOff.t.v + '”: the “' + codeOff.en.word + '” shift, or off?'};
       if (codeAmbig) timeAmbig = timeAmbig || {t: codeAmbig.t, q: '“' + codeAmbig.first.v + ' ' + codeAmbig.t.v + '”: ' + DAYS[(dayAt(tk, tk.indexOf(codeAmbig.first), true) || {r: [0]}).r[0]] + ', “' + codeAmbig.en.word + '” shift?',
@@ -2227,7 +2227,7 @@
         if ((p.word || p.how === 'fuzzy' || p.how === 'prefix' || p.how === 'nick') && res.notes.indexOf(said1) < 0) res.notes.push(said1);
         who.push(c.p);
       });
-      // a word where a name goes that is no one's ("manny" for Manuel): "Who is “manny”?", the people it could be (same
+      // a word where a name goes that is no one's ("benny" for Benjamin): "Who is “benny”?", the people it could be (same
       // first two letters) one tap away; the panel then offers to remember the nickname (only if the manager says so)
       var whois = null;
       if (!I.people.length && unknown.length && unknown[0] === tk[0] && /^[a-z]{3,}$/.test(unknown[0].v)) {
