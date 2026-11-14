@@ -9,9 +9,10 @@
   var $ = function (sel) { return pane.querySelector(sel); };
   var box = $('[data-ttb-text]'), out = $('[data-ttb-out]'), add = $('[data-ttb-add]'), reset = $('[data-ttb-reset]');
   var grid = $('[data-ttb-grid]'), totals = $('[data-ttb-totals]'), live = $('[data-ttb-live]'), done = $('[data-ttb-done]');
-  var first = box.value, R = null, ST = null, week = null, last = null, timer = null, ready = false, waiting = [];
+  var first = box.value, R = null, ST = null, last = null, timer = null, ready = false, waiting = [];
 
   function script(src) {
+    if (window.RotaLoad) return window.RotaLoad(base + src);  // (site.js: each file once, whoever asks)
     return new Promise(function (ok, fail) {
       var s = document.createElement('script'); s.src = base + src; s.onload = ok; s.onerror = fail; document.head.appendChild(s);
     });
@@ -21,7 +22,8 @@
   function load() {
     if (!loading) loading = script('demo/state.js').then(function () { return script('demo/read.js'); }).then(function () { return script('vendor/typebuild.js'); })
       .then(function () {
-        R = window.RotaDemoRead; ST = window.RotaDemoState; week = ST.fresh(); ready = true;
+        R = window.RotaDemoRead; ST = window.RotaDemoState; ready = true;
+        ST.on(function (from) { if (from !== 'ttb') draw(false); });  // (the week changed somewhere else on the page)
         pane.classList.add('ready');
         waiting.splice(0).forEach(function (f) { f(); });
       }).catch(function () { loading = null; pane.classList.add('failed'); });
@@ -34,13 +36,13 @@
   function draw(announce) {
     var text = R.clip(box.value);
     if (text !== box.value.replace(/\r/g, '')) box.value = text;
-    last = R.read(text, week);
+    last = R.read(text, ST.shifts);
     var ops = fresh(last.ops);
     out.innerHTML = R.previewHTML(lang, last);
-    grid.innerHTML = R.gridHTML(lang, week, ops);
+    grid.innerHTML = R.gridHTML(lang, ST.shifts, ops);
     add.textContent = R.addLabel(lang, ops.length);
     add.disabled = !ops.length;
-    totals.textContent = R.totalsText(lang, week, ops);
+    totals.textContent = R.totalsText(lang, ST.shifts, ops);
     if (announce) live.textContent = R.liveText(lang, last);
   }
   function soon() { clearTimeout(timer); timer = setTimeout(function () { whenReady(function () { draw(true); }); }, 120); }
@@ -55,19 +57,20 @@
       if (!last) draw(false);
       var ops = fresh(last.ops);
       if (!ops.length) return;
-      week = week.concat(ops);
+      ST.last = ops[ops.length - 1].p;
+      ST.set(ST.shifts.concat(ops), 'ttb');
       box.value = '';
-      last = R.read('', week);
+      last = R.read('', ST.shifts);
       out.innerHTML = R.previewHTML(lang, last);
-      grid.innerHTML = R.gridHTML(lang, week, [], ops);
+      grid.innerHTML = R.gridHTML(lang, ST.shifts, [], ops);
       add.textContent = R.addLabel(lang, 0); add.disabled = true;
-      totals.textContent = R.totalsText(lang, week, []);
+      totals.textContent = R.totalsText(lang, ST.shifts, []);
       done.hidden = false;
       live.textContent = R.words[lang].added.replace('{shifts}', R.plural(lang, ops.length));
     });
   });
   if (reset) reset.addEventListener('click', function () {
-    whenReady(function () { week = ST.fresh(); box.value = first; done.hidden = true; draw(true); });
+    whenReady(function () { ST.set(ST.fresh(), 'ttb'); box.value = first; done.hidden = true; draw(true); });
   });
 
   // an answer edits the typed text, as the app does, and the box is read again
