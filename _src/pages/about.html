@@ -1,0 +1,65 @@
+<!--meta
+{
+  "sitemap_order": 20
+}
+-->
+
+<section class="page-hero">
+  <div class="wrap page-hero-in">
+    <p class="label">{{a.label}}</p>
+    <h1>{{a.title_a}} <em>{{a.title_b}}</em></h1>
+    <p class="lead">{{a.lead}}</p>
+  </div>
+</section>
+
+<section class="sec" id="founder">
+  <div class="wrap founder">
+    <div class="founder-card">
+      <img src="{{base}}img/founder.webp" width="1200" height="900" loading="lazy" decoding="async" alt="{{a.founder_alt}}" data-zoom>
+      <b>Robert Banchero</b>
+      <span class="label">{{a.founder_role}}</span>
+      <a class="btn btn-sm" href="mailto:{{email}}?subject=Rotaserie">{{a.founder_mail}}</a>
+    </div>
+    <div class="founder-story">
+      <header class="sec-head"><p class="label"><span class="idx">01</span>{{a.founder_label}}</p><h2>{{a.founder_title}}</h2></header>
+      {{#each a.story}}<p>{{this}}</p>
+      {{/each}}<p class="signature">Robert Banchero</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="values">
+      {{#each a.values}}<div><p class="label"><span class="idx">{{@nn}}</span></p><b>{{k}}</b><p>{{body}}</p></div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="clients">
+  <div class="wrap split">
+    <div>
+      <header class="sec-head"><p class="label"><span class="idx">02</span>{{a.clients_label}}</p><h2>{{a.clients_title}}</h2><p class="lead">{{a.clients_lead}}</p></header>
+      <ul class="checks">{{#each a.checks}}<li>{{this}}</li>{{/each}}</ul>
+      <div class="actions"><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    </div>
+    <figure class="photo">
+      <img src="{{base}}img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="{{home.proof.alt}}" data-zoom>
+      <figcaption class="label">{{a.photo_cap}}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="start end" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <h2 class="display">{{a.end_title_a}} <em>{{a.end_title_b}}</em></h2>
+      <p class="lead">{{a.end_lead}}</p>
+      <div class="actions">
+        <a class="btn btn-big" href="{{to.index}}#start" data-start>{{cta}}</a>
+        <a class="btn btn-big btn-ghost" href="{{to.index}}#type">{{a.end_more}}</a>
+      </div>
+    </div>
+  </div>
+</section>

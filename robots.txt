@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /_src/
+Disallow: /_build/
+
+Sitemap: https://rotaserie.com/sitemap.xml

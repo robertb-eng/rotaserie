@@ -1,0 +1,257 @@
+<!--meta
+{
+  "sitemap_order": 10,
+  "body_class": "home"
+}
+-->
+
+<!-- HERO: the headline on the schedule's gridlines, and Type to Build beside it, already showing a real result -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <ol class="hero-days" aria-hidden="true">{{#each home.hero.days}}<li>{{this}}</li>{{/each}}</ol>
+    <p class="label">{{home.hero.label}}</p>
+    <h1 class="display">{{home.hero.title_a}} <em>{{home.hero.title_b}}</em></h1>
+    <div class="hero-cols">
+      <div class="hero-copy">
+        <p class="lead">{{home.hero.lead}}</p>
+        <div class="actions">
+          <a class="btn btn-big" href="#start" data-start>{{cta}}</a>
+          <a class="btn btn-big btn-ghost" href="#film" data-film-go><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>{{home.hero.film}} <span class="num">{{home.hero.film_len}}</span></a>
+        </div>
+        <ul class="proof">{{#each home.hero.proof}}<li>{{this}}</li>{{/each}}</ul>
+      </div>
+      {{> ttb}}
+    </div>
+  </div>
+</section>
+
+<!-- THE FILM: a dark band right under the hero. Nothing loads or plays until asked. -->
+<section class="film" id="film" data-film data-len="{{home.hero.film_len}}">
+  <div class="wrap">
+    <div class="film-head">
+      <p class="label">{{home.film.label}}</p>
+      <h2>{{home.film.title}}</h2>
+    </div>
+    <div class="film-frame" data-film-frame>
+      <video playsinline preload="none" data-4k poster="{{base}}img/film/poster{{home.film.suffix}}-night.webp" width="1920" height="1080" aria-label="{{home.film.aria}}" data-film-video data-stem="{{base}}img/film/film{{home.film.suffix}}">
+        <track kind="captions" srclang="{{lang}}" label="{{lang_name}}" src="{{base}}img/film/film{{home.film.suffix}}.vtt">
+      </video>
+      <button class="film-play" type="button" data-film-play><span class="film-tri" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>{{home.film.play}}</span><span class="num">{{home.hero.film_len}}</span></button>
+      <noscript><a class="film-nojs" href="{{base}}img/film/film{{home.film.suffix}}-1080.h264.mp4">{{home.film.nojs}}</a></noscript>
+    </div>
+    <div class="film-foot">
+      <div class="film-chapters"><span class="label">{{home.film.chapters_label}}</span>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.0}}">{{home.film.chapters.0}}</button>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.1}}">{{home.film.chapters.1}}</button>
+        <button type="button" class="chip" data-film-seek="{{home.film.ch.2}}">{{home.film.chapters.2}}</button>
+      </div>
+      <p class="film-note">{{home.film.note}} <button type="button" class="chip" data-film-full><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>{{home.film.full}}</button></p>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE TO BUILD, in depth: four points, each with a real line and what the app's rules read from it -->
+<section class="sec" id="type">
+  <div class="wrap">
+    <header class="sec-head"><p class="label"><span class="idx">01</span>{{home.type.label}}</p><h2>{{home.type.title}}</h2></header>
+    <ol class="points">
+      {{#each gen.ttb.points}}<li class="point">
+        <div class="point-text"><span class="idx">{{@nn}}</span><h3>{{title}}</h3>{{#if body}}<p>{{body}}</p>{{/if}}</div>
+        <div class="point-ex">{{#each examples}}<div class="ex">
+          <p class="ex-line"><span class="ex-typed"><span class="ex-caret" aria-hidden="true">›</span><code translate="no">{{text}}</code></span>{{#if ttb_live}}<button type="button" class="chip ex-try" data-ttb-try="{{text}}">{{home.type.try}}</button>{{/if}}</p>
+          <div class="tb ex-out">{{html}}</div>
+        </div>{{/each}}</div>
+      </li>{{/each}}
+    </ol>
+    <div class="type-end">
+      <p class="noai"><b>{{home.type.no_ai_title}}</b> {{home.type.no_ai}}</p>
+      <p class="other">{{home.type.other}}</p>
+    </div>
+    <figure class="browser type-shot">
+      <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+      {{shot ttb-panel alt=home.type.shot_alt sizes="(min-width:1280px) 1200px, 94vw"}}
+      <figcaption>{{home.type.shot_cap}}</figcaption>
+    </figure>
+    <figure class="type-phone"><div class="phone">{{shot ttb-phone alt=home.type.phone_alt sizes="78vw"}}</div><figcaption class="label">{{home.type.shot_cap}}</figcaption></figure>
+  </div>
+</section>
+
+<!-- FOR OWNERS: ten things the app does, each with a real screen -->
+<section class="sec sec-alt" id="owners">
+  <div class="wrap">
+    <header class="sec-head"><p class="label"><span class="idx">02</span>{{home.owners.label}}</p><h2>{{home.owners.title_a}} <em>{{home.owners.title_b}}</em></h2></header>
+    <div class="pane week-demo" id="week" data-week data-lang="{{lang}}" data-live data-src="{{base}}demo/week.js" data-needs="state.js">
+      <div class="week-head">
+        <div><p class="label">{{home.week.label}}</p><h3>{{home.week.title}}</h3></div>
+        <div class="seg" role="group" aria-label="{{home.week.view_aria}}"><button type="button" data-week-view="manager" aria-pressed="true">{{home.week.manager}}</button><button type="button" data-week-view="employee" aria-pressed="false">{{home.week.employee}}</button></div>
+      </div>
+      <div class="week-pane" data-week-pane="manager">
+        <p class="label week-k"><span>{{home.week.week_label}}</span><span class="num" data-week-total>{{gen.week.total}}</span></p>
+        <div class="wk-wrap" data-week-grid>{{gen.week.grid}}</div>
+        <div class="week-warn" data-week-warn role="status" hidden></div>
+        <div class="week-bar" data-week-bar><span>{{home.week.note}}</span></div>
+        <p class="week-note">{{home.week.note}}</p>
+        <p class="sr" aria-live="polite" data-week-live></p>
+      </div>
+      <div class="week-pane week-emp" data-week-pane="employee">
+        <div class="week-emp-text">
+          <label class="label" for="week-who">{{home.week.whose}}</label>
+          <select id="week-who" data-week-who>{{gen.week.people}}</select>
+          <p>{{home.week.phone_note}}</p>
+        </div>
+        <div class="phone week-phone" data-week-phone>{{gen.week.phone}}</div>
+      </div>
+    </div>
+    <div class="tiles" data-rail tabindex="0" role="group" aria-label="{{home.owners.label}}">
+      <article class="tile t-wide t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">01</span>{{home.owners.tiles.0.k}}</p><h3>{{home.owners.tiles.0.title}}</h3><p>{{home.owners.tiles.0.body}}</p></div>
+        <div class="tile-art">{{shot builder-grid alt=home.owners.tiles.0.alt sizes="(min-width:1000px) 760px, 92vw"}}</div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">02</span>{{home.owners.tiles.1.k}}</p><h3>{{home.owners.tiles.1.title}}</h3><p>{{home.owners.tiles.1.body}}</p></div>
+        <div class="tile-art">{{shot builder-warning class="up" alt=home.owners.tiles.1.alt sizes="(min-width:1000px) 340px, 92vw"}}</div>
+      </article>
+      <article class="tile t-crop">
+        <div class="tile-text"><p class="label"><span class="idx">03</span>{{home.owners.tiles.2.k}}</p><h3>{{home.owners.tiles.2.title}}</h3><p>{{home.owners.tiles.2.body}}</p></div>
+        <div class="tile-art">{{shot builder-rules alt=home.owners.tiles.2.alt sizes="(min-width:1000px) 340px, 92vw"}}</div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">04</span>{{home.owners.tiles.3.k}}</p><h3>{{home.owners.tiles.3.title}}</h3><p>{{home.owners.tiles.3.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot today alt=home.owners.tiles.3.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">05</span>{{home.owners.tiles.4.k}}</p><h3>{{home.owners.tiles.4.title}}</h3><p>{{home.owners.tiles.4.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot publish alt=home.owners.tiles.4.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">06</span>{{home.owners.tiles.5.k}}</p><h3>{{home.owners.tiles.5.title}}</h3><p>{{home.owners.tiles.5.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot requests lang=en alt=home.owners.tiles.5.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-wide t-pair">
+        <div class="tile-text"><p class="label"><span class="idx">07</span>{{home.owners.tiles.6.k}}</p><h3>{{home.owners.tiles.6.title}}</h3><p>{{home.owners.tiles.6.body}}</p></div>
+        <div class="tile-art">
+          <figure><div class="phone">{{shot cant-make-it alt=home.owners.tiles.6.alt sizes="250px"}}</div><figcaption class="label">{{home.owners.tiles.6.cap}}</figcaption></figure>
+          <span class="pair-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <figure><div class="phone">{{shot callout-manager alt=home.owners.tiles.6.alt2 sizes="250px"}}</div><figcaption class="label">{{home.owners.tiles.6.cap2}}</figcaption></figure>
+        </div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">08</span>{{home.owners.tiles.7.k}}</p><h3>{{home.owners.tiles.7.title}}</h3><p>{{home.owners.tiles.7.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot photo-setup alt=home.owners.tiles.7.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-phone">
+        <div class="tile-text"><p class="label"><span class="idx">09</span>{{home.owners.tiles.8.k}}</p><h3>{{home.owners.tiles.8.title}}</h3><p>{{home.owners.tiles.8.body}}</p></div>
+        <div class="tile-art"><div class="phone">{{shot consistent alt=home.owners.tiles.8.alt sizes="270px"}}</div></div>
+      </article>
+      <article class="tile t-desk">
+        <div class="tile-text"><p class="label"><span class="idx">10</span>{{home.owners.tiles.9.k}}</p><h3>{{home.owners.tiles.9.title}}</h3><p>{{home.owners.tiles.9.body}}</p></div>
+        <div class="tile-art">{{shot pay-table alt=home.owners.tiles.9.alt sizes="(min-width:1000px) 760px, 92vw"}}</div>
+      </article>
+    </div>
+    <p class="rail-hint to-700" aria-hidden="true">{{swipe}}<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></p>
+  </div>
+</section>
+
+<!-- THE SWAP: the app's four steps, with both phones -->
+<section class="sec" id="swap">
+  <div class="wrap swap" data-swap data-lang="{{lang}}" data-live data-src="{{base}}demo/swap.js">
+    <div class="swap-text">
+      <header class="sec-head"><p class="label"><span class="idx">03</span>{{home.swap.label}}</p><h2>{{home.swap.title}}</h2><p class="lead">{{home.swap.lead}}</p></header>
+      <ol class="steps">
+        {{#each home.swap.steps}}<li data-swap-step><span class="idx">{{@nn}}</span><div><b>{{k}}</b><p>{{body}}</p></div></li>{{/each}}
+      </ol>
+      <p class="steps-end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{home.swap.end}}</p>
+    </div>
+    <div class="swap-live">
+      <p class="label" data-swap-who></p>
+      <div class="phone swap-phone" data-swap-stage></div>
+      <p class="swap-flash" data-swap-flash hidden></p>
+      <p class="sr" aria-live="polite" data-swap-live></p>
+    </div>
+    <div class="swap-art">
+      <figure><div class="phone">{{shot swap-request alt=home.swap.alt_staff sizes="(min-width:700px) 280px, 44vw"}}</div><figcaption class="label">{{home.swap.cap_staff}}</figcaption></figure>
+      <figure><div class="phone">{{shot requests lang=en alt=home.swap.alt_mgr sizes="(min-width:700px) 280px, 44vw"}}</div><figcaption class="label">{{home.swap.cap_mgr}}</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FOR STAFF -->
+<section class="sec sec-alt" id="staff">
+  <div class="wrap">
+    <div class="staff-top">
+      <header class="sec-head"><p class="label"><span class="idx">04</span>{{home.staff.label}}</p><h2>{{home.staff.title}}</h2></header>
+      <div class="staff-list">
+        <ul class="checks">{{#each home.staff.points}}<li>{{this}}</li>{{/each}}</ul>
+        <p class="join"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>{{home.staff.join}}</p>
+      </div>
+    </div>
+    <div class="rail-wrap">
+      <div class="phones" data-rail tabindex="0" role="group" aria-label="{{home.staff.label}}">
+        {{#each home.staff.phones}}<figure><div class="phone">{{shot =shot lang==lang alt=alt sizes="(min-width:1024px) 262px, (min-width:600px) 38vw, 68vw"}}</div><figcaption><b>{{cap}}</b><span>{{sub}}</span></figcaption></figure>
+        {{/each}}
+      </div>
+      <div class="rail-nav" aria-hidden="true"><button type="button" class="icon-btn" data-rail-prev tabindex="-1" title="{{prev}}"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="icon-btn" data-rail-next tabindex="-1" title="{{next}}"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERY SCREEN -->
+<section class="sec" id="screens">
+  <div class="wrap screens">
+    <header class="sec-head"><p class="label"><span class="idx">05</span>{{home.screens.label}}</p><h2>{{home.screens.title}}</h2><p class="lead">{{home.screens.body}}</p></header>
+    <div class="devices">
+      <figure class="browser">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
+        {{shot builder-week alt=home.screens.alt_desk sizes="(min-width:1000px) 720px, 92vw"}}
+      </figure>
+      <div class="phone">{{shot today alt=home.screens.alt_phone sizes="(min-width:700px) 220px, 34vw"}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE IT STARTED -->
+<section class="sec sec-alt" id="spiros">
+  <div class="wrap proof-in">
+    <div>
+      <header class="sec-head"><p class="label"><span class="idx">06</span>{{home.proof.label}}</p><h2>{{home.proof.title}}</h2></header>
+      <p class="lead">{{home.proof.body}}</p>
+      <div class="actions"><a class="btn" href="{{to.about}}">{{home.proof.story}}</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    </div>
+    <figure class="photo">
+      <img src="{{base}}img/spiros.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="{{home.proof.alt}}" data-zoom>
+      <figcaption class="label">{{home.proof.cap}}</figcaption>
+    </figure>
+  </div>
+</section>
+{{#if pricing}}{{> pricing}}{{/if}}
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-in">
+    <header class="sec-head"><p class="label"><span class="idx">07</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
+    <div class="faq">
+      {{#each home.faq.items}}<details><summary><span>{{q}}</span><i aria-hidden="true"></i></summary><p>{{a}}</p></details>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS -->
+<section class="start" id="start">
+  <div class="wrap start-in">
+    <div class="start-text">
+      <p class="label">{{home.start.label}}</p>
+      <h2 class="display">{{home.start.title}}</h2>
+      <p class="lead">{{home.start.lead}}</p>
+    </div>
+    <div class="pane start-form">
+      <form data-early action="mailto:{{email}}" method="get" data-body="{{mail_body_attr}}" data-subject="{{home.start.mail_subject}}">
+        <input type="hidden" name="subject" value="{{home.start.subject}}">
+        <label>{{home.start.business}}<input name="business" autocomplete="organization" placeholder="{{home.start.business_ph}}" required></label>
+        <label>{{home.start.kind}}
+          <select name="kind">{{#each home.start.kinds}}<option>{{this}}</option>{{/each}}</select></label>
+        <button class="btn btn-big" type="submit">{{cta}}</button>
+      </form>
+      <p class="small" data-mailnote>{{home.start.note}} <a href="mailto:{{email}}?subject=Rotaserie%20early%20access">{{email}}</a>.</p>
+    </div>
+  </div>
+</section>

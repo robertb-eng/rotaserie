@@ -2,7 +2,7 @@
 
 > Scheduling for independent restaurants and cafés (Washington State first), in English and Spanish. Build next
 > week, send it to everyone's phone, and handle swaps, time off and call-outs. Built in Shoreline, Washington, by
-> TICO VENTURES LLC. The plain facts are at https://rotaserie.com/facts.html (the same as this file).
+> TICO VENTURES LLC. The plain facts are on the [Facts page](https://rotaserie.com/facts.html) (the same as this file).
 
 ## What it does
 - Type to Build: type the week in plain words, in English or Spanish, and it becomes a schedule you check before saving.
@@ -26,4 +26,10 @@
 
 ## Contact
 - robert@rotaserie.com
-- Terms: https://rotaserie.com/terms.html  Privacy: https://rotaserie.com/privacy.html
+- [Terms](https://rotaserie.com/terms.html)
+- [Privacy](https://rotaserie.com/privacy.html)
+
+## Pages
+- [Home](https://rotaserie.com/): Type to Build you can try, the film, and what owners and staff get
+- [Facts](https://rotaserie.com/facts.html): what it does and doesn't do, one checked line each
+- [About](https://rotaserie.com/about.html): who built it and why
