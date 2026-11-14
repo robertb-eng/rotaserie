@@ -2,8 +2,8 @@
 
 > Horarios para restaurantes y cafés independientes (primero en el estado de Washington), en inglés y en español.
 > Arma la próxima semana, mándala al teléfono de cada persona y atiende cambios, días libres y ausencias. Hecho en
-> Shoreline, Washington, por TICO VENTURES LLC. Los datos revisados, línea por línea, están en inglés en la
-> [página de datos](https://rotaserie.com/facts.html); este archivo es su traducción.
+> Shoreline, Washington, por TICO VENTURES LLC. Los datos, línea por línea, están en la [página de datos](https://rotaserie.com/es/facts.html) (igual que este
+> archivo); la versión en inglés es la que se revisa contra la app.
 
 ## Qué hace
 - Escribir turnos: escribe la semana con palabras sencillas, en inglés o en español, y se convierte en un horario que revisas antes de guardar.
@@ -33,4 +33,4 @@
 ## Páginas
 - [Inicio](https://rotaserie.com/es/): Escribir turnos para probar, la película, y lo que reciben dueños y equipo
 - [Quiénes somos](https://rotaserie.com/es/about.html): quién lo hizo y por qué
-- [Datos (en inglés)](https://rotaserie.com/facts.html): qué hace y qué no, una línea revisada cada una
+- [Datos](https://rotaserie.com/es/facts.html): qué hace y qué no, una línea cada una

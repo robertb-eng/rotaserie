@@ -24,7 +24,7 @@
     "legal": "Legal",
     "about": "Quiénes somos",
     "spiros": "Spiros",
-    "facts": "Datos (en inglés)",
+    "facts": "Datos",
     "terms": "Términos (en inglés)",
     "privacy": "Privacidad (en inglés)",
     "film": "La película",
@@ -379,6 +379,17 @@
       "note": "Esto abre un correo para Robert, el fundador. O escribe a",
       "mail_body": "Hola Robert:\n\nQuiero acceso anticipado a Rotaserie.\n\nNegocio: {biz}\nTipo de negocio: {kind}\nCuántas personas trabajan ahí: \nCómo hacemos el horario hoy: \n\n¡Gracias!",
       "mail_subject": "Acceso anticipado a Rotaserie: {biz}"
+    },
+    "week": {
+      "label": "Prueba la semana",
+      "title": "Mueve un turno. Mira lo que te dice.",
+      "manager": "Gerente",
+      "employee": "Empleado",
+      "view_aria": "De quién es la vista",
+      "note": "Una semana simplificada. El Creador real hace más.",
+      "whose": "El teléfono de",
+      "phone_note": "Su teléfono muestra la misma semana. Agrega o mueve un turno y aquí también cambia.",
+      "week_label": "Harbor Street Bistro · 16 – 22 nov"
     }
   },
   "langbar": {
