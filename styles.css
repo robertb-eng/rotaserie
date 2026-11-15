@@ -608,3 +608,5 @@ html:not(.js) .ttb-text{pointer-events:none}
 .film-why a{color:var(--fill);text-decoration:underline}
 .film-why .num{opacity:.7}
 @media (max-width:599px){.film-why{padding-inline:var(--gutter)}}
+.cta-note{margin-top:12px;max-width:44ch;font-size:var(--t-14);color:var(--muted)}
+@media (max-width:1023px){.hero-copy .cta-note{margin-top:-4px}}
