@@ -18,7 +18,7 @@
     "lang_aria": "Language"
   },
   "foot": {
-    "line": "Scheduling for restaurants and small teams, built in Washington State.",
+    "line": "Small business scheduling, built in Washington State.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",
@@ -35,10 +35,10 @@
   },
   "home": {
     "hero": {
-      "label": "Scheduling for restaurants and small teams",
+      "label": "Small business scheduling, for teams of any size",
       "title_a": "Type the week.",
       "title_b": "Get the schedule.",
-      "lead": "Write shifts the way you'd text them. Rotaserie shows what it read, flags problems, and sends the week to everyone's phone.",
+      "lead": "Write shifts the way you'd text them. Rotaserie is the scheduling app that gives owners and managers their time back. Type the week, fix anything it flags, and send it to every phone on your team.",
       "film": "Watch the film",
       "film_len": "1:32",
       "proof": [
@@ -391,9 +391,9 @@
   "pages": {
     "index": {
       "title": "Rotaserie · Type the week, get the schedule",
-      "description": "Scheduling for restaurants and small teams, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are flagged as you build, and the published week goes to everyone by email and phone alert.",
+      "description": "Small business scheduling for teams of any size, built at a working restaurant. Type “maria tue-fri 9-5” and the shifts appear. Problems are flagged as you build, and the published week goes to everyone by email and phone alert.",
       "og_title": "Rotaserie · Type the week, get the schedule",
-      "og_description": "Type “maria tue-fri 9-5” and the shifts appear. Scheduling for restaurants and small teams, in English and Spanish."
+      "og_description": "Type “maria tue-fri 9-5” and the shifts appear. Small business scheduling for teams of any size, in English and Spanish."
     },
     "about": {
       "title": "About Rotaserie · Built at Spiros",

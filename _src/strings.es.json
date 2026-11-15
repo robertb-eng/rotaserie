@@ -18,7 +18,7 @@
     "lang_aria": "Idioma"
   },
   "foot": {
-    "line": "Horarios para restaurantes y equipos pequeños, hecho en el estado de Washington.",
+    "line": "Horarios para pequeños negocios, hecho en el estado de Washington.",
     "product": "Producto",
     "company": "Empresa",
     "legal": "Legal",
@@ -35,10 +35,10 @@
   },
   "home": {
     "hero": {
-      "label": "Horarios para restaurantes y equipos pequeños",
+      "label": "Horarios para pequeños negocios, con equipos de cualquier tamaño",
       "title_a": "Escribe la semana.",
       "title_b": "Recibe el horario.",
-      "lead": "Escribe los turnos como los mandarías en un mensaje. Rotaserie te muestra lo que entendió, te avisa de los problemas y manda la semana al teléfono de cada persona.",
+      "lead": "Escribe los turnos como los mandarías en un mensaje. Rotaserie es la app de horarios que les devuelve el tiempo a dueños y gerentes. Escribe la semana, corrige lo que te marque y mándala al teléfono de todo tu equipo.",
       "film": "Mira la película",
       "film_len": "1:32",
       "proof": [
@@ -391,9 +391,9 @@
   "pages": {
     "index": {
       "title": "Rotaserie · Escribe la semana, recibe el horario",
-      "description": "Horarios para restaurantes y equipos pequeños, hecho en un restaurante de verdad. Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Te avisa de los problemas mientras armas el horario, y la semana publicada le llega a cada persona por correo y aviso al teléfono.",
+      "description": "Horarios para pequeños negocios con equipos de cualquier tamaño, hecho en un restaurante de verdad. Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Te avisa de los problemas mientras armas el horario, y la semana publicada le llega a cada persona por correo y aviso al teléfono.",
       "og_title": "Rotaserie · Escribe la semana, recibe el horario",
-      "og_description": "Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Horarios para restaurantes y equipos pequeños, en inglés y en español."
+      "og_description": "Escribe “maría mar a vie 9 a 5” y aparecen los turnos. Horarios para pequeños negocios con equipos de cualquier tamaño, en inglés y en español."
     },
     "about": {
       "title": "Quiénes somos · Rotaserie, hecho en Spiros",
