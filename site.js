@@ -77,7 +77,11 @@
   // The film: a player that opens from "Watch the film" (and the footer link). Nothing loads until it opens. The file
   // is picked for the screen (4K on very large ones, 720p on phones) and for what the browser can play (AV1, else H.264).
   var film = $('[data-film]');
-  if (film && film.showModal) {
+  if (film) {
+    // An older Safari (before iOS 15.4) has no <dialog>: the player then opens as a plain full-screen layer instead
+    var modal = !!film.showModal, isOpen = function () { return modal ? film.open : film.classList.contains('film-open'); };
+    var show = function () { if (modal) film.showModal(); else { film.classList.add('film-open'); root.classList.add('film-lock'); } };
+    var hide = function () { if (modal) film.close(); else if (isOpen()) { film.classList.remove('film-open'); root.classList.remove('film-lock'); onClose(); } };
     var frame = $('[data-film-frame]', film), video = $('[data-film-video]', film), play = $('[data-film-play]', film), loaded = false;
     var pickSource = function (full) {
       // 4K when the picture will really be that big: the film's frame in the page, or (full screen) the display itself
@@ -90,6 +94,16 @@
       if (can('video/mp4; codecs="av01.0.09M.08"')) return stem + '-1080.av1.mp4';
       return stem + '-1080.h264.mp4';
     };
+    // If the phone won't start it (e.g. Low Power Mode), the big play button comes back for one tap, without the
+    // browser's own controls on top of it (on iPhones they can swallow the tap). If that tap fails too, the browser's
+    // own controls stay and the button goes, so the visitor always has a play button that is the browser's own.
+    var fails = 0;
+    var fail = function () {
+      fails++;
+      if (fails === 1) { video.controls = false; frame.classList.remove('on'); }
+      else { video.controls = true; frame.classList.add('on'); }
+    };
+    video.addEventListener('playing', function () { video.controls = true; frame.classList.add('on'); });
     var start = function (at, full) {
       if (!loaded) {
         loaded = true;
@@ -100,7 +114,7 @@
         if (tr) tr.mode = 'hidden';  // (the film's words are in the picture; the track is there for anyone who turns it on)
         frame.classList.add('on');
       }
-      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p = video.play(); if (p && p.catch) p.catch(function () { frame.classList.remove('on'); }); };  // (a phone that won't start it by itself, e.g. Low Power Mode: the big play button comes back for one tap)
+      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p; try { p = video.play(); } catch (e) { fail(); return; } if (p && p.catch) p.catch(fail); };
       if (at != null && video.readyState < 1) video.addEventListener('loadedmetadata', go, {once: true}); else go();
       if (at != null && video.readyState < 1) video.load();
     };
@@ -118,19 +132,21 @@
     var open = function (ev) {
       if (ev) ev.preventDefault();
       opener = document.activeElement;
-      if (!film.open) film.showModal();
+      if (!isOpen()) show();
       start(null);
       video.focus({preventScroll: true});
     };
     $$('[data-film-go]').forEach(function (a) { a.addEventListener('click', open); });
     if (location.hash === '#film') open();  // (a link to rotaserie.com/#film opens the film)
-    $('[data-film-close]', film).addEventListener('click', function () { film.close(); });
-    film.addEventListener('click', function (ev) { if (ev.target === film) film.close(); });  // (a click outside the player)
-    film.addEventListener('close', function () {
+    $('[data-film-close]', film).addEventListener('click', hide);
+    film.addEventListener('click', function (ev) { if (ev.target === film) hide(); });  // (a click outside the player)
+    var onClose = function () {
       video.pause();
       if (location.hash === '#film') history.replaceState(null, '', location.pathname + location.search);
       if (opener && opener.focus) opener.focus({preventScroll: true});
-    });
+    };
+    if (modal) film.addEventListener('close', onClose);
+    else document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && isOpen()) hide(); });
   }
 
   // Click a screenshot to see it large

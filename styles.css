@@ -594,3 +594,12 @@ html:not(.js) .ttb-text{pointer-events:none}
 @media (min-width:760px){.film-dlg h2{font-size:var(--t-28)}}
 @media (max-width:599px){.film-dlg{width:100vw;max-height:100vh;padding:var(--sp-2) 0;border-inline:0;border-radius:0}.film-dlg .film-head,.film-dlg .film-foot{padding-inline:var(--gutter)}}
 @media (prefers-reduced-motion:no-preference){.film-dlg[open]{animation:fadein var(--dur-state) var(--ease-out)}}
+
+/* ---------- older Safari (before iOS 15.4): no <dialog>, so the film opens as a plain full-screen layer ---------- */
+.film-dlg:not([open]):not(.film-open){display:none}
+.film-dlg.film-open{display:block;position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;margin:auto;height:-webkit-fit-content;height:fit-content;box-shadow:0 0 0 100vmax rgba(19,18,17,.82)}
+.film-lock,.film-lock body{overflow:hidden}
+
+/* ---------- phones: no backdrop blur on the panes (over the smooth gold fields it hardly shows, and redrawing it on
+   every scrolled frame is what made scrolling heavy on phones) ---------- */
+@media (max-width:799px){:is(.pane,.tile,.ex,.browser,.join,.founder-card,.legal-note,.start-form,.foot){-webkit-backdrop-filter:none;backdrop-filter:none}}
