@@ -97,13 +97,27 @@
     // If the phone won't start it (e.g. Low Power Mode), the big play button comes back for one tap, without the
     // browser's own controls on top of it (on iPhones they can swallow the tap). If that tap fails too, the browser's
     // own controls stay and the button goes, so the visitor always has a play button that is the browser's own.
+    // When it won't start, the player says why in a line under the picture, with the file to open on its own. (The
+    // reason in brackets is the browser's own; a visitor can read it out to us, which beats guessing from here.)
+    var es = root.lang === 'es', why = null;
+    var tell = function (err) {
+      if (!why) { why = document.createElement('p'); why.className = 'film-why'; why.setAttribute('role', 'status'); frame.parentNode.insertBefore(why, frame.nextSibling); }
+      var me = video.error, code = (err && err.name ? err.name : 'error') + (me ? ' / media ' + me.code + (me.message ? ' ' + me.message : '') : '') + ' / ' + video.readyState + video.networkState;
+      why.textContent = '';
+      why.appendChild(document.createTextNode(es ? 'Tu navegador no inició la película. ' : 'Your browser wouldn\u2019t start the film. '));
+      var a = document.createElement('a'); a.href = video.currentSrc || video.src; a.textContent = es ? 'Ábrela sola' : 'Open it on its own';
+      why.appendChild(a);
+      var c = document.createElement('span'); c.className = 'num'; c.textContent = ' (' + code + ')'; why.appendChild(c);
+    };
+    video.addEventListener('error', function () { tell(null); });
     var fails = 0;
-    var fail = function () {
+    var fail = function (err) {
+      tell(err);
       fails++;
       if (fails === 1) { video.controls = false; frame.classList.remove('on'); }
       else { video.controls = true; frame.classList.add('on'); }
     };
-    video.addEventListener('playing', function () { video.controls = true; frame.classList.add('on'); });
+    video.addEventListener('playing', function () { video.controls = true; frame.classList.add('on'); if (why) why.textContent = ''; });
     var start = function (at, full) {
       if (!loaded) {
         loaded = true;
@@ -114,7 +128,7 @@
         if (tr) tr.mode = 'hidden';  // (the film's words are in the picture; the track is there for anyone who turns it on)
         frame.classList.add('on');
       }
-      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p; try { p = video.play(); } catch (e) { fail(); return; } if (p && p.catch) p.catch(fail); };
+      var go = function () { if (at != null) { try { video.currentTime = at; } catch (e) { /* not ready */ } } var p; try { p = video.play(); } catch (e) { fail(e); return; } if (p && p.catch) p.catch(fail); };
       if (at != null && video.readyState < 1) video.addEventListener('loadedmetadata', go, {once: true}); else go();
       if (at != null && video.readyState < 1) video.load();
     };

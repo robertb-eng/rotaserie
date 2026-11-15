@@ -603,3 +603,8 @@ html:not(.js) .ttb-text{pointer-events:none}
 /* ---------- phones: no backdrop blur on the panes (over the smooth gold fields it hardly shows, and redrawing it on
    every scrolled frame is what made scrolling heavy on phones) ---------- */
 @media (max-width:799px){:is(.pane,.tile,.ex,.browser,.join,.founder-card,.legal-note,.start-form,.foot){-webkit-backdrop-filter:none;backdrop-filter:none}}
+.film-why{margin-top:var(--sp-2);font-size:var(--t-14);color:#e9e2d6}
+.film-why:empty{display:none}
+.film-why a{color:var(--fill);text-decoration:underline}
+.film-why .num{opacity:.7}
+@media (max-width:599px){.film-why{padding-inline:var(--gutter)}}
