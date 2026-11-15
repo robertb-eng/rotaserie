@@ -109,7 +109,10 @@
       why.appendChild(a);
       var c = document.createElement('span'); c.className = 'num'; c.textContent = ' (' + code + ')'; why.appendChild(c);
     };
-    video.addEventListener('error', function () { tell(null); });
+    var broken = false;
+    // The page's player couldn't load the file at all (seen on an iPhone where the same file opens fine on its own,
+    // likely a content blocker): from then on the big play button opens the film on its own, in Safari's own player.
+    video.addEventListener('error', function () { tell(null); broken = true; video.controls = false; frame.classList.remove('on'); });
     var fails = 0;
     var fail = function (err) {
       tell(err);
@@ -132,7 +135,7 @@
       if (at != null && video.readyState < 1) video.addEventListener('loadedmetadata', go, {once: true}); else go();
       if (at != null && video.readyState < 1) video.load();
     };
-    play.addEventListener('click', function () { start(null); video.focus(); });
+    play.addEventListener('click', function () { if (broken) { location.href = video.currentSrc || video.src; return; } start(null); video.focus(); });
     $$('[data-film-seek]', film).forEach(function (b) {
       b.addEventListener('click', function () { start(parseFloat(b.getAttribute('data-film-seek'))); });
     });
