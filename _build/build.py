@@ -377,6 +377,8 @@ def build():
                 ctx["base"] = "/"
                 ctx["home_href"] = "/"
                 ctx["to"] = {k: "/" + v.lstrip("./") for k, v in ctx["to"].items()}
+                for other in langs:  # (the language switch's links too: they were made above, before this block)
+                    ctx["href_" + other] = "/" + ctx["href_" + other].lstrip("./")
             ctx["partials"] = {**site.get("partials", {}), **meta.get("partials", {})}
             ctx["main"] = render(main, ctx, f"pages/{fn}")
             files[out] = render(layout, ctx, f"layout for {fn}")

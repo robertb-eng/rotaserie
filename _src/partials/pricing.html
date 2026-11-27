@@ -1,0 +1,12 @@
+<!-- PRICING (shown when site.json "pricing" is true) -->
+<section class="sec" id="pricing">
+  <div class="wrap pricing-in">
+    <header class="sec-head"><p class="label"><span class="idx">07</span>{{home.pricing.label}}</p><h2>{{home.pricing.title}}</h2><p class="lead">{{home.pricing.lead}}</p></header>
+    <div class="plans">
+      <div class="pane plan"><p class="label">{{home.pricing.month_label}}</p><p class="price"><span class="num">{{home.pricing.month_price}}</span> <span class="per">{{home.pricing.per_month}}</span></p><p class="small">{{home.pricing.month_note}}</p></div>
+      <div class="pane plan"><p class="label">{{home.pricing.year_label}}</p><p class="price"><span class="num">{{home.pricing.year_price}}</span> <span class="per">{{home.pricing.per_year}}</span></p><p class="small">{{home.pricing.year_note}}</p></div>
+    </div>
+    <ul class="plan-points">{{#each home.pricing.points}}<li>{{this}}</li>{{/each}}</ul>
+    <div class="actions"><a class="btn" href="#start" data-start>{{cta}}</a></div>
+  </div>
+</section>

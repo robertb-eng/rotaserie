@@ -28,11 +28,13 @@ for (const lang of site.langs || ['en']) {
     points: H.type.points.map((p) => ({title: p.title, body: p.body, examples: p.examples.map(one)}))
   };
   // every line the page shows must read cleanly: shifts or a question, and (Spanish) nothing left in English
-  for (const c of H.hero.chips.concat(...H.type.points.map((p) => p.examples))) {
+  for (const c of [H.hero.example].concat(H.hero.chips, ...H.type.points.map((p) => p.examples))) {
     const r = R.read(c);
     if (!r.n && !(r.res && r.res.ask.length)) { console.error(`prerender: ${lang}: “${c}” reads as nothing`); process.exit(1); }
-    if (lang !== 'en') for (const q of r.res.ask) for (const s of [q.question].concat(q.options || [])) {
-      if (!R.known(s)) { console.error(`prerender: ${lang}: no translation for “${s}” (from “${c}”)`); process.exit(1); }
+    if (lang !== 'en' && r.res) {  // (the questions, the marks' reasons and the notes the page shows: demo/read.js)
+      const shown = [].concat(...(r.res.ask || []).map((q) => [q.question].concat(q.options || [])),
+                              (r.res.marks || []).map((m) => m.why).filter(Boolean), r.res.notes || []);
+      for (const s of shown) if (!R.known(s)) { console.error(`prerender: ${lang}: no translation for “${s}” (from “${c}”)`); process.exit(1); }
     }
   }
   const wk = {grid: WK.gridHTML(lang, ST.fresh(), {}), total: WK.totalText(lang, ST.fresh()), phone: WK.phoneHTML(lang, ST.fresh(), ST.people[0].id),

@@ -41,7 +41,7 @@
       "lead": "Write shifts the way you'd text them. Rotaserie is the scheduling app that gives owners and managers their time back. Type the week, fix anything it flags, and send it to every phone on your team.",
       "film": "Watch the film",
       "film_len": "1:32",
-  "cta_note": "Early access: we set it up with you, and your team can be on it the same day.",
+      "cta_note": "Early access: we set it up with you, and your team can be on it the same day.",
       "proof": [
         "Used every week at a real restaurant",
         "English y español",
@@ -307,7 +307,24 @@
       "cap": "Spiro's Pizza &amp; Pasta · Shoreline, Washington"
     },
     "pricing": {
-      "label": "Pricing"
+      "label": "Pricing",
+      "title": "One price per location. Your whole team included.",
+      "lead": "Start with 60 days free. No card needed.",
+      "month_label": "Monthly",
+      "month_price": "$29.99",
+      "per_month": "a month, per location",
+      "month_note": "Cancel any time.",
+      "year_label": "Yearly",
+      "year_price": "$319",
+      "per_year": "a year, per location",
+      "year_note": "About $26.58 a month, 11% less.",
+      "points": [
+        "Unlimited staff, managers and schedules",
+        "Every feature, in English and Spanish",
+        "60 days free, no card needed",
+        "A full refund if you ask within 30 days of your first charge",
+        "Invite another business: once it has paid for a month, $29.99 comes off your bill"
+      ]
     },
     "faq": {
       "label": "Questions",

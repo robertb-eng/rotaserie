@@ -41,7 +41,7 @@
       "lead": "Escribe los turnos como los mandarías en un mensaje. Rotaserie es la app de horarios que les devuelve el tiempo a dueños y gerentes. Escribe la semana, corrige lo que te marque y mándala al teléfono de todo tu equipo.",
       "film": "Mira la película",
       "film_len": "1:32",
-  "cta_note": "Acceso anticipado: lo configuramos contigo y tu equipo puede estar usándolo el mismo día.",
+      "cta_note": "Acceso anticipado: lo configuramos contigo y tu equipo puede estar usándolo el mismo día.",
       "proof": [
         "Se usa cada semana en un restaurante de verdad",
         "English y español",
@@ -307,7 +307,24 @@
       "cap": "Spiro's Pizza &amp; Pasta · Shoreline, Washington"
     },
     "pricing": {
-      "label": "Precio"
+      "label": "Precio",
+      "title": "Un precio por local. Todo tu equipo incluido.",
+      "lead": "Empieza con 60 días gratis. Sin tarjeta.",
+      "month_label": "Mensual",
+      "month_price": "$29.99",
+      "per_month": "al mes, por local",
+      "month_note": "Cancela cuando quieras.",
+      "year_label": "Anual",
+      "year_price": "$319",
+      "per_year": "al año, por local",
+      "year_note": "Unos $26.58 al mes, 11% menos.",
+      "points": [
+        "Personal, gerentes y horarios sin límite",
+        "Todas las funciones, en inglés y español",
+        "60 días gratis, sin tarjeta",
+        "Reembolso completo si lo pides dentro de 30 días de tu primer cobro",
+        "Invita a otro negocio: cuando haya pagado un mes, se descuentan $29.99 de tu factura"
+      ]
     },
     "faq": {
       "label": "Preguntas",

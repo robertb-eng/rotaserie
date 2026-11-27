@@ -203,7 +203,7 @@
 <!-- FAQ -->
 <section class="sec" id="faq">
   <div class="wrap faq-in">
-    <header class="sec-head"><p class="label"><span class="idx">07</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
+    <header class="sec-head"><p class="label"><span class="idx">{{#if pricing}}08{{else}}07{{/if}}</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
     <div class="faq">
       {{#each home.faq.items}}<details><summary><span>{{q}}</span><i aria-hidden="true"></i></summary><p>{{a}}</p></details>
       {{/each}}

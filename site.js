@@ -2,8 +2,9 @@
    The Type to Build demo is its own script (demo/ttb.js), loaded only when the pane is near the screen. */
 (function () {
   'use strict';
-  // When signup opens, put the signup address here: every call-to-action button and the form then go straight to it.
-  var SIGNUP_URL = '';
+  // When signup opens, put the signup address in _src/site.json ("signup_url"): the page carries it (html data-signup) and
+  // every call-to-action button and the form then go straight to it.
+  var SIGNUP_URL = document.documentElement.getAttribute('data-signup') || '';
   var EMAIL = 'robert@rotaserie.com';
 
   var root = document.documentElement;
