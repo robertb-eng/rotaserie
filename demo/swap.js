@@ -29,7 +29,7 @@
       sent: 'Solicitud de cambio enviada a Diego.', reqs: 'Solicitudes de cambio para ti', wants: 'quiere cambiar:', youget: 'Recibes:', theyget: 'Recibe:',
       accept: 'Aceptar', decline: 'Rechazar', accepted: 'Cambio aceptado. Un gerente lo aprobará y a los dos les llegará un correo.',
       requests: 'Solicitudes', kind: 'Cambio', takes: '{name} toma', along: 'jue, 19 nov · 11am–5pm', blong: 'sáb, 21 nov · 4pm–10pm', b2long: 'dom, 22 nov · 4pm–9pm',
-      valid: 'Válido: sin doble turno, horas extra ni días libres', approve: 'Aprobar', declinem: 'Rechazar...',
+      valid: 'Válido: sin doble turno, tiempo extra ni días libres', approve: 'Aprobar', declinem: 'Rechazar...',
       done: 'Cambio de turno aprobado', now: '{name} ahora trabaja el {gets} en lugar del {gives}.', both: 'A las dos personas les llega un correo.',
       declined: 'Cambio rechazado.', declined2: 'Maya conserva su turno. No cambió nada en el horario.',
       denied: 'Cambio de turno no aprobado', denied2: 'Los dos mantienen sus turnos originales, y se les avisa a los dos.',

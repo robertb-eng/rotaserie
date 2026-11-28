@@ -171,10 +171,47 @@
   </div>
 </section>
 
-<!-- EVERY SCREEN -->
+<!-- NEW IN THE APP: team chat as the feature (drawn with the app's own labels and the made-up demo team), then the
+     month's other new things as cards. Every line true of the app today. -->
+<section class="sec" id="new">
+  <div class="wrap">
+    <div class="chat-band">
+      <div class="chat-band-text">
+        <header class="sec-head"><p class="label"><span class="idx">05</span>{{home.new.label}}</p><h2>{{home.new.title_a}} <em>{{home.new.title_b}}</em></h2><p class="lead">{{home.new.lead}}</p></header>
+        <ul class="checks">{{#each home.new.points}}<li>{{this}}</li>{{/each}}</ul>
+      </div>
+      <figure class="news-art">
+      <div class="phone chat-phone" role="img" aria-label="{{home.new.chat.alt}}">
+        <div class="ph" aria-hidden="true">
+          <div class="ph-top"><span class="ph-logo"></span><b>Rotaserie</b><span>{{home.new.chat.forb}}</span></div>
+          <div class="ph-body">
+            <p class="ph-seg"><span class="on">{{home.new.chat.team}}</span><span>{{home.new.chat.mgrs}}</span></p>
+            <p class="ph-at">{{home.new.chat.sub}}</p>
+            <div class="ph-card ph-pin"><span class="ph-k">{{home.new.chat.notes}}</span><p>{{home.new.chat.note}}</p></div>
+            <ol class="ph-msgs">
+              {{#each home.new.chat.msgs}}<li class="{{#if me}}mine{{/if}}"><p class="ph-who"><b translate="no">{{who}}</b> <span>{{at}}</span></p><p class="ph-bub">{{text}}</p></li>
+              {{/each}}
+            </ol>
+          </div>
+          <div class="ph-write"><span>{{home.new.chat.write}}</span><span class="ph-btn gold">{{home.new.chat.send}}</span></div>
+          <div class="ph-nav five"><span>{{home.new.chat.home}}</span><span>{{home.new.chat.sched}}</span><span>{{home.new.chat.shifts}}</span><span class="on">{{home.new.chat.tab}}</span><span>{{home.new.chat.me}}</span></div>
+        </div>
+      </div>
+      <figcaption class="label">{{home.new.chat.cap}}</figcaption>
+      </figure>
+    </div>
+    <p class="label also">{{home.new.also}}</p>
+    <ul class="also-cards">
+      {{#each home.new.items}}<li><p class="label"><time>{{k}}</time></p><h3>{{title}}</h3><p>{{body}}</p></li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
+
+<!-- EVERY SCREEN, and the store apps on their way -->
 <section class="sec" id="screens">
   <div class="wrap screens">
-    <header class="sec-head"><p class="label"><span class="idx">05</span>{{home.screens.label}}</p><h2>{{home.screens.title}}</h2><p class="lead">{{home.screens.body}}</p></header>
+    <header class="sec-head"><p class="label"><span class="idx">06</span>{{home.screens.label}}</p><h2>{{home.screens.title}}</h2><p class="lead">{{home.screens.body}}</p></header>
     <div class="devices">
       <figure class="browser">
         <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.rotaserie.com</span></div>
@@ -183,13 +220,22 @@
       <div class="phone">{{shot today alt=home.screens.alt_phone sizes="(min-width:700px) 220px, 34vw"}}</div>
     </div>
   </div>
+  <div class="store-band" id="apps"><div class="wrap">
+    <p class="label">{{home.screens.soon.label}}</p>
+    <h3>{{home.screens.soon.title}}</h3>
+    <p class="store-lead">{{home.screens.soon.lead}}</p>
+    <div class="plat">
+      {{#each home.screens.soon.platforms}}<div><b>{{k}}</b><span>{{store}}</span><ul>{{#each extras}}<li>{{this}}</li>{{/each}}</ul></div>
+      {{/each}}
+    </div>
+  </div></div>
 </section>
 
 <!-- WHERE IT STARTED -->
 <section class="sec sec-alt" id="spiros">
   <div class="wrap proof-in">
     <div>
-      <header class="sec-head"><p class="label"><span class="idx">06</span>{{home.proof.label}}</p><h2>{{home.proof.title}}</h2></header>
+      <header class="sec-head"><p class="label"><span class="idx">07</span>{{home.proof.label}}</p><h2>{{home.proof.title}}</h2></header>
       <p class="lead">{{home.proof.body}}</p>
       <div class="actions"><a class="btn" href="{{to.about}}">{{home.proof.story}}</a><a class="btn btn-ghost" href="https://ilovespiros.com/" target="_blank" rel="noopener">{{home.proof.visit}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
     </div>
@@ -203,7 +249,7 @@
 <!-- FAQ -->
 <section class="sec" id="faq">
   <div class="wrap faq-in">
-    <header class="sec-head"><p class="label"><span class="idx">{{#if pricing}}08{{else}}07{{/if}}</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
+    <header class="sec-head"><p class="label"><span class="idx">{{#if pricing}}09{{else}}08{{/if}}</span>{{home.faq.label}}</p><h2>{{home.faq.title}}</h2></header>
     <div class="faq">
       {{#each home.faq.items}}<details><summary><span>{{q}}</span><i aria-hidden="true"></i></summary><p>{{a}}</p></details>
       {{/each}}
@@ -233,7 +279,7 @@
 </section>
 
 <!-- THE FILM: a player that opens from "Watch the film". Nothing loads or plays until asked. -->
-<dialog class="film film-dlg" id="film" data-film aria-labelledby="film-title">
+<dialog class="film film-dlg" id="film" data-film closedby="any" aria-labelledby="film-title">
   <div class="film-head">
     <div><p class="label">{{home.film.label}}</p><h2 id="film-title">{{home.film.title}}</h2></div>
     <button class="icon-btn film-close" type="button" data-film-close aria-label="{{foot.zoom_close}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>

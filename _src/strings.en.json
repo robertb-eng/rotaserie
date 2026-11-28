@@ -47,7 +47,7 @@
         "English y español",
         "Works on any phone"
       ],
-      "pane_title": "Type to build",
+      "pane_title": "Type to Build",
       "pane_label": "Try it · nothing is saved",
       "box_label": "Shifts to add, as you'd text them",
       "example": "maya wed 5-11\nlena m-th 10-4",
@@ -123,9 +123,9 @@
       "no_ai_title": "No AI builds your schedule.",
       "no_ai": "Type to Build follows fixed rules, so the same words always give the same shifts.",
       "other": "Don't want to type? Drag shifts on the week, copy last week, or keep a consistent schedule.",
-      "shot_alt": "The Rotaserie schedule builder with Type to build open: three typed lines, what it read, and a card for each person, ready to add 9 shifts.",
-      "shot_cap": "The real Builder, with Type to build open",
-      "phone_alt": "Type to build on a phone: three typed lines and the shifts Rotaserie read from them."
+      "shot_alt": "The Rotaserie schedule builder with Type to Build open: three typed lines, what it read, and a card for each person, ready to add 9 shifts.",
+      "shot_cap": "The real Builder, with Type to Build open",
+      "phone_alt": "Type to Build on a phone: three typed lines and the shifts Rotaserie read from them."
     },
     "owners": {
       "label": "For owners and managers",
@@ -235,6 +235,7 @@
         "Pick up an open shift",
         "Swap or give a shift away",
         "Ask for time off and set availability",
+        "Team chat, and a private thread with the managers",
         "Alerts by email and phone, in English or Spanish"
       ],
       "join": "Staff join with your QR code. No app store needed.",
@@ -290,12 +291,119 @@
         }
       ]
     },
+    "new": {
+      "label": "New in the app · Nov 26",
+      "title_a": "Team chat,",
+      "title_b": "in the schedule app.",
+      "lead": "No more group texts for “who can cover Sunday?”. Your team talks where the schedule already is.",
+      "points": [
+        "A room for the whole team, with today's staff notes pinned on top",
+        "A private thread between each person and the managers",
+        "Chats for one role, like the cooks or the bussers",
+        "Report or hide a message; phone alerts say who wrote, never what"
+      ],
+      "also": "Also new this month",
+      "items": [
+        {
+          "k": "Nov 26",
+          "title": "Closed days",
+          "body": "Tick a weekday Closed in Business hours and new schedules leave it empty, every week. A holiday can cover a few days or a week at once."
+        },
+        {
+          "k": "Nov 25",
+          "title": "Excel and Google Sheets",
+          "body": "Copy for Excel puts the week on your clipboard as cells. Paste a week from a spreadsheet into Type to Build, and you check every line before anything is added."
+        },
+        {
+          "k": "Nov 25",
+          "title": "Help from any page",
+          "body": "Contact support is at the foot of every page in the app. It comes to us with the page you were on, and a person answers."
+        },
+        {
+          "k": "Nov 17",
+          "title": "Say it instead",
+          "body": "Tap Talk in Type to Build, or your keyboard's microphone, and say “maya monday to friday eleven to seven”."
+        }
+      ],
+      "chat": {
+        "cap": "Team chat, on their phone",
+        "alt": "The team chat on an employee's phone: today's staff notes pinned at the top, then messages from Lena, Diego and Maya.",
+        "forb": "for Harbor Street Bistro",
+        "team": "Team",
+        "mgrs": "Managers",
+        "sub": "Everyone on your team sees these messages.",
+        "notes": "Staff notes",
+        "note": "Today: Lena runs the pass from 4.",
+        "msgs": [
+          {
+            "who": "Lena Park",
+            "at": "3:12 PM",
+            "text": "Walk-in is restocked. Fish came early.",
+            "me": false
+          },
+          {
+            "who": "Diego Ruiz",
+            "at": "3:20 PM",
+            "text": "Running 10 min late, bus is slow",
+            "me": false
+          },
+          {
+            "who": "Maya Torres",
+            "at": "3:24 PM",
+            "text": "No problem, I'll set your section.",
+            "me": true
+          }
+        ],
+        "write": "Write a message",
+        "send": "Send",
+        "home": "Home",
+        "sched": "Schedule",
+        "shifts": "Shifts",
+        "tab": "Chat",
+        "me": "Me"
+      }
+    },
     "screens": {
       "label": "Every screen",
       "title": "Phone, tablet and computer, in any browser.",
       "body": "Staff add it to their home screen and get phone alerts like any app.",
       "alt_desk": "The week in the schedule builder on a computer.",
-      "alt_phone": "The manager's Today screen on a phone."
+      "alt_phone": "The manager's Today screen on a phone.",
+      "soon": {
+        "label": "Coming soon",
+        "title": "Rotaserie is coming to the App Store, Google Play and the Microsoft Store.",
+        "lead": "Until then, the browser version does everything, on any phone.",
+        "platforms": [
+          {
+            "k": "iPhone and iPad",
+            "store": "App Store",
+            "extras": [
+              "Your next shift on the home screen and lock screen",
+              "Shift reminders from the phone itself, and a Face ID lock",
+              "Ask Siri when you work next",
+              "Your shifts open with no signal",
+              "Press and hold the icon for My shifts, Open shifts, Time off or Chat"
+            ]
+          },
+          {
+            "k": "Android",
+            "store": "Google Play",
+            "extras": [
+              "Press and hold the icon for My shifts, Open shifts, Time off or Chat",
+              "Rotaserie links open straight in the app",
+              "Alerts show as the Rotaserie app's own"
+            ]
+          },
+          {
+            "k": "Windows",
+            "store": "Microsoft Store",
+            "extras": [
+              "Installs from the Microsoft Store like any Windows app",
+              "Unread chat messages counted on the icon"
+            ]
+          }
+        ]
+      }
     },
     "proof": {
       "label": "Where it started",
@@ -323,7 +431,7 @@
         "Every feature, in English and Spanish",
         "60 days free, no card needed",
         "A full refund if you ask within 30 days of your first charge",
-        "Invite another business: once it has paid for a month, $29.99 comes off your bill"
+        "Invite another business: when it's still paying 45 days after its first charge, a one-time credit comes off your bill"
       ]
     },
     "faq": {
@@ -332,7 +440,7 @@
       "items": [
         {
           "q": "Do I have to type the schedule?",
-          "a": "No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a consistent schedule that fills itself in."
+          "a": "No. Typing is the fastest way, but you can also drag shifts on the week, tap your usual shift times, copy last week, or keep a consistent schedule that fills itself in. You can also paste a week from Excel or Google Sheets."
         },
         {
           "q": "Does AI make my schedule?",
@@ -340,7 +448,11 @@
         },
         {
           "q": "Do my staff need to download an app?",
-          "a": "No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app."
+          "a": "No. Rotaserie runs in any phone's browser. Staff add it to their home screen and get phone alerts like any app. Our own apps for iPhone, Android and Windows are coming soon to the App Store, Google Play and the Microsoft Store, for anyone who'd rather have one."
+        },
+        {
+          "q": "Can my team message each other?",
+          "a": "Yes. There's a team chat for everyone, a private thread between each person and the managers, and chats for one role if you turn them on. Messages are kept for six months."
         },
         {
           "q": "Is it only for restaurants?",
