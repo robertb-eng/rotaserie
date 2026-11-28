@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="{{base}}tokens.css?v={{v}}">
 <link rel="stylesheet" href="{{base}}styles.css?v={{v}}">
 <script src="{{base}}site.js?v={{v}}" defer></script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/img/*"}},{"not":{"href_matches":"/demo/*"}},{"not":{"href_matches":"/fonts/*"}},{"not":{"href_matches":"/vendor/*"}}]},"eagerness":"moderate"}]}</script>
 {{#if is_home}}{{> head-home}}{{/if}}</head>
 <body{{#if body_class}} class="{{body_class}}"{{/if}}>
 <a class="skip" href="#main">{{skip}}</a>

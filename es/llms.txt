@@ -14,7 +14,7 @@
 - Horas de silencio para los negocios nuevos (de 10 pm a 7 am), salvo cambios urgentes en turnos que empiezan pronto.
 - "No puedo ir" desde el teléfono del empleado; el gerente puede ofrecer el turno a quienes pueden trabajarlo.
 - Cambios, turnos tomados, días libres y disponibilidad.
-- Revisa las reglas de Washington mientras armas el horario: descansos para comer, descanso entre turnos, tiempo extra, horas de menores, salario mínimo (son ayudas, no asesoría legal).
+- Se revisan las reglas de Washington mientras armas el horario: descansos para comer, descanso entre turnos, tiempo extra, horas de menores, salario mínimo (son ayudas, no asesoría legal).
 - Horas y costo de mano de obra para el dueño, un resumen de pagos para descargar y la opción de marcar entrada y salida.
 
 ## Qué no hace
@@ -23,7 +23,7 @@
 - Las apps de tienda para iPhone y Android todavía no están disponibles.
 
 ## Precio
-- Un precio por local, personal ilimitado, todas las funciones incluidas. Se cancela cuando quieras desde la app; los datos se pueden descargar cuando quieras.
+- Un precio por local, personal ilimitado, todas las funciones incluidas. Puedes cancelar cuando quieras desde la app y descargar los datos en cualquier momento.
 
 ## Contacto
 - robert@rotaserie.com
